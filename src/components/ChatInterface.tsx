@@ -617,6 +617,11 @@ export default function ChatInterface() {
   )
   const [warehouseCount, setWarehouseCount] = useState(0)
 
+  // ── セットアップ完了フラグ（リセット後も再表示しないため）──
+  const [setupDone, setSetupDone] = useState<boolean>(() =>
+    loadFromStorage<string | null>('setupDone', null) === 'true'
+  )
+
   // ── マウント設定（localStorage で永続化）────────────────
   const [selectedMount, setSelectedMount] = useState<MountOption | null>(() => {
     const savedId = loadFromStorage<string | null>('selectedMountId', null)
@@ -624,6 +629,11 @@ export default function ChatInterface() {
   })
   function handleMountChange(mount: MountOption) {
     setSelectedMount(mount)
+    // セットアップ完了フラグ
+    if (mount.id !== 'skip') {
+      setSetupDone(true)
+      try { localStorage.setItem('setupDone', 'true') } catch { /* ignore */ }
+    }
     try { localStorage.setItem('selectedMountId', mount.id) } catch { /* ignore */ }
   }
 
@@ -1020,8 +1030,8 @@ export default function ChatInterface() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
               >
-                {/* ── セットアップガイダンス（マウント未設定時） ── */}
-                {!selectedMount && (
+                {/* ── セットアップガイダンス（初回のみ・設定済みなら非表示） ── */}
+                {!selectedMount && !setupDone && (
                   <motion.div
                     className="mb-6 rounded-2xl border border-amber-400/30 bg-amber-500/5 dark:bg-amber-500/10 p-5 max-w-2xl mx-auto"
                     initial={{ opacity: 0, scale: 0.97 }}
@@ -1058,9 +1068,8 @@ export default function ChatInterface() {
 
                     <button
                       onClick={() => {
-                        // スキップ：ダミーフラグをセット（再表示しない）
-                        try { localStorage.setItem('setupSkipped', 'true') } catch { /* ignore */ }
-                        handleMountChange({ id: 'skip', label: '', sub: '', prompt: '' })
+                        setSetupDone(true)
+                        try { localStorage.setItem('setupDone', 'true') } catch { /* ignore */ }
                       }}
                       className="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
                     >
@@ -1278,7 +1287,7 @@ export default function ChatInterface() {
                 {messages.length > 0 && (
                   <button
                     onClick={() => {
-                      if (confirm('会話履歴をリセットしますか？')) {
+                      if (confirm('会話履歴をリセットしますか？\n※マウント・予算などのプロフィール設定は保持されます。')) {
                         localStorage.removeItem('chatMessages')
                         localStorage.removeItem('chatConversationId')
                         setMessages([])
