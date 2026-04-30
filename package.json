@@ -19,7 +19,9 @@
     "update-reviews:lenstip": "node scripts/update-review-links.js --source lenstip",
     "update-reviews:dpreview": "node scripts/update-review-links.js --source dpreview",
     "update-reviews:dry": "node scripts/update-review-links.js --dry-run",
-    "update-reviews:all": "node scripts/update-review-links.js --force-all"
+    "update-reviews:all": "node scripts/update-review-links.js --force-all",
+    "check-links": "node scripts/check-photo-yodobashi.js",
+    "check-links:fix": "node scripts/check-photo-yodobashi.js --fix"
   },
   "dependencies": {
     "@types/dompurify": "^3.0.5",
