@@ -1,0 +1,46 @@
+{
+  "name": "camera-concierge",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "update-prices": "node scripts/update-prices.js",
+    "update-prices:all": "node scripts/update-prices.js --force-all",
+    "update-prices:dry": "node scripts/update-prices.js --dry-run",
+    "update-asobinet": "node scripts/update-asobinet.js",
+    "update-asobinet:all": "node scripts/update-asobinet.js --force-all",
+    "update-asobinet:dry": "node scripts/update-asobinet.js --dry-run",
+    "scan-new-lenses": "node scripts/update-asobinet.js --scan-new",
+    "update-reviews": "node scripts/update-review-links.js",
+    "update-reviews:asobinet": "node scripts/update-review-links.js --source asobinet",
+    "update-reviews:lenstip": "node scripts/update-review-links.js --source lenstip",
+    "update-reviews:dpreview": "node scripts/update-review-links.js --source dpreview",
+    "update-reviews:dry": "node scripts/update-review-links.js --dry-run",
+    "update-reviews:all": "node scripts/update-review-links.js --force-all"
+  },
+  "dependencies": {
+    "@types/dompurify": "^3.0.5",
+    "better-sqlite3": "^12.6.2",
+    "dompurify": "^3.3.1",
+    "framer-motion": "^12.35.0",
+    "lucide-react": "^0.400.0",
+    "marked": "^17.0.3",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "puppeteer-core": "^24.42.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

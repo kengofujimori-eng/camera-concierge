@@ -1,0 +1,154 @@
+/**
+ * lensContext.ts
+ * ユーザーのメッセージからレンズ名を検出し、
+ * lens_data.json の価格情報・レビューリンクを
+ * Difyへの送信前にコンテキストとして注入するためのユーティリティ
+ */
+
+import path from 'path'
+import fs from 'fs'
+
+// ─── 型定義 ──────────────────────────────────────────────────────────────────
+
+interface ReviewLinkEntry {
+  site: string
+  url: string
+  label?: string
+}
+
+// 旧形式 {"0": {site, url, label}, ...} と新形式 {"asobinet": "url", ...} の両方に対応
+type ReviewLinks = Record<string, string | ReviewLinkEntry>
+
+interface PriceInfo {
+  new_price?: number | null
+  used_price?: number | null
+  fetched_at?: string
+  kakaku_url?: string
+}
+
+interface Lens {
+  name: string
+  review_links?: ReviewLinks
+  price_info?: PriceInfo
+  [key: string]: unknown
+}
+
+// ─── キャッシュ ───────────────────────────────────────────────────────────────
+
+let _cache: Lens[] | null = null
+let _cacheTime = 0
+const CACHE_TTL_MS = 60 * 60 * 1000  // 1時間
+
+function getLenses(): Lens[] {
+  const now = Date.now()
+  if (_cache && now - _cacheTime < CACHE_TTL_MS) return _cache
+
+  const filePath = path.join(process.cwd(), 'public', 'lens_data.json')
+  const raw = JSON.parse(fs.readFileSync(filePath, 'utf8')) as { lenses: Lens[] }
+  _cache = raw.lenses
+  _cacheTime = now
+  return _cache
+}
+
+// ─── 名前正規化・マッチング ───────────────────────────────────────────────────
+
+function normalizeForMatch(text: string): string {
+  return text
+    .replace(/[　-鿿＀-￯]+/g, ' ')       // 日本語→スペース（日本語レンズ名に対応）
+    .replace(/f\//gi, 'f')               // f/1.4 → f1.4
+    .replace(/[^\w\s]/g, ' ')
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function tokenScore(lensName: string, message: string): number {
+  const normLens = normalizeForMatch(lensName)
+  const normMsg  = normalizeForMatch(message)
+  const tokens   = normLens.split(' ').filter(t => t.length > 1)
+  if (tokens.length === 0) return 0
+  const hits = tokens.filter(t => normMsg.includes(t)).length
+  return hits / tokens.length
+}
+
+/**
+ * メッセージ中で言及されているレンズを検出して返す（最大 maxResults 本）
+ * スコア閾値 0.6 以上のみ（誤検出を減らすため高めに設定）
+ */
+export function findMentionedLenses(message: string, maxResults = 2): Lens[] {
+  const lenses = getLenses()
+
+  const scored = lenses
+    .map(lens => ({ lens, score: tokenScore(lens.name, message) }))
+    .filter(s => s.score >= 0.6)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, maxResults)
+
+  return scored.map(s => s.lens)
+}
+
+// ─── コンテキスト組み立て ─────────────────────────────────────────────────────
+
+const SOURCE_LABELS: Record<string, string> = {
+  asobinet: 'とるなら (asobinet)',
+  lenstip:  'Lenstip',
+  dpreview: 'DPReview',
+}
+
+function formatReviewLinks(links: ReviewLinks | undefined): string[] {
+  if (!links) return []
+  const lines: string[] = []
+
+  for (const [key, value] of Object.entries(links)) {
+    // _meta 系フィールドはスキップ
+    if (key.startsWith('_')) continue
+
+    if (typeof value === 'string') {
+      // 新形式: asobinet / lenstip / dpreview
+      const label = SOURCE_LABELS[key] || key
+      lines.push(`  ・${label}: ${value}`)
+    } else if (value && typeof value === 'object' && 'url' in value) {
+      // 旧形式: {site, url, label}
+      const label = value.label || value.site
+      lines.push(`  ・${label}: ${value.url}`)
+    }
+  }
+
+  return lines
+}
+
+/**
+ * 検出されたレンズ群からDify注入用のコンテキスト文字列を生成する
+ * レンズが見つからない場合は空文字列を返す（そのまま送信）
+ */
+export function buildLensContext(lenses: Lens[]): string {
+  if (lenses.length === 0) return ''
+
+  const blocks = lenses.map(lens => {
+    const lines: string[] = [`■ ${lens.name}`]
+
+    // 価格情報
+    const pi = lens.price_info
+    if (pi?.new_price) {
+      lines.push(`  新品最安値 : ¥${pi.new_price.toLocaleString()} (価格.com / ${pi.fetched_at ?? ''})`)
+    }
+    if (pi?.used_price) {
+      lines.push(`  中古最安値 : ¥${pi.used_price.toLocaleString()} (価格.com / ${pi.fetched_at ?? ''})`)
+    }
+
+    // レビューリンク
+    const reviewLines = formatReviewLinks(lens.review_links)
+    if (reviewLines.length > 0) {
+      lines.push('  レビュー参考リンク（AIが参照可能）:')
+      lines.push(...reviewLines)
+    }
+
+    return lines.join('\n')
+  })
+
+  return [
+    '[参考データ: lens_data.json より自動取得 / ユーザーには表示不要]',
+    blocks.join('\n\n'),
+    '[ここからユーザーの質問]',
+  ].join('\n')
+}

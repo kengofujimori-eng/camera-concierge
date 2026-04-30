@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 15 23 42;
+  }
+
+  .dark {
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-50 transition-colors duration-200;
+}
+
+/* AI回答エリアのHTMLスタイル */
+.chat-answer a {
+  @apply text-blue-600 underline dark:text-blue-400;
+}
+
+.chat-answer a:hover {
+  @apply text-blue-800 dark:text-blue-300;
+}
+
+.chat-answer details {
+  @apply my-2 rounded-lg border border-slate-200 dark:border-slate-600;
+}
+
+.chat-answer details summary {
+  @apply cursor-pointer px-3 py-2 font-medium select-none hover:bg-slate-50 dark:hover:bg-slate-600/50 rounded-lg;
+}
+
+.chat-answer details[open] summary {
+  @apply rounded-b-none border-b border-slate-200 dark:border-slate-600;
+}
+
+.chat-answer details > *:not(summary) {
+  @apply px-3 py-2;
+}
+
+.chat-answer p {
+  @apply mb-2 last:mb-0;
+}
+
+.chat-answer ul,
+.chat-answer ol {
+  @apply mb-2 pl-5;
+}
+
+.chat-answer ul {
+  @apply list-disc;
+}
+
+.chat-answer ol {
+  @apply list-decimal;
+}
+
+.chat-answer li {
+  @apply mb-1;
+}
+
+.chat-answer h1,
+.chat-answer h2,
+.chat-answer h3 {
+  @apply font-bold mb-2;
+}
+
+.chat-answer h1 { @apply text-lg; }
+.chat-answer h2 { @apply text-base; }
+.chat-answer h3 { @apply text-sm; }
+
+.chat-answer strong {
+  @apply font-semibold;
+}
+
+.chat-answer code {
+  @apply rounded bg-slate-200 px-1 py-0.5 text-xs font-mono dark:bg-slate-600;
+}
+
+.chat-answer pre {
+  @apply my-2 rounded-lg bg-slate-200 p-3 text-xs font-mono overflow-x-auto dark:bg-slate-600;
+}
+
+.chat-answer pre code {
+  @apply bg-transparent p-0;
+}
+
+.chat-answer hr {
+  @apply my-3 border-slate-200 dark:border-slate-600;
+}
+
+/* prose-dify: Dify回答HTML用スタイル */
+.prose-dify a {
+  color: #60a5fa;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.prose-dify a:hover {
+  color: #93c5fd;
+}
+.prose-dify details {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 8px 0;
+  cursor: pointer;
+}
+.prose-dify summary {
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.prose-dify h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 16px 0 8px;
+}
+.prose-dify ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 8px 0;
+}
+.prose-dify hr {
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 16px 0;
+}
+
+/* details内に注入する「倉庫へ追加」ボタン */
+.warehouse-inject-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.warehouse-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 13px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.warehouse-add-btn:hover:not(:disabled) {
+  background: rgba(245, 158, 11, 0.22);
+  border-color: rgba(245, 158, 11, 0.45);
+}
+
+.warehouse-add-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.warehouse-add-btn.saved {
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+  border-color: rgba(34, 197, 94, 0.25);
+  cursor: default;
+}
+
+/* 作例画像ギャラリー */
+.lens-image-gallery {
+  margin-top: 10px;
+}
+
+.lens-image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.lens-image-link {
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lens-image-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.lens-image-thumb:hover {
+  transform: scale(1.07);
+}
+
+/* スケルトンローダー */
+.lens-image-skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.lens-image-skeleton {
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

@@ -1,0 +1,3840 @@
+{
+  "total": 134,
+  "scraped_at": "2026-04-07T18:26:51.262256",
+  "lenses": [
+    {
+      "name": "RF15-35mm F2.8L IS USM",
+      "source_url": "https://asobinet.com/rf15-35mm-f2-8l-is-usm/",
+      "review_links": [
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/canon-rf-15-35mm-f-2-8-l",
+          "label": "Photographylife"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_15-35_2p8l_is_usm",
+          "label": "DPReview"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Canon-RF-15-35mm-F2.8-L-IS-USM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "RF24-70mm F2.8L IS USM",
+      "source_url": "https://asobinet.com/rf24-70mm-f2-8l-is-usm/",
+      "review_links": [
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Canon-RF-24-70mm-F2.8-L-IS-USM-Lens.aspx",
+          "label": "The Digital Picture"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/5204696194/canon-rf-24-70mm-f2-8-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/canon/lens/rf24-70_f28l/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_24-70_2p8l_is_usm",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "RF24-105mm F4L IS USM",
+      "source_url": "https://asobinet.com/rf-24-105mm-f4l-is-usm/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_24-105_4l_is_usm/sample-photos",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_24-105_4l_is_usm",
+          "label": "商品ページ"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Canon-RF-24-105mm-f-4L-IS-USM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "RF24-105mm F4-7.1 IS STM",
+      "source_url": "https://asobinet.com/rf24-105mm-f4-7-1-is-stm/",
+      "review_links": [
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Canon-RF-24-105mm-F4-7.1-IS-STM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "RF24-240mm F4-6.3 IS USM",
+      "source_url": "https://asobinet.com/rf24-240mm-f4-6-3-is-usm/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_24-240_4p0-6p3_is_usm/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_24-240_4p0-6p3_is_usm",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/2514555088/canon-rf-24-240mm-f4-6-3-is-sample-gallery",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "RF28-70mm F2L USM",
+      "source_url": "https://asobinet.com/rf-28-70mm-f2l-usm/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/videos/3745453032/dpreview-tv-canon-rf-28-70mm-f2l-usm-review",
+          "label": "DPReviewTV"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_28-70_2l_usm/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_28-70_2l_usm",
+          "label": "商品ページ"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/canon-rf-28-70mm-f2-0-l-usm-lens-review/",
+          "label": "DxOMark"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Canon-RF-28-70mm-f-2L-USM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "RF70-200mm F2.8L IS USM",
+      "source_url": "https://asobinet.com/rf70-200mm-f2-8l-is-usm/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/6042320540/canon-rf-70-200mm-f2-8l-is-usm-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_70-200_2p8l_is_usm",
+          "label": "DPReview"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Canon-RF-70-200mm-F2.8-L-IS-USM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "RF70-200mm F4 L IS USM",
+      "source_url": "https://asobinet.com/rf70-200mm-f4-l-is-usm/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/6450136301/spring-colors-canon-rf-70-200mm-f4l-is-usm-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_70-200_4l_is_usm",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "RF100-500mm F4.5-7.1 L IS USM",
+      "source_url": "https://asobinet.com/rf100-500mm-f4-5-7-1-l-is-usm/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/3349669626/hands-on-with-new-canon-rf-100-500mm-600mm-and-800mm-telephoto-lenses",
+          "label": "ハンズオン"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/canon/lens/rf100-500_f45-71lisusm/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_100-500_4p5-7p1_is_usm",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "RF35mm F1.8 Macro IS STM",
+      "source_url": "https://asobinet.com/rf-35mm-f1-8-macro-is-stm/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/canon-rf-35mm-f1-8-is-stm-macro-review",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/canon-rf-35mm-f-1-8-macro",
+          "label": "Photographylife"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_35_1p8_is_stm_macro/sample-photos",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_35_1p8_is_stm_macro",
+          "label": "商品ページ"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Canon-RF-35mm-f-1.8-IS-STM-Macro-Lens.aspx",
+          "label": "TheDigitalPicture"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/0766313538/canon-rf-35mm-f1-8-macro-is-stm-sample-gallery",
+          "label": "DPREVIEW"
+        }
+      ]
+    },
+    {
+      "name": "RF50mm F1.2L USM",
+      "source_url": "https://asobinet.com/rf-50mm-f1-2l-usm/",
+      "review_links": [
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/canon-rf-50mm-f1-2l-usm",
+          "label": "Photographylife"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/0112005216/canon-rf-50mm-f1-2l-usm-sample-gallery",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_50_1p2l_usm",
+          "label": "商品ページ"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/canon-rf-50mm-f-1-2l-usm-review/",
+          "label": "DxOMark"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Canon-RF-50mm-f-1.2L-USM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "RF50mm F1.8 STM",
+      "source_url": "https://asobinet.com/rf50mm-f1-8-stm/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/7299476530/the-new-nifty-fifty-canon-rf-50mm-f1-8-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_50_1p8_stm",
+          "label": "DPReview"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Canon-RF-50mm-F1.8-STM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "RF85mm F1.2L USM",
+      "source_url": "https://asobinet.com/rf85mm-f1-2l-usm/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/canon-rf-85mm-f1-2l-usm-review",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_85_1p2l_usm/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_85_1p2l_usm",
+          "label": "DPReview"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Canon-RF-85mm-F1.2-L-USM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "RF85mm F1.2L USM DS",
+      "source_url": "https://asobinet.com/rf85mm-f1-2l-usm-ds/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_85_1p2l_usm_ds/sample-photos",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "RF85mm F2 Macro IS STM",
+      "source_url": "https://asobinet.com/rf85mm-f2-macro-is-stm/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/9552347046/hands-on-with-canon-s-new-rf85mm-f2-macro-is-stm",
+          "label": "ハンズオン"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_85_2_macro_is_stm/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/canon/lens/rf85_2/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_85_2_macro_is_stm",
+          "label": "DPReview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/canon-rf-85mm-f2-macro-is-stm-lens-review/",
+          "label": "DXOMARK"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Canon-RF-85mm-F2-Macro-IS-STM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "RF600mm F11 IS STM",
+      "source_url": "https://asobinet.com/rf600mm-f11-is-stm/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/3349669626/hands-on-with-new-canon-rf-100-500mm-600mm-and-800mm-telephoto-lenses?slide=7",
+          "label": "ハンズオン"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/videos/9784604118/dpreview-tv-is-the-canon-rf-600mm-f11-the-perfect-beginners-wildlife-lens",
+          "label": "TVレビュー"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/4162361137/canon-rf-600mm-f11-real-world-samples",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/canon/lens/rf600_f11stm/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_600_11_is_stm",
+          "label": "DPReview"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Canon-RF-600mm-F11-IS-STM-Lens.aspx",
+          "label": "The Digital Picture"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/3349669626/hands-on-with-new-canon-rf-100-500mm-600mm-and-800mm-telephoto-lenses",
+          "label": "DPReview：Hands-on with new Canon RF 100-500mm, 600mm and 800mm telephoto lenses"
+        }
+      ]
+    },
+    {
+      "name": "RF800mm F11 IS STM",
+      "source_url": "https://asobinet.com/rf800mm-f11-is-stm/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/3349669626/hands-on-with-new-canon-rf-100-500mm-600mm-and-800mm-telephoto-lenses",
+          "label": "ハンズオン"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/1079091574/canon-rf-800mm-f11-is-stm-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/canon/lens/rf800_f11stm/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/canon/lenses/canon_rf_800_11_is_stm",
+          "label": "DPReview"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Canon-RF-800mm-F11-IS-STM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z 14-30mm f/4 S",
+      "source_url": "https://asobinet.com/nikkor-z-14-30mm-f-4-s/",
+      "review_links": [
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/nikon-z-14-30mm-f4-s",
+          "label": "Photographylife"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/z14-30_f4s/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_14-30_4_s/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_14-30_4_s",
+          "label": "DPReview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/nikon-nikkor-z-14-30mm-f4s-lens-review-2/",
+          "label": "DxOMark"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=599",
+          "label": "Lenstip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Nikon-Z-14-30mm-f-4-S-Lens.aspx",
+          "label": "The Digital Picture"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/599.12-Lens_review-Nikon_Nikkor_Z_14-30_mm_f_4_S_Sample_shots.html",
+          "label": "作例集"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/sample-galleries/8470255105/nikon-z-14-30mm-f4-photos-by-jimmy-mcintyre/8128869592",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/news/6069040200/nikon-introduces-14-30mm-f4-ultra-wide-zoom-for-z-mount",
+          "label": "正式発表"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z 14-24mm f/2.8 S",
+      "source_url": "https://asobinet.com/nikkor-z-14-24mm-f-2-8-s/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/1480207925/what-you-need-to-know-about-nikon-s-new-14-24mm-f2-8-s-and-50mm-f1-2-s-z-mount-lenses",
+          "label": "ポイント"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/videos/6956074336/dpreview-tv-nikon-z-14-24mm-f2-8-s-review",
+          "label": "TVレビュー"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/nikon-z-14-24mm-f2-8-s-field-review",
+          "label": "レビュー"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/4089692405/nikon-z-14-24mm-f2-8-s-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/z14-24_f28s/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_14-24_2p8_s",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z 24-50mm f/4-6.3",
+      "source_url": "https://asobinet.com/nikkor-z-24-50mm-f-4-6-3/",
+      "review_links": [
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/nikon-z-24-50mm-f4-6-3",
+          "label": "Photographylife"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/6891201523/nikon-z-24-50mm-f4-6-3-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/z24-50_f4-63/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_24-50_4p0-6p3",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z 24-70mm f/2.8 S",
+      "source_url": "https://asobinet.com/nikkor-z-24-70mm-f-2-8-s/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/nikon-z-24-70mm-f2-8-s-field-review",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/nikon-z-24-70mm-f2-8-s",
+          "label": "Photographylife"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/z24-70_f28s/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_24-70_2p8_s/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_24-70_2p8_s",
+          "label": "DPReview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/nikon-nikkor-z-24-70mm-f-2-8-s-review/",
+          "label": "DxOMark"
+        },
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/nikon-z-24-70mm-f2-8-s-performance",
+          "label": "Photographylife"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=591",
+          "label": "Lenstip"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/9193092497/nikon-z-24-70mm-f2-8-s-sample-gallery",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z 24-70mm f/4 S",
+      "source_url": "https://asobinet.com/nikkor-z-24-70mm-f-4-s/",
+      "review_links": [
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/nikon-z-24-70mm-f-4-s-performance-overview",
+          "label": "Photographylife1"
+        },
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/nikon-z-24-70mm-f4-s",
+          "label": "Photographylife2"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/z24-70_f4s/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_24-70_4_s/sample-photos",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_24-70_4_s",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Lenses/Nikkor/Nikon-NIKKOR-Z-24-70mm-F4-S",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/nikon-nikkor-z-24-70mm-f4s-lens-review/",
+          "label": "レビュー"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/585.1-Lens_review-Nikon_Nikkor_Z_24-70_mm_f_4_S_Introduction.html",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z 24-200mm f/4-6.3 VR",
+      "source_url": "https://asobinet.com/nikkor-z-24-200mm-f-4-6-3-vr/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/3887267905/nikon-z-24-200mm-f4-6-3-vr-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/z24-200_f4-63vr/",
+          "label": "フォトヨドバシ"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z 70?200mm f/2.8 VR S",
+      "source_url": "https://asobinet.com/nikkor-z-70-200mm-f-2-8-vr-s/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/0993178770/hands-on-with-the-nikon-nikkor-z-70-200mm-f2-8-s",
+          "label": "ハンズオン"
+        },
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/nikon-z-70-200mm-f2-8-vr-s",
+          "label": "Photographylife"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/8721862152/nikon-z-70-200mm-f2-8-vr-s-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/z70-200_f28vrs/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_70-200_2p8_vr_s",
+          "label": "DPReview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/nikon-nikkor-z-70-200mm-f2-8-vr-s-lens-review-great-performer-optically/",
+          "label": "DXOMARK"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=616",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z 20mm f/1.8 S",
+      "source_url": "https://asobinet.com/nikkor-z-20mm-f-1-8-s/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/z20_f18s/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/587.1-Lens_review-Nikon_Nikkor_Z_20_mm_f_1.8_S_Introduction.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/nikon-z-20mm-f1-8-s",
+          "label": "Photographylife"
+        },
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/nikon-z-20mm-f1-8-s/6",
+          "label": "作例集"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z 24mm f/1.8 S",
+      "source_url": "https://asobinet.com/nikkor-z-24mm-f-1-8-s/",
+      "review_links": [
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/nikon-z-24mm-f1-8-s",
+          "label": "Photographylife"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/3274881196/nikon-z-24mm-f1-8-s-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/z24_f18s/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_nikkor_z_24_1p8_s",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/581.1-Lens_review-Nikon_Nikkor_Z_24_mm_f_1.8_S_Introduction.html",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z 35mm f/1.8 S",
+      "source_url": "https://asobinet.com/nikkor-z-35mm-f-1-8-s/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/nikon-z-35mm-f1-8-s-review",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/nikon-z-35mm-f1-8-s",
+          "label": "Photographylife"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_35_1p8_s/sample-photos",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/z35_f18s/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_35_1p8_s",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/nikon-nikkor-z-50mm-f1-8s-lens-review-2/",
+          "label": "DxOMark"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=576",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z 50mm f/1.8 S",
+      "source_url": "https://asobinet.com/nikkor-z-50mm-f-1-8-s/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/nikon-z-50mm-f1point8-s-lens-review",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/nikon-z-50mm-f1-8-s",
+          "label": "Photographylife"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/z50_f18s/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_50_1p8_s/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_50_1p8_s",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/nikon-nikkor-z-50mm-f1-8s-lens-review/",
+          "label": "DxOMark"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/577.11-Lens_review-Nikon_Nikkor_Z_50_mm_f_1.8_S_Summary.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/5823231451/nikon-z-50mm-f1-8-s-sample-gallery",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z 50mm f/1.2 S",
+      "source_url": "https://asobinet.com/nikkor-z-50mm-f-1-2-s/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/1480207925/what-you-need-to-know-about-nikon-s-new-14-24mm-f2-8-s-and-50mm-f1-2-s-z-mount-lenses",
+          "label": "ポイント"
+        },
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/nikon-z-50mm-f-1-2-s",
+          "label": "Photographylife"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/0190489133/nikon-z-50mm-f1-2-s-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/7583235225/nikon-z-50mm-f1-2-s-sample-gallery",
+          "label": "DPReview2"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/z50_f12s/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_50_1p2_s",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/609.1-Lens_review-Nikon_Nikkor_Z_50_mm_f_1.2_S_Introduction.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/live/interview_nikon2020/",
+          "label": "インタビュー"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z 58mm f/0.95 S Noct",
+      "source_url": "https://asobinet.com/nikkor-z-58mm-f-0-95-s-noct/",
+      "review_links": [
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/nikon-z-58mm-f-0-95-s-noct",
+          "label": "Photogrphylife"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/8494679181/nikon-58mm-f0-95-noct-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/z58_f095s_noct/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_58mm_0p95_s",
+          "label": "DPReview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/nikon-nikkor-z-58mm-f0-95-s-noct-lens-review-ultra-high-speed-with-high-sharpness/",
+          "label": "DXOMARK"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z 85mm f/1.8 S",
+      "source_url": "https://asobinet.com/nikkor-z-85mm-f-1-8-s/",
+      "review_links": [
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/nikon-z-85mm-f1-8-s",
+          "label": "Photographylife"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_85_1p8_s/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/z85_f18s/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_85_1p8_s",
+          "label": "DPReview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/nikon-nikkor-z-85mm-f1-8-s-lens-review-sharp-prime/",
+          "label": "DXOMARK"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/579.1-Lens_review-Nikon_Nikkor_Z_85_mm_f_1.8_S_Introduction.html",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z DX 16-50mm f/3.5-6.3 VR",
+      "source_url": "https://asobinet.com/nikkor-z-dx-16-50mm-f-3-5-6-3-vr/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/zdx16-50_f35-63vr/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_dx_16-50_3p5-6p3_vr",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "NIKKOR Z DX 50-250mm f/4.5-6.3 VR",
+      "source_url": "https://asobinet.com/nikkor-z-dx-50-250mm-f-4-5-6-3-vr/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_dx_50-250_4p5-6p3_vr/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/nikon/lens/zdx50-250_f45-63vr/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/nikon/lenses/nikon_z_dx_50-250_4p5-6p3_vr",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "FE 12-24mm F2.8 GM",
+      "source_url": "https://asobinet.com/fe-12-24mm-f2-8-gm/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/1960636891/sony-12-24mm-f2-8-gm-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/sel1224gm/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_12-24_2p8_gm",
+          "label": "DPReview"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-12-24mm-f-2.8-GM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 12-24mm F4 G",
+      "source_url": "https://asobinet.com/fe-12-24mm-f4/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/sel1224g/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/6055048092/sony-fe-12-24mm-f4-g-sample-gallery",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_12-24_4_g",
+          "label": "DPreview"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-12-24mm-f-4-G-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "Vario-Tessar T* FE 16-35mm F4?",
+      "source_url": "https://asobinet.com/vario-tessar-t-fe-16-35mm-f4-za-oss/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel1635z.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_zeiss_16-35_f4_za_oss/sample-photos",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Lenses/Sony/Sony-FE-Carl-Zeiss-Vario-Tessar-T-STAR-16-35mm-F4-ZA-OSS",
+          "label": "DxO Mark"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Reviews/Sony-Vario-Tessar-T-FE-16-35mm-f-4-ZA-OSS-lens-review-Welcome-addition-to-the-range/Sony-Vario-Tessar-T-FE-16-35mm-f-4-ZA-OSS-sharp-but-higher-than-expected-CA",
+          "label": "DxO Mark レビュー1"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Reviews/Sony-Vario-Tessar-T-FE-16-35mm-f-4-ZA-OSS-lens-review-Welcome-addition-to-the-range/Sony-Vario-Tessar-T-FE-16-35mm-f-4-ZA-OSS-vs-Canon-EF-16-35mm-f4-ISUSM-vs-Nikon-AF-S-Nikkor-16-35mm-f4G-ED-VR",
+          "label": "DxO Mark レビュー2"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_zeiss_16-35_f4_za_oss",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "http://www.the-digital-picture.com/Reviews/Sony-FE-16-35mm-f-4-ZA-OSS-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 16-35mm F2.8 GM",
+      "source_url": "https://asobinet.com/fe-16-35mm-f2-8-gm/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/sel1635gm/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/6170384807/sony-fe-16-35mm-f2-8-gm-sample-gallery",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_16-35_2p8_gm",
+          "label": "DPreview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/sony-fe-16-35mm-f28-gm-lens-review-highest-rated-wide-angle-zoom/",
+          "label": "DxOMark"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-16-35mm-f-2.8-GM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "Vario-Tessar T* FE 24-70mm F4 ZA OSS",
+      "source_url": "https://asobinet.com/vario-tessar-t-fe-24-70mm-f4-za-oss/",
+      "review_links": [
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-24-70mm-f-4-ZA-OSS-Lens.aspx",
+          "label": "The Digital Picture"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel2470z.html",
+          "label": "フォトヨドバシ 作例"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_zeiss_fe_24_70_4p0_za_oss/sample-photos",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_zeiss_fe_24_70_4p0_za_oss/overview",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Lenses/Sony/Sony-FE-Carl-Zeiss-Vario-Tessar-T-STAR-24-70mm-F4-ZA-OSS",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Reviews/Sony-Zeiss-Vario-Tessar-T-FE-24-70mm-F4-ZA-OSS-lens-review-Good-value/Sony-FE-Carl-Zeiss-Vario-Tessar-T-24-70mm-F4-ZA-OSS-mounted-on-Sony-A7R-Mid-range-score-for-FF-zoom",
+          "label": "DxOMark スコア"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/1157-Sony_Carl_Zeiss_Vario-Tessar_T*_FE_24-70_mm_f_4_ZA_OSS-lens_specifications.html",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "FE 24-70mm F2.8 GM",
+      "source_url": "https://asobinet.com/fe-24-70mm-f2-8-gm/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel2470gm.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/samples/5789400566/along-the-coast-sony-fe-24-70-f2-8-gm-real-world-samples-gallery-updated",
+          "label": "DPreview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Lenses/Sony/Sony-FE-24-70mm-F28-GM",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Reviews/Sony-FE-24-70mm-F2.8-GM-review-Best-zoom-in-the-range",
+          "label": "DxOMark レビュー"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/products/sony/lenses/sony_fe_24-70_2p8_gm",
+          "label": "DPreview"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "http://www.the-digital-picture.com/Reviews/Sony-FE-24-70mm-f-2.8-GM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 24-105mm F4 G OSS",
+      "source_url": "https://asobinet.com/fe-24-105mm-f4-g-oss/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/sel24105g/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_24-105_4p0_g_oss",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/sony-fe-24-105mm-f4-g-oss-lens-review-good-performer-but-pricey/",
+          "label": "DXOMARK"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=642",
+          "label": "Lenstip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-24-105mm-f-4-G-OSS-Lens.aspx",
+          "label": "The Digital Picture"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/6269168818/sony-24-105mm-f4-g-sample-gallery",
+          "label": "Dpreview"
+        }
+      ]
+    },
+    {
+      "name": "FE 24-240mm F3.5-6.3 OSS",
+      "source_url": "https://asobinet.com/fe-24-240mm-f3-5-6-3-oss/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel24240.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Lenses/Sony/Sony-FE-24-240mm-F35-63-OSS-mounted-on-Sony-A7R__917",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Reviews/Sony-FE-24-240mm-f3.5-6.3-OSS-lens-review-Sony-superzoom-that-does-it-all",
+          "label": "DxOMark レビュー"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/products/sony/lenses/sony_fe_24-240_3p5-6p3_oss/amazon-customer-reviews",
+          "label": "DPreview"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-24-240mm-f-3.5-6.3-OSS-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 28-60mm F4-5.6",
+      "source_url": "https://asobinet.com/fe-28-60mm-f4-5-6/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/5568961712/sony-fe-28-60mm-f4-5-6-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/news/4319381909/sony-announces-tiny-fe-28-60mm-f4-5-6-full-frame-zoom",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "FE 28-70mm F3.5-5.6 OSS",
+      "source_url": "https://asobinet.com/fe-28-70mm-f3-5-5-6-oss/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel2870.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_28-70_3p5-5p6/sample-photos",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Reviews/Sony-FE-28-70mm-F3.5-5.6-OSS-Serious-contender-to-the-Zeiss/Sony-FE-28-70mm-F3.5-5.6-OSS-lens-performance",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/forums/post/53341796",
+          "label": "DPreview 比較記事"
+        }
+      ]
+    },
+    {
+      "name": "FE 70-200mm F2.8 GM OSS",
+      "source_url": "https://asobinet.com/fe-70-200mm-f2-8-gm-oss/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/8074207027/gallery-update-sony-fe-70-200-f2-8-gm",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel70200gm.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/3637000023/sony-fe-70-200-f2-8-gm-gallery",
+          "label": "DPreview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Lenses/Sony/Sony-FE-70-200mm-F28-GM-OSS",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Reviews/Sony-FE-70-200mm-f-2.8-GM-OSS-lens-review",
+          "label": "DxOMark レビュー"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_70-200_2p8_gm_oss",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/2267317144/hands-on-with-sonys-a6300-and-g-master-lenses",
+          "label": "DPreview hands-on-review"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "http://www.the-digital-picture.com/Reviews/Sony-FE-70-200mm-f-2.8-GM-OSS-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 70-200mm F4 G OSS",
+      "source_url": "https://asobinet.com/fe-70-200mm-f4-g-oss/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel70200g.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_zeiss_fe_70_200_4_oss/sample-photos",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Lenses/Sony/Sony-FE-70-200mm-F4-G-OSS",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_zeiss_fe_70_200_4_oss",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-70-200mm-f-4-G-OSS-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 70-300mm F4.5-5.6 G OSS",
+      "source_url": "https://asobinet.com/fe-70-300mm-f4-5-5-6-g-oss/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel70300g.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Reviews/Sony-FE-70-300mm-F-4.5-5.6-G-OSS-review-Compact-package",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_70-300_4p5-5p6_g_oss",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/news/3613494796/hands-on-sony-fe-50mm-f1-8-and-70-300mm-f4-5-5-6?slide=4",
+          "label": "DPreview Hands on review"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-70-300mm-f-4.5-5.6-G-OSS-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 100-400mm F4.5-5.6 GM OSS",
+      "source_url": "https://asobinet.com/fe100-400mm-f4-5-5-6-gm-oss/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/sel100400gm/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/0313885445/sony-fe-100-400mm-f4-5-5-6-gm-sample-gallery",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_100-400_4p5-5p6_gm_oss",
+          "label": "DPreview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Reviews/Sony-FE-100-400mm-F4.5-5.6-GM-OSS-lens-review-Compact-and-optically-excellent-tele-zoom",
+          "label": "DxOMark レビュー"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-100-400mm-f-4.5-5.6-GM-OSS-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 200-600mm F5.6-6.3 G OSS",
+      "source_url": "https://asobinet.com/fe200-600mm-f5-6-6-3-g-oss/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/4146085092/hands-on-with-new-sony-gm-600mm-f4-and-g-200-600mm-f5-6-6-3",
+          "label": "Hands on"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/sel200600g/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_200-600_5p6-6p3_g_oss/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_200-600_5p6-6p3_g_oss",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=690",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "FE 20mm F1.8 G",
+      "source_url": "https://asobinet.com/fe-20mm-f1-8-g/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/2736959721/sony-fe-20mm-f1-8-g-initial-impressions-and-sample-gallery",
+          "label": "第一印象"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_20_1p8/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/sel20f18g/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_20_1p8",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=629",
+          "label": "Lenstip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-20mm-f-1.8-G-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 24mm F1.4 GM",
+      "source_url": "https://asobinet.com/fe-24mm-f1-4-gm/",
+      "review_links": [
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/sony-fe-24mm-f-1-4-gm",
+          "label": "Photographylife"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/sel24f14gm/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/4200184242/sony-24mm-f1-4-gm-sample-gallery",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/2291-news-Sony_FE_24_mm_f_1.4_G_Master_-_sample_images.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_24_1p4_gm",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-24mm-f-1.4-GM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "Sonnar T* FE 35mm F2.8 ZA",
+      "source_url": "https://asobinet.com/fe-35mm-f2-8-za/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel35f28z.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Lenses/Sony/Sony-FE-Carl-Zeiss-Sonnar-T-STAR-35mm-F28",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/reviews/sony-fe-35-2-8",
+          "label": "DPreview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=482",
+          "label": "LensTip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/News/News-Post.aspx?News=34233",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 35mm F1.8",
+      "source_url": "https://asobinet.com/fe-35mm-f1-8/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/sony-fe-35mm-f1-8-review",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/sony-fe-35mm-f-1-8",
+          "label": "Photographylife"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/8465544595/sony-fe-35mm-f1-8-sample-gallery",
+          "label": "DPreview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/2323-news-Sony_FE_35_mm_f_1.8_i_A7R_IV_-_sample_shots.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/sel35f18f/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_35_1p8",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=593",
+          "label": "Lenstip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/News/News-Post.aspx?News=34227",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "Distagon T* FE 35mm F1.4 ZA",
+      "source_url": "https://asobinet.com/distagon-t-fe-35mm-f1-4-za/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel35f14z.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_35_1p4_za/sample-photos",
+          "label": "Dpreview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Lenses/Sony/Sony-FE-Carl-Zeiss-Distagon-T-STAR-35mm-F14-ZA-mounted-on-Sony-A7R__917",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Reviews/Sony-Carl-Zeiss-Distagon-T-FE-35mm-f1.4-ZA-lens-review-Razor-sharp-German-precision/Sony-Carl-Zeiss-Distagon-T-FE-35mm-f1.4-ZA-Measurement-Top-Sharpness-and-Transmission",
+          "label": "DxOMark review"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_35_1p4_za",
+          "label": "Dpreview"
+        }
+      ]
+    },
+    {
+      "name": "FE 50mm F1.8",
+      "source_url": "https://asobinet.com/fe-50mm-f1-8/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/news/4855283977/sony-fe-50mm-f1-8-real-world-samples",
+          "label": "Dpreview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel50f18f.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/sample-galleries?galleryId=2587249948",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/products/sony/lenses/sony_fe_50_1p8",
+          "label": "DPreview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/sony-fe-50mm-f1-8-review-affordable-choice/",
+          "label": "DxOMark"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/516.1-Lens_review-Sony_FE_50_mm_f_1.8_Introduction.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-50mm-f-1.8-Lens.aspx",
+          "label": "The Digital Picture"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/ISO-12233-Sample-Crops.aspx?Lens=1195",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 50mm F2.8 マクロ",
+      "source_url": "https://asobinet.com/fe-50mm-f2-8-macro/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel50m28.html",
+          "label": "フォトヨドバシ 作例"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/3567150440/sony-fe-50mm-f2-8-macro-sample-gallery",
+          "label": "DPREVIEW 作例"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Lenses/Sony/Sony-FE-50mm-F28-Macro",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Reviews/Sony-FE-50mm-f-2.8-Macro-lens-review",
+          "label": "DxOMark レビュー"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_50_2p8_macro",
+          "label": "DPreview"
+        }
+      ]
+    },
+    {
+      "name": "Planar T* FE 50mm F1.4 ZA",
+      "source_url": "https://asobinet.com/planar-t-fe-50mm-f1-4-za/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel50f14z.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/samples/7186523187/sony-planar-fe-50mm-f1-4-za-sample-gallery",
+          "label": "DPreview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Reviews/Sony-Carl-Zeiss-Plannar-T-FE-50mm-f-1.4-ZA-lens-review",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/products/sony/lenses/sony_fe_50_1p4_za",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/comparative-review-sony-fe-50mm-f1-4-za-vs-55mm-f1-8-za",
+          "label": "DPREVIEW 55mm比較"
+        }
+      ]
+    },
+    {
+      "name": "Sonnar T* FE 55mm F1.8 ZA",
+      "source_url": "https://asobinet.com/sonnar-t-fe-55mm-f1-8-za/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/sony-fe-55-1-8",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel55f18z.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_zeiss_fe_55_1p8_za/sample-photos",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Reviews/Sony-Zeiss-Sonnar-T-FE-55mm-f1.8-ZA-lens-review-Exemplary-performance/Sony-FE-Carl-Zeiss-Sonnar-T-55mm-F1.8-ZA-mounted-on-Sony-A7R",
+          "label": "DxOMark スコア"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_zeiss_fe_55_1p8_za",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/reviews/comparative-review-sony-fe-50mm-f1-4-za-vs-55mm-f1-8-za",
+          "label": "DPREVIEW 比較"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=483",
+          "label": "Lenstip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-55mm-f-1.8-ZA-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 85mm F1.8",
+      "source_url": "https://asobinet.com/fe-85mm-f1-8/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel85f18.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/4348798595/sony-fe-85mm-f1-8-sample-gallery",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_85_1p8",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/news/8335176421/hands-on-with-sony-100mm-f2-8-stf-g-master-and-fe-85mm-f1-8-lenses",
+          "label": "DPREVIEW Hands-on"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Reviews/Sony-FE-85mm-F1.8-lens-review-Excellent-choice",
+          "label": "DxOMark レビュー"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-85mm-f-1.8-Lens.aspx",
+          "label": "The Digital Picture"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=557",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "FE 85mm F1.4 GM",
+      "source_url": "https://asobinet.com/fe-85mm-f1-4-gm/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel85f14gm.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/samples/7525834158/seriously-sharp-sony-85mm-f1-4-gm-samples",
+          "label": "DPreview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Lenses/Sony/Sony-FE-85mm-F14-GM",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/products/sony/lenses/sony_fe_85mm_1p4_gm",
+          "label": "DPreview"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "http://www.the-digital-picture.com/Reviews/Sony-FE-85mm-f-1.4-GM-Lens.aspx",
+          "label": "The Digital Picture"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-85mm-f-1.4-GM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 90mm F2.8 Macro G OSS",
+      "source_url": "https://asobinet.com/fe-90mm-f2-8-macro-g-oss-sel90m28g/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel90m28g.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Reviews/Sony-FE-90mm-f2.8-Macro-G-OSS-lens-review-Outstanding-optical-performance",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/products/sony/lenses/sony_fe_90_2p8_macro_g_oss",
+          "label": "DPreview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/561.1-Lens_review-Sony_FE_90_mm_f_2.8_Macro_G_OSS_Introduction.html",
+          "label": "LensTip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-90mm-f-2.8-Macro-G-OSS-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 100mm F2.8 STF GM OSS",
+      "source_url": "https://asobinet.com/fe-100mm-f2-8-stf-gm-oss/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/sel100f28gm.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/sample-galleries/9912837935/sony-fe-100mm-f2-8-stf-sample-gallery",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Lenses/Sony/Sony-FE-100mm-F28-STF-GM-OSS",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Reviews/Sony-FE-100mm-F2.8-STF-GM-OSS-lens-review-solid-choice",
+          "label": "DxOMark レビュー"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_100_2p8_stf_gm_oss",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/news/8335176421/hands-on-with-sony-100mm-f2-8-stf-g-master-and-fe-85mm-f1-8-lenses",
+          "label": "DPREVIEW Hands-on"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-100mm-f-2.8-STF-GM-OSS-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 135ｍｍ F1.8 GM",
+      "source_url": "https://asobinet.com/fe135%ef%bd%8d%ef%bd%8d-f1-8-gm/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/sel135f18gm/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_135_1p8_gm/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_135_1p8_gm",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/635.1-Lens_review-Sony_FE_135_mm_f_1.8_GM_Introduction.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sony-FE-135mm-f-1.8-GM-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FE 400ｍｍ F2.8 GM OSS",
+      "source_url": "https://asobinet.com/fe400%ef%bd%8d%ef%bd%8d-f2-8-gm-oss/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/1870760563/first-impressions-sony-fe-400-f2-8-gm-oss",
+          "label": "Dpreview 初見"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/sel400f28gm/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_400_2p8_gm_oss/sample-photos",
+          "label": "Dpreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_400_2p8_gm_oss",
+          "label": "Dpreview"
+        }
+      ]
+    },
+    {
+      "name": "FE 600mm F4 GM OSS",
+      "source_url": "https://asobinet.com/fe-600mm-f4-gm-oss/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/4146085092/hands-on-with-new-sony-gm-600mm-f4-and-g-200-600mm-f5-6-6-3",
+          "label": "Hands on"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/0983663478/sony-fe-600mm-f4-gm-oss-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/sel600f4gm/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_600_4_gm_oss",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "LUMIX S PRO 16-35mm F4",
+      "source_url": "https://asobinet.com/lumix-s-pro-16-35mm-f4/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/panasonic/lenses/panasonic_s_pro_16-35_4p0",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "LUMIX S 20-60mm F3.5-5.6",
+      "source_url": "https://asobinet.com/lumix-s-20-60mm-f3-5-5-6/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/panasonic/lenses/panasonic_s_20-60_3p5-5p6/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/panasonic/lenses/panasonic_s_20-60_3p5-5p6",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "LUMIX S PRO 24-70mm F2.8",
+      "source_url": "https://asobinet.com/lumix-s-pro-24-70mm-f2-8/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/panasonic/lens/s24_70_f28/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/2243517858/panasonic-lumix-s-pro-24-70mm-f2-8-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/panasonic/lenses/panasonic_s_pro_24-70_2p8",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "LUMIX S 24-105mm F4 Macro O.I.S.",
+      "source_url": "https://asobinet.com/lumix-s-24-105mm-f4-macro-o-i-s/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/panasonic/lenses/panasonic_s_24-105_4p0_macro_ois/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/panasonic/lenses/panasonic_s_24-105_4p0_macro_ois",
+          "label": "DPReview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/panasonic-lumix-s-24-105mm-f4-macro-ois-lens-review-competitive-but-pricey-performer/",
+          "label": "DXOMARK"
+        }
+      ]
+    },
+    {
+      "name": "LUMIX S PRO 70-200mm F2.8 O.I.S.",
+      "source_url": "https://asobinet.com/lumix-s-pro-70-200mm-f2-8-o-i-s/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/panasonic/lenses/panasonic_s_pro_70-200_2p8/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/panasonic/lenses/panasonic_s_pro_70-200_2p8",
+          "label": "DPReview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/panasonic-lumix-s-pro-70-200mm-f2-8-o-i-s-lens-review-good-performer-but-not-class-leading/",
+          "label": "DXOMARK"
+        }
+      ]
+    },
+    {
+      "name": "LUMIX S PRO 70-200mm F4 O.I.S.",
+      "source_url": "https://asobinet.com/lumix-s-pro-70-200mm-f4-o-i-s/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/panasonic/lens/spro70_200_f4/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/panasonic/lenses/panasonic_s_pro_70-200_f4_ois/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/panasonic/lenses/panasonic_s_pro_70-200_f4_ois",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/9195051953/panasonic-lumix-s-pro-70-200mm-f4-sample-gallery",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "LUMIX S PRO 50mm F1.4",
+      "source_url": "https://asobinet.com/lumix-s-pro-50mm-f1-4/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/panasonic/lenses/panasonic_s_pro_50_1p4/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/698.12-Lens_review-Panasonic_Lumix_S_Pro_50_mm_f_1.4_Sample_shots.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/panasonic/lenses/panasonic_s_pro_50_1p4",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=698",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "LUMIX S 85mm F1.8",
+      "source_url": "https://asobinet.com/lumix-s-85mm-f1-8/",
+      "review_links": [
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=707",
+          "label": "Lenstip"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/panasonic/lenses/panasonic_s_85_1p8/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/panasonic/lenses/panasonic_s_85_1p8",
+          "label": "DPReview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/panasonic-lumix-s-85mm-f1-8-lens-review-strong-performer/",
+          "label": "DXOMARK"
+        }
+      ]
+    },
+    {
+      "name": "14-24mm F2.8 DG DN",
+      "source_url": "https://asobinet.com/14-24mm-f2-8-dg-dn-art/",
+      "review_links": [
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=572",
+          "label": "Lenstip"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/2326-news-Sigma_A_14-24_mm_f_2.8_DG_DN_-_sample_shots.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/14-24_f28dgdn_a/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_14-24_2p8_dg_dn",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "24-70mm F2.8 DG DN",
+      "source_url": "https://asobinet.com/24-70mm-f2-8-dg-dn-art/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/videos/9428822749/dpreview-tv-sigma-24-70mm-f2-8-dg-dn-art-review",
+          "label": "DPReviewTV"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/sigma-24-70mm-f2-8-dg-dn-art-field-review",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/2698334887/sample-gallery-sigma-24-70mm-f2-8-dg-dn-for-sony-e-mount",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/24-70_f28dgdn_a/",
+          "label": "Sony"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/panasonic/lens/24-70_f28art/",
+          "label": "Leica"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_24-70_2p8_dg_dn",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/574.1-Lens_review-Sigma_A_24-70_mm_f_2.8_DG_DN_Introduction.html",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "100-400mm F5-6.3 DG DN OS",
+      "source_url": "https://asobinet.com/100-400mm-f5-6-3-dg-dn-os/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/8799731239/sigma-100-400mm-f5-6-3-dg-dn-os-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/100-400_f5-63_dgdnos_c/",
+          "label": "フォトヨドバシ"
+        }
+      ]
+    },
+    {
+      "name": "24mm F3.5 DG DN",
+      "source_url": "https://asobinet.com/24mm-f3-5-dg-dn/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_24_3p5_dg_dn",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/608.1-Lens_review-Sigma_C_24_mm_f_3.5_DG_DN_Introduction.html",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "35mm F1.2 DG DN",
+      "source_url": "https://asobinet.com/35mm-f1-2-dg-dn-art/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_35_1p2_dg_dn/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/2327-news-Sigma_A_35_mm_f_1.2_DG_DN_-_sample_shots.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/35_f12art/",
+          "label": "フォトヨドバシ E"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/panasonic/lens/sigma35_f12art/",
+          "label": "フォトヨドバシ L"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sigma/lens/35_f12art/",
+          "label": "フォトヨドバシ L2"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_35_1p2_dg_dn",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/566.1-Lens_review-Sigma_A_35_mm_f_1.2_DG_DN_Introduction.html",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "35mm F2 DG DN",
+      "source_url": "https://asobinet.com/35mm-f2-dg-dn/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/field-review-sigma-35mm-f2-dg-dn",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/3434064956/sigma-35mm-f2-dg-dn-sample-gallery-dpreview-tv",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/146.5-article-Sigma_C_35_mm_f_2_DG_DN_-_first_impressions_Sample_shots.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sigma/lens/35_f2contemporary/",
+          "label": "フォトヨドバシ L"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/35_f2dgdncontemporary/",
+          "label": "フォトヨドバシ E"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_35_2_dg_dn",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/597.1-Lens_review-Sigma_C_35_mm_f_2_DG_DN_Introduction.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/597.12-Lens_review-Sigma_C_35_mm_f_2_DG_DN_Sample_shots.html",
+          "label": "作例集"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/sample-galleries/2143900311/sigma-35mm-f2-dg-dn-sample-gallery/9241817710",
+          "label": "作例集"
+        }
+      ]
+    },
+    {
+      "name": "45mm F2.8 DG DN",
+      "source_url": "https://asobinet.com/45mm-f2-8-dg-dn-contemporary/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/panasonic/lens/45_28contemporary/",
+          "label": "ライカL用"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/45_28contemporary/",
+          "label": "ソニーE用"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/3496136732/sigma-45mm-f2-8-dg-dn-art-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_45_2p8_dg_dn/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/2325-news-Sigma_C_45_mm_f_2.8_DG_DN_-_sample_shots.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sigma/lens/45_f28contemporary/",
+          "label": "フォトヨドバシ fp"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_45_2p8_dg_dn",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=578",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "65mm F2 DG DN",
+      "source_url": "https://asobinet.com/65mm-f2-dg-dn/",
+      "review_links": [
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sigma-65mm-F2-DG-DN-Contemporary-Lens.aspx",
+          "label": "The Digital Picture"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/6654253069/sigma-65mm-f2-dg-dn-initial-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/147.5-article-Sigma_C_65_mm_f_2_DG_DN_%E2%80%93_first_impressions_Sample_shots.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sigma/lens/65_f2dgdncontemporary/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_65_2_dg_dn",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/600.11-Lens_review-Sigma_C_65_mm_f_2_DG_DN_Summary.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/600.1-Lens_review-Sigma_C_65_mm_f_2_DG_DN_Introduction.html",
+          "label": "Lenstip：Sigma C 65 mm f/2 DG DN"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/600.12-Lens_review-Sigma_C_65_mm_f_2_DG_DN_Sample_shots.html",
+          "label": "作例集"
+        }
+      ]
+    },
+    {
+      "name": "85mm F1.4 DG DN",
+      "source_url": "https://asobinet.com/85mm-f1-4-dg-dn/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/8113929461/hands-on-with-the-sigma-85mm-f1-4-dg-dn",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/videos/6842657025/dpreview-tv-sigma-85mm-f1-4-dg-dn-art-review",
+          "label": "DPReview TV"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_85_1p4_dg_dn_art/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sigma-85mm-f-1.4-DG-DN-Art-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "105mm F2.8 DG DN MACRO",
+      "source_url": "https://asobinet.com/105mm-f2-8-dg-dn-macro/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_105_2p8_dg_dn_macro/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/105_f28art/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_105_2p8_dg_dn_macro",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/145.1-article-Sigma_A_105_mm_f_2.8_DG_DN_Macro_%E2%80%93_first_impressions_Introduction.html",
+          "label": "インプレ"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/595.1-Lens_review-Sigma_A_105_mm_f_2.8_DG_DN_Macro_Introduction.html",
+          "label": "レビュー"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sigma-105mm-f-2.8-DG-DN-Macro-Art-Lens.aspx",
+          "label": "The Digital Picture"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/595.12-Lens_review-Sigma_A_105_mm_f_2.8_DG_DN_Macro_Sample_shots.html",
+          "label": "作例集"
+        }
+      ]
+    },
+    {
+      "name": "14mm F1.8 DG HSM",
+      "source_url": "https://asobinet.com/14mm-f1-8-dg-hsm-art/",
+      "review_links": [
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/sigma-14mm-f-1-8-dg-hsm-art",
+          "label": "Photographylife"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/canon/lens/14_f18dghsm_a/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/14_f18art/",
+          "label": "フォトヨドバシ Sony"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/8743754083/sigma-14mm-f1-8-sample-gallery",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/3322206948/sample-gallery-around-town-with-the-sigma-14mm-f1-8-art",
+          "label": "DPREVIEW 街撮り"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/5979969572/sample-gallery-sigma-14mm-f1-8-dg-hsm-art-lens",
+          "label": "DPREVIEW 天体撮影"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/2236-news-Sigma_A_14_mm_f_1.8_DG_HSM_-_sample_images.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_14_1p8_dg_hsm_art",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/news/4711801152/cp-2017-hands-on-with-sigmas-newest-lenses?slide=9",
+          "label": "Hands on"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/1717621214/astrophotography-with-the-sigma-14mm-f1-8-art-lens",
+          "label": "DPREVIEW レビュー"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/506.1-Lens_review-Sigma_A_14_mm_f_1.8_DG_HSM_Introduction.html",
+          "label": "LensTip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "http://www.the-digital-picture.com/Reviews/Sigma-14mm-f-1.8-DG-HSM-Art-Lens.aspx",
+          "label": "The Digital Picture"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/486.1-Lens_review-Irix_15_mm_f_2.4_Blackstone_Introduction.html",
+          "label": "Irix 15 mm f/2.4 Blackstone"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/239.1-Lens_review-Samyang_14_mm_f_2.8_ED_AS_IF_UMC_Introduction.html",
+          "label": "Samyang 14 mm f/2.8 ED AS IF UMC"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/324.1-Lens_review-Canon_EF_14_mm_f_2.8L_USM_II_Introduction.html",
+          "label": "Canon EF 14 mm f/2.8L USM II"
+        }
+      ]
+    },
+    {
+      "name": "20mm F1.4 DG HSM",
+      "source_url": "https://asobinet.com/20mm-f1-4-dg-hsm/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/20_f14art/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/canon/lens/sigma2014art.html",
+          "label": "フォトヨドバシ 作例"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_20_1p4/sample-photos",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_20_1p4",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Reviews/Sigma-20mm-f-1.4-DG-HSM-A-Canon-lens-review-Picture-perfect",
+          "label": "DxOMark EFマウントスコア"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/index.php?test=obiektywu&test_ob=457",
+          "label": "Lenstip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "http://www.the-digital-picture.com/Reviews/Sigma-20mm-f-1.4-DG-HSM-Art-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "24mm F1.4 DG HSM",
+      "source_url": "https://asobinet.com/24mm-f1-4-dg-hsm/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/24_f14art/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/sigma-24mm-f1-4-art",
+          "label": "Photographylife"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/canon/lens/sigma2414art.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/sample-galleries/8409644243/sigma-24mm-f1-4-dg-hsm-art-initial-samples",
+          "label": "DPreview 作例"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Reviews/Sigma-24mm-F1.4-DG-HSM-A-Canon-EF-review-Better-by-design/Sigma-24mm-f1.4-DG-HSM-A-Canon-vs-Canon-EF-24mm-f1.4L-II-USM-vs-Samyang-24mm-f1.4-ED-AS-UMC-Canon-High-uniformity",
+          "label": "DxO Mark?EFマウントスコア"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/en/Reviews/Sigma-24mm-F1.4-DG-HSM-A-Nikon-lens-review-Best-model-for-Nikon-users",
+          "label": "DxOMark Fマウントスコア"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/430.1-Lens_review-Sigma_A_24_mm_f_1.4_DG_HSM.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "http://www.the-digital-picture.com/Reviews/Sigma-24mm-f-1.4-DG-HSM-Art-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "28mm F1.4 DG HSM",
+      "source_url": "https://asobinet.com/28mm-f1-4-dg-hsm-art/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/canon/lens/28_f14art/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/7633401951/sigma-28mm-f1-4-dg-hsm-art-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/553.1-Lens_review-Sigma_A_28_mm_f_1.4_DG_HSM_Introduction.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/2309-news-Sigma_A_28_mm_f_1.4_DG_HSM_-_sample_images.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_28_1p4_dg_hsm_a",
+          "label": "DPREVIEW"
+        }
+      ]
+    },
+    {
+      "name": "35mm F1.4 DG HSM",
+      "source_url": "https://asobinet.com/35mm-f1-4-dg-hsm/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/35_f14art/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sigma/lens/3514dgeos/index.html",
+          "label": "フォトヨドバシ 作例"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/nikon/lens/sigma3514art.html",
+          "label": "フォトヨドバシ 作例2"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/lensreviews/sigma-35mm-f1-4-dg-hsm",
+          "label": "DPreview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Lenses/Sigma/Sigma-35mm-F14-DG-HSM-A-Nikon",
+          "label": "DxO Mark"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/index.php/Publications/DxOMark-Reviews/Sigma-35mm-f1.4-DG-HSM-Nikon-Mount-the-definitive-high-speed-35mm-wide-angle-lens-for-DSLRs/Measurement",
+          "label": "DXOMARK スコア比較"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/sigma-35mm-f1-4-dg-hsm",
+          "label": "DPREVIEW レビュー"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/359.1-Lens_review-Sigma_A_35_mm_f_1.4_DG_HSM.html",
+          "label": "Lenstips"
+        },
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/sigma-35mm-f1-4",
+          "label": "Photographylife"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "http://www.the-digital-picture.com/Reviews/Sigma-35mm-f-1.4-EX-DG-HSM-Lens-Review.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "40mm F1.4 DG HSM",
+      "source_url": "https://asobinet.com/40mm-f1-4-dg-hsm-art/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/canon/lens/40_f14dghsm/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/2604901376/sigma-40mm-f1-4-art-beta-sample-gallery",
+          "label": "DPREVIEW（β）"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_40_1p4_dg_hsm_a/sample-photos",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/2302-news-Sigma_A_40_mm_f_1.4_DG_HSM_-_sample_gallery.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_40_1p4_dg_hsm_a",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=548",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "50mm F1.4 DG HSM",
+      "source_url": "https://asobinet.com/50mm-f1-4-dg-hsm/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/50_f14art/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/sigma-50mm-f1-4-dg-hsm/",
+          "label": "Photographylife"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/canon/lens/sigma5014dghsm.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_50_1p4_a/sample-photos",
+          "label": "DPreview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Lenses/Sigma/Sigma-50mm-F14-DG-HSM-A-Canon",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_50_1p4_a",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_50_1p4_a/review",
+          "label": "DPREVIEW レビュー"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/400.1-Lens_review-Sigma_A_50_mm_f_1.4_DG_HSM.html",
+          "label": "LensTip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "http://www.the-digital-picture.com/Reviews/Sigma-50mm-f-1.4-DG-HSM-Art-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "70mm F2.8 DG MACRO",
+      "source_url": "https://asobinet.com/70mm-f2-8-dg-macro-art/",
+      "review_links": [
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=534",
+          "label": "Lenstip"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/canon/lens/70_f28macroart/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/2280-news-Sigma_A_70_mm_f_2.8_DG_Macro_-_sample_images.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_70_2p8_dg_macro_a",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/7988525955/cp-2018-hands-on-with-sigma-105mm-f1-4-art-bokeh-master",
+          "label": "DPREVIEW Hands on"
+        }
+      ]
+    },
+    {
+      "name": "85mm F1.4 DG HSM",
+      "source_url": "https://asobinet.com/85mm-f1-4-dg-hsm-art/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/7546688413/sample-photos-sigma-85mm-f1-4-art-for-sony-fe-mount",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/85_f14art/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/canon/lens/sigma8514art.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/news/5149714467/it-s-finally-here-sigma-85mm-f1-4-dg-hsm-art-sample-gallery",
+          "label": "DPreview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Reviews/Sigma-85mm-F1.4-Art-lens-review-New-benchmark",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_85_1p4_dg_hsm_a",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/sigma-85mm-f1-4-art-lens",
+          "label": "DPREVIEW レビュー"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/491.1-Lens_review-Sigma_A_85_mm_f_1.4_DG_HSM_review.html",
+          "label": "LensTip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "http://www.the-digital-picture.com/Reviews/Sigma-85mm-f-1.4-DG-HSM-Art-Lens.aspx",
+          "label": "TheDigitalPicture"
+        }
+      ]
+    },
+    {
+      "name": "105mm F1.4 DG HSM",
+      "source_url": "https://asobinet.com/105mm-f1-4-dg-hsm-art/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/canon/lens/105_f14art/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/2281-news-Sigma_A_105_mm_f_1.4_DG_HSM_-_sample_images.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_105_1p4_dg_hsm_art",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/7988525955/cp-2018-hands-on-with-sigma-105mm-f1-4-art-bokeh-master",
+          "label": "DPREVIEW Hands on"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Sigma-105mm-f-1.4-DG-HSM-Art-Lens.aspx",
+          "label": "The Digital Picture"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/ISO-12233-Sample-Crops.aspx?Lens=1196",
+          "label": "The Digital Picture"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/ISO-12233-Sample-Crops.aspx?Lens=1196&Camera=979&Sample=0&FLI=0&API=0&LensComp=674&CameraComp=0&FLIComp=0&APIComp=0",
+          "label": "絞り開放F1.4でEF100ｍｍ F2.8L マクロ IS USMのF2.8より安定した描写性能"
+        }
+      ]
+    },
+    {
+      "name": "135mm F1.8 DG HSM",
+      "source_url": "https://asobinet.com/135mm-f1-8-dg-hsm-art/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/135_f18art/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/canon/lens/sigma13518art.html",
+          "label": "フォトヨドバシ 作例"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/1528396156/sigma-135mm-f1-8-art-sample-gallery",
+          "label": "DPreview 作例"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/sigma/lenses/sigma_135_1p8_dg_hsm_art",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/news/4711801152/cp-2017-hands-on-with-sigmas-newest-lenses?slide=5",
+          "label": "DPREVIEW Hands on"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/501.1-Lens_review-Sigma_A_135_mm_f_1.8_DG_HSM_Introduction.html",
+          "label": "LensTip"
+        }
+      ]
+    },
+    {
+      "name": "17-28mm F/2.8 Di III RXD",
+      "source_url": "https://asobinet.com/17-28mm-f-2-8-di-iii-rxd/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/tamron/lenses/tamron_17-28_2p8_di_iii_rxd/sample-photos",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/17-28_f28_a046/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/tamron/lenses/tamron_17-28_2p8_di_iii_rxd",
+          "label": "DPReview"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Tamron-17-28mm-f-2.8-Di-III-RXD-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "28-75mm F/2.8 Di III RXD",
+      "source_url": "https://asobinet.com/28-75mm-f-2-8-di-iii-rxd/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/28-75_f28_a036/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "http://www.dpreview.com/samples/1522974973/tamron-28-75mm-f2-8-for-e-mount-sample-gallery",
+          "label": "Dpreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/tamron/lenses/tamron_28-75_2p8_di_iii_rxd",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/news/3507543205/cp-2018-first-look-at-new-tamron-fe-mount-28-75mm-f2-8",
+          "label": "DPREVIEW Hands on"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=564",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "28-200mm F/2.8-5.6 Di III RXD",
+      "source_url": "https://asobinet.com/28-200mm-f-2-8-5-6-di-iii-rxd/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/9751432166/tamron-28-200mm-f2-8-5-6-di-iii-rxd-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/28-200_f28-56_a71/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Tamron-28-200mm-f-2.8-5.6-Di-III-RXD-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "70-180mm F/2.8 Di III VXD",
+      "source_url": "https://asobinet.com/70-180mm-f-2-8-di-iii-vxd/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/4248611878/tamron-70-180mm-f2-8-di-iii-vxd-sample-gallery-dpreview-tv",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/70-180_f28_a056sf/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/tamron/lenses/tamron_70-180_2p8_di_iii_vxd",
+          "label": "DPReview"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Tamron-70-180mm-f-2.8-Di-III-VXD-Lens.aspx",
+          "label": "TheDigitalPicture"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/videos/2685153969/dpreview-tv-tamron-70-180mm-f2-8-di-iii-vxd-review",
+          "label": "DPReview：DPReview TV: Tamron 70-180mm F2.8 Di III VXD review"
+        }
+      ]
+    },
+    {
+      "name": "70-300mm F4.5-6.3 Di III RXD",
+      "source_url": "https://asobinet.com/70-300mm-f4-5-6-3-di-iii-rxd/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/videos/4023615922/dpreview-tv-tamron-70-300-f4-5-6-3-review",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/7031371336/tamron-70-300mm-f4-5-6-3-di-iii-rxd-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/70-300_f45-63diiiirxd_a047/",
+          "label": "フォトヨドバシ"
+        }
+      ]
+    },
+    {
+      "name": "20mm F/2.8 Di III OSD M1:2",
+      "source_url": "https://asobinet.com/20mm-f-2-8-di-iii-osd-m12-model-f050/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/4830018751/tamron-20mm-f2-8-macro-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/20_f28_f050e/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=580",
+          "label": "Lenstip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Tamron-20mm-f-2.8-Di-III-OSD-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "24mm F/2.8 Di III OSD M1:2",
+      "source_url": "https://asobinet.com/24mm-f-2-8-di-iii-osd-m12-model-f051/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/4750796488/tamron-24mm-f2-8-m1-2-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/24_f28_f051e/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=586",
+          "label": "Lenstip"
+        },
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Tamron-24mm-f-2.8-Di-III-OSD-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "35mm F/2.8 Di III OSD M1:2",
+      "source_url": "https://asobinet.com/35mm-f-2-8-di-iii-osd-m12-model-f053/",
+      "review_links": [
+        {
+          "site": "The Digital Picture",
+          "url": "https://www.the-digital-picture.com/Reviews/Tamron-35mm-f-2.8-Di-III-OSD-Lens.aspx",
+          "label": "The Digital Picture"
+        }
+      ]
+    },
+    {
+      "name": "FíRIN 20mm F2 FE AF",
+      "source_url": "https://asobinet.com/firin-20mm-f2-fe-af/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/firin2020af/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/6697283487/cp-2018-hands-on-with-tokina-s-50mm-f1-4-and-20mm-f2",
+          "label": "DPREVIEW Hands on"
+        }
+      ]
+    },
+    {
+      "name": "Batis 2.8/18",
+      "source_url": "https://asobinet.com/batis-2-818/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/czbatis1828.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Lenses/Carl-Zeiss/Zeiss-Carl-Zeiss-Batis-18mm-F28-Sony-FE",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/zeiss/lenses/zeiss_batis_18_2p8",
+          "label": "DPreview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/496.1-Lens_review-Carl_Zeiss_Batis_18_mm_f_2.8.html",
+          "label": "LensTip"
+        }
+      ]
+    },
+    {
+      "name": "Batis 2/40 CF",
+      "source_url": "https://asobinet.com/batis-2-40-cf/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/batis40_f2cf/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/zeiss/lenses/zeiss_batis_40_2_cf",
+          "label": "製品ページ"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/589.1-Lens_review-Carl_Zeiss_Batis_40_mm_f_2_CF__Introduction.html",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "Batis 1.8/85",
+      "source_url": "https://asobinet.com/batis-1-885/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/sony/lens/czbatis8518.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/zeiss/lenses/zeiss_batis_85_1p8/sample-photos",
+          "label": "DPreview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Lenses/Carl-Zeiss/Zeiss-Carl-Zeiss-Batis-85mm-F18-Sony-FE",
+          "label": "DxOMark?"
+        },
+        {
+          "site": "DxOMark",
+          "url": "http://www.dxomark.com/Reviews/Carl-Zeiss-Batis-85mm-f-1.8-Sony-FE-Creative-contender/Measurements-Podium-place-for-FE-lenses",
+          "label": "DxOMark スコア"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/zeiss/lenses/zeiss_batis_85_1p8",
+          "label": "DPreview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/1287-Carl_Zeiss_Batis_85_mm_f_1.8-lens_specifications.html",
+          "label": "LensTips"
+        }
+      ]
+    },
+    {
+      "name": "Batis 2.8/135",
+      "source_url": "https://asobinet.com/batis-f2-8-135/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/batis28_135/",
+          "label": "フォトヨドバシ"
+        }
+      ]
+    },
+    {
+      "name": "SUPER-VARIO-ELMAR-SL 16-35mm f/3.5-4.5 ASPH",
+      "source_url": "https://asobinet.com/super-vario-elmar-sl-16-35mm-f-3-5-4-5-asph/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/leica/lenses/leica_sl_16-35_3p5-4p5/sample-photos",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/leica/lenses/leica_sl_16-35_3p5-4p5",
+          "label": "DPREVIEW"
+        }
+      ]
+    },
+    {
+      "name": "VARIO-ELMARIT-SL 24-90mm f/2.8-4 ASPH.",
+      "source_url": "https://asobinet.com/vario-elmarit-sl-24-90mm-f-2-8-4-asph/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/leica/camera/sl601/index.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/leica/lenses/leica_sl_24-90_2p8-4_asph/sample-photos",
+          "label": "DPreview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/leica/lenses/leica_sl_24-90_2p8-4_asph",
+          "label": "DPREVIEW"
+        }
+      ]
+    },
+    {
+      "name": "APO-VARIO-ELMARIT-SL 90-280mm f/2.8-4",
+      "source_url": "https://asobinet.com/apo-vario-elmarit-sl-90-280mm-f-2-8-4/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/leica/lenses/leica_sl_90-280_2p8-4",
+          "label": "DPREVIEW"
+        }
+      ]
+    },
+    {
+      "name": "ELMARIT-TL 18mm f / 2.8 ASPH",
+      "source_url": "https://asobinet.com/elmarit-tl-18mm-f-2-8-asph/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/2910218710/leica-cl-first-sample-images",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/leica/lenses/leica_elmarit_tl_18mm_2p8_asph",
+          "label": "DPREVIEW"
+        }
+      ]
+    },
+    {
+      "name": "SUMMILUX-SL F1.4/50mm ASPH.",
+      "source_url": "https://asobinet.com/summilux-sl-f1-4-50mm-asph/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/2759098016/leica-summilux-sl-50mm-f1-4-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/leica/lenses/leica_sl_50_1p4_asph",
+          "label": "DPREVIEW"
+        }
+      ]
+    },
+    {
+      "name": "APO-Summicron-SL 75mm f/2 ASPH",
+      "source_url": "https://asobinet.com/leica-apo-summicron-sl-75mm-f-2-asph/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/leica/lens/apo_summicron_sl75_2asph/index.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/leica/lenses/leica_apo_summicron-sl_75_2_asph",
+          "label": "DPREVIEW"
+        }
+      ]
+    },
+    {
+      "name": "APO-Summicron-SL 90mm f/2 ASPH",
+      "source_url": "https://asobinet.com/leica-apo-summicron-sl-90mm-f-2-asph/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/5894013810/leica-apo-summicron-sl-90mm-f2-asph-sample-gallery",
+          "label": "Dpreview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/gear/leica/lens/apo_summicron_sl90_2asph/index.html",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://m.dpreview.com/products/leica/lenses/leica_apo_summicron-sl_90_2_asph",
+          "label": "DPREVIEW"
+        }
+      ]
+    },
+    {
+      "name": "AF 14mm F2.8 FE/RF",
+      "source_url": "https://asobinet.com/af14mm-f2-8-fe/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/6767881297/budget-wide-rokinon-af-14mm-f2-8-sample-gallery",
+          "label": "DPREVIEW"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/2210-news-Samyang_AF_14_mm_f_2.8_FE_-_sample_shots.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Lenses/Samyang/Samyang-AF-14mm-F28-Sony-FE",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/samyang/lenses/samyang_af_14_2p8_fe",
+          "label": "DPreview"
+        }
+      ]
+    },
+    {
+      "name": "AF 24mm f/2.8 FE",
+      "source_url": "https://asobinet.com/af-24mm-f-2-8-fe/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/af24_f28fe/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=539",
+          "label": "Lenstip"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/2286-news-Samyang_AF_24_mm_f_2.8_FE_-_sample_images.html",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "AF 35mm F1.4 FE",
+      "source_url": "https://asobinet.com/af-35mm-f1-4-fe/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/af35_f14fe/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/527.1-Lens_review-Samyang_AF_35_mm_f_1.4_FE_Introduction.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/7918003419/rokinon-af-35mm-f1-4-fe-sample-gallery-and-impressions",
+          "label": "DPreview"
+        }
+      ]
+    },
+    {
+      "name": "AF 35mm F1.8 FE",
+      "source_url": "https://asobinet.com/af-35mm-f1-8/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/samyang/lenses/samyang_af_35_1p8_fe",
+          "label": "DPReview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=607",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "AF 35mm f/2.8 FE",
+      "source_url": "https://asobinet.com/af-35mm-f2-8-fe/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/af35_f28fe/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/9174277180/rokinon-af-35mm-f2-8-fe-sample-gallery-and-impressions",
+          "label": "Dpreview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/518.1-Lens_review-Samyang_AF_35_mm_f_2.8_FE_Introduction.html",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "AF 45mm F1.8 FE",
+      "source_url": "https://asobinet.com/af-45mm-f1-8-fe/",
+      "review_links": [
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=590",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "AF 50mm F1.4 FE",
+      "source_url": "https://asobinet.com/af50mm-f1-4-fe/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/0108248925/rokinon-af-50mm-f1-4-fe-sample-gallery-impressions",
+          "label": "Dpreview"
+        },
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/sony/lens/af50_f14fe/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/Lenses/Samyang/Samyang-AF-50mm-F14-Sony-FE",
+          "label": "DxOMark"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/samyang/lenses/samyang_af_50_1p4_fe",
+          "label": "DPreview"
+        },
+        {
+          "site": "Lenstip",
+          "url": "http://www.lenstip.com/index.php?test=obiektywu&test_ob=490",
+          "label": "LensTips"
+        }
+      ]
+    },
+    {
+      "name": "AF 75mm F1.8 FE",
+      "source_url": "https://asobinet.com/af-75mm-f1-8-fe/",
+      "review_links": [
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/594.1-Lens_review-Samyang_AF_75_mm_f_1.8_FE_Introduction.html",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "AF 85mm F1.4 EF",
+      "source_url": "https://asobinet.com/af85mm-f1-4-ef/",
+      "review_links": [
+        {
+          "site": "Photo Yodobashi",
+          "url": "http://photo.yodobashi.com/canon/lens/af85_f14ef/",
+          "label": "フォトヨドバシ"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/3019451703/samyang-rokinon-85mm-f1-4-af-sample-gallery",
+          "label": "DPReview"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/products/samyang/lenses/samyang_af_85_1p4_ef",
+          "label": "DPREVIEW"
+        }
+      ]
+    },
+    {
+      "name": "AF 85mm F1.4 FE/RF",
+      "source_url": "https://asobinet.com/af85mm-f1-4-fe/",
+      "review_links": [
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/562.1-Lens_review-Samyang_AF_85_mm_f_1.4_FE_Introduction.html",
+          "label": "Lenstip"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/3019451703/samyang-rokinon-85mm-f1-4-fe-sample-gallery",
+          "label": "DPReview"
+        }
+      ]
+    },
+    {
+      "name": "VILTROX PFU RBMH 85mm F1.8",
+      "source_url": "https://asobinet.com/viltrox-pfu-rbmh-85mm-f1-8-stm/",
+      "review_links": [
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/568.1-Lens_review-Viltrox_PFU_RBMH_85_mm_f_1.8_STM_Introduction.html",
+          "label": "Lenstip"
+        }
+      ]
+    },
+    {
+      "name": "YN35mm F2S DF DSM",
+      "source_url": "https://asobinet.com/yn35mm-f2s-df-dsm/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/news/2927380531/yongnuo-announces-new-35mm-f2-autofocus-lens-for-full-frame-sony-cameras",
+          "label": "DPReview"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/yongnuo-yn-35mm-f2s-df-dsm-lens-test/",
+          "label": "DXO"
+        },
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/yongnuo-yn-35mm-f2z-df-dsm-nikon-lens-test/",
+          "label": "DXO Z"
+        }
+      ]
+    },
+    {
+      "name": "YN85mm F1.8S DF DSM",
+      "source_url": "https://asobinet.com/yn85mm-f1-8s-df-dsm/",
+      "review_links": [
+        {
+          "site": "DxOMark",
+          "url": "https://www.dxomark.com/yongnuo-yn-85mm-f1-8-s-df-dsm-lens-review/",
+          "label": "DXOMARK"
+        }
+      ]
+    },
+    {
+      "name": "完成度の高い超広角レンズ｜NIKKOR Z 20mm f/1.8 S",
+      "source_url": "https://asobinet.com/review-nikkor-z-20mm-f-1-8-s-phi/",
+      "review_links": [
+        {
+          "site": "Photography Life",
+          "url": "https://photographylife.com/reviews/nikon-z-20mm-f1-8-s",
+          "label": "Photographylife"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/587.7-Lens_review-Nikon_Nikkor_Z_20_mm_f_1.8_S_Coma__astigmatism_and_bokeh.html",
+          "label": "Lentip"
+        }
+      ]
+    },
+    {
+      "name": "キヤノン「EOS R3」「RF16mm F2.8」「RF100-400mm」予約販売開始！",
+      "source_url": "https://asobinet.com/info-preorder-start-eos-r3/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/news/8768191379/canon-launches-30fps-mirrorless-camera-with-eye-control-and-advanced-af",
+          "label": "速報"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/canon-eos-r3-initial-review",
+          "label": "ファーストインプレッション"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/4327775632/surf-and-turf-canon-eos-r3-pre-production-sample-gallery",
+          "label": "サンプルギャラリー"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/news/5329830744/canon-goes-far-and-wide-with-new-rf-100-400mm-f5-6-8-and-16mm-f2-8-lenses",
+          "label": "DPReview 速報"
+        }
+      ]
+    },
+    {
+      "name": "シグマ14-24mm F2.8 DG DNはバランスの良い解像性能と見事な逆光耐性【海外の評価】",
+      "source_url": "https://asobinet.com/info-review-14-24mm-f2-8-dg-dn-tip/",
+      "review_links": [
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=572",
+          "label": "Lenstip：Sigma A 14-24 mm f/2.8 DG DN"
+        }
+      ]
+    },
+    {
+      "name": "EOS R5 Mark II はオールラウンドすぎて全てを網羅したレビューは難しい",
+      "source_url": "https://asobinet.com/info-review-eos-r5-mark-ii-dp/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/reviews/canon-eos-r5-mark-ii-review",
+          "label": "DPReview：Canon EOS R5 II in-depth review"
+        }
+      ]
+    },
+    {
+      "name": "ソニー「α1」は幅広いプロフェッショナルが求めるレベルのカメラ",
+      "source_url": "https://asobinet.com/info-review-a1-dp-points/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/articles/3386319853/sony-a1-what-you-need-to-know-about-this-powerful-full-frame-flagship",
+          "label": "DPReview：Sony a1: what you need to know about this powerful new full-frame flags"
+        }
+      ]
+    },
+    {
+      "name": "DPReviewがRF24-240mm F4-6.3 IS USMのサンプルギャラリー55点を公開",
+      "source_url": "https://asobinet.com/info-sample-rf24-240mm-f4-6-3-is-usm-dp/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/samples/2514555088/canon-rf-24-240mm-f4-6-3-is-sample-gallery",
+          "label": "DPReview：Canon RF 24-240mm F4-6.3 IS sample gallery"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://3.img-dpreview.com/files/p/sample_galleries/6204946485/3804716876.jpg",
+          "label": "240mm F6.3を使用した遠景の作例"
+        },
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/sample-galleries/6204946485/canon-rf-24-240mm-f4-6-3-sample-gallery/6708593542",
+          "label": "逆光耐性はなかなか良さそう"
+        }
+      ]
+    },
+    {
+      "name": "ライカ M11-P 最新情報まとめ",
+      "source_url": "https://asobinet.com/info-announce-leica-m11-p/",
+      "review_links": [
+        {
+          "site": "DPReview",
+          "url": "https://www.dpreview.com/news/5885679704/leica-announces-m11-p-with-content-authenticity-initiative-metadata-recording",
+          "label": "DPReview 速報"
+        }
+      ]
+    },
+    {
+      "name": "35-150mm F/2-2.8 Di III VXD はズーム全域で優れた中央解像",
+      "source_url": "https://asobinet.com/info-review-35-150mm-f-2-2-8-di-iii-vxd-tip/",
+      "review_links": [
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=676",
+          "label": "Lenstip：Tamron 35-150 mm f/2-2.8 Di III VXD"
+        },
+        {
+          "site": "Lenstip",
+          "url": "https://www.lenstip.com/676.12-Lens_review-Tamron_35-150_mm_f_2-2.8_Di_III_VXD_Sample_shots.html",
+          "label": "作例集"
+        }
+      ]
+    }
+  ]
+}
