@@ -457,8 +457,8 @@ function FocalRangeSlider({
         )}
       </div>
 
-      {/* ゾーンラベル行 */}
-      <div className="relative h-4 mb-0.5">
+      {/* ゾーンラベル行（モバイルでは非表示） */}
+      <div className="relative h-4 mb-0.5 hidden sm:block">
         {ZONE_BANDS.map((z) => {
           const left = mmToLogPct(z.startMm) * 100
           const w    = (mmToLogPct(z.endMm) - mmToLogPct(z.startMm)) * 100
@@ -522,14 +522,14 @@ function FocalRangeSlider({
         )}
       </div>
 
-      {/* ゾーン境界ティック */}
+      {/* ゾーン境界ティック（モバイルでは両端のみ） */}
       <div className="relative h-3">
-        <span className="absolute text-[8px] text-slate-700" style={{ left: '0%' }}>12</span>
+        <span className="absolute text-[8px] text-slate-700" style={{ left: '0%' }}>12mm</span>
         {ZONE_TICKS.map((mm) => (
-          <span key={mm} className="absolute text-[8px] text-slate-700 -translate-x-1/2"
+          <span key={mm} className="absolute text-[8px] text-slate-700 -translate-x-1/2 hidden sm:inline"
             style={{ left: `${mmToLogPct(mm) * 100}%` }}>{mm}</span>
         ))}
-        <span className="absolute text-[8px] text-slate-700 -translate-x-full" style={{ left: '100%' }}>600</span>
+        <span className="absolute text-[8px] text-slate-700 -translate-x-full" style={{ left: '100%' }}>600mm</span>
       </div>
 
       {/* マクロトグル */}
