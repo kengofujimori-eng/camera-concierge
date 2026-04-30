@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { Send, Bot, User, Warehouse, Camera as CameraIcon, ChevronRight, ChevronDown, Check } from 'lucide-react'
+import { Send, Bot, User, Warehouse, Camera as CameraIcon, ChevronRight, ChevronDown, Check, Settings, RotateCcw, X } from 'lucide-react'
 import { motion, AnimatePresence, type Variants } from 'framer-motion'
 import Link from 'next/link'
 import { ChatMessage } from '@/types'
@@ -676,6 +676,8 @@ export default function ChatInterface() {
     } catch { /* ignore */ }
   }
 
+  const [showMobileSettings, setShowMobileSettings] = useState(false)
+
   const isComposingRef = useRef(false)
   const chatAreaRef = useRef<HTMLDivElement>(null)
   const bottomRef = useRef<HTMLDivElement>(null)
@@ -1115,20 +1117,95 @@ export default function ChatInterface() {
           </div>
         </div>
 
+        {/* モバイル設定ボトムシート */}
+        <AnimatePresence>
+          {showMobileSettings && (
+            <>
+              {/* オーバーレイ */}
+              <motion.div
+                className="md:hidden fixed inset-0 bg-black/60 z-40"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setShowMobileSettings(false)}
+              />
+              {/* パネル */}
+              <motion.div
+                className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-950 rounded-t-2xl border-t border-white/10 max-h-[80vh] overflow-y-auto"
+                initial={{ y: '100%' }}
+                animate={{ y: 0 }}
+                exit={{ y: '100%' }}
+                transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              >
+                {/* ハンドル */}
+                <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-white/5">
+                  <p className="text-sm font-semibold text-white">プロフィール設定</p>
+                  <button onClick={() => setShowMobileSettings(false)} className="text-slate-400 hover:text-white">
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+                <div className="px-4 py-4 space-y-4">
+                  <MountSelector selected={selectedMount} onChange={handleMountChange} />
+                  <div className="px-1">
+                    <p className="text-[10px] text-slate-500 mb-1">使用ボディ</p>
+                    {selectedMount && BODIES_BY_MOUNT[selectedMount.id] ? (
+                      <div className="space-y-1">
+                        <select
+                          value={BODIES_BY_MOUNT[selectedMount.id].includes(bodyInput) ? bodyInput : '__custom__'}
+                          onChange={(e) => { if (e.target.value !== '__custom__') handleBodySave(e.target.value) }}
+                          className="w-full rounded-lg bg-slate-800/60 border border-white/10 px-2.5 py-2 text-sm text-slate-200 focus:outline-none"
+                        >
+                          <option value="">-- 選択してください --</option>
+                          {BODIES_BY_MOUNT[selectedMount.id].map((b) => (
+                            <option key={b} value={b}>{b}</option>
+                          ))}
+                          <option value="__custom__">その他（直接入力）</option>
+                        </select>
+                        {(!BODIES_BY_MOUNT[selectedMount.id].includes(bodyInput) || bodyInput === '') && (
+                          <input type="text" value={bodyInput}
+                            onChange={(e) => setBodyInput(e.target.value)}
+                            onBlur={(e) => handleBodySave(e.target.value)}
+                            placeholder="機種名を直接入力..."
+                            className="w-full rounded-lg bg-slate-800/60 border border-white/10 px-2.5 py-2 text-sm text-slate-200 placeholder-slate-600 focus:outline-none"
+                          />
+                        )}
+                      </div>
+                    ) : (
+                      <input type="text" value={bodyInput}
+                        onChange={(e) => setBodyInput(e.target.value)}
+                        onBlur={(e) => handleBodySave(e.target.value)}
+                        placeholder="マウントを先に選択すると候補が出ます"
+                        className="w-full rounded-lg bg-slate-800/60 border border-white/10 px-2.5 py-2 text-sm text-slate-200 placeholder-slate-600 focus:outline-none"
+                      />
+                    )}
+                  </div>
+                  <BudgetSlider selected={selectedBudget} onChange={handleBudgetChange} />
+                  <FocalRangeSlider range={selectedFocal} onChange={handleFocalChange} macro={isMacro} onMacroChange={handleMacroChange} />
+                  {(selectedMount || bodyInput || selectedBudget || selectedFocal || isMacro) && (
+                    <p className="px-1 text-[11px] text-amber-500/70">✓ 質問に自動付与されます</p>
+                  )}
+                  <button
+                    onClick={() => setShowMobileSettings(false)}
+                    className="w-full rounded-xl bg-amber-500 py-3 text-sm font-semibold text-white"
+                  >
+                    設定を保存して閉じる
+                  </button>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
+
         {/* 入力エリア */}
-        <div className="border-t border-slate-200 bg-white dark:border-slate-700/60 dark:bg-slate-900 px-4 py-4">
+        <div className="border-t border-slate-200 bg-white dark:border-slate-700/60 dark:bg-slate-900 px-4 py-3">
           <div className="mx-auto max-w-3xl">
-            {/* モバイル用プロフィールバッジ（md以上では非表示） */}
-            {(selectedMount || bodyInput || selectedBudget || selectedFocal || isMacro) && (
-              <div className="md:hidden flex flex-wrap items-center gap-1.5 mb-2">
+            {/* モバイル用ツールバー */}
+            <div className="md:hidden flex items-center justify-between mb-2">
+              {/* 設定バッジ */}
+              <div className="flex flex-wrap items-center gap-1.5 flex-1 min-w-0">
                 {selectedMount && (
                   <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 text-[11px] text-amber-600 dark:text-amber-400">
                     <CameraIcon className="h-2.5 w-2.5" />{selectedMount.label}
-                  </span>
-                )}
-                {bodyInput && (
-                  <span className="rounded-full bg-slate-700/50 border border-white/10 px-2 py-0.5 text-[11px] text-slate-400">
-                    {bodyInput}
                   </span>
                 )}
                 {selectedBudget && (
@@ -1141,13 +1218,38 @@ export default function ChatInterface() {
                     {selectedFocal.minMm}–{selectedFocal.maxMm}mm
                   </span>
                 )}
-                {isMacro && (
-                  <span className="rounded-full bg-purple-500/20 border border-purple-500/30 px-2 py-0.5 text-[11px] text-purple-400">
-                    🔬マクロ
-                  </span>
+                {!selectedMount && !selectedBudget && !selectedFocal && (
+                  <span className="text-[11px] text-slate-500">設定未選択</span>
                 )}
               </div>
-            )}
+              {/* アクションボタン */}
+              <div className="flex items-center gap-1.5 flex-shrink-0 ml-2">
+                {messages.length > 0 && (
+                  <button
+                    onClick={() => {
+                      if (confirm('会話履歴をリセットしますか？')) {
+                        localStorage.removeItem('chatMessages')
+                        localStorage.removeItem('chatConversationId')
+                        setMessages([])
+                        setConversationId(undefined)
+                      }
+                    }}
+                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-red-400"
+                    title="会話をリセット"
+                  >
+                    <RotateCcw className="h-3.5 w-3.5" />
+                  </button>
+                )}
+                <button
+                  onClick={() => setShowMobileSettings(true)}
+                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-amber-400"
+                  title="設定"
+                >
+                  <Settings className="h-3.5 w-3.5" />
+                </button>
+              </div>
+            </div>
+
             <div className="flex gap-3 items-end">
               <textarea
                 ref={inputRef}
@@ -1177,7 +1279,7 @@ export default function ChatInterface() {
                 <Send className="h-4 w-4" />
               </motion.button>
             </div>
-            <p className="mt-2 text-center text-xs text-slate-400 dark:text-slate-600">
+            <p className="mt-2 text-center text-xs text-slate-400 dark:text-slate-600 hidden md:block">
               Shift+Enter で送信 / Enter で改行
             </p>
           </div>
