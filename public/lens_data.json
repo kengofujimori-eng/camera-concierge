@@ -2984,8 +2984,7 @@
           "site": "The Digital Picture",
           "url": "https://www.the-digital-picture.com/News/News-Post.aspx?News=34227",
           "label": "The Digital Picture"
-        },
-        "asobinet": "https://asobinet.com/fullreview-nikkor-z-35mm-f-1-8-s/"
+        }
       },
       "image_url": "/lens_images_processed/FE_35mm_F1.8.png",
       "weight": 280,
@@ -3184,8 +3183,7 @@
           "site": "The Digital Picture",
           "url": "https://www.the-digital-picture.com/Reviews/ISO-12233-Sample-Crops.aspx?Lens=1195",
           "label": "The Digital Picture"
-        },
-        "asobinet": "https://asobinet.com/review-nikkor-z-50mm-f-1-8-s-aberrations/"
+        }
       },
       "image_url": "/lens_images_processed/FE_50mm_F1.8.png",
       "weight": 186,
@@ -3246,8 +3244,7 @@
           "site": "DPReview",
           "url": "https://www.dpreview.com/products/sony/lenses/sony_fe_50_2p8_macro",
           "label": "DPreview"
-        },
-        "asobinet": "https://asobinet.com/review-nikkor-z-mc-50mm-f-2-8-bokeh/"
+        }
       },
       "image_url": "/lens_images_processed/FE_50mm_F2.8_マクロ.png",
       "weight": 236,
@@ -3447,8 +3444,7 @@
           "site": "Lenstip",
           "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=557",
           "label": "Lenstip"
-        },
-        "asobinet": "https://asobinet.com/fullreview-nikkor-z-85mm-f-1-8-s/"
+        }
       },
       "image_url": "/lens_images_processed/FE_85mm_F1.8.png",
       "weight": 371,
@@ -4192,8 +4188,7 @@
           "site": "DxOMark",
           "url": "https://www.dxomark.com/panasonic-lumix-s-85mm-f1-8-lens-review-strong-performer/",
           "label": "DXOMARK"
-        },
-        "asobinet": "https://asobinet.com/fullreview-nikkor-z-85mm-f-1-8-s/"
+        }
       },
       "image_url": "/lens_images_processed/LUMIX_S_85mm_F1.8.png",
       "weight": 355,
@@ -5428,8 +5423,7 @@
           "site": "DPReview",
           "url": "https://www.dpreview.com/products/samyang/lenses/samyang_af_14_2p8_fe",
           "label": "DPreview"
-        },
-        "asobinet": "https://asobinet.com/review-pergear-14mm-f2-8-res-inf/"
+        }
       },
       "image_url": "/lens_images_processed/AF_14mm_F2.8_FE_RF.png",
       "weight": 505,
@@ -5521,8 +5515,7 @@
           "site": "DPReview",
           "url": "https://www.dpreview.com/samples/7918003419/rokinon-af-35mm-f1-4-fe-sample-gallery-and-impressions",
           "label": "DPreview"
-        },
-        "asobinet": "https://asobinet.com/fullreview-nikkor-z-35mm-f-1-4/"
+        }
       },
       "image_url": "/lens_images_processed/AF_35mm_F1.4_FE.png",
       "weight": null,
@@ -6941,9 +6934,7 @@
     {
       "name": "E 35mm F1.8 OSS",
       "source_url": "https://www.sony.jp/ichigan/products/SEL35F18/",
-      "review_links": {
-        "asobinet": "https://asobinet.com/fullreview-nikkor-z-35mm-f-1-8-s/"
-      },
+      "review_links": {},
       "image_url": "/lens_images_processed/E_35mm_F1.8_OSS.png",
       "official_url": "https://www.sony.jp/ichigan/products/SEL35F18/",
       "purchase_links": {
@@ -7043,9 +7034,7 @@
     {
       "name": "E 50mm F1.8 OSS",
       "source_url": "https://www.sony.jp/ichigan/products/SEL50F18/",
-      "review_links": {
-        "asobinet": "https://asobinet.com/review-nikkor-z-50mm-f-1-8-s-aberrations/"
-      },
+      "review_links": {},
       "image_url": "/lens_images_processed/E_50mm_F1.8_OSS.png",
       "official_url": "https://www.sony.jp/ichigan/products/SEL50F18/",
       "purchase_links": {
@@ -7757,9 +7746,7 @@
     {
       "name": "RF 100mm F2.8 L Macro IS USM",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf100-f28l/",
-      "review_links": {
-        "asobinet": "https://asobinet.com/review-lumix-s-100mm-f2-8-macro-vine/"
-      },
+      "review_links": {},
       "image_url": "/lens_images_processed/RF_100mm_F2.8_L_Macro_IS_USM.png",
       "official_url": "https://cweb.canon.jp/rf/lineup/rf100-f28l/",
       "purchase_links": {
@@ -7922,9 +7909,7 @@
     {
       "name": "AF 50mm F1.4 Pro Z",
       "source_url": "https://viltrox.com/products/af-50mm-f1-4-z",
-      "review_links": {
-        "asobinet": "https://asobinet.com/review-lumix-s-pro-50mm-f1-4-ab/"
-      },
+      "review_links": {},
       "image_url": "/lens_images_processed/AF_50mm_F1.4_Pro_Z.png",
       "official_url": "https://viltrox.com/products/af-50mm-f1-4-z",
       "purchase_links": {
@@ -7955,9 +7940,7 @@
     {
       "name": "AF 16mm F1.8 L",
       "source_url": "https://viltrox.com/products/af-16mm-f1-8-l",
-      "review_links": {
-        "asobinet": "https://asobinet.com/review-viltrox-af-16mm-f1-8-l-mount/"
-      },
+      "review_links": {},
       "image_url": "/lens_images_processed/AF_16mm_F1.8_L.png",
       "official_url": "https://viltrox.com/products/af-16mm-f1-8-l",
       "purchase_links": {
@@ -7988,9 +7971,7 @@
     {
       "name": "AF 35mm F1.2 LAB Z",
       "source_url": "https://viltrox.com/products/af-35mm-f1-2-z",
-      "review_links": {
-        "asobinet": "https://asobinet.com/fullreview-viltrox-af-35mm-f1-2-lab/"
-      },
+      "review_links": {},
       "image_url": "/lens_images_processed/AF_35mm_F1.2_LAB_Z.png",
       "official_url": "https://viltrox.com/products/af-35mm-f1-2-z",
       "purchase_links": {
@@ -8115,9 +8096,7 @@
     {
       "name": "AF 85mm F2.0 EVO",
       "source_url": "https://viltrox.com/products/af-85mm-f2-0-fe",
-      "review_links": {
-        "asobinet": "https://asobinet.com/review-viltrox-af-85mm-f2-0-evo-vine/"
-      },
+      "review_links": {},
       "image_url": "/lens_images_processed/AF_85mm_F2.0_EVO.png",
       "official_url": "https://viltroxjapan.jp/products/viltrox-af-85mm-f20-evo-e",
       "purchase_links": {
@@ -9251,9 +9230,7 @@
     {
       "name": "Viltrox AF 50mm F1.4 PRO フルサイズ FE ソニーEマウント",
       "source_url": "https://viltroxjapan.jp/products/viltrox-af-50mm-f14-pro-e",
-      "review_links": {
-        "asobinet": "https://asobinet.com/review-lumix-s-pro-50mm-f1-4-ab/"
-      },
+      "review_links": {},
       "image_url": "/lens_images_processed/Viltrox_AF_50mm_F1.4_PRO_フルサイズ_FE_ソニーEマウント.png",
       "official_url": "https://viltroxjapan.jp/products/viltrox-af-50mm-f14-pro-e",
       "purchase_links": {
@@ -9927,9 +9904,7 @@
     {
       "name": "Viltrox AF 50mm F1.4 Pro ニコンZマウント",
       "source_url": "https://viltroxjapan.jp/products/viltrox-af-50mm-f14-pro-z",
-      "review_links": {
-        "asobinet": "https://asobinet.com/review-lumix-s-pro-50mm-f1-4-ab/"
-      },
+      "review_links": {},
       "image_url": "/lens_images_processed/Viltrox_AF_50mm_F1.4_Pro_ニコンZマウント.png",
       "official_url": "https://viltroxjapan.jp/products/viltrox-af-50mm-f14-pro-z",
       "purchase_links": {
@@ -11284,9 +11259,7 @@
     {
       "name": "RF 50mm F1.4 L VCM",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf50-f14l/",
-      "review_links": {
-        "asobinet": "https://asobinet.com/review-nikkor-z-50mm-f-1-4-ab/"
-      },
+      "review_links": {},
       "image_url": "/lens_images_processed/RF_50mm_F1.4_L_VCM.png",
       "official_url": "https://cweb.canon.jp/rf/lineup/rf50-f14l/",
       "purchase_links": {
@@ -11398,9 +11371,7 @@
     {
       "name": "RF 28mm F2.8 STM",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf28-f28/",
-      "review_links": {
-        "asobinet": "https://asobinet.com/review-nikkor-z-28mm-f-2-8-aberrations/"
-      },
+      "review_links": {},
       "image_url": "/lens_images_processed/RF_28mm_F2.8_STM.png",
       "official_url": "https://cweb.canon.jp/rf/lineup/rf28-f28/",
       "purchase_links": {
@@ -14484,9 +14455,7 @@
     {
       "name": "Samyang AF 14mm F2.8 FE",
       "source_url": "https://www.samyanglens.com/jp/product/product-view.php?seq=350",
-      "review_links": {
-        "asobinet": "https://asobinet.com/review-pergear-14mm-f2-8-res-inf/"
-      },
+      "review_links": {},
       "image_url": "/lens_images_processed/Samyang_AF_14mm_F2.8_FE.png",
       "official_url": "https://www.samyanglens.com/jp/product/product-view.php?seq=350",
       "purchase_links": {
@@ -14566,9 +14535,7 @@
     {
       "name": "Samyang AF 35mm F1.4 FE",
       "source_url": "https://www.samyanglens.com/jp/product/product-view.php?seq=351",
-      "review_links": {
-        "asobinet": "https://asobinet.com/fullreview-nikkor-z-35mm-f-1-4/"
-      },
+      "review_links": {},
       "image_url": "/lens_images_processed/Samyang_AF_35mm_F1.4_FE.png",
       "official_url": "https://www.samyanglens.com/jp/product/product-view.php?seq=351",
       "purchase_links": {
@@ -15972,9 +15939,7 @@
         "sample_images": null,
         "fetched_at": "2026-04-30"
       },
-      "review_links": {
-        "asobinet": "https://asobinet.com/review-viltrox-af-16mm-f1-8-l-mount/"
-      }
+      "review_links": {}
     },
     {
       "name": "Sigma 28-70mm F2.8 DG DN Contemporary",
@@ -16423,9 +16388,7 @@
         "sample_images": null,
         "fetched_at": "2026-04-30"
       },
-      "review_links": {
-        "asobinet": "https://asobinet.com/review-nikkor-z-50mm-f-1-8-s-aberrations/"
-      }
+      "review_links": {}
     },
     {
       "name": "Samyang Remaster Slim 21mm F3.5",
@@ -18352,9 +18315,7 @@
         }
       },
       "image_url": "/lens_images_processed/NOKTON_classic_35mm_F1.4_E.png",
-      "review_links": {
-        "asobinet": "https://asobinet.com/fullreview-nikkor-z-35mm-f-1-4/"
-      },
+      "review_links": {},
       "weight": null,
       "length": null,
       "filter_size": null,
@@ -19275,9 +19236,7 @@
         }
       },
       "image_url": "/lens_images_processed/LAOWA_60mm_f_2.8_2x_Ultra-Macro.png",
-      "review_links": {
-        "asobinet": "https://asobinet.com/fullreview-pergear-60mm-f2-8-macro-2x/"
-      },
+      "review_links": {},
       "weight": null,
       "length": null,
       "filter_size": null,
