@@ -8304,6 +8304,39 @@
       "image_url_external": "http://viltroxjapan.jp/cdn/shop/files/1_5d5bc40b-060f-4b1b-8a21-4c8eea170ee3.jpg?v=1743410574"
     },
     {
+      "name": "Viltrox AF 55mm F1.8 EVO FE ソニーEマウント",
+      "source_url": "https://viltroxjapan.jp/products/af-55mm-f1-8-evo-fe",
+      "review_links": {
+        "asobinet": "https://asobinet.com/viltrox-af-55mm-f1-8-evo/"
+      },
+      "image_url_external": "",
+      "official_url": "https://viltroxjapan.jp/products/af-55mm-f1-8-evo-fe",
+      "purchase_links": {
+        "new": {
+          "amazon": "https://www.amazon.co.jp/s?k=Viltrox+AF+55mm+F1.8+EVO&rh=n%3A2437276051&tag=techddd-22",
+          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FViltrox+AF+55mm+F1.8+EVO%2F&link_type=text",
+          "yahoo": "https://shopping.yahoo.co.jp/search?p=Viltrox+AF+55mm+F1.8+EVO&astid=12"
+        },
+        "used": {
+          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DViltrox%20AF%2055mm%20F1.8%20EVO"
+        }
+      },
+      "price_info": {
+        "new_price": 68400,
+        "used_price": null,
+        "fetched_at": "2026-05-01"
+      },
+      "mount": "Sony E",
+      "focal_length": 55,
+      "max_aperture": 1.8,
+      "min_aperture": 16,
+      "maker": "Viltrox",
+      "full_frame": true,
+      "af": true,
+      "image_stabilization": false,
+      "successor_of": "Viltrox AF 50mm F1.8 FE"
+    },
+    {
       "name": "Viltrox AF 9mm F2.8 AIR APS-C Z ニコンZマウント",
       "source_url": "https://viltroxjapan.jp/products/viltrox-af9mm-f28-air-aps-c-z",
       "review_links": {},
