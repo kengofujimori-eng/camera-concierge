@@ -1,0 +1,12 @@
+{
+  "_comment": "廃盤・販売終了レンズのリスト。このリストのレンズはDifyへの推薦禁止リストとして注入されます。",
+  "_updated": "2026-05-01",
+  "lenses": [
+    { "name": "Viltrox AF 50mm F1.8 FE",     "reason": "2024年10月生産終了" },
+    { "name": "Viltrox AF 24mm F1.8 FE",     "reason": "旧シリーズ・後継あり" },
+    { "name": "Viltrox AF 35mm F1.8 FE",     "reason": "旧シリーズ・後継あり" },
+    { "name": "Tamron 35mm F1.4 Di USD",      "reason": "一眼レフ用・ミラーレス非対応" },
+    { "name": "Tamron SP 35mm F1.4 Di USD",   "reason": "一眼レフ用・ミラーレス非対応" },
+    { "name": "Samyang AF 50mm F1.8 FE",      "reason": "旧モデル・後継(F1.4)あり" }
+  ]
+}

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { sendMessageToDify } from '@/lib/dify'
-import { findMentionedLenses, buildLensContext } from '@/lib/lensContext'
+import { findMentionedLenses, buildLensContext, buildDiscontinuedContext } from '@/lib/lensContext'
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,11 +13,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'メッセージを入力してください' }, { status: 400 })
     }
 
+    // 廃盤レンズリストを常時注入（推薦禁止リストとして）
+    const discontinuedContext = buildDiscontinuedContext()
+
     // メッセージ中に言及されているレンズを検出し、価格・レビューリンクをコンテキストとして注入
-    // レンズが見つからない場合はそのまま送信
     const mentionedLenses = findMentionedLenses(message)
-    const context         = buildLensContext(mentionedLenses)
-    const enrichedMessage = context ? `${context}\n\n${message}` : message
+    const lensContext     = buildLensContext(mentionedLenses)
+
+    const enrichedMessage = [discontinuedContext, lensContext, message]
+      .filter(Boolean)
+      .join('\n\n')
 
     const result = await sendMessageToDify(enrichedMessage, conversationId)
 

@@ -39,6 +39,9 @@ let _cache: Lens[] | null = null
 let _cacheTime = 0
 const CACHE_TTL_MS = 60 * 60 * 1000  // 1時間
 
+// 廃盤レンズリストのキャッシュ
+let _discontinuedCache: string | null = null
+
 function getLenses(): Lens[] {
   const now = Date.now()
   if (_cache && now - _cacheTime < CACHE_TTL_MS) return _cache
@@ -115,6 +118,40 @@ function formatReviewLinks(links: ReviewLinks | undefined): string[] {
   }
 
   return lines
+}
+
+/**
+ * 廃盤・販売終了レンズのリストをDifyへの推薦禁止コンテキストとして返す
+ * discontinued_lenses.json を読み込み、キャッシュする
+ */
+export function buildDiscontinuedContext(): string {
+  if (_discontinuedCache !== null) return _discontinuedCache
+
+  try {
+    const filePath = path.join(process.cwd(), 'public', 'discontinued_lenses.json')
+    const raw = JSON.parse(fs.readFileSync(filePath, 'utf8')) as {
+      lenses: { name: string; reason: string }[]
+    }
+    if (!raw.lenses || raw.lenses.length === 0) {
+      _discontinuedCache = ''
+      return ''
+    }
+
+    const items = raw.lenses
+      .map(l => `・${l.name}（${l.reason}）`)
+      .join('\n')
+
+    _discontinuedCache = [
+      '[推薦禁止レンズリスト（廃盤・旧世代品）ユーザーには表示不要]',
+      '以下のレンズは廃盤・販売終了・旧世代のため、いかなる場合もユーザーへの推薦・言及を禁止します:',
+      items,
+      '[推薦禁止リスト終わり]',
+    ].join('\n')
+  } catch {
+    _discontinuedCache = ''
+  }
+
+  return _discontinuedCache
 }
 
 /**
