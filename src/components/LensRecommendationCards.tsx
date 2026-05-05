@@ -43,6 +43,7 @@ interface LensPriceData {
   price_info?: PriceInfo
   photo_yodobashi_url?: string
   model_code?: string
+  discontinued?: boolean
 }
 interface LensPriceDatabase { lenses: LensPriceData[] }
 
@@ -397,6 +398,14 @@ export default function LensRecommendationCards({ responseText }: { responseText
     } catch { /* ignore */ }
   }, [])
 
+  // lens_data.json で discontinued: true のレンズは推薦カードに表示しない
+  const visibleLensEntries = lensPriceDb
+    ? lensEntries.filter((entry) => {
+        const priceData = findLensInDatabase(entry.name, lensPriceDb)
+        return priceData?.discontinued !== true
+      })
+    : []
+
   function addToWarehouse(lensName: string, type: 'owned' | 'wishlist', tag: string) {
     // ── このレンズの【タグ】セクション内テキストを抽出 ──
     function extractLensSection(text: string, lensTag: string): string {
@@ -474,10 +483,12 @@ export default function LensRecommendationCards({ responseText }: { responseText
   }
 
   if (lensEntries.length === 0) return null
+  if (lensPriceDb === null) return null
+  if (visibleLensEntries.length === 0) return null
 
   return (
     <div className="mt-4 space-y-3">
-      {lensEntries.map((entry, i) => (
+      {visibleLensEntries.map((entry, i) => (
         <LensCard
           key={entry.name}
           lensName={entry.name}
