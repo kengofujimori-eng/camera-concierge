@@ -9278,7 +9278,10 @@
         "sample_images": null,
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算53mm相当の軽量低価格単焦点。Xマウント入門や日常撮影で選びやすい。"
     },
     {
       "name": "Viltrox AF 28mm F4.5 AIR ソニーEマウント",
@@ -10086,7 +10089,10 @@
         ],
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算53mm相当の軽量低価格単焦点。色違いモデルで、日常撮影向けに選びやすい。"
     },
     {
       "name": "Viltrox AF 50mm F1.4 Pro ニコンZマウント",
@@ -12768,7 +12774,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "Xマウント用の小型F2.8標準ズーム。換算27-76mm相当で軽量重視なら有力。"
     },
     {
       "name": "Sigma 23mm F1.4 DC DN Contemporary",
@@ -13531,7 +13540,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf16mmf14-r-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2016/10/2_thum_xf16mmf1-4-r-wr.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2016/10/2_thum_xf16mmf1-4-r-wr.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "換算24mm相当の明るい広角単焦点。近接と描写は魅力だが設計は旧世代。"
     },
     {
       "name": "XF16mmF2.8 R WR",
@@ -13583,7 +13595,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf18mmf14-r-lm-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2021/04/thum_xf18mmf1.4_haoi.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2021/04/thum_xf18mmf1.4_haoi.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算27mm相当の現行高画質単焦点。日常・旅行・動画で広角寄りを重視する場合に有力。"
     },
     {
       "name": "XF18mmF2 R",
@@ -13644,7 +13659,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算35mm相当の現行大口径単焦点。画質・AF・防滴の総合力が高く本命候補。"
     },
     {
       "name": "XF23mmF2 R WR",
@@ -13670,7 +13688,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf23mmf2-r-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2017/04/5_thum_xf23mmf2-r-wr.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2017/04/5_thum_xf23mmf2-r-wr.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算35mm相当の小型単焦点。軽量防滴で日常スナップに通常推薦しやすい。"
     },
     {
       "name": "XF23mmF2.8 R WR",
@@ -13806,7 +13827,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf27mmf28-r-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2021/01/thum_xf27mmf28-r-wr-lboe.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2021/01/thum_xf27mmf28-r-wr-lboe.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算41mm相当の薄型パンケーキ。携行性重視のスナップ用に推薦しやすい。"
     },
     {
       "name": "XF30mmF2.8 R LM WR Macro",
@@ -13841,7 +13865,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算46mm相当の標準マクロ。日常と近接撮影を兼ねたい場合に推薦しやすい。"
     },
     {
       "name": "XF33mmF1.4 R LM WR",
@@ -13867,7 +13894,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf33mmf14-r-lm-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2021/09/1_thum_xf33mmf14-r-lm-wr_nakp-1.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2021/09/1_thum_xf33mmf14-r-lm-wr_nakp-1.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算50mm相当の現行大口径単焦点。画質・AF・防滴のバランスが良い標準本命。"
     },
     {
       "name": "XF35mmF1.4 R",
@@ -13893,7 +13923,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf35mmf14-r",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2016/10/7_thum_xf35mmf1-4-r.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2016/10/7_thum_xf35mmf1-4-r.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "換算53mm相当の旧世代名玉。描写の魅力は強いがAFや設計面では現行品を確認したい。"
     },
     {
       "name": "XF35mmF2 R WR",
@@ -13919,7 +13952,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf35mmf2-r-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2016/10/8_thum_xf35mmf2-r-wr.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2016/10/8_thum_xf35mmf2-r-wr.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算53mm相当の小型防滴単焦点。軽量でAFも扱いやすく日常用に推薦しやすい。"
     },
     {
       "name": "XF50mmF1.0 R WR",
@@ -13945,7 +13981,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf50mmf1-r-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2020/09/xf50mmf1-r-wr_feature-ahaf.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2020/09/xf50mmf1-r-wr_feature-ahaf.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "換算76mm相当の超大口径。高価で大きいため、強いボケを狙う人物撮影向け。"
     },
     {
       "name": "XF50mmF2 R WR",
@@ -13971,7 +14010,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf50mmf2-r-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2017/04/9_thum_xf50mmf2-r-wr.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2017/04/9_thum_xf50mmf2-r-wr.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算76mm相当の小型中望遠。軽量防滴でポートレート入門にも推薦しやすい。"
     },
     {
       "name": "XF56mmF1.2 R WR",
@@ -13997,7 +14039,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf56mmf12-r-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2022/09/1_thum_xf56mmf12-r-wr_qwer.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2022/09/1_thum_xf56mmf12-r-wr_qwer.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算85mm相当の現行大口径ポートレート単焦点。人物撮影の本命候補。"
     },
     {
       "name": "XF60mmF2.4 R Macro",
@@ -14049,7 +14094,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf80mmf28-r-lm-ois-wr-macro",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2017/09/13_thum_xf80mmf2-8macro.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2017/09/13_thum_xf80mmf2-8macro.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算122mm相当の本格マクロ。手ぶれ補正付きで近接撮影を重視する場合に有力。"
     },
     {
       "name": "XF90mmF2 R LM WR",
@@ -14075,7 +14123,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf90mmf2-r-lm-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2016/10/14_thum_xf90mmf2-r-lm-wr.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2016/10/14_thum_xf90mmf2-r-lm-wr.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算137mm相当の高画質中望遠。人物・舞台・圧縮効果狙いで推薦しやすい。"
     },
     {
       "name": "XF200mmF2 R LM OIS WR",
@@ -14153,7 +14204,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xc35mmf2",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2020/01/xc35mmf2_thum.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2020/01/xc35mmf2_thum.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算53mm相当の低価格単焦点。防滴や絞りリング不要なら入門用に推薦しやすい。"
     },
     {
       "name": "XF8-16mmF2.8 R LM WR",
@@ -14179,7 +14233,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf8-16mmf28-r-lm-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2018/07/1_thum_xf8-16mmf2_8-r-lm-wr.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2018/07/1_thum_xf8-16mmf2_8-r-lm-wr.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "換算12-24mm相当の大口径超広角。高価で大型のため風景・建築など明確な用途向け。"
     },
     {
       "name": "XF10-24mmF4 R OIS WR",
@@ -14205,7 +14262,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf10-24mmf4-r-ois-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2020/10/xf10-24mmf4-r-ois-wr-product-list.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2020/10/xf10-24mmf4-r-ois-wr-product-list.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算15-36mm相当の超広角ズーム。風景・旅行で扱いやすく通常推薦しやすい。"
     },
     {
       "name": "XF16-50mmF2.8-4.8 R LM WR",
@@ -14231,7 +14291,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf16-50mmf28-48-r-lm-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2024/05/XF16-50mm_lens_feature-image-2.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2024/05/XF16-50mm_lens_feature-image-2.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行の小型標準ズーム。換算24-76mm相当で、キット更新や旅行用に通常推薦しやすい。"
     },
     {
       "name": "XF16-55mmF2.8 R LM WR II",
@@ -14283,7 +14346,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf16-80mmf4-r-ois-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2019/10/xf16-80mmf4-r-ois-wr_thum.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2019/10/xf16-80mmf4-r-ois-wr_thum.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算24-122mm相当の便利ズーム。旅行・日常用として守備範囲が広く推薦しやすい。"
     },
     {
       "name": "XF18-120mmF4 LM PZ WR",
@@ -14335,7 +14401,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf18-135mmf35-56-r-lm-ois-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2016/10/7_thum_xf18-135mmf3-5-5-6-r-lm-ois-wr.jpg.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2016/10/7_thum_xf18-135mmf3-5-5-6-r-lm-ois-wr.jpg.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "高倍率で便利な旧世代ズーム。画質やAFより一本で済ませたい旅行用途向け。"
     },
     {
       "name": "XF50-140mmF2.8 R LM OIS WR",
@@ -14361,7 +14430,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf50-140mmf28-r-lm-ois-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2016/10/3_thum_xf50-140mmf2_8-r-lm-ois-wr.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2016/10/3_thum_xf50-140mmf2_8-r-lm-ois-wr.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算76-213mm相当の大三元望遠ズーム。人物・イベントで通常推薦しやすい。"
     },
     {
       "name": "XF55-200mmF3.5-4.8 R LM OIS",
@@ -14413,7 +14485,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf70-300mmf4-56-r-lm-ois-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2021/01/thum_xf70-300mm-lboe.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2021/01/thum_xf70-300mm-lboe.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "換算107-457mm相当の軽量望遠ズーム。旅行・野鳥入門で推薦しやすい。"
     },
     {
       "name": "XF100-400mmF4.5-5.6 R LM OIS WR",
@@ -14439,7 +14514,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf100-400mmf45-56-r-lm-ois-wr",
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2016/10/4_thum_xf100-400mmf4-5-5-6-r-lm-ois-wr.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2016/10/4_thum_xf100-400mmf4-5-5-6-r-lm-ois-wr.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "換算152-609mm相当の超望遠ズーム。大きく用途限定のため野鳥・スポーツ向け。"
     },
     {
       "name": "XF150-600mmF5.6-8 R LM OIS WR",
@@ -14647,7 +14725,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "xf18-55mmf28-4-r-lm-ois",
-      "image_url_external": "https://img.one-scene.com/uploads/lens/photo/8J/ZT/9g/square_with_white_background_medium_8JZT9g.jpeg?1751591294"
+      "image_url_external": "https://img.one-scene.com/uploads/lens/photo/8J/ZT/9g/square_with_white_background_medium_8JZT9g.jpeg?1751591294",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "旧定番の標準ズーム。中古価値は高いが、現行世代や広角側を重視するなら新型を優先。"
     },
     {
       "name": "Samyang AF 12mm F2.0 FE",
