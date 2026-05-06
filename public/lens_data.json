@@ -8368,7 +8368,7 @@
       "review_links": {
         "asobinet": "https://asobinet.com/viltrox-af-55mm-f1-8-evo/"
       },
-      "image_url_external": "",
+      "image_url_external": "https://viltrox.com/cdn/shop/files/AF_55mm_F1.8_II_EVO_FE-_front_view.png?v=1776245467",
       "official_url": "https://viltroxjapan.jp/products/af-55mm-f1-8-evo-fe",
       "purchase_links": {
         "new": {
@@ -8393,7 +8393,10 @@
       "full_frame": true,
       "af": true,
       "image_stabilization": false,
-      "successor_of": "Viltrox AF 50mm F1.8 FE"
+      "successor_of": "Viltrox AF 50mm F1.8 FE",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "現行の軽量・低価格な標準単焦点候補。50mm希望に対して55mm相当で、レビュー蓄積やAF安定性は純正・Sigmaと比較して確認したい。"
     },
     {
       "name": "Viltrox AF 9mm F2.8 AIR APS-C Z ニコンZマウント",
