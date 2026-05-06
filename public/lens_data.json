@@ -12800,6 +12800,11 @@
     },
     {
       "name": "Sigma 18-50mm F2.8 DC DN Contemporary",
+      "brand": "Sigma",
+      "mount": "Sony E",
+      "supported_mounts": [
+        "Sony E"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/c022_18_50/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-18-50mm-f2-8-dc-dn-aberrations/"
@@ -12808,12 +12813,12 @@
       "official_url": "https://www.sigma-global.com/jp/lenses/c022_18_50/",
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Sigma%2018-50mm%20F2.8%20DC%20DN%20Contemporary&rh=n%3A2437276051&tag=techddd-22",
-          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSigma%2018-50mm%20F2.8%20DC%20DN%20Contemporary%2F&link_type=text",
-          "yahoo": "https://shopping.yahoo.co.jp/search?p=Sigma%2018-50mm%20F2.8%20DC%20DN%20Contemporary&astid=12"
+          "amazon": "https://www.amazon.co.jp/s?k=Sigma%2018-50mm%20F2.8%20DC%20DN%20Sony%20E&rh=n%3A2437276051&tag=techddd-22",
+          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSigma%2018-50mm%20F2.8%20DC%20DN%20Sony%20E%2F&link_type=text",
+          "yahoo": "https://shopping.yahoo.co.jp/search?p=Sigma%2018-50mm%20F2.8%20DC%20DN%20Sony%20E&astid=12"
         },
         "used": {
-          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DSigma%2018-50mm%20F2.8%20DC%20DN%20Contemporary"
+          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DSigma%2018-50mm%20F2.8%20DC%20DN%20Sony%20E"
         }
       },
       "price_info": {
@@ -12834,7 +12839,7 @@
       },
       "availability_status": "current",
       "recommendation_status": "recommend",
-      "recommendation_note": "Xマウント用の小型F2.8標準ズーム。換算27-76mm相当で軽量重視なら有力。"
+      "recommendation_note": "Sony E APS-C用の小型F2.8標準ズーム。換算27-75mm相当で、旅行・日常用の軽量標準ズームとして推薦しやすい。"
     },
     {
       "name": "Sigma 23mm F1.4 DC DN Contemporary",
