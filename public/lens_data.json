@@ -402,7 +402,10 @@
         "sample_images": null,
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "小型軽量なL望遠ズーム。F2.8ほどの明るさが不要なら旅行・風景・日常望遠で推薦しやすい。"
     },
     {
       "name": "RF100-500mm F4.5-7.1 L IS USM",
@@ -446,7 +449,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001272155/"
       },
-      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf100-500-f45-71l/rf100-500-f45-71l.jpg?sc_lang=ja-JP\\&hash=6E45E494F4A75E34CB22F93635ED16D0"
+      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf100-500-f45-71l/rf100-500-f45-71l.jpg?sc_lang=ja-JP\\&hash=6E45E494F4A75E34CB22F93635ED16D0",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "高性能な超望遠Lズーム。高価で用途が野鳥・航空・スポーツ寄りのため目的が明確な場合向け。"
     },
     {
       "name": "RF35mm F1.8 Macro IS STM",
@@ -7788,7 +7794,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "rf14-35-f4l",
-      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf14-35-f4l/rf14-35-f4l.jpg?sc_lang=ja-JP\\&hash=E1A42A8C96256983A5117002C78528CE"
+      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf14-35-f4l/rf14-35-f4l.jpg?sc_lang=ja-JP\\&hash=E1A42A8C96256983A5117002C78528CE",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "小型軽量なL超広角ズーム。F4で十分な風景・旅行用途なら通常推薦しやすい。"
     },
     {
       "name": "RF 16mm F2.8 STM",
@@ -7873,7 +7882,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行Lマクロ。等倍超えの近接性能と手ぶれ補正があり、本格マクロ用途で推薦しやすい。"
     },
     {
       "name": "RF 135mm F1.8 L IS USM",
@@ -7899,7 +7911,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "rf135-f18l",
-      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf135-f18l/rf135-f18l.jpg?sc_lang=ja-JP\\&hash=3AF82E8888696BF96EE2D9C6D19F8676"
+      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf135-f18l/rf135-f18l.jpg?sc_lang=ja-JP\\&hash=3AF82E8888696BF96EE2D9C6D19F8676",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "高画質な大口径135mm。高価で画角も用途限定のため、人物・舞台撮影など目的が明確な場合向け。"
     },
     {
       "name": "RF 200-800mm F6.3-9 IS USM",
@@ -11432,7 +11447,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行L VCMの標準単焦点。F1.2より扱いやすく、静止画と動画の両方で有力候補。"
     },
     {
       "name": "RF 500mm F4 L IS USM",
