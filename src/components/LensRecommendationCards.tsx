@@ -22,7 +22,7 @@ interface WarehouseItem {
 
 // lens_links.json 型
 interface ReviewLink { site: string; url: string; label: string }
-interface LensLinkData { name: string; source_url: string; review_links: ReviewLink[] }
+interface LensLinkData { name: string; source_url: string; review_links: ReviewLink[]; model_code?: string; brand?: string; maker?: string }
 interface LensLinkDatabase { total: number; lenses: LensLinkData[] }
 
 // lens_data.json 型
@@ -37,6 +37,10 @@ interface PriceInfo {
 }
 interface LensPriceData {
   name: string
+  source_url?: string
+  official_url?: string
+  brand?: string
+  maker?: string
   image_url?: string
   image_url_external?: string
   purchase_links?: PurchaseLinks
@@ -142,6 +146,41 @@ function normalize(str: string): string {
   return str.toLowerCase().replace(/[^\w]/g, '')
 }
 
+function normalizeModelCode(str: string): string {
+  return str.toLowerCase().replace(/[^a-z0-9]/g, '')
+}
+
+function tokenizeName(str: string): string[] {
+  return str
+    .toLowerCase()
+    .replace(/f(\d+)\.(\d+)/g, 'f$1$2')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+}
+
+function canonicalTokenKey(str: string): string {
+  return tokenizeName(str).sort().join('|')
+}
+
+function inferBrandFromText(text?: string): string | null {
+  if (!text) return null
+  const normalizedText = text.toLowerCase()
+  const brands = ['sony', 'canon', 'nikon', 'sigma', 'tamron', 'viltrox', 'tokina', 'samyang', 'laowa', 'fujifilm']
+  return brands.find((brand) => normalizedText.includes(brand)) ?? null
+}
+
+function inferBrand<T extends { name: string; brand?: string; maker?: string; source_url?: string; official_url?: string }>(lens: T): string | null {
+  return (
+    inferBrandFromText(lens.brand)
+    ?? inferBrandFromText(lens.maker)
+    ?? inferBrandFromText(lens.name)
+    ?? inferBrandFromText(lens.official_url)
+    ?? inferBrandFromText(lens.source_url)
+  )
+}
+
 // マウント名・メーカー名サフィックスを除去してコアモデル名だけ残す
 // 例: "VILTROX AF 75mm F1.2 Pro FE" → "viltroxaf75mmf12pro"
 //     "Viltrox AF 75mm F1.2 PRO ソニーEマウント" → "viltroxaf75mmf12pro"
@@ -155,28 +194,68 @@ function stripMountInfo(str: string): string {
     .replace(/\s+(富士フイルム|ソニー|ニコン|キヤノン|パナソニック|ライカ|シグマ)(.*?)?(マウント|用|対応)?\s*$/g, '')
 }
 
-function findLensInDatabase<T extends { name: string }>(lensName: string, db: T[]): T | null {
+function findLensInDatabase<T extends { name: string; brand?: string; maker?: string; source_url?: string; official_url?: string; model_code?: string }>(lensName: string, db: T[]): T | null {
   const candidates = [lensName, stripBrandPrefix(lensName)]
+  const queryBrand = inferBrandFromText(lensName)
+
   for (const candidate of candidates) {
     const q = normalize(candidate)
     if (q.length < 6) continue
-    const exact = db.find((l) => normalize(l.name) === q)
-    if (exact) return exact
-    const contains = db.find((l) => {
-      const n = normalize(l.name)
-      return (n.includes(q) || q.includes(n)) && Math.min(n.length, q.length) >= 8
-    })
-    if (contains) return contains
+    const exactMatches = db.filter((l) => normalize(l.name) === q)
+    if (exactMatches.length > 0) {
+      return exactMatches.find((l) => !queryBrand || inferBrand(l) === queryBrand) ?? exactMatches[0]
+    }
+
     // マウント名を除去して再試行
     const qCore = normalize(stripMountInfo(candidate))
     if (qCore.length >= 8 && qCore !== q) {
-      const mountStripped = db.find((l) => {
+      const mountStripped = db.filter((l) => {
         const nCore = normalize(stripMountInfo(l.name))
-        return nCore === qCore || (nCore.includes(qCore) && Math.min(nCore.length, qCore.length) >= 8)
+        return nCore === qCore
       })
-      if (mountStripped) return mountStripped
+      if (mountStripped.length > 0) {
+        return mountStripped.find((l) => !queryBrand || inferBrand(l) === queryBrand) ?? mountStripped[0]
+      }
     }
   }
+
+  const scored = db
+    .map((lens) => {
+      const lensBrand = inferBrand(lens)
+      const brandMatches = !queryBrand || lensBrand === queryBrand
+      const qFull = normalize(lensName)
+      const qCore = normalize(stripMountInfo(stripBrandPrefix(lensName)))
+      const qTokens = canonicalTokenKey(lensName)
+      const qCoreTokens = canonicalTokenKey(stripMountInfo(stripBrandPrefix(lensName)))
+      const nameFull = normalize(lens.name)
+      const nameCore = normalize(stripMountInfo(stripBrandPrefix(lens.name)))
+      const nameTokens = canonicalTokenKey(lens.name)
+      const nameCoreTokens = canonicalTokenKey(stripMountInfo(stripBrandPrefix(lens.name)))
+      const modelCode = lens.model_code ? normalizeModelCode(lens.model_code) : ''
+      const qModel = normalizeModelCode(lensName)
+
+      let score = 0
+      if (modelCode && (qModel === modelCode || qModel.includes(modelCode))) score = Math.max(score, 120)
+      if (nameTokens && nameTokens === qTokens) score = Math.max(score, 100)
+      if (nameCoreTokens && nameCoreTokens === qCoreTokens) score = Math.max(score, 92)
+      if (nameFull === qFull) score = Math.max(score, 90)
+      if (nameCore === qCore) score = Math.max(score, 82)
+      if ((nameFull.includes(qFull) || qFull.includes(nameFull)) && Math.min(nameFull.length, qFull.length) >= 10) {
+        score = Math.max(score, 45)
+      }
+      if ((nameCore.includes(qCore) || qCore.includes(nameCore)) && Math.min(nameCore.length, qCore.length) >= 10) {
+        score = Math.max(score, 40)
+      }
+
+      if (queryBrand) score += brandMatches ? 20 : -80
+      score += Math.min(nameFull.length, 30) / 100
+      return { lens, score }
+    })
+    .filter(({ score }) => score >= 60)
+    .sort((a, b) => b.score - a.score)
+
+  if (scored.length > 0) return scored[0].lens
+
   return null
 }
 

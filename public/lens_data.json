@@ -5785,6 +5785,7 @@
     },
     {
       "name": "AF 50mm F1.4 FE",
+      "brand": "Samyang",
       "source_url": "https://asobinet.com/af50mm-f1-4-fe/",
       "review_links": {
         "0": {
@@ -5831,10 +5832,10 @@
         }
       },
       "price_info": {
-        "new_price": 163885,
-        "used_price": 150000,
+        "new_price": 68382,
+        "used_price": 56800,
         "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001518235/"
+        "kakaku_url": "https://kakaku.com/item/K0001411098/"
       },
       "image_url_external": "https://m.media-amazon.com/images/I/51Md-wcv9hL._AC_UY218_.jpg",
       "asobinet_info": {
@@ -14777,6 +14778,7 @@
     },
     {
       "name": "Samyang AF 50mm F1.4 FE",
+      "brand": "Samyang",
       "source_url": "https://www.samyanglens.com/jp/product/product-view.php?seq=352",
       "review_links": {
         "asobinet": "https://asobinet.com/review-af-50mm-f1-4-ii-bokeh/"
@@ -14810,6 +14812,7 @@
     },
     {
       "name": "Samyang AF 50mm F1.4 II FE",
+      "brand": "Samyang",
       "source_url": "https://www.samyanglens.com/jp/product/product-view.php?seq=454",
       "review_links": {
         "asobinet": "https://asobinet.com/review-af-50mm-f1-4-ii-bokeh/"
