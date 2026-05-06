@@ -1172,7 +1172,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001130068/"
       },
-      "image_url_external": "https://nij.nikon.com/cms/products/lineup/nikkor/zmount/nikkor_z_24-70mm_f28_s_2/img/index/product_01.jpg"
+      "image_url_external": "https://nij.nikon.com/cms/products/lineup/nikkor/zmount/nikkor_z_24-70mm_f28_s_2/img/index/product_01.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行S-Line大三元の標準ズーム。高価だが画質・AF・信頼性が高く通常推薦しやすい。"
     },
     {
       "name": "NIKKOR Z 24-70mm f/4 S",
@@ -1241,7 +1244,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001083382/"
       },
-      "image_url_external": "https://nij.nikon.com/cms/products/nikkor/zmount/nikkor_z_24-70mm_f4s/img/index/product_01.jpg"
+      "image_url_external": "https://nij.nikon.com/cms/products/nikkor/zmount/nikkor_z_24-70mm_f4s/img/index/product_01.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "小型軽量なS-Line標準ズーム。中古価格も含めて携行性重視なら推薦しやすい。"
     },
     {
       "name": "NIKKOR Z 24-200mm f/4-6.3 VR",
@@ -1344,7 +1350,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001222494/"
       },
-      "image_url_external": "https://nij.nikon.com/cms/products/nikkor/zmount/nikkor_z_70-200mm_f28_vr_s/img/index/product_01.jpg"
+      "image_url_external": "https://nij.nikon.com/cms/products/nikkor/zmount/nikkor_z_70-200mm_f28_vr_s/img/index/product_01.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行S-Line大三元の望遠ズーム。人物・イベント・スポーツで通常推薦しやすい。"
     },
     {
       "name": "NIKKOR Z 20mm f/1.8 S",
@@ -1594,7 +1603,10 @@
         "sample_images": null,
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "高画質で扱いやすいS-Line 35mm。日常・旅行・動画まで通常推薦しやすい。"
     },
     {
       "name": "NIKKOR Z 50mm f/1.8 S",
@@ -1671,7 +1683,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "高画質で価格も比較的抑えた標準単焦点。Z用50mmの通常推薦候補。"
     },
     {
       "name": "NIKKOR Z 50mm f/1.2 S",
@@ -1740,7 +1755,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001290458/"
       },
-      "image_url_external": "https://nij.nikon.com/cms/products/nikkor/zmount/nikkor_z_50mm_f12_s/img/index/product_01.jpg"
+      "image_url_external": "https://nij.nikon.com/cms/products/nikkor/zmount/nikkor_z_50mm_f12_s/img/index/product_01.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "大口径S-Lineの高画質50mm。高価で重いため、ボケと描写を最優先する用途向け。"
     },
     {
       "name": "NIKKOR Z 58mm f/0.95 S Noct",
@@ -1928,7 +1946,10 @@
         "sample_images": null,
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "高画質で扱いやすいS-Line 85mm。ポートレート用として通常推薦しやすい。"
     },
     {
       "name": "NIKKOR Z DX 16-50mm f/3.5-6.3 PZ VR",
@@ -8661,7 +8682,10 @@
         "sample_images": null,
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "高画質志向の大口径135mm。重さと用途限定性があるため人物・舞台撮影向け。"
     },
     {
       "name": "Viltrox AF 35mm F1.7 AIR APS-C ZニコンZマウント",
@@ -8763,7 +8787,10 @@
         ],
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "APS-C Z向けの軽量低価格35mm。フルサイズ用ではないためDX機ユーザー向け。"
     },
     {
       "name": "Viltrox AF 9mm F2.8 AIR APS-C 富士フィルム X マウント",
@@ -10089,7 +10116,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "高コスパな大口径50mm。純正より価格を抑えて明るい標準単焦点を使いたい場合に有力。"
     },
     {
       "name": "Viltrox AF 16mm F1.8 ライカL",
@@ -11213,7 +11243,10 @@
         "sample_images": null,
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "本格マクロ向けのS-Line中望遠。手ぶれ補正と描写性能が高く通常推薦しやすい。"
     },
     {
       "name": "NIKKOR Z 70-180mm f/2.8",
@@ -11283,7 +11316,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "超望遠域を比較的手頃に使える現行ズーム。大きく用途限定のため野鳥・航空向け。"
     },
     {
       "name": "NIKKOR Z MC 50mm f/2.8",
@@ -11318,7 +11354,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "小型軽量な標準マクロ。物撮りや日常の近接撮影を重視する場合に推薦しやすい。"
     },
     {
       "name": "NIKKOR Z DX 12-28mm f/3.5-5.6 PZ VR",
@@ -17540,7 +17579,10 @@
       "discontinued": false,
       "image_url_external": "https://nij.nikon.com/cms/products/lineup/nikkor/zmount/nikkor_z_35mm_f12_s/img/index/product_01.jpg",
       "photo_yodobashi_url": null,
-      "model_code": "nikkor_z_35mm_f12_s"
+      "model_code": "nikkor_z_35mm_f12_s",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "最高級の大口径35mm S-Line。非常に高価で重いため、描写最優先の用途向け。"
     },
     {
       "name": "NIKKOR Z 35mm f/1.4",
@@ -17649,7 +17691,10 @@
         ],
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "手頃な大口径35mm。S-Lineほどの高級仕様より価格と明るさを重視する場合に有力。"
     },
     {
       "name": "NIKKOR Z 40mm f/2 (SE)",
@@ -17725,7 +17770,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "手頃な大口径50mm。S-Lineより価格を抑えて明るさを重視する場合に有力。"
     },
     {
       "name": "NIKKOR Z 85mm f/1.2 S",
@@ -17754,7 +17802,10 @@
       "discontinued": false,
       "image_url_external": "https://nij.nikon.com/cms/products/nikkor/zmount/nikkor_z_85mm_f12_s/img/index/product_01.jpg",
       "photo_yodobashi_url": null,
-      "model_code": "nikkor_z_85mm_f12_s"
+      "model_code": "nikkor_z_85mm_f12_s",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "最高級の大口径85mm S-Line。高価で重いため本格ポートレート用途向け。"
     },
     {
       "name": "NIKKOR Z 135mm f/1.8 S Plena",
@@ -17783,7 +17834,10 @@
       "discontinued": false,
       "image_url_external": "https://nij.nikon.com/cms/products/nikkor/zmount/nikkor_z_135mm_f18_s_plena/img/index/product_01.jpg",
       "photo_yodobashi_url": null,
-      "model_code": "nikkor_z_135mm_f18_s_plena"
+      "model_code": "nikkor_z_135mm_f18_s_plena",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Plenaの高画質ポートレートレンズ。高価で画角も用途限定のため目的が明確な場合向け。"
     },
     {
       "name": "NIKKOR Z 400mm f/2.8 TC VR S",
@@ -17995,7 +18049,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "広いズーム域と高画質を両立するS-Line標準ズーム。旅行・仕事用の本命候補。"
     },
     {
       "name": "NIKKOR Z 28-75mm f/2.8",
@@ -18024,7 +18081,10 @@
       "discontinued": false,
       "image_url_external": "https://nij.nikon.com/cms/products/nikkor/zmount/nikkor_z_28-75mm_f28/img/index/product_01.jpg",
       "photo_yodobashi_url": null,
-      "model_code": "nikkor_z_28-75mm_f28"
+      "model_code": "nikkor_z_28-75mm_f28",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "比較的軽量で手頃なF2.8標準ズーム。純正S-Lineより価格を抑えたい場合に有力。"
     },
     {
       "name": "NIKKOR Z 28-135mm f/4 PZ",
@@ -18082,7 +18142,10 @@
       "discontinued": false,
       "image_url_external": "https://nij.nikon.com/cms/products/nikkor/zmount/nikkor_z_100-400mm_f45-56_vr_s/img/index/product_01.jpg",
       "photo_yodobashi_url": null,
-      "model_code": "nikkor_z_100-400mm_f45-56_vr_s"
+      "model_code": "nikkor_z_100-400mm_f45-56_vr_s",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "高性能なS-Line超望遠ズーム。高価で用途が野鳥・スポーツ寄りのため目的が明確な場合向け。"
     },
     {
       "name": "HELIAR-HYPER WIDE 10mm F5.6 Aspherical VM",
