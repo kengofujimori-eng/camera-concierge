@@ -15026,7 +15026,10 @@
         "fetched_at": "2026-04-30"
       },
       "discontinued_reason": "旧世代モデル。通常推薦ではG2世代のTamron 28-75mm F/2.8 Di III VXD G2を優先",
-      "replacement": "Tamron 28-75mm F/2.8 Di III VXD G2"
+      "replacement": "Tamron 28-75mm F/2.8 Di III VXD G2",
+      "availability_status": "discontinued",
+      "recommendation_status": "avoid",
+      "recommendation_note": "旧世代RXDモデル。中古価格がかなり安い場合を除き、通常推薦ではG2世代を優先。"
     },
     {
       "name": "Tamron 28-75mm F/2.8 Di III VXD G2",
@@ -15061,7 +15064,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行G2世代。AF・近接性能・描写バランスが改善され、通常推薦の本命候補。"
     },
     {
       "name": "Tamron 35-150mm F/2-2.8 Di III VXD",
@@ -15160,7 +15166,10 @@
         "fetched_at": "2026-04-30"
       },
       "discontinued_reason": "旧世代モデル。通常推薦ではG2世代のTamron 70-180mm F/2.8 Di III VC VXD G2を優先",
-      "replacement": "Tamron 70-180mm F/2.8 Di III VC VXD G2"
+      "replacement": "Tamron 70-180mm F/2.8 Di III VC VXD G2",
+      "availability_status": "discontinued",
+      "recommendation_status": "avoid",
+      "recommendation_note": "旧世代モデル。手ブレ補正なしのため、通常推薦ではVC搭載のG2世代を優先。"
     },
     {
       "name": "Tamron 70-180mm F/2.8 Di III VC VXD G2",
@@ -15195,7 +15204,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行G2世代。VC搭載で実用性が上がり、軽量望遠ズームの有力候補。"
     },
     {
       "name": "Tamron 17-50mm F/4 Di III VXD",
