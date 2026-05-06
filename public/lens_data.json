@@ -8597,6 +8597,11 @@
     },
     {
       "name": "Viltrox AF 50mm F2.0 AIR フルサイズ Z ニコンZマウント",
+      "brand": "Viltrox",
+      "mount": "Nikon Z",
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "source_url": "https://viltroxjapan.jp/products/viltrox-af50mm-f20-air-z",
       "review_links": {
         "asobinet": "https://asobinet.com/fullreview-viltrox-af-50mm-f2/"
@@ -9452,6 +9457,11 @@
     },
     {
       "name": "Viltrox AF 50mm F1.4 PRO フルサイズ FE ソニーEマウント",
+      "brand": "Viltrox",
+      "mount": "Sony E",
+      "supported_mounts": [
+        "Sony E"
+      ],
       "source_url": "https://viltroxjapan.jp/products/viltrox-af-50mm-f14-pro-e",
       "review_links": {},
       "image_url": "/lens_images_processed/Viltrox_AF_50mm_F1.4_PRO_フルサイズ_FE_ソニーEマウント.png",
@@ -9481,7 +9491,7 @@
       },
       "availability_status": "current",
       "recommendation_status": "recommend",
-      "recommendation_note": "明るい50mmの高コスパ候補。純正GMより価格を抑えて大口径を使いたい場合向け。"
+      "recommendation_note": "明るい50mmの高コスパ候補。純正GMより価格を抑えて大口径を使いたい場合向け。Sony E用。"
     },
     {
       "name": "Viltrox AF 15mm F1.7 AIR APS-C EソニーE",
@@ -10132,6 +10142,11 @@
     },
     {
       "name": "Viltrox AF 50mm F1.4 Pro ニコンZマウント",
+      "brand": "Viltrox",
+      "mount": "Nikon Z",
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "source_url": "https://viltroxjapan.jp/products/viltrox-af-50mm-f14-pro-z",
       "review_links": {},
       "image_url": "/lens_images_processed/Viltrox_AF_50mm_F1.4_Pro_ニコンZマウント.png",
@@ -10161,7 +10176,7 @@
       },
       "availability_status": "current",
       "recommendation_status": "recommend",
-      "recommendation_note": "高コスパな大口径50mm。純正より価格を抑えて明るい標準単焦点を使いたい場合に有力。"
+      "recommendation_note": "高コスパな大口径50mm。純正より価格を抑えて明るい標準単焦点を使いたい場合に有力。Nikon Z用。"
     },
     {
       "name": "Viltrox AF 16mm F1.8 ライカL",
@@ -12316,6 +12331,12 @@
     },
     {
       "name": "Sigma 24-70mm F2.8 DG DN Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a026_24_70/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_24-70mm_F2.8_DG_DN_Art.png",
@@ -12341,7 +12362,7 @@
       "image_url_external": "https://www.sigma-global.com/lenses/a024_24_70_28_ii_product_img03.png",
       "availability_status": "discontinued",
       "recommendation_status": "caution",
-      "recommendation_note": "初代DG DN Art標準ズーム。II型が後継のため、安い中古なら選択肢。"
+      "recommendation_note": "初代DG DN Art標準ズーム。II型が後継のため、安い中古なら選択肢。Canon RF用ではない。"
     },
     {
       "name": "Sigma 28-45mm F1.8 DG DN Art",
@@ -15034,6 +15055,10 @@
     {
       "name": "Samyang AF 50mm F1.4 II FE",
       "brand": "Samyang",
+      "mount": "Sony E",
+      "supported_mounts": [
+        "Sony E"
+      ],
       "source_url": "https://www.samyanglens.com/jp/product/product-view.php?seq=454",
       "review_links": {
         "asobinet": "https://asobinet.com/review-af-50mm-f1-4-ii-bokeh/"
@@ -15063,7 +15088,8 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "recommendation_note": "Sony E用の大口径50mm。Canon RF用ではない。"
     },
     {
       "name": "Samyang AF 75mm F1.8 FE",
@@ -15291,6 +15317,11 @@
     },
     {
       "name": "Tamron 28-75mm F/2.8 Di III RXD",
+      "brand": "Tamron",
+      "mount": "Sony E",
+      "supported_mounts": [
+        "Sony E"
+      ],
       "source_url": "https://www.tamron.com/jp/consumer/lenses/a036/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-28-75mm-f-2-8-di-iii-vxd-g2-aberrations/"
@@ -15328,10 +15359,16 @@
       "replacement": "Tamron 28-75mm F/2.8 Di III VXD G2",
       "availability_status": "discontinued",
       "recommendation_status": "avoid",
-      "recommendation_note": "旧世代RXDモデル。中古価格がかなり安い場合を除き、通常推薦ではG2世代を優先。"
+      "recommendation_note": "旧世代RXDモデル。中古価格がかなり安い場合を除き、通常推薦ではG2世代を優先。Canon RF用ではない。"
     },
     {
       "name": "Tamron 28-75mm F/2.8 Di III VXD G2",
+      "brand": "Tamron",
+      "mount": "Sony E / Nikon Z",
+      "supported_mounts": [
+        "Sony E",
+        "Nikon Z"
+      ],
       "source_url": "https://www.tamron.com/jp/consumer/lenses/a063/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-28-75mm-f-2-8-di-iii-vxd-g2-aberrations/"
@@ -15366,7 +15403,7 @@
       },
       "availability_status": "current",
       "recommendation_status": "recommend",
-      "recommendation_note": "現行G2世代。AF・近接性能・描写バランスが改善され、通常推薦の本命候補。"
+      "recommendation_note": "現行G2世代。AF・近接性能・描写バランスが改善され、通常推薦の本命候補。Canon RF用ではない。"
     },
     {
       "name": "Tamron 35-150mm F/2-2.8 Di III VXD",
@@ -15481,6 +15518,12 @@
     },
     {
       "name": "Tamron 70-180mm F/2.8 Di III VC VXD G2",
+      "brand": "Tamron",
+      "mount": "Sony E / Nikon Z",
+      "supported_mounts": [
+        "Sony E",
+        "Nikon Z"
+      ],
       "source_url": "https://www.tamron.com/jp/consumer/lenses/a065/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-70-180mm-f-2-8-di-iii-vxd-centering/"
@@ -15515,7 +15558,7 @@
       },
       "availability_status": "current",
       "recommendation_status": "recommend",
-      "recommendation_note": "現行G2世代。VC搭載で実用性が上がり、軽量望遠ズームの有力候補。"
+      "recommendation_note": "現行G2世代。VC搭載で実用性が上がり、軽量望遠ズームの有力候補。Canon RF用ではない。"
     },
     {
       "name": "Tamron 17-50mm F/4 Di III VXD",
@@ -20221,6 +20264,12 @@
     },
     {
       "name": "Sigma 24-70mm F2.8 DG DN II Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a024_24_70_ii/",
       "review_links": [],
       "image_url": "/lens_images_processed/Sigma_24-70mm_F2.8_DG_DN_II_Art.png",
@@ -20252,7 +20301,7 @@
       "model_code": "a024_24_70_ii",
       "availability_status": "current",
       "recommendation_status": "recommend",
-      "recommendation_note": "現行II型Art標準ズーム。描写・AF・近接性能が改善され、純正以外の本命候補。"
+      "recommendation_note": "現行II型Art標準ズーム。描写・AF・近接性能が改善され、純正以外の本命候補。Canon RF用ではない。"
     },
     {
       "name": "LAOWA 35mm F2.8 Zero-D Tilt-Shift",
