@@ -12842,6 +12842,108 @@
       "recommendation_note": "Sony E APS-C用の小型F2.8標準ズーム。換算27-75mm相当で、旅行・日常用の軽量標準ズームとして推薦しやすい。"
     },
     {
+      "name": "Sigma 18-50mm F2.8 DC DN Contemporary [Fujifilm X]",
+      "brand": "Sigma",
+      "mount": "Fujifilm X",
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
+      "source_url": "https://www.sigma-global.com/jp/lenses/c022_18_50/",
+      "review_links": {},
+      "image_url": "/lens_images_processed/Sigma_18-50mm_F2.8_DC_DN_Contemporary.png",
+      "official_url": "https://www.sigma-global.com/jp/lenses/c022_18_50/",
+      "purchase_links": {
+        "new": {
+          "amazon": "https://www.amazon.co.jp/s?k=Sigma%2018-50mm%20F2.8%20DC%20DN%20Fujifilm%20X&rh=n%3A2437276051&tag=techddd-22",
+          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSigma%2018-50mm%20F2.8%20DC%20DN%20Fujifilm%20X%2F&link_type=text",
+          "yahoo": "https://shopping.yahoo.co.jp/search?p=Sigma%2018-50mm%20F2.8%20DC%20DN%20Fujifilm%20X&astid=12"
+        },
+        "used": {
+          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DSigma%2018-50mm%20F2.8%20DC%20DN%20Fujifilm%20X"
+        }
+      },
+      "price_info": {
+        "new_price": 69190,
+        "used_price": 65000,
+        "fetched_at": "2026-05-07",
+        "kakaku_url": "https://kakaku.com/item/K0001491527/"
+      },
+      "photo_yodobashi_url": null,
+      "model_code": "c022_18_50",
+      "image_url_external": "https://www.sigma-global.com/lenses/c021_18_50_28_product_img01.png",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "Fujifilm X APS-C用の小型F2.8標準ズーム。換算27-75mm相当で、Xマウントの日常・旅行用標準ズームとして推薦しやすい。"
+    },
+    {
+      "name": "Sigma 18-50mm F2.8 DC DN Contemporary [Canon RF-S]",
+      "brand": "Sigma",
+      "mount": "Canon RF-S",
+      "supported_mounts": [
+        "Canon RF-S"
+      ],
+      "source_url": "https://www.sigma-global.com/jp/lenses/c022_18_50/",
+      "review_links": {},
+      "image_url": "/lens_images_processed/Sigma_18-50mm_F2.8_DC_DN_Contemporary.png",
+      "official_url": "https://www.sigma-global.com/jp/lenses/c022_18_50/",
+      "purchase_links": {
+        "new": {
+          "amazon": "https://www.amazon.co.jp/s?k=Sigma%2018-50mm%20F2.8%20DC%20DN%20Canon%20RF&rh=n%3A2437276051&tag=techddd-22",
+          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSigma%2018-50mm%20F2.8%20DC%20DN%20Canon%20RF%2F&link_type=text",
+          "yahoo": "https://shopping.yahoo.co.jp/search?p=Sigma%2018-50mm%20F2.8%20DC%20DN%20Canon%20RF&astid=12"
+        },
+        "used": {
+          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DSigma%2018-50mm%20F2.8%20DC%20DN%20Canon%20RF"
+        }
+      },
+      "price_info": {
+        "new_price": 65880,
+        "used_price": 64000,
+        "fetched_at": "2026-05-07",
+        "kakaku_url": "https://kakaku.com/item/K0001635517/"
+      },
+      "photo_yodobashi_url": null,
+      "model_code": "c022_18_50",
+      "image_url_external": "https://www.sigma-global.com/lenses/c021_18_50_28_product_img01.png",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "Canon RF-S APS-C用の小型F2.8標準ズーム。換算約29-80mm相当で、EOS R7/R10/R50系の日常用に推薦しやすい。"
+    },
+    {
+      "name": "Sigma 18-50mm F2.8 DC DN Contemporary [L mount]",
+      "brand": "Sigma",
+      "mount": "L mount",
+      "supported_mounts": [
+        "L mount"
+      ],
+      "source_url": "https://www.sigma-global.com/jp/lenses/c022_18_50/",
+      "review_links": {},
+      "image_url": "/lens_images_processed/Sigma_18-50mm_F2.8_DC_DN_Contemporary.png",
+      "official_url": "https://www.sigma-global.com/jp/lenses/c022_18_50/",
+      "purchase_links": {
+        "new": {
+          "amazon": "https://www.amazon.co.jp/s?k=Sigma%2018-50mm%20F2.8%20DC%20DN%20L%20mount&rh=n%3A2437276051&tag=techddd-22",
+          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSigma%2018-50mm%20F2.8%20DC%20DN%20L%20mount%2F&link_type=text",
+          "yahoo": "https://shopping.yahoo.co.jp/search?p=Sigma%2018-50mm%20F2.8%20DC%20DN%20L%20mount&astid=12"
+        },
+        "used": {
+          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DSigma%2018-50mm%20F2.8%20DC%20DN%20L%20mount"
+        }
+      },
+      "price_info": {
+        "new_price": 70789,
+        "used_price": null,
+        "fetched_at": "2026-05-07",
+        "kakaku_url": "https://kakaku.com/item/K0001393011/"
+      },
+      "photo_yodobashi_url": null,
+      "model_code": "c022_18_50",
+      "image_url_external": "https://www.sigma-global.com/lenses/c021_18_50_28_product_img01.png",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "LマウントAPS-C用の小型F2.8標準ズーム。換算27-75mm相当だが、対応ボディが限定されるため用途確認が必要。"
+    },
+    {
       "name": "Sigma 23mm F1.4 DC DN Contemporary",
       "source_url": "https://www.sigma-global.com/jp/lenses/c021_23_f14/",
       "review_links": {},
