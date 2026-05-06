@@ -5651,6 +5651,11 @@
     },
     {
       "name": "Samyang AF 35mm F1.8 FE",
+      "brand": "Samyang",
+      "mount": "FE",
+      "type": "prime",
+      "focal_length": "35",
+      "max_aperture": 1.8,
       "source_url": "https://asobinet.com/af-35mm-f1-8/",
       "review_links": {
         "0": {
@@ -5670,6 +5675,8 @@
       "length": 63,
       "filter_size": 58,
       "min_focus": 29,
+      "official_url": "https://www.samyanglens.com/jp/product/product-view.php?seq=581",
+      "discontinued": false,
       "purchase_links": {
         "new": {
           "amazon": "https://www.amazon.co.jp/s?k=AF%2035mm%20F1.8%20FE&rh=n%3A2437276051&tag=techddd-22",
@@ -16474,37 +16481,6 @@
         "kakaku_url": "https://kakaku.com/item/K0001703267/"
       },
       "review_links": {}
-    },
-    {
-      "name": "Samyang AF 35mm F1.8 FE",
-      "brand": "Samyang",
-      "mount": "FE",
-      "type": "prime",
-      "focal_length": "35",
-      "max_aperture": 1.8,
-      "source_url": "https://www.samyanglens.com/jp/product/product-view.php?seq=581",
-      "image_url": "/lens_images_processed/Samyang_AF_35mm_F1.8_FE.png",
-      "discontinued": false,
-      "image_url_external": "https://www.kenko-tokina.co.jp/camera-lens/assets_c/2020/10/af35mmf18fe_products01-thumb-autox450-39375.jpg",
-      "purchase_links": {
-        "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Samyang%20AF%2035mm%20F1.8%20FE&rh=n%3A2437276051&tag=techddd-22",
-          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSamyang%20AF%2035mm%20F1.8%20FE%2F&link_type=text",
-          "yahoo": "https://shopping.yahoo.co.jp/search?p=Samyang%20AF%2035mm%20F1.8%20FE&astid=12"
-        },
-        "used": {
-          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DSamyang%20AF%2035mm%20F1.8%20FE"
-        }
-      },
-      "price_info": {
-        "new_price": 37765,
-        "used_price": 72910,
-        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/kenko-k/cabinet/samyang/8809298886967.jpg?_ex=128x128",
-        "fetched_at": "2026-04-27"
-      },
-      "availability_status": "current",
-      "recommendation_status": "recommend",
-      "recommendation_note": "軽量で価格を抑えた35mm。携行性重視の日常撮影で推薦しやすい。"
     },
     {
       "name": "Samyang AF 50mm F1.8 FE",
