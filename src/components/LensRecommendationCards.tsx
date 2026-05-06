@@ -59,10 +59,19 @@ function stripBrandPrefix(name: string): string {
   return name.replace(BRAND_PREFIX_RE, '')
 }
 
-interface LensEntry { name: string; tag: string }
+interface LensEntry {
+  name: string
+  tag: string
+  reason?: string
+  caution?: string
+}
 
 // レンズ名として有効かを判定（mm / F数字 / 既知キーワードを含む）
 const LENS_NAME_RE = /(?:\d+(?:[.\-]\d+)?mm|[Ff]\d+(?:\.\d+)?|GM|Art|Contemporary|DG\s*DN|Di\s*III|OSS|IS\b|VC\b|STF|PF\b|APO|HSM)/i
+
+function escapeRegExp(str: string): string {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
 
 function extractLensEntries(text: string): LensEntry[] {
   // ** などマークダウン装飾を除去してからマッチング
@@ -93,6 +102,33 @@ function extractLensEntries(text: string): LensEntry[] {
         entries.push({ name, tag: '候補' })
       }
     }
+  }
+
+  // ── 各候補ブロックから「おすすめ理由」「注意点」を抽出 ──
+  const optionBlocks = cleaned
+    .split(/\n\s*✨?\s*(?=【選択肢\d+】)/)
+    .filter(block => /【選択肢\d+】/.test(block))
+
+  for (const block of optionBlocks) {
+    const optionMatch = block.match(/【(選択肢\d+)】\s*([^\n]+)/)
+    if (!optionMatch) continue
+
+    const tag = optionMatch[1]
+    const rawName = optionMatch[2]
+      .replace(/（.*?）/g, '')
+      .replace(/\(.*?\)/g, '')
+      .trim()
+
+    const entry = entries.find(item => item.tag === tag)
+      ?? entries.find(item => rawName.includes(item.name) || item.name.includes(rawName))
+
+    if (!entry) continue
+
+    const reasonMatch = block.match(/おすすめ理由\s*[：:]\s*([^\n]+)/)
+    const cautionMatch = block.match(/注意点\s*[：:]\s*([^\n]+)/)
+
+    entry.reason = reasonMatch?.[1]?.trim()
+    entry.caution = cautionMatch?.[1]?.trim()
   }
 
   return entries
@@ -189,9 +225,11 @@ interface LensCardProps {
   onAdd: (name: string, type: 'owned' | 'wishlist', tag: string) => void
   lensLinkDb: LensLinkData[] | null
   lensPriceDb: LensPriceData[] | null
+  aiReason?: string
+  aiCaution?: string
 }
 
-function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lensPriceDb }: LensCardProps) {
+function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lensPriceDb, aiReason, aiCaution }: LensCardProps) {
   const cleanName = lensName.replace(/<[^>]*>/g, '').trim()
   const [imgUrlIndex, setImgUrlIndex] = useState(0)
 
@@ -269,6 +307,23 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
               <span className="inline-flex items-center rounded-full bg-green-50 border border-green-200 px-2 py-0.5 text-xs font-semibold text-green-700 dark:bg-green-900/30 dark:border-green-700 dark:text-green-300">
                 ♻️ {formatPrice(priceInfo.used_price)}〜
               </span>
+            )}
+          </div>
+        )}
+
+        {/* AI分析 */}
+        {(aiReason || aiCaution) && (
+          <div className="mb-2 rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs text-slate-700 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300">
+            <p className="mb-1 font-semibold text-slate-600 dark:text-slate-300">🤖 AI分析</p>
+            {aiReason && (
+              <p className="mb-1 leading-relaxed">
+                <span className="font-semibold">おすすめ理由：</span>{aiReason}
+              </p>
+            )}
+            {aiCaution && (
+              <p className="leading-relaxed">
+                <span className="font-semibold">注意点：</span>{aiCaution}
+              </p>
             )}
           </div>
         )}
@@ -503,6 +558,8 @@ export default function LensRecommendationCards({ responseText }: { responseText
           onAdd={addToWarehouse}
           lensLinkDb={lensLinkDb}
           lensPriceDb={lensPriceDb}
+          aiReason={entry.reason}
+          aiCaution={entry.caution}
         />
       ))}
     </div>
