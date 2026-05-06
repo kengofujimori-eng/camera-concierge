@@ -2598,7 +2598,9 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "discontinued_reason": "旧世代モデル。通常推薦では後継のFE 70-200mm F4 Macro G OSS IIを優先",
+      "replacement": "FE 70-200mm F4 Macro G OSS II"
     },
     {
       "name": "FE 70-300mm F4.5-5.6 G OSS",
@@ -5975,7 +5977,9 @@
         "kakaku_url": "https://kakaku.com/item/K0001169143/"
       },
       "discontinued": true,
-      "image_url_external": "https://asobinet.com/wp-content/uploads/2020/12/VILTROX-85mm-F1.8-Z-1.jpg"
+      "image_url_external": "https://asobinet.com/wp-content/uploads/2020/12/VILTROX-85mm-F1.8-Z-1.jpg",
+      "discontinued_reason": "旧世代モデル。通常推薦では現行のViltrox AF 85mm F1.8 II FEなどを優先",
+      "replacement": "Viltrox AF 85mm F1.8 II FE"
     },
     {
       "name": "YN35mm F2S DF DSM",
@@ -11347,7 +11351,9 @@
       "photo_yodobashi_url": null,
       "model_code": "rf500-f4l",
       "discontinued": true,
-      "image_url_external": "https://m.media-amazon.com/images/I/61c51Vf8jlL._AC_UY218_.jpg"
+      "image_url_external": "https://m.media-amazon.com/images/I/61c51Vf8jlL._AC_UY218_.jpg",
+      "discontinued_reason": "RF純正として通常購入しづらい特殊な超望遠候補。通常推薦では現行RF超望遠を優先",
+      "replacement": "RF 100-500mm F4.5-7.1 L IS USM"
     },
     {
       "name": "RF 100-300mm F2.8 L IS USM",
@@ -13112,7 +13118,9 @@
       "photo_yodobashi_url": null,
       "model_code": "gf32-90mmt35-pz-ois-wr",
       "discontinued": true,
-      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2025/06/thum_GFX_32-90_left.jpg"
+      "image_url_external": "https://fujifilm-x.b-cdn.net/wp-content/uploads/2025/06/thum_GFX_32-90_left.jpg",
+      "discontinued_reason": "特殊なシネマ用途寄りの候補。通常の写真用途では標準GFズームを優先",
+      "replacement": "GF45-100mmF4 R LM OIS WR"
     },
     {
       "name": "GF35-70mmF4.5-5.6 WR",
@@ -13593,7 +13601,9 @@
         ],
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "discontinued_reason": "通常流通・実在性の確認が必要な候補。通常推薦では現行のXF23mm系を優先",
+      "replacement": "XF23mmF2 R WR"
     },
     {
       "name": "XF27mmF2.8 R WR",
@@ -14539,7 +14549,9 @@
         "kakaku_url": "https://kakaku.com/item/K0001203673/"
       },
       "discontinued": true,
-      "image_url_external": "https://www.kenko-tokina.co.jp/camera-lens/assets_c/2019/09/af18mmf28fe_products01-thumb-autox450-36457.jpg"
+      "image_url_external": "https://www.kenko-tokina.co.jp/camera-lens/assets_c/2019/09/af18mmf28fe_products01-thumb-autox450-36457.jpg",
+      "discontinued_reason": "流通状況が不安定な旧世代候補。通常推薦では現行で入手しやすい広角単焦点を優先",
+      "replacement": "Sony FE 20mm F1.8 G"
     },
     {
       "name": "Samyang AF 24mm F1.8 FE",
@@ -15012,7 +15024,9 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "discontinued_reason": "旧世代モデル。通常推薦ではG2世代のTamron 28-75mm F/2.8 Di III VXD G2を優先",
+      "replacement": "Tamron 28-75mm F/2.8 Di III VXD G2"
     },
     {
       "name": "Tamron 28-75mm F/2.8 Di III VXD G2",
@@ -15144,7 +15158,9 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "discontinued_reason": "旧世代モデル。通常推薦ではG2世代のTamron 70-180mm F/2.8 Di III VC VXD G2を優先",
+      "replacement": "Tamron 70-180mm F/2.8 Di III VC VXD G2"
     },
     {
       "name": "Tamron 70-180mm F/2.8 Di III VC VXD G2",

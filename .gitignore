@@ -1,2 +1,29 @@
 .vercel
 node_modules/
+
+# Local environment
+.env
+.env.local
+.env.*.local
+
+# Next.js
+.next/
+out/
+
+# Local DB / generated files
+data/*.db
+*.db
+.price-update-progress.json
+
+# OS / Python
+.DS_Store
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Local browser / temporary files
+chrome/
+scripts/*.tmp.js
+tsconfig.tsbuildinfo

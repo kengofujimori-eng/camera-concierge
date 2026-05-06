@@ -30,6 +30,9 @@ interface Lens {
   name: string
   review_links?: ReviewLinks
   price_info?: PriceInfo
+  discontinued?: boolean
+  discontinued_reason?: string
+  replacement?: string
   [key: string]: unknown
 }
 
@@ -128,22 +131,49 @@ export function buildDiscontinuedContext(): string {
   if (_discontinuedCache !== null) return _discontinuedCache
 
   try {
-    const filePath = path.join(process.cwd(), 'public', 'discontinued_lenses.json')
-    const raw = JSON.parse(fs.readFileSync(filePath, 'utf8')) as {
-      lenses: { name: string; reason: string }[]
+    const discontinuedMap = new Map<string, string>()
+
+    // 手動管理の廃盤・旧世代レンズリスト
+    try {
+      const filePath = path.join(process.cwd(), 'public', 'discontinued_lenses.json')
+      const raw = JSON.parse(fs.readFileSync(filePath, 'utf8')) as {
+        lenses: { name: string; reason: string }[]
+      }
+
+      for (const lens of raw.lenses ?? []) {
+        if (lens.name) {
+          discontinuedMap.set(lens.name, lens.reason || '廃盤・販売終了・旧世代品')
+        }
+      }
+    } catch {
+      // discontinued_lenses.json が読めない場合も lens_data.json 側の情報は使う
     }
-    if (!raw.lenses || raw.lenses.length === 0) {
+
+    // lens_data.json 側で discontinued: true のものも推薦禁止に含める
+    for (const lens of getLenses()) {
+      if (lens.discontinued === true) {
+        const reason = [
+          typeof lens.discontinued_reason === 'string' ? lens.discontinued_reason : '廃盤・販売終了・旧世代品',
+          typeof lens.replacement === 'string' ? `代替候補: ${lens.replacement}` : '',
+        ].filter(Boolean).join(' / ')
+
+        discontinuedMap.set(lens.name, reason)
+      }
+    }
+
+    if (discontinuedMap.size === 0) {
       _discontinuedCache = ''
       return ''
     }
 
-    const items = raw.lenses
-      .map(l => `・${l.name}（${l.reason}）`)
+    const items = Array.from(discontinuedMap.entries())
+      .map(([name, reason]) => `・${name}（${reason}）`)
       .join('\n')
 
     _discontinuedCache = [
       '[推薦禁止レンズリスト（廃盤・旧世代品）ユーザーには表示不要]',
-      '以下のレンズは廃盤・販売終了・旧世代のため、いかなる場合もユーザーへの推薦・言及を禁止します:',
+      '以下のレンズは廃盤・販売終了・旧世代、または現時点で通常購入しづらいため、ユーザーへの通常推薦に使わないでください。',
+      'ユーザーがそのレンズ名を明示的に質問した場合のみ、廃盤・旧世代であることを説明し、現行の代替候補を優先してください。',
       items,
       '[推薦禁止リスト終わり]',
     ].join('\n')
