@@ -866,8 +866,70 @@ export default function ChatInterface() {
     }
   }
 
+  function escapeHtmlForDisplay(value: string): string {
+    return value
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;')
+  }
+
+  function formatAnswerForDisplay(text: string): string {
+    const lines = text
+      .split(/\r?\n/)
+      // おすすめ理由・注意点はカード内AI分析に表示するため、本文側では隠す
+      .filter((line) => !/^\s*(おすすめ理由|注意点)\s*[：:]/.test(line))
+
+    const formatted: string[] = []
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i]
+      const next = lines[i + 1] ?? ''
+
+      const optionMatch = line.match(/^\s*✨\s*【(選択肢\d+)】\s*(.+?)\s*$/)
+
+      if (optionMatch) {
+        const optionLabel = escapeHtmlForDisplay(optionMatch[1])
+        const lensName = escapeHtmlForDisplay(optionMatch[2])
+        let roleLabel = ''
+
+        if (/^\s*表示用ラベル\s*[：:]/.test(next)) {
+          roleLabel = next.replace(/^\s*表示用ラベル\s*[：:]\s*/, '').trim()
+          i += 1
+        } else if (next.trim() && !/^\s*✨\s*【選択肢\d+】/.test(next)) {
+          roleLabel = next.trim()
+          i += 1
+        }
+
+        const safeRoleLabel = escapeHtmlForDisplay(roleLabel)
+
+        formatted.push(`
+<div class="my-3 rounded-xl border border-slate-200 bg-white/65 px-4 py-3 shadow-sm dark:border-slate-700 dark:bg-slate-900/40">
+  <div class="flex flex-wrap items-center gap-2">
+    <span class="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-700 dark:bg-amber-900/40 dark:text-amber-200">${optionLabel}</span>
+    <strong class="text-slate-900 dark:text-slate-100">${lensName}</strong>
+  </div>
+  ${safeRoleLabel ? `<div class="mt-2 text-sm font-medium text-slate-600 dark:text-slate-300">${safeRoleLabel}</div>` : ''}
+</div>
+`.trim())
+
+        formatted.push('')
+        continue
+      }
+
+      // 表示用ラベルだけが単独で残った場合は本文には出さない
+      if (/^\s*表示用ラベル\s*[：:]/.test(line)) continue
+
+      formatted.push(line)
+    }
+
+    return formatted.join('\n')
+  }
+
   function renderAnswer(text: string): string {
-    const rawHtml = marked.parse(text) as string
+    const displayText = formatAnswerForDisplay(text)
+    const rawHtml = marked.parse(displayText) as string
     return DOMPurify.sanitize(rawHtml, {
       ADD_TAGS: ['details', 'summary'],
       ADD_ATTR: ['target', 'rel'],

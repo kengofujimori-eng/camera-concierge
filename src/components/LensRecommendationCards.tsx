@@ -313,19 +313,23 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
 
         {/* AI分析 */}
         {(aiReason || aiCaution) && (
-          <div className="mb-2 rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs text-slate-700 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300">
-            <p className="mb-1 font-semibold text-slate-600 dark:text-slate-300">🤖 AI分析</p>
-            {aiReason && (
-              <p className="mb-1 leading-relaxed">
-                <span className="font-semibold">おすすめ理由：</span>{aiReason}
-              </p>
-            )}
-            {aiCaution && (
-              <p className="leading-relaxed">
-                <span className="font-semibold">注意点：</span>{aiCaution}
-              </p>
-            )}
-          </div>
+          <details className="mb-2 overflow-hidden rounded-lg border border-slate-200 bg-slate-50 text-xs text-slate-700 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300">
+            <summary className="cursor-pointer select-none px-2.5 py-2 font-semibold text-slate-600 dark:text-slate-300">
+              🤖 AI分析を表示
+            </summary>
+            <div className="border-t border-slate-200 px-2.5 py-2 dark:border-slate-700">
+              {aiReason && (
+                <p className="mb-1 leading-relaxed">
+                  <span className="font-semibold">おすすめ理由：</span>{aiReason}
+                </p>
+              )}
+              {aiCaution && (
+                <p className="leading-relaxed">
+                  <span className="font-semibold">注意点：</span>{aiCaution}
+                </p>
+              )}
+            </div>
+          </details>
         )}
 
         {/* レビューリンク */}
