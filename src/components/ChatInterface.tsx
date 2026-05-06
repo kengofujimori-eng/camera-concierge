@@ -164,6 +164,20 @@ function getFocalRangePrompt(r: FocalRange): string {
   return `焦点距離は${minMm}mm〜${maxMm}mmの範囲${zoneText}を希望`
 }
 
+function getFocalPriorityHint(text: string, range: FocalRange | null): string {
+  const mentionsAround50 = /50\s*mm\s*(前後|周辺|付近|あたり|くらい|近辺)/i.test(text)
+  const selectedAround50 =
+    Boolean(range) &&
+    range!.minMm <= 50 &&
+    range!.maxMm >= 50 &&
+    range!.minMm >= 35 &&
+    range!.maxMm <= 85
+
+  if (!mentionsAround50 && !selectedAround50) return ''
+
+  return '50mm前後の単焦点希望では、主候補は原則45〜58mm程度を優先してください。85mmは画角が離れるため、通常候補ではなくポートレート向けの番外候補として扱ってください。'
+}
+
 // ── AI選択肢の自動検出 ───────────────────────────────────
 interface Choice { number: string; label: string; sendText: string }
 
@@ -803,16 +817,24 @@ export default function ChatInterface() {
     const macroHint = isMacro
       ? 'マクロの場合はLAOWA（65mm F2.8 2X Ultra Macro APO、100mm F2.8 2X Ultra Macro APOなど）もレビュアーに評価されていれば選択肢の1つとして含めてください。'
       : ''
+    const focalPriorityHint = getFocalPriorityHint(trimmed, selectedFocal)
     const mountGuard = selectedMount
       ? `レンズ候補は${selectedMount.prompt}にネイティブ対応する製品だけを通常推薦してください。別マウント用、アダプター前提、対応マウント不明のレンズは候補にしないでください。`
       : ''
-
-    const profilePrefix = profileLines.length > 0
-      ? `【プロフィール】${profileLines.join(' / ')}\n【補足】2023〜2025年発売の最新レンズも積極的に含めて提案してください。${mountGuard ? `\n${mountGuard}` : ''}${macroHint ? `\n${macroHint}` : ''}\n\n`
-      : ''
+    const supplementalLines = [
+      profileLines.length > 0 ? '2023〜2025年発売の最新レンズも積極的に含めて提案してください。' : '',
+      mountGuard,
+      focalPriorityHint,
+      macroHint,
+    ].filter(Boolean)
+    const profilePrefix = [
+      profileLines.length > 0 ? `【プロフィール】${profileLines.join(' / ')}` : '',
+      supplementalLines.length > 0 ? `【補足】${supplementalLines.join('\n')}` : '',
+    ].filter(Boolean).join('\n')
+    const messagePrefix = profilePrefix ? `${profilePrefix}\n\n` : ''
 
     const displayText = trimmed
-    const sendText = profilePrefix + trimmed
+    const sendText = messagePrefix + trimmed
 
     setMessages((prev) => [
       ...prev,
