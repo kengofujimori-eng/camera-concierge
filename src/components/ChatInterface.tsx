@@ -867,13 +867,36 @@ export default function ChatInterface() {
   }
 
   function formatAnswerForDisplay(text: string): string {
-    return text
+    const lines = text
       .split(/\r?\n/)
       // おすすめ理由・注意点はカード内AI分析に表示するため、本文側では隠す
       .filter((line) => !/^\s*(おすすめ理由|注意点)\s*[：:]/.test(line))
-      // 表示用ラベルは、本文側では短い補足として見せる
-      .map((line) => line.replace(/^\s*表示用ラベル\s*[：:]\s*/, '　'))
-      .join('\n')
+      // 表示用ラベルは本文側では短く見せる
+      .map((line) => line.replace(/^\s*表示用ラベル\s*[：:]\s*/, ''))
+
+    const formatted: string[] = []
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i]
+      const next = lines[i + 1] ?? ''
+
+      // 選択肢行を見やすい引用ブロック風に整形
+      if (/^\s*✨\s*【選択肢\d+】/.test(line)) {
+        formatted.push(`> **${line.trim()}**`)
+
+        if (next.trim() && !/^\s*✨\s*【選択肢\d+】/.test(next)) {
+          formatted.push(`> ${next.trim()}`)
+          i += 1
+        }
+
+        formatted.push('')
+        continue
+      }
+
+      formatted.push(line)
+    }
+
+    return formatted.join('\n')
   }
 
   function renderAnswer(text: string): string {
