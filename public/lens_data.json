@@ -4447,6 +4447,12 @@
     },
     {
       "name": "Sigma 35mm F2 DG DN Contemporary",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://asobinet.com/35mm-f2-dg-dn/",
       "review_links": {
         "0": {
@@ -11945,6 +11951,12 @@
     },
     {
       "name": "Sigma 14mm F1.4 DG DN Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a037_14_f14/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_14mm_F1.4_DG_DN_Art.png",
@@ -11971,6 +11983,12 @@
     },
     {
       "name": "Sigma 20mm F1.4 DG DN Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a069_20_f14/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_20mm_F1.4_DG_DN_Art.png",
@@ -11997,6 +12015,12 @@
     },
     {
       "name": "Sigma 24mm F1.4 DG DN Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a062_24_f14/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_24mm_F1.4_DG_DN_Art.png",
@@ -12023,6 +12047,12 @@
     },
     {
       "name": "Sigma 28mm F1.4 DG DN Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a086_28_f14/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_28mm_F1.4_DG_DN_Art.png",
@@ -12048,6 +12078,12 @@
     },
     {
       "name": "Sigma 35mm F1.2 DG DN Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a058_35_f12/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_35mm_F1.2_DG_DN_Art.png",
@@ -12074,6 +12110,12 @@
     },
     {
       "name": "Sigma 35mm F1.4 DG DN Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a074_35_f14/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-35mm-f1-4-dg-dn-vine-ab/"
@@ -12108,10 +12150,16 @@
       },
       "availability_status": "current",
       "recommendation_status": "recommend",
-      "recommendation_note": "ミラーレス設計の35mm Art。画質重視で純正GMより価格を抑えたい場合に有力。"
+      "recommendation_note": "Sony E / L mount用。画質重視で純正GMより価格を抑えたい場合に有力。Canon RF / Nikon Z用ではないため購入時にマウント確認が必要。"
     },
     {
       "name": "Sigma 50mm F1.2 DG DN Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a052_50_f12/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_50mm_F1.2_DG_DN_Art.png",
@@ -12138,6 +12186,12 @@
     },
     {
       "name": "Sigma 50mm F1.4 DG DN Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a076_50_f14/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-50mm-f1-4-dg-dn-vine/"
@@ -12172,10 +12226,16 @@
       },
       "availability_status": "current",
       "recommendation_status": "recommend",
-      "recommendation_note": "現行50mm Art。高画質と価格のバランスが良く、標準単焦点の有力候補。"
+      "recommendation_note": "Sony E / L mount用の現行50mm Art。高画質と価格のバランスが良く、標準単焦点の有力候補。Canon RF / Nikon Z用ではないため購入時にマウント確認が必要。"
     },
     {
       "name": "Sigma 85mm F1.4 DG DN Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a059_85_f14/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-85mm-f1-4-dg-dn-aberration/"
@@ -12210,10 +12270,16 @@
       },
       "availability_status": "current",
       "recommendation_status": "recommend",
-      "recommendation_note": "高画質な85mm Art。純正GMより価格を抑えたいポートレート用途で推薦しやすい。"
+      "recommendation_note": "Sony E / L mount用の高画質85mm Art。純正GMより価格を抑えたいポートレート用途で推薦しやすい。Canon RF / Nikon Z用ではないため購入時にマウント確認が必要。"
     },
     {
       "name": "Sigma 105mm F2.8 DG DN Macro Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a072_105_f28_m/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-105mm-f2-8-dg-dn-macro-bokeh/"
@@ -12377,6 +12443,12 @@
     },
     {
       "name": "Sigma 14-24mm F2.8 DG DN Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a020_14_24/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_14-24mm_F2.8_DG_DN_Art.png",
@@ -12434,10 +12506,16 @@
       "image_url_external": "https://www.sigma-global.com/lenses/a024_24_70_28_ii_product_img03.png",
       "availability_status": "discontinued",
       "recommendation_status": "caution",
-      "recommendation_note": "初代DG DN Art標準ズーム。II型が後継のため、安い中古なら選択肢。Canon RF用ではない。"
+      "recommendation_note": "Sony E / L mount用の初代DG DN Art標準ズーム。II型が後継のため、安い中古なら選択肢。Canon RF / Nikon Z用ではないため購入時にマウント確認が必要。"
     },
     {
       "name": "Sigma 28-45mm F1.8 DG DN Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a023_28_45/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_28-45mm_F1.8_DG_DN_Art.png",
@@ -12464,6 +12542,12 @@
     },
     {
       "name": "Sigma 70-200mm F2.8 DG DN OS Sports",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/s026_70_200/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_70-200mm_F2.8_DG_DN_OS_Sports.png",
@@ -12490,6 +12574,12 @@
     },
     {
       "name": "Sigma 20mm F2 DG DN Contemporary",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/c021_20_f20/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_20mm_F2_DG_DN_Contemporary.png",
@@ -12516,6 +12606,12 @@
     },
     {
       "name": "Sigma 24mm F3.5 DG DN Contemporary",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/c025_24_f35/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-24mm-f3-5-dg-dn-aberrations/"
@@ -12551,6 +12647,12 @@
     },
     {
       "name": "Sigma 45mm F2.8 DG DN Contemporary",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/c019_45_f28/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_45mm_F2.8_DG_DN_Contemporary.png",
@@ -12577,6 +12679,12 @@
     },
     {
       "name": "Sigma 65mm F2 DG DN Contemporary",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/c028_65_f20/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-65mm-f2-dg-dn-chart-test-61mp/"
@@ -12612,6 +12720,12 @@
     },
     {
       "name": "Sigma 90mm F2.8 DG DN Contemporary",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/c029_90_f28/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-90mm-f2-8-dg-dn-aberrations/"
@@ -12672,6 +12786,12 @@
     },
     {
       "name": "Sigma 28-105mm F2.8 DG DN Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a087_28_105/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_28-105mm_F2.8_DG_DN_Art.png",
@@ -12698,6 +12818,12 @@
     },
     {
       "name": "Sigma 100-400mm F5-6.3 DG DN OS Contemporary",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/c020_100_400/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_100-400mm_F5-6.3_DG_DN_OS_Contemporary.png",
@@ -12724,6 +12850,12 @@
     },
     {
       "name": "Sigma 150-600mm F5-6.3 DG DN OS Sports",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/s023_150_600/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-150-600mm-f5-6-3-dg-dn-os-aberrations/"
@@ -12759,6 +12891,12 @@
     },
     {
       "name": "Sigma 60-600mm F4.5-6.3 DG DN OS Sports",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/s023_60_600/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_60-600mm_F4.5-6.3_DG_DN_OS_Sports.png",
@@ -12785,6 +12923,12 @@
     },
     {
       "name": "Sigma 500mm F5.6 DG DN OS Sports",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/s027_500_f56/",
       "review_links": {},
       "image_url": "/lens_images_processed/Sigma_500mm_F5.6_DG_DN_OS_Sports.png",
@@ -16535,7 +16679,11 @@
     {
       "name": "Sigma 28-70mm F2.8 DG DN Contemporary",
       "brand": "Sigma",
-      "mount": "FE/L",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "type": "zoom",
       "focal_length": "28-70",
       "max_aperture": 2.8,
@@ -16575,12 +16723,16 @@
       },
       "availability_status": "current",
       "recommendation_status": "recommend",
-      "recommendation_note": "小型軽量なF2.8標準ズーム。携行性と価格を重視するフルサイズEで推薦しやすい。"
+      "recommendation_note": "Sony E / L mount用の小型軽量なF2.8標準ズーム。携行性と価格を重視するフルサイズ機で推薦しやすい。Canon RF / Nikon Z用ではないため購入時にマウント確認が必要。"
     },
     {
       "name": "Sigma 24mm F2 DG DN Contemporary",
       "brand": "Sigma",
-      "mount": "FE/L",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "type": "prime",
       "focal_length": "24",
       "max_aperture": 2,
@@ -20337,6 +20489,12 @@
     },
     {
       "name": "Sigma 16-28mm F2.8 DG DN Contemporary",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/c030_16_28/",
       "review_links": [],
       "image_url": "/lens_images_processed/Sigma_16-28mm_F2.8_DG_DN_Contemporary.png",
@@ -20369,6 +20527,12 @@
     },
     {
       "name": "Sigma 17mm F4 DG DN Contemporary",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/c021_17_4/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-17mm-f4-dg-dn-vine/"
@@ -20410,6 +20574,12 @@
     },
     {
       "name": "Sigma 50mm F2 DG DN Contemporary",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/c021_50_2/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-50mm-f2-dg-dn-vine/"
@@ -20451,6 +20621,12 @@
     },
     {
       "name": "Sigma 15mm F1.4 DG DN DIAGONAL FISHEYE Art",
+      "brand": "Sigma",
+      "mount": "Sony E / L mount",
+      "supported_mounts": [
+        "Sony E",
+        "L mount"
+      ],
       "source_url": "https://www.sigma-global.com/jp/lenses/a024_15_f14_diagonal_fisheye/",
       "review_links": [],
       "image_url": "/lens_images_processed/Sigma_15mm_F1.4_DG_DN_DIAGONAL_FISHEYE_Art.png",
@@ -20584,7 +20760,7 @@
       "model_code": "a024_24_70_ii",
       "availability_status": "current",
       "recommendation_status": "recommend",
-      "recommendation_note": "現行II型Art標準ズーム。描写・AF・近接性能が改善され、純正以外の本命候補。Canon RF用ではない。"
+      "recommendation_note": "Sony E / L mount用の現行II型Art標準ズーム。描写・AF・近接性能が改善され、純正以外の本命候補。Canon RF / Nikon Z用ではないため購入時にマウント確認が必要。"
     },
     {
       "name": "LAOWA 35mm F2.8 Zero-D Tilt-Shift",
