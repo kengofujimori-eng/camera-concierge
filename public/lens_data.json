@@ -103,6 +103,8 @@
     },
     {
       "name": "RF24-105mm F4L IS USM",
+      "brand": "Canon",
+      "mount": "Canon RF",
       "source_url": "https://asobinet.com/rf-24-105mm-f4l-is-usm/",
       "review_links": {
         "0": {
@@ -139,10 +141,10 @@
         }
       },
       "price_info": {
-        "new_price": 480070,
-        "used_price": 506200,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001718487/"
+        "new_price": 158291,
+        "used_price": 129000,
+        "fetched_at": "2026-05-06",
+        "kakaku_url": "https://kakaku.com/item/K0001086553/"
       },
       "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf24-105-f4l/rf24-105-f4l.jpg?sc_lang=ja-JP&hash=1E22F0103E924632FE38E73563409F97",
       "asobinet_info": {
@@ -15334,6 +15336,12 @@
     },
     {
       "name": "Tamron 35-150mm F/2-2.8 Di III VXD",
+      "brand": "Tamron",
+      "mount": "Sony E / Nikon Z",
+      "supported_mounts": [
+        "Sony E",
+        "Nikon Z"
+      ],
       "source_url": "https://www.tamron.com/jp/consumer/lenses/a058/",
       "review_links": {},
       "image_url": "/lens_images_processed/Tamron_35-150mm_F_2-2.8_Di_III_VXD.png",
@@ -15359,7 +15367,7 @@
       "image_url_external": "https://www.tamron.com/product/pc_file/file/a058_thumb.webp",
       "availability_status": "current",
       "recommendation_status": "recommend",
-      "recommendation_note": "明るい高倍率ポートレートズーム。重さを許容できるイベント・人物撮影で強い候補。"
+      "recommendation_note": "Sony E / Nikon Z用の明るい高倍率ポートレートズーム。Canon RF用ではないため、RF相談では通常推薦しない。"
     },
     {
       "name": "Tamron 50-400mm F/4.5-6.3 Di III VC VXD",

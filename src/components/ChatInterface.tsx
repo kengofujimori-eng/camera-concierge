@@ -803,9 +803,12 @@ export default function ChatInterface() {
     const macroHint = isMacro
       ? 'マクロの場合はLAOWA（65mm F2.8 2X Ultra Macro APO、100mm F2.8 2X Ultra Macro APOなど）もレビュアーに評価されていれば選択肢の1つとして含めてください。'
       : ''
+    const mountGuard = selectedMount
+      ? `レンズ候補は${selectedMount.prompt}にネイティブ対応する製品だけを通常推薦してください。別マウント用、アダプター前提、対応マウント不明のレンズは候補にしないでください。`
+      : ''
 
     const profilePrefix = profileLines.length > 0
-      ? `【プロフィール】${profileLines.join(' / ')}\n【補足】2023〜2025年発売の最新レンズも積極的に含めて提案してください。${macroHint ? `\n${macroHint}` : ''}\n\n`
+      ? `【プロフィール】${profileLines.join(' / ')}\n【補足】2023〜2025年発売の最新レンズも積極的に含めて提案してください。${mountGuard ? `\n${mountGuard}` : ''}${macroHint ? `\n${macroHint}` : ''}\n\n`
       : ''
 
     const displayText = trimmed

@@ -40,6 +40,27 @@ function localImageExists(imageUrl) {
   return fs.existsSync(filePath)
 }
 
+function hasKnownMount(lens) {
+  if (Array.isArray(lens.supported_mounts) && lens.supported_mounts.length > 0) {
+    return true
+  }
+
+  if (typeof lens.mount !== 'string') return false
+
+  const normalized = lens.mount.trim().toLowerCase()
+  if (!normalized) return false
+
+  return !['unknown', '不明', '要確認', 'n/a', 'na'].includes(normalized)
+}
+
+function isMajorLens(lens) {
+  return Boolean(lens.recommendation_status || lens.availability_status)
+}
+
+function hasNumber(value) {
+  return typeof value === 'number' && Number.isFinite(value)
+}
+
 function main() {
   const raw = JSON.parse(fs.readFileSync(DATA_PATH, 'utf8'))
   const lenses = Array.isArray(raw.lenses) ? raw.lenses : []
@@ -49,6 +70,9 @@ function main() {
   const noRecommendationStatus = []
   const discontinuedWithoutReplacement = []
   const noUsefulPriceInfo = []
+  const usedPriceHigherThanNew = []
+  const usedPriceAtLeast20PctHigher = []
+  const majorLensMissingMount = []
   const names = new Map()
 
   lenses.forEach((lens, index) => {
@@ -74,6 +98,20 @@ function main() {
     const priceInfo = lens.price_info
     if (!priceInfo || (priceInfo.new_price == null && priceInfo.used_price == null)) {
       noUsefulPriceInfo.push({ lens, index })
+    }
+
+    if (priceInfo && hasNumber(priceInfo.new_price) && hasNumber(priceInfo.used_price)) {
+      if (priceInfo.used_price > priceInfo.new_price) {
+        usedPriceHigherThanNew.push({ lens, index, priceInfo })
+      }
+
+      if (priceInfo.used_price >= priceInfo.new_price * 1.2) {
+        usedPriceAtLeast20PctHigher.push({ lens, index, priceInfo })
+      }
+    }
+
+    if (isMajorLens(lens) && !hasKnownMount(lens)) {
+      majorLensMissingMount.push({ lens, index })
     }
 
     const name = lens.name || ''
@@ -128,13 +166,36 @@ function main() {
     ({ lens, index }) => lensLabel(lens, index)
   )
 
+  printSection(
+    'used_price が new_price より高い',
+    usedPriceHigherThanNew,
+    ({ lens, index, priceInfo }) =>
+      `${lensLabel(lens, index)} -> new ${priceInfo.new_price}, used ${priceInfo.used_price}`
+  )
+
+  printSection(
+    'used_price が new_price の1.2倍以上',
+    usedPriceAtLeast20PctHigher,
+    ({ lens, index, priceInfo }) =>
+      `${lensLabel(lens, index)} -> new ${priceInfo.new_price}, used ${priceInfo.used_price}`
+  )
+
+  printSection(
+    '主要レンズだが mount / supported_mounts がない、または不明',
+    majorLensMissingMount,
+    ({ lens, index }) => lensLabel(lens, index)
+  )
+
   const warningCount =
     noImage.length +
     missingLocalImage.length +
     noRecommendationStatus.length +
     discontinuedWithoutReplacement.length +
     duplicateNames.length +
-    noUsefulPriceInfo.length
+    noUsefulPriceInfo.length +
+    usedPriceHigherThanNew.length +
+    usedPriceAtLeast20PctHigher.length +
+    majorLensMissingMount.length
 
   console.log(`\nsummary: ${warningCount} warnings across ${lenses.length} lenses`)
 }
