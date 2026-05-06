@@ -3957,6 +3957,11 @@
     },
     {
       "name": "LUMIX S PRO 16-35mm F4",
+      "supported_mounts": [
+        "L mount"
+      ],
+      "mount": "L mount",
+      "brand": "Panasonic",
       "source_url": "https://asobinet.com/lumix-s-pro-16-35mm-f4/",
       "review_links": {
         "0": {
@@ -3986,10 +3991,18 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001208090/"
       },
-      "image_url_external": "https://panasonicjp.scene7.com/is/image/panasonicjp/S-R1635_k_slant-1?fmt=png-alpha"
+      "image_url_external": "https://panasonicjp.scene7.com/is/image/panasonicjp/S-R1635_k_slant-1?fmt=png-alpha",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Lマウント用の高画質広角ズーム。実用性は高いが高価で、広角用途が明確な場合に向く。"
     },
     {
       "name": "LUMIX S 20-60mm F3.5-5.6",
+      "supported_mounts": [
+        "L mount"
+      ],
+      "mount": "L mount",
+      "brand": "Panasonic",
       "source_url": "https://asobinet.com/lumix-s-20-60mm-f3-5-5-6/",
       "review_links": {
         "0": {
@@ -4024,10 +4037,18 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001286337/"
       },
-      "image_url_external": "https://panasonicjp.scene7.com/is/image/panasonicjp/S-R2060_slant-1?fmt=png-alpha"
+      "image_url_external": "https://panasonicjp.scene7.com/is/image/panasonicjp/S-R2060_slant-1?fmt=png-alpha",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "Lマウント用の軽量標準ズーム。広角20mm始まりで旅行・日常用に推薦しやすい。"
     },
     {
       "name": "LUMIX S PRO 24-70mm F2.8",
+      "supported_mounts": [
+        "L mount"
+      ],
+      "mount": "L mount",
+      "brand": "Panasonic",
       "source_url": "https://asobinet.com/lumix-s-pro-24-70mm-f2-8/",
       "review_links": {
         "0": {
@@ -4067,10 +4088,18 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001185578/"
       },
-      "image_url_external": "https://panasonicjp.scene7.com/is/image/panasonicjp/S-E2470_k_slant-1?fmt=png-alpha"
+      "image_url_external": "https://panasonicjp.scene7.com/is/image/panasonicjp/S-E2470_k_slant-1?fmt=png-alpha",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Lマウント用の大口径標準ズーム。画質重視向けだが高価で大型のため用途確認が必要。"
     },
     {
       "name": "LUMIX S 24-105mm F4 Macro O.I.S.",
+      "supported_mounts": [
+        "L mount"
+      ],
+      "mount": "L mount",
+      "brand": "Panasonic",
       "source_url": "https://asobinet.com/lumix-s-24-105mm-f4-macro-o-i-s/",
       "review_links": {
         "0": {
@@ -4110,10 +4139,18 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001129959/"
       },
-      "image_url_external": "https://panasonicjp.scene7.com/is/image/panasonicjp/S-R24105_k_slant-1?fit=constrain%2C1&wid=280&hei=280&fmt=png-alpha"
+      "image_url_external": "https://panasonicjp.scene7.com/is/image/panasonicjp/S-R24105_k_slant-1?fit=constrain%2C1&wid=280&hei=280&fmt=png-alpha",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "Lマウント用の万能標準ズーム。広い焦点域と簡易マクロで旅行・仕事用に推薦しやすい。"
     },
     {
       "name": "LUMIX S PRO 70-200mm F2.8 O.I.S.",
+      "supported_mounts": [
+        "L mount"
+      ],
+      "mount": "L mount",
+      "brand": "Panasonic",
       "source_url": "https://asobinet.com/lumix-s-pro-70-200mm-f2-8-o-i-s/",
       "review_links": {
         "0": {
@@ -4153,10 +4190,18 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001208091/"
       },
-      "image_url_external": "https://panasonicjp.scene7.com/is/image/panasonicjp/S-E70200_k_slant-1?fmt=png-alpha"
+      "image_url_external": "https://panasonicjp.scene7.com/is/image/panasonicjp/S-E70200_k_slant-1?fmt=png-alpha",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Lマウント用の大口径望遠ズーム。高価で重いため、仕事・動体など用途が明確な場合に向く。"
     },
     {
       "name": "LUMIX S PRO 70-200mm F4 O.I.S.",
+      "supported_mounts": [
+        "L mount"
+      ],
+      "mount": "L mount",
+      "brand": "Panasonic",
       "source_url": "https://asobinet.com/lumix-s-pro-70-200mm-f4-o-i-s/",
       "review_links": {
         "0": {
@@ -4201,10 +4246,18 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001130071/"
       },
-      "image_url_external": "https://panasonicjp.scene7.com/is/image/panasonicjp/S-R70200_k_slant-1?fmt=png-alpha"
+      "image_url_external": "https://panasonicjp.scene7.com/is/image/panasonicjp/S-R70200_k_slant-1?fmt=png-alpha",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "Lマウント用の実用望遠ズーム。F2.8より軽く、旅行・屋外撮影で推薦しやすい。"
     },
     {
       "name": "LUMIX S PRO 50mm F1.4",
+      "supported_mounts": [
+        "L mount"
+      ],
+      "mount": "L mount",
+      "brand": "Panasonic",
       "source_url": "https://asobinet.com/lumix-s-pro-50mm-f1-4/",
       "review_links": {
         "0": {
@@ -4257,10 +4310,18 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Lマウント用の高画質50mm単焦点。描写重視向けだが高価で大型のため万人向けではない。"
     },
     {
       "name": "LUMIX S 85mm F1.8",
+      "supported_mounts": [
+        "L mount"
+      ],
+      "mount": "L mount",
+      "brand": "Panasonic",
       "source_url": "https://asobinet.com/lumix-s-85mm-f1-8/",
       "review_links": {
         "0": {
@@ -4379,7 +4440,10 @@
         "sample_images": null,
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "Lマウント用の軽量85mm単焦点。価格と描写のバランスが良くポートレートに推薦しやすい。"
     },
     {
       "name": "Sigma 35mm F2 DG DN Contemporary",
@@ -10180,6 +10244,11 @@
     },
     {
       "name": "Viltrox AF 16mm F1.8 ライカL",
+      "supported_mounts": [
+        "L mount"
+      ],
+      "mount": "L mount",
+      "brand": "Viltrox",
       "source_url": "https://viltroxjapan.jp/products/viltrox-af-16mm-f1-8-l",
       "review_links": {
         "asobinet": "https://asobinet.com/review-viltrox-af-16mm-f1-8-l-mount/"
@@ -10208,7 +10277,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Lマウント用の明るい超広角単焦点。星景・建築向けに有力だが用途が限定され、AF安定性も確認したい。"
     },
     {
       "name": "Viltrox AF 56mm F1.2 PRO APS-C ニコンZマウント",
@@ -18422,6 +18494,11 @@
     },
     {
       "name": "HELIAR-HYPER WIDE 10mm F5.6 Aspherical VM",
+      "supported_mounts": [
+        "Leica M"
+      ],
+      "mount": "Leica M",
+      "brand": "Voigtlander",
       "source_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/heliar-hyper-wide-10mm-f5-6-aspherical/",
       "official_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/heliar-hyper-wide-10mm-f5-6-aspherical/",
       "purchase_links": {
@@ -18445,10 +18522,18 @@
         "kakaku_url": "https://kakaku.com/item/K0000858559/"
       },
       "discontinued": false,
-      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2021/08/VM-10_56_ico-scaled.jpg"
+      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2021/08/VM-10_56_ico-scaled.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Leica M用のMFレンズ。子供・動体撮影の通常推薦には向かず、趣味性や描写重視向け。"
     },
     {
       "name": "SUPER WIDE-HELIAR 15mm F4.5 Aspherical III VM",
+      "supported_mounts": [
+        "Leica M"
+      ],
+      "mount": "Leica M",
+      "brand": "Voigtlander",
       "source_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/super-wide-heliar-15mm-f4-5-aspherical-iii/",
       "official_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/super-wide-heliar-15mm-f4-5-aspherical-iii/",
       "purchase_links": {
@@ -18472,10 +18557,18 @@
         "kakaku_url": "https://kakaku.com/item/K0000742569/"
       },
       "discontinued": false,
-      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2021/08/VM-15_45_ico-scaled.jpg"
+      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2021/08/VM-15_45_ico-scaled.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Leica M用のMFレンズ。子供・動体撮影の通常推薦には向かず、趣味性や描写重視向け。"
     },
     {
       "name": "COLOR-SKOPAR 21mm F4 P VM",
+      "supported_mounts": [
+        "Leica M"
+      ],
+      "mount": "Leica M",
+      "brand": "Voigtlander",
       "source_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/color-skopar-21mm-f4-p/",
       "official_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/color-skopar-21mm-f4-p/",
       "purchase_links": {
@@ -18499,10 +18592,18 @@
         "kakaku_url": "https://kakaku.com/item/K0000296731/"
       },
       "discontinued": false,
-      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2021/09/VM-21_40_ico-scaled.jpg"
+      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2021/09/VM-21_40_ico-scaled.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Leica M用のMFレンズ。子供・動体撮影の通常推薦には向かず、趣味性や描写重視向け。"
     },
     {
       "name": "NOKTON Vintage Line 28mm F1.5 Aspherical Type I VM",
+      "supported_mounts": [
+        "Leica M"
+      ],
+      "mount": "Leica M",
+      "brand": "Voigtlander",
       "source_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/nokton-vintage-line-28mm-f1-5-aspherical/",
       "official_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/nokton-vintage-line-28mm-f1-5-aspherical/",
       "purchase_links": {
@@ -18526,10 +18627,18 @@
         "kakaku_url": "https://kakaku.com/item/K0001592428/"
       },
       "discontinued": false,
-      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2023/12/VM-28_15-icopokjhcd.jpg"
+      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2023/12/VM-28_15-icopokjhcd.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Leica M用のMFレンズ。子供・動体撮影の通常推薦には向かず、趣味性や描写重視向け。"
     },
     {
       "name": "NOKTON Vintage Line 28mm F1.5 Aspherical Type II VM",
+      "supported_mounts": [
+        "Leica M"
+      ],
+      "mount": "Leica M",
+      "brand": "Voigtlander",
       "source_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/nokton-vintage-line-28mm-f1-5-aspherical/",
       "official_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/nokton-vintage-line-28mm-f1-5-aspherical/",
       "purchase_links": {
@@ -18553,10 +18662,18 @@
         "kakaku_url": "https://kakaku.com/item/K0001592431/"
       },
       "discontinued": false,
-      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2023/12/VM-28_15-icopokjhcd.jpg"
+      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2023/12/VM-28_15-icopokjhcd.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Leica M用のMFレンズ。子供・動体撮影の通常推薦には向かず、趣味性や描写重視向け。"
     },
     {
       "name": "NOKTON classic 35mm F1.4 II VM",
+      "supported_mounts": [
+        "Leica M"
+      ],
+      "mount": "Leica M",
+      "brand": "Voigtlander",
       "source_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/nokton-classic-35mm-f1-4-ii/",
       "official_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/nokton-classic-35mm-f1-4-ii/",
       "purchase_links": {
@@ -18580,10 +18697,18 @@
         "kakaku_url": "https://kakaku.com/item/K0001154102/"
       },
       "discontinued": false,
-      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2021/09/VM-35_14cl_ico-scaled.jpg"
+      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2021/09/VM-35_14cl_ico-scaled.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Leica M用のMFレンズ。子供・動体撮影の通常推薦には向かず、趣味性や描写重視向け。"
     },
     {
       "name": "NOKTON Vintage Line 35mm F1.5 Aspherical Type I VM",
+      "supported_mounts": [
+        "Leica M"
+      ],
+      "mount": "Leica M",
+      "brand": "Voigtlander",
       "source_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/nokton-vintage-line-35mm-f1-5-aspherical/",
       "official_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/nokton-vintage-line-35mm-f1-5-aspherical/",
       "purchase_links": {
@@ -18607,10 +18732,18 @@
         "kakaku_url": "https://kakaku.com/item/K0001479879/"
       },
       "discontinued": false,
-      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2022/10/VM-35_15-ico-b.jpg"
+      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2022/10/VM-35_15-ico-b.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Leica M用のMFレンズ。子供・動体撮影の通常推薦には向かず、趣味性や描写重視向け。"
     },
     {
       "name": "NOKTON Vintage Line 35mm F1.5 Aspherical Type II VM",
+      "supported_mounts": [
+        "Leica M"
+      ],
+      "mount": "Leica M",
+      "brand": "Voigtlander",
       "source_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/nokton-vintage-line-35mm-f1-5-aspherical/",
       "official_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/nokton-vintage-line-35mm-f1-5-aspherical/",
       "purchase_links": {
@@ -18634,10 +18767,18 @@
         "kakaku_url": "https://kakaku.com/item/K0001479880/"
       },
       "discontinued": false,
-      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2022/10/VM-35_15-ico-b.jpg"
+      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2022/10/VM-35_15-ico-b.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Leica M用のMFレンズ。子供・動体撮影の通常推薦には向かず、趣味性や描写重視向け。"
     },
     {
       "name": "NOKTON classic 40mm F1.4 VM",
+      "supported_mounts": [
+        "Leica M"
+      ],
+      "mount": "Leica M",
+      "brand": "Voigtlander",
       "source_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/nokton-classic-40mm-f1-4/",
       "official_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/nokton-classic-40mm-f1-4/",
       "purchase_links": {
@@ -18669,10 +18810,18 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Leica M用のMFレンズ。子供・動体撮影の通常推薦には向かず、趣味性や描写重視向け。"
     },
     {
       "name": "HELIAR 40mm F2.8 Aspherical VM",
+      "supported_mounts": [
+        "Leica M"
+      ],
+      "mount": "Leica M",
+      "brand": "Voigtlander",
       "source_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/heliar-40mm-f2-8-aspherical/",
       "official_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/heliar-40mm-f2-8-aspherical/",
       "purchase_links": {
@@ -18696,10 +18845,18 @@
         "kakaku_url": "https://kakaku.com/item/K0001425855/"
       },
       "discontinued": false,
-      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2022/02/L_VM_40_28_icosewiujg.jpg"
+      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2022/02/L_VM_40_28_icosewiujg.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Leica M用のMFレンズ。子供・動体撮影の通常推薦には向かず、趣味性や描写重視向け。"
     },
     {
       "name": "COLOR-SKOPAR 50mm F2.2 VM",
+      "supported_mounts": [
+        "Leica M"
+      ],
+      "mount": "Leica M",
+      "brand": "Voigtlander",
       "source_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/color-skopar-50mm-f2-2/",
       "official_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/color-skopar-50mm-f2-2/",
       "purchase_links": {
@@ -18723,10 +18880,18 @@
         "kakaku_url": "https://kakaku.com/item/K0001633758/"
       },
       "discontinued": false,
-      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2024/06/VM-50_22-ico-olkiuh.jpg"
+      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2024/06/VM-50_22-ico-olkiuh.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Leica M用のMFレンズ。子供・動体撮影の通常推薦には向かず、趣味性や描写重視向け。"
     },
     {
       "name": "APO-LANTHAR 50mm F3.5 Type I VM",
+      "supported_mounts": [
+        "Leica M"
+      ],
+      "mount": "Leica M",
+      "brand": "Voigtlander",
       "source_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/apo-lanthar-50mm-f3-5/",
       "official_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/apo-lanthar-50mm-f3-5/",
       "purchase_links": {
@@ -18750,10 +18915,18 @@
         "kakaku_url": "https://kakaku.com/item/K0001639163/"
       },
       "discontinued": false,
-      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2024/07/VM-50_35-Type-I-ico.jpg"
+      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2024/07/VM-50_35-Type-I-ico.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Leica M用のMFレンズ。子供・動体撮影の通常推薦には向かず、趣味性や描写重視向け。"
     },
     {
       "name": "APO-LANTHAR 50mm F3.5 Type II VM",
+      "supported_mounts": [
+        "Leica M"
+      ],
+      "mount": "Leica M",
+      "brand": "Voigtlander",
       "source_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/apo-lanthar-50mm-f3-5/",
       "official_url": "https://www.cosina.co.jp/voigtlander/vm-mount-lenses/apo-lanthar-50mm-f3-5/",
       "purchase_links": {
@@ -18777,7 +18950,10 @@
         "kakaku_url": "https://kakaku.com/item/K0001639165/"
       },
       "discontinued": false,
-      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2024/07/VM-50_35-Type-II-ico.jpg"
+      "image_url_external": "https://www.cosina.co.jp/wp/wp-content/uploads/2024/07/VM-50_35-Type-II-ico.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "Leica M用のMFレンズ。子供・動体撮影の通常推薦には向かず、趣味性や描写重視向け。"
     },
     {
       "name": "HELIAR-HYPER WIDE 10mm F5.6 Aspherical E",
