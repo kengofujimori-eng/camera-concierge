@@ -12496,17 +12496,17 @@
         }
       },
       "price_info": {
-        "new_price": 161000,
-        "used_price": 163000,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001625939/"
+        "new_price": 148800,
+        "used_price": 114600,
+        "fetched_at": "2026-05-07",
+        "kakaku_url": "https://kakaku.com/item/K0001214290/"
       },
       "photo_yodobashi_url": null,
       "model_code": "a026_24_70",
       "image_url_external": "https://www.sigma-global.com/lenses/a024_24_70_28_ii_product_img03.png",
       "availability_status": "discontinued",
       "recommendation_status": "caution",
-      "recommendation_note": "Sony E / L mount用の初代DG DN Art標準ズーム。II型が後継のため、安い中古なら選択肢。Canon RF / Nikon Z用ではないため購入時にマウント確認が必要。"
+      "recommendation_note": "Sony E / L mount用の初代DG DN Art標準ズーム。II型が後継のため通常推薦はII型優先で、安い中古なら選択肢。Canon RF / Nikon Z用ではないため購入時にマウント確認が必要。"
     },
     {
       "name": "Sigma 28-45mm F1.8 DG DN Art",
