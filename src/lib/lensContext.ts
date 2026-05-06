@@ -33,6 +33,9 @@ interface Lens {
   discontinued?: boolean
   discontinued_reason?: string
   replacement?: string
+  availability_status?: 'current' | 'discontinued' | 'rare_used' | 'unknown'
+  recommendation_status?: 'recommend' | 'caution' | 'avoid'
+  recommendation_note?: string
   [key: string]: unknown
 }
 
