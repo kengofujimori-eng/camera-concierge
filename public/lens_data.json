@@ -8562,6 +8562,40 @@
       "recommendation_note": "大口径85mmの価格重視候補。AFや重量の許容を確認できる場合に選択肢。"
     },
     {
+      "name": "Viltrox AF 50mm F1.8 Z",
+      "brand": "Viltrox",
+      "mount": "Nikon Z",
+      "supported_mounts": [
+        "Nikon Z"
+      ],
+      "source_url": "https://www.bhphotovideo.com/c/product/1678083-REG/viltrox_af_50_1_8_z_af_50mm_f_1_8_z.html",
+      "review_links": {
+        "cameralabs": "https://www.cameralabs.com/viltrox-af-50mm-f1-8-review/"
+      },
+      "official_url": "https://viltrox.com/pages/af-50-1-8-z",
+      "purchase_links": {
+        "new": {
+          "amazon": "https://www.amazon.co.jp/s?k=Viltrox%20AF%2050mm%20F1.8%20Z&rh=n%3A2437276051&tag=techddd-22",
+          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FViltrox%20AF%2050mm%20F1.8%20Z%2F&link_type=text",
+          "yahoo": "https://shopping.yahoo.co.jp/search?p=Viltrox%20AF%2050mm%20F1.8%20Z&astid=12"
+        },
+        "used": {
+          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DViltrox%20AF%2050mm%20F1.8%20Z"
+        }
+      },
+      "price_info": {
+        "new_price": null,
+        "used_price": null,
+        "fetched_at": "2026-05-06",
+        "kakaku_url": "https://kakaku.com/item/K0001420098/"
+      },
+      "image_url": "/lens_images_processed/Viltrox_AF_50mm_F1.8_Z.png",
+      "image_url_external": "https://static.bhphoto.com/images/images500x500/viltrox_af_50_1_8_z_af_50mm_f_1_8_z_1647539178_1678083.jpg",
+      "availability_status": "unknown",
+      "recommendation_status": "caution",
+      "recommendation_note": "50mm標準単焦点の低価格候補。国内価格情報や入手性が不安定なため、NIKKOR Z 50mm f/1.8 SやViltrox F2/F1.4も比較したい。"
+    },
+    {
       "name": "Viltrox AF 50mm F2.0 AIR フルサイズ Z ニコンZマウント",
       "source_url": "https://viltroxjapan.jp/products/viltrox-af50mm-f20-air-z",
       "review_links": {
