@@ -6,6 +6,7 @@
 
 【使い方】
   python3 process_lens_images.py
+  npm run lens:process -- --lens-name "Viltrox AF 55mm F1.8 EVO FE ソニーEマウント" --use-external --update-json
 
 【出力】
   ./lens_images_processed/  ← 処理済みPNG（透明背景）
