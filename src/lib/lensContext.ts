@@ -33,6 +33,9 @@ interface Lens {
   discontinued?: boolean
   discontinued_reason?: string
   replacement?: string
+  availability_status?: 'current' | 'discontinued' | 'rare_used' | 'unknown'
+  recommendation_status?: 'recommend' | 'caution' | 'avoid'
+  recommendation_note?: string
   [key: string]: unknown
 }
 
@@ -193,6 +196,17 @@ export function buildLensContext(lenses: Lens[]): string {
 
   const blocks = lenses.map(lens => {
     const lines: string[] = [`■ ${lens.name}`]
+
+    // 推薦ステータス
+    if (lens.availability_status) {
+      lines.push(`  入手性ステータス : ${lens.availability_status}`)
+    }
+    if (lens.recommendation_status) {
+      lines.push(`  推薦ステータス : ${lens.recommendation_status}`)
+    }
+    if (lens.recommendation_note) {
+      lines.push(`  推薦メモ : ${lens.recommendation_note}`)
+    }
 
     // 価格情報
     const pi = lens.price_info

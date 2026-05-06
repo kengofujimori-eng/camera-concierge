@@ -44,6 +44,11 @@ interface LensPriceData {
   photo_yodobashi_url?: string
   model_code?: string
   discontinued?: boolean
+  discontinued_reason?: string
+  replacement?: string
+  availability_status?: 'current' | 'discontinued' | 'rare_used' | 'unknown'
+  recommendation_status?: 'recommend' | 'caution' | 'avoid'
+  recommendation_note?: string
 }
 interface LensPriceDatabase { lenses: LensPriceData[] }
 
