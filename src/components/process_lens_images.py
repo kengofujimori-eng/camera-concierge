@@ -16,6 +16,7 @@
   - WORKERS: 並列処理数 (CPUコア数に応じて調整)
 """
 
+import argparse
 import json, os, re, time, io
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -31,6 +32,7 @@ OUTPUT_DIR  = Path.home() / "camera-concierge/public/lens_images_processed"
 LONG_SIDE   = 600                  # 処理後の長辺px
 WORKERS     = 4                    # 並列数
 SKIP_EXISTING = True               # 処理済みをスキップ
+LOCAL_IMAGE_PREFIX = "/lens_images_processed/"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -63,13 +65,59 @@ def get_principal_angle(mask: np.ndarray) -> float:
     return angle_deg
 
 
-def process_one(lens: dict) -> dict:
+def local_image_url_for(name: str) -> str:
+    return f"{LOCAL_IMAGE_PREFIX}{slugify(name)}.png"
+
+
+def update_lens_image_url(lens_name: str, local_url: str) -> None:
+    """lens_data.json の該当レコードだけに image_url を追加/更新する。"""
+    json_path = Path(LENS_JSON)
+    text = json_path.read_text(encoding="utf-8")
+    name_line = f'"name": {json.dumps(lens_name, ensure_ascii=False)}'
+    name_pos = text.find(name_line)
+    if name_pos == -1:
+        raise ValueError(f"lens_data.json に対象レンズが見つかりません: {lens_name}")
+
+    block_start = text.rfind("\n    {", 0, name_pos)
+    block_start = 0 if block_start == -1 else block_start + 1
+    block_end = text.find("\n    },", name_pos)
+    if block_end == -1:
+        raise ValueError(f"対象レコードの終端を特定できません: {lens_name}")
+
+    block = text[block_start:block_end]
+    image_line = f'      "image_url": {json.dumps(local_url, ensure_ascii=False)},'
+    image_url_re = re.compile(r'(?m)^      "image_url": ".*?",?$')
+
+    if image_url_re.search(block):
+        new_block = image_url_re.sub(image_line, block, count=1)
+    else:
+        external_line = re.search(r'(?m)^      "image_url_external": .+$', block)
+        if external_line:
+            insert_at = external_line.start()
+            new_block = block[:insert_at] + image_line + "\n" + block[insert_at:]
+        else:
+            name_line_match = re.search(r'(?m)^      "name": .+$', block)
+            if not name_line_match:
+                raise ValueError(f"対象レコードの name 行を特定できません: {lens_name}")
+            insert_at = name_line_match.end() + 1
+            new_block = block[:insert_at] + image_line + "\n" + block[insert_at:]
+
+    if new_block != block:
+        json_path.write_text(text[:block_start] + new_block + text[block_end:], encoding="utf-8")
+
+
+def process_one(lens: dict, allow_external: bool = False) -> dict:
     name = lens.get("name", "?")
     url  = lens.get("image_url", "")
+    source_field = "image_url"
+    if not url and allow_external:
+        url = lens.get("image_url_external", "")
+        source_field = "image_url_external"
     slug = slugify(name)
     out_path = OUTPUT_DIR / f"{slug}.png"
+    local_url = local_image_url_for(name)
 
-    result = {"name": name, "url": url, "status": "", "file": ""}
+    result = {"name": name, "url": url, "source_field": source_field, "status": "", "file": "", "local_url": local_url}
 
     if not url:
         result["status"] = "NO_URL"
@@ -142,12 +190,28 @@ def process_one(lens: dict) -> dict:
 
 
 def main():
+    parser = argparse.ArgumentParser(description="レンズ画像 背景除去 + 方向統一スクリプト")
+    parser.add_argument("--lens-name", help="完全一致するレンズ名を1件だけ処理する")
+    parser.add_argument("--use-external", action="store_true", help="image_url がない場合に image_url_external を入力元にする")
+    parser.add_argument("--update-json", action="store_true", help="処理済み画像のローカルURLを lens_data.json の image_url に反映する")
+    args = parser.parse_args()
+
     OUTPUT_DIR.mkdir(exist_ok=True)
 
     with open(LENS_JSON, encoding="utf-8") as f:
         db = json.load(f)
 
-    lenses = [l for l in db["lenses"] if l.get("image_url")]
+    if args.lens_name:
+        lenses = [l for l in db["lenses"] if l.get("name") == args.lens_name]
+        if not lenses:
+            raise SystemExit(f"対象レンズが見つかりません: {args.lens_name}")
+        if len(lenses) > 1:
+            raise SystemExit(f"対象レンズ名が重複しています: {args.lens_name}")
+        allow_external = True if args.use_external else False
+    else:
+        lenses = [l for l in db["lenses"] if l.get("image_url")]
+        allow_external = False
+
     print(f"処理対象: {len(lenses)}本 (URL未設定は除外)")
     print(f"出力先: {OUTPUT_DIR.resolve()}\n")
 
@@ -155,8 +219,9 @@ def main():
     ok = err = skip = 0
     t0 = time.time()
 
-    with ThreadPoolExecutor(max_workers=WORKERS) as ex:
-        futs = {ex.submit(process_one, l): l for l in lenses}
+    worker_count = 1 if args.lens_name else WORKERS
+    with ThreadPoolExecutor(max_workers=worker_count) as ex:
+        futs = {ex.submit(process_one, l, allow_external=allow_external): l for l in lenses}
         done = 0
         for fut in as_completed(futs):
             res = fut.result()
@@ -179,6 +244,14 @@ def main():
         print("\n⚠️ エラー一覧:")
         for r in errors:
             print(f"  {r['name']}: {r['status']}")
+
+    if args.update_json:
+        if not args.lens_name:
+            raise SystemExit("--update-json は --lens-name と一緒に使ってください")
+        if len(report) != 1 or report[0]["status"] not in ("OK", "SKIPPED"):
+            raise SystemExit("画像処理が成功していないため lens_data.json は更新しません")
+        update_lens_image_url(args.lens_name, report[0]["local_url"])
+        print(f"lens_data.json image_url: {report[0]['local_url']}")
 
     # レポート保存
     rep_path = OUTPUT_DIR / "report.json"
