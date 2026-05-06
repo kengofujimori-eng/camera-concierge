@@ -22,7 +22,8 @@
     "update-reviews:all": "node scripts/update-review-links.js --force-all",
     "check-links": "node scripts/check-photo-yodobashi.js",
     "check-links:fix": "node scripts/check-photo-yodobashi.js --fix",
-    "lens:process": "python3 src/components/process_lens_images.py"
+    "lens:process": "python3 src/components/process_lens_images.py",
+    "db:check": "node scripts/check_lens_data.js"
   },
   "dependencies": {
     "@types/dompurify": "^3.0.5",
