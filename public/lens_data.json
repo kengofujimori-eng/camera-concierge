@@ -2251,7 +2251,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001438602/"
       },
-      "image_url_external": "https://www.sony.jp/products/picture/SEL2470GM.jpg"
+      "image_url_external": "https://www.sony.jp/products/picture/SEL2470GM.jpg",
+      "availability_status": "discontinued",
+      "recommendation_status": "caution",
+      "recommendation_note": "初代GM標準ズーム。GM IIが後継のため、価格が安い中古以外はGM IIを優先。"
     },
     {
       "name": "FE 24-105mm F4 G OSS",
@@ -2466,7 +2469,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001722589/"
       },
-      "image_url_external": "https://www.sony.jp/products/picture/SEL28702.jpg"
+      "image_url_external": "https://www.sony.jp/products/picture/SEL28702.jpg",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "軽量な標準キットズーム。画質や明るさは控えめで、予算重視や最初の1本向け。"
     },
     {
       "name": "FE 70-200mm F2.8 GM OSS",
@@ -2941,7 +2947,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0000586361/"
       },
-      "image_url_external": "https://www.sony.jp/products/picture/SEL35F28Z.jpg"
+      "image_url_external": "https://www.sony.jp/products/picture/SEL35F28Z.jpg",
+      "availability_status": "rare_used",
+      "recommendation_status": "caution",
+      "recommendation_note": "薄型軽量が魅力の旧世代35mm。明るさとAF性能は控えめで、携行性重視向け。"
     },
     {
       "name": "FE 35mm F1.8",
@@ -3087,7 +3096,10 @@
         ],
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "軽量でAFも扱いやすい現行35mm。日常・旅行・動画まで通常推薦しやすい。"
     },
     {
       "name": "Distagon T* FE 35mm F1.4 ZA",
@@ -3140,7 +3152,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0000766262/"
       },
-      "image_url_external": "https://www.sony.jp/products/picture/SEL35F14Z.jpg"
+      "image_url_external": "https://www.sony.jp/products/picture/SEL35F14Z.jpg",
+      "availability_status": "rare_used",
+      "recommendation_status": "caution",
+      "recommendation_note": "旧世代の大口径35mm。サイズとAF面で新しい35mm F1.4 GMを優先しやすい。"
     },
     {
       "name": "FE 50mm F1.8",
@@ -3216,7 +3231,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "低価格な50mm単焦点。AFや質感は控えめで、予算最優先の場合に選択肢。"
     },
     {
       "name": "FE 50mm F2.8 マクロ",
@@ -3329,7 +3347,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0000895916/"
       },
-      "image_url_external": "https://www.sony.jp/products/picture/SEL50F14Z.jpg"
+      "image_url_external": "https://www.sony.jp/products/picture/SEL50F14Z.jpg",
+      "availability_status": "rare_used",
+      "recommendation_status": "caution",
+      "recommendation_note": "旧世代の高画質50mm。大きく重いため、通常は50mm F1.4 GMを優先。"
     },
     {
       "name": "Sonnar T* FE 55mm F1.8 ZA",
@@ -3544,7 +3565,10 @@
         "sample_images": null,
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "軽量で価格も抑えた85mm。ポートレート入門から実用まで通常推薦しやすい。"
     },
     {
       "name": "FE 85mm F1.4 GM",
@@ -3611,7 +3635,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "discontinued",
+      "recommendation_status": "caution",
+      "recommendation_note": "初代GM 85mm。GM IIが後継のため、価格が安い中古や描写の好みが合う場合向け。"
     },
     {
       "name": "FE 90mm F2.8 Macro G OSS",
@@ -5666,7 +5693,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "軽量で価格を抑えた35mm。携行性重視の日常撮影で推薦しやすい。"
     },
     {
       "name": "AF 35mm f/2.8 FE",
@@ -6214,7 +6244,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "SEL2470GM2",
-      "image_url_external": "https://www.sony.jp/products/picture/SEL2470GM2.jpg"
+      "image_url_external": "https://www.sony.jp/products/picture/SEL2470GM2.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行GM II標準ズーム。画質・AF・携行性の総合力が高く、プロ用途でも通常推薦しやすい。"
     },
     {
       "name": "FE 35mm F1.4 GM",
@@ -6250,7 +6283,10 @@
         "sample_images": null,
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行GM単焦点。高画質と明るさのバランスが良く、35mm重視なら有力候補。"
     },
     {
       "name": "FE 50mm F1.2 GM",
@@ -6276,7 +6312,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "SEL50F12GM",
-      "image_url_external": "https://www.sony.jp/products/picture/SEL50F12GM.jpg"
+      "image_url_external": "https://www.sony.jp/products/picture/SEL50F12GM.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行最高クラスの大口径50mm。価格と重量を許容できる本格ポートレート向け。"
     },
     {
       "name": "FE 50mm F1.4 GM",
@@ -6311,7 +6350,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行GMの標準単焦点。画質・AF・サイズのバランスが良く、50mmの本命候補。"
     },
     {
       "name": "FE 70-200mm F2.8 GM OSS II",
@@ -6543,7 +6585,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "SEL2470Z",
-      "image_url_external": "https://www.sony.jp/products/picture/SEL2470Z.jpg"
+      "image_url_external": "https://www.sony.jp/products/picture/SEL2470Z.jpg",
+      "availability_status": "rare_used",
+      "recommendation_status": "caution",
+      "recommendation_note": "旧世代のF4標準ズーム。小型OSS付きだが、描写重視なら新しい標準ズームを優先。"
     },
     {
       "name": "FE 28mm F2",
@@ -6630,7 +6675,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "SEL50F25G",
-      "image_url_external": "https://www.sony.jp/products/picture/SEL50F25G.jpg"
+      "image_url_external": "https://www.sony.jp/products/picture/SEL50F25G.jpg",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "小型軽量な現行G単焦点。携行性と操作性を重視する日常用に推薦しやすい。"
     },
     {
       "name": "FE 70-200mm F4 Macro G OSS",
@@ -7177,7 +7225,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行GM IIポートレート単焦点。AF・軽量化・描写の総合力が高く通常推薦しやすい。"
     },
     {
       "name": "FE 24mm F2.8 G",
@@ -8305,7 +8356,10 @@
         "used_price": null,
         "fetched_at": "2026-04-23"
       },
-      "image_url_external": "http://viltroxjapan.jp/cdn/shop/files/1_5d5bc40b-060f-4b1b-8a21-4c8eea170ee3.jpg?v=1743410574"
+      "image_url_external": "http://viltroxjapan.jp/cdn/shop/files/1_5d5bc40b-060f-4b1b-8a21-4c8eea170ee3.jpg?v=1743410574",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "小型軽量で低価格な50mm。画質より携行性とコストを重視する場合に推薦しやすい。"
     },
     {
       "name": "Viltrox AF 55mm F1.8 EVO FE ソニーEマウント",
@@ -8416,7 +8470,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "大口径85mmの価格重視候補。AFや重量の許容を確認できる場合に選択肢。"
     },
     {
       "name": "Viltrox AF 50mm F2.0 AIR フルサイズ Z ニコンZマウント",
@@ -9292,7 +9349,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "明るい50mmの高コスパ候補。純正GMより価格を抑えて大口径を使いたい場合向け。"
     },
     {
       "name": "Viltrox AF 15mm F1.7 AIR APS-C EソニーE",
@@ -11811,7 +11871,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "ミラーレス設計の35mm Art。画質重視で純正GMより価格を抑えたい場合に有力。"
     },
     {
       "name": "Sigma 50mm F1.2 DG DN Art",
@@ -11872,7 +11935,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行50mm Art。高画質と価格のバランスが良く、標準単焦点の有力候補。"
     },
     {
       "name": "Sigma 85mm F1.4 DG DN Art",
@@ -11907,7 +11973,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "高画質な85mm Art。純正GMより価格を抑えたいポートレート用途で推薦しやすい。"
     },
     {
       "name": "Sigma 105mm F2.8 DG DN Macro Art",
@@ -12122,7 +12191,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "a026_24_70",
-      "image_url_external": "https://www.sigma-global.com/lenses/a024_24_70_28_ii_product_img03.png"
+      "image_url_external": "https://www.sigma-global.com/lenses/a024_24_70_28_ii_product_img03.png",
+      "availability_status": "discontinued",
+      "recommendation_status": "caution",
+      "recommendation_note": "初代DG DN Art標準ズーム。II型が後継のため、安い中古なら選択肢。"
     },
     {
       "name": "Sigma 28-45mm F1.8 DG DN Art",
@@ -14857,7 +14929,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "軽量な大口径85mm。価格重視では魅力だが、AFや個体差を確認して選びたい。"
     },
     {
       "name": "Samyang AF 135mm F1.8 FE",
@@ -15093,7 +15168,10 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "a058",
-      "image_url_external": "https://www.tamron.com/product/pc_file/file/a058_thumb.webp"
+      "image_url_external": "https://www.tamron.com/product/pc_file/file/a058_thumb.webp",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "明るい高倍率ポートレートズーム。重さを許容できるイベント・人物撮影で強い候補。"
     },
     {
       "name": "Tamron 50-400mm F/4.5-6.3 Di III VC VXD",
@@ -16042,7 +16120,10 @@
       },
       "review_links": {
         "asobinet": "https://asobinet.com/fullreview-28-70mm-f2-8-dg-dn/"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "小型軽量なF2.8標準ズーム。携行性と価格を重視するフルサイズEで推薦しやすい。"
     },
     {
       "name": "Sigma 24mm F2 DG DN Contemporary",
@@ -16413,7 +16494,10 @@
         "used_price": 72910,
         "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/kenko-k/cabinet/samyang/8809298886967.jpg?_ex=128x128",
         "fetched_at": "2026-04-27"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "軽量で価格を抑えた35mm。携行性重視の日常撮影で推薦しやすい。"
     },
     {
       "name": "Samyang AF 50mm F1.8 FE",
@@ -16449,7 +16533,10 @@
         "sample_images": null,
         "fetched_at": "2026-04-30"
       },
-      "review_links": {}
+      "review_links": {},
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "軽量低価格な50mm。予算重視で明るい単焦点を使いたい場合に有力。"
     },
     {
       "name": "Samyang Remaster Slim 21mm F3.5",
@@ -19930,7 +20017,10 @@
       "discontinued": false,
       "image_url_external": "https://www.sigma-global.com/lenses/a024_24_70_28_ii_product_img03.png",
       "photo_yodobashi_url": null,
-      "model_code": "a024_24_70_ii"
+      "model_code": "a024_24_70_ii",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行II型Art標準ズーム。描写・AF・近接性能が改善され、純正以外の本命候補。"
     },
     {
       "name": "LAOWA 35mm F2.8 Zero-D Tilt-Shift",
