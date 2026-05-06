@@ -44,7 +44,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001185356/"
       },
-      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf15-35-f28l/rf15-35-f28l.jpg?sc_lang=ja-JP\\&hash=06E938BA3C9E00FDE21600D3E0ACDC72"
+      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf15-35-f28l/rf15-35-f28l.jpg?sc_lang=ja-JP\\&hash=06E938BA3C9E00FDE21600D3E0ACDC72",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行L大三元の超広角ズーム。風景・建築・動画で高画質を求める場合に推薦しやすい。"
     },
     {
       "name": "RF24-70mm F2.8L IS USM",
@@ -93,7 +96,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001185357/"
       },
-      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf24-70-f28l/rf24-70-f28l.jpg?sc_lang=ja-JP&hash=B0E5288CC4ACB282DA2097A7BA6BED04"
+      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf24-70-f28l/rf24-70-f28l.jpg?sc_lang=ja-JP&hash=B0E5288CC4ACB282DA2097A7BA6BED04",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行L標準ズームの定番。高価だが画質・AF・手ぶれ補正の総合力が高く通常推薦しやすい。"
     },
     {
       "name": "RF24-105mm F4L IS USM",
@@ -145,7 +151,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行L標準ズーム。広いズーム域と安定した画質で旅行・仕事用の万能候補。"
     },
     {
       "name": "RF24-105mm F4-7.1 IS STM",
@@ -187,7 +196,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "軽量低価格な標準ズーム。暗めのため、予算重視や入門用として選びたい。"
     },
     {
       "name": "RF24-240mm F4-6.3 IS USM",
@@ -283,7 +295,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001086555/"
       },
-      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf28-70-f2l/rf28-70-f2l.jpg?sc_lang=ja-JP&hash=63048A9ED73D4094A4C7D7BB511BF77E"
+      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf28-70-f2l/rf28-70-f2l.jpg?sc_lang=ja-JP&hash=63048A9ED73D4094A4C7D7BB511BF77E",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "F2通しの高画質標準ズーム。非常に高価で重いため、明るさ重視の業務用途向け。"
     },
     {
       "name": "RF70-200mm F2.8L IS USM",
@@ -336,7 +351,10 @@
         "sample_images": null,
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行L大三元の望遠ズーム。高価だが人物・イベント・スポーツで通常推薦しやすい。"
     },
     {
       "name": "RF70-200mm F4 L IS USM",
@@ -487,7 +505,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001129953/"
       },
-      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf35-f18/rf35-f18.jpg?sc_lang=ja-JP&hash=E30C0BDDFD52BBA3D6A27E128DC75DF1"
+      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf35-f18/rf35-f18.jpg?sc_lang=ja-JP&hash=E30C0BDDFD52BBA3D6A27E128DC75DF1",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "軽量で寄れる35mm単焦点。日常撮影から簡易マクロまで幅広く推薦しやすい。"
     },
     {
       "name": "RF50mm F1.2L USM",
@@ -541,7 +562,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001086554/"
       },
-      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf50-f12l/rf50-f12l.jpg?sc_lang=ja-JP&hash=1F1C4FC6B8D5AFB599AB056D05C6D77D"
+      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf50-f12l/rf50-f12l.jpg?sc_lang=ja-JP&hash=1F1C4FC6B8D5AFB599AB056D05C6D77D",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "大口径Lの高画質50mm。高価で重いため、ボケと描写を最優先する用途向け。"
     },
     {
       "name": "RF50mm F1.8 STM",
@@ -593,7 +617,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "低価格で軽量な標準単焦点。RF入門や日常撮影に通常推薦しやすい。"
     },
     {
       "name": "RF85mm F1.2L USM",
@@ -642,7 +669,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001154121/"
       },
-      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf85-f12l/rf85-f12l.jpg?sc_lang=ja-JP&hash=434AF191A7001524C60FA5D33872E4B6"
+      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf85-f12l/rf85-f12l.jpg?sc_lang=ja-JP&hash=434AF191A7001524C60FA5D33872E4B6",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "最高クラスの大口径ポートレートレンズ。高価で重いため本格人物撮影向け。"
     },
     {
       "name": "RF85mm F1.2L USM DS",
@@ -676,7 +706,10 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001205004/"
       },
-      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf85-f12l-ds/rf85-f12l-ds.jpg?sc_lang=ja-JP&hash=0EE58BDFD793F12B0AF8F48B380EC7C4"
+      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf85-f12l-ds/rf85-f12l-ds.jpg?sc_lang=ja-JP&hash=0EE58BDFD793F12B0AF8F48B380EC7C4",
+      "availability_status": "current",
+      "recommendation_status": "caution",
+      "recommendation_note": "DSコーティングでボケ重視の特殊モデル。高価で用途限定のため通常推薦は慎重にしたい。"
     },
     {
       "name": "RF85mm F2 Macro IS STM",
@@ -743,7 +776,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "軽量で寄れる85mm。ポートレートと簡易マクロを兼ねたい場合に推薦しやすい。"
     },
     {
       "name": "RF600mm F11 IS STM",
@@ -16838,7 +16874,10 @@
         "sample_images": null,
         "summary": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "小型軽量なF2.8標準ズーム。Lレンズより価格と携行性を重視する場合に推薦しやすい。"
     },
     {
       "name": "RF70-200mm F2.8 L IS USM Z",
@@ -17116,7 +17155,10 @@
         "kakaku_url": "https://kakaku.com/item/K0001630403/"
       },
       "discontinued": false,
-      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf35-f14lv/rf35-f14lv.jpg?sc_lang=ja-JP&hash=CD7668B145F924B9EDF6A47CE13B1636"
+      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf35-f14lv/rf35-f14lv.jpg?sc_lang=ja-JP&hash=CD7668B145F924B9EDF6A47CE13B1636",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行L VCM単焦点。静止画と動画の両方で35mmを重視する場合に有力候補。"
     },
     {
       "name": "RF45mm F1.2 STM",
@@ -17251,7 +17293,10 @@
         "kakaku_url": "https://kakaku.com/item/K0001709589/"
       },
       "discontinued": false,
-      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf85-f14lv/rf85-f14lv.jpg?sc_lang=ja-JP&hash=6B1046159C357369A44F74CB267655B6"
+      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf85-f14lv/rf85-f14lv.jpg?sc_lang=ja-JP&hash=6B1046159C357369A44F74CB267655B6",
+      "availability_status": "current",
+      "recommendation_status": "recommend",
+      "recommendation_note": "現行L VCMの85mm。F1.2より扱いやすい大口径ポートレート候補。"
     },
     {
       "name": "RF1200mm F8 L IS USM",
