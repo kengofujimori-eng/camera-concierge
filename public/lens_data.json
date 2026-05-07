@@ -10870,6 +10870,11 @@
     },
     {
       "name": "Viltrox AF 40mm F2.5 AIR ニコンZマウント",
+      "aliases": [
+        "Viltrox AF 40mm F2.5 Z",
+        "Viltrox AF 40mm F2.5 AIR Z",
+        "Viltrox AF40mm F2.5 Z"
+      ],
       "brand": "Viltrox",
       "mount": "Nikon Z",
       "supported_mounts": [
