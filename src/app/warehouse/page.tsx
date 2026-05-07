@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { Trash2, PackageOpen, Plus, ChevronDown, ChevronUp, Camera } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-import { generateFallbackShoppingLinks, applyAffiliateToLinks } from '@/lib/affiliateLinks'
+import { generateFallbackShoppingLinks, applyAffiliateToLinks, type ShoppingLinks } from '@/lib/affiliateLinks'
 
 // ── DB 型定義 ───────────────────────────────────────────
 interface DbReviewLink { site: string; url: string; label: string }
@@ -19,8 +19,8 @@ interface LensPriceDb {
   weight?: string
   price_info?: { new_price: number | null; used_price: number | null; fetched_at: string | null }
   purchase_links?: {
-    new: { amazon?: string; rakuten?: string; yahoo?: string }
-    used: { kitamura?: string; mapcamera?: string }
+    new?: { amazon?: string; rakuten?: string; yahoo?: string } | null
+    used?: { kitamura?: string; mapcamera?: string } | null
   }
 }
 
@@ -105,6 +105,13 @@ function getFallbackImageUrl(name: string): string | null {
 
 // ── レビューサイト分類 ─────────────────────────────────────
 const SAMPLE_SITES = new Set(['Photo Yodobashi'])
+
+function mergeShoppingLinks(primary: ShoppingLinks, fallback: ShoppingLinks): ShoppingLinks {
+  return {
+    new: primary.new.length > 0 ? primary.new : fallback.new,
+    used: primary.used.length > 0 ? primary.used : fallback.used,
+  }
+}
 const SITE_ICONS: Record<string, string> = {
   'Photo Yodobashi': '📷', 'Kasyapa': '🎞️', 'DPReview': '📸',
   'DxOMark': '📊', 'The Digital Picture': '🖼️', 'Photography Life': '🌿', 'Lenstip': '🔬',
@@ -325,7 +332,7 @@ function LensCard({ item, priceDb, linkDb, onDelete }: {
   // lens_data.json のリンクにはアフィリエイトタグを付与、なければフォールバック
   const fallbackLinks = generateFallbackShoppingLinks(cleanName)
   const { new: newLinks, used: usedLinks } = purchaseLinks
-    ? applyAffiliateToLinks(purchaseLinks)
+    ? mergeShoppingLinks(applyAffiliateToLinks(purchaseLinks), fallbackLinks)
     : fallbackLinks
   const fallbackNew = fallbackLinks.new
   const fallbackUsed = fallbackLinks.used
