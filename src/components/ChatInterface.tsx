@@ -819,7 +819,13 @@ export default function ChatInterface() {
       : ''
     const focalPriorityHint = getFocalPriorityHint(trimmed, selectedFocal)
     const mountGuard = selectedMount
-      ? `レンズ候補は${selectedMount.prompt}にネイティブ対応する製品だけを通常推薦してください。指定マウントに対応しないレンズ、別マウント用、アダプター前提、対応マウント不明のレンズは選択肢に絶対入れないでください。候補が3本未満の場合は、無理に3本へ増やさず対応が確実な本数だけ提案してください。`
+      ? [
+          `レンズ候補は${selectedMount.prompt}にネイティブ対応する製品だけを通常推薦してください。`,
+          'FE / Sony E は Sony Eマウント、Z-mount は Nikon Zマウント、X mount は Fujifilm Xマウント、L mount はLマウントとして扱ってください。FEはCanon RFではありません。',
+          '選択肢1〜3を本文に出す直前に、各候補が指定マウントに対応しているか必ず自己確認してください。',
+          '指定マウントに対応しないレンズ、別マウント用、アダプター前提、対応マウント不明のレンズは、本文の選択肢1〜3にも絶対入れないでください。',
+          '指定マウントに対応する候補が2本しかない場合は、3本目を無理に出さず2本で止めてください。',
+        ].join('\n')
       : ''
     const supplementalLines = [
       profileLines.length > 0 ? '2023〜2025年発売の最新レンズも積極的に含めて提案してください。' : '',
