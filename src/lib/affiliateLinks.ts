@@ -104,6 +104,11 @@ export interface ShoppingLinks {
   used: { label: string; url: string }[]
 }
 
+export interface PurchaseLinksInput {
+  new?: { amazon?: string; rakuten?: string; yahoo?: string } | null
+  used?: { kitamura?: string; mapcamera?: string } | null
+}
+
 /**
  * レンズ名からフォールバック用ショッピングリンクセットを生成
  */
@@ -123,19 +128,16 @@ export function generateFallbackShoppingLinks(lensName: string): ShoppingLinks {
 /**
  * lens_data.json の purchase_links に含まれる個別URLにアフィリエイトを付与する
  */
-export function applyAffiliateToLinks(purchaseLinks: {
-  new: { amazon?: string; rakuten?: string; yahoo?: string }
-  used: { kitamura?: string; mapcamera?: string }
-}): ShoppingLinks {
+export function applyAffiliateToLinks(purchaseLinks: PurchaseLinksInput): ShoppingLinks {
   const newLinks: { label: string; url: string }[] = []
   const usedLinks: { label: string; url: string }[] = []
 
-  if (purchaseLinks.new.amazon)  newLinks.push({ label: '🛒 Amazon', url: withAmazonTag(purchaseLinks.new.amazon) })
-  if (purchaseLinks.new.rakuten) newLinks.push({ label: '🔴 楽天',   url: generateRakutenSearchUrl('', purchaseLinks.new.rakuten) })
-  if (purchaseLinks.new.yahoo)   newLinks.push({ label: '🟡 Yahoo',  url: generateYahooSearchUrl('', purchaseLinks.new.yahoo) })
+  if (purchaseLinks.new?.amazon)  newLinks.push({ label: '🛒 Amazon', url: withAmazonTag(purchaseLinks.new.amazon) })
+  if (purchaseLinks.new?.rakuten) newLinks.push({ label: '🔴 楽天',   url: generateRakutenSearchUrl('', purchaseLinks.new.rakuten) })
+  if (purchaseLinks.new?.yahoo)   newLinks.push({ label: '🟡 Yahoo',  url: generateYahooSearchUrl('', purchaseLinks.new.yahoo) })
 
-  if (purchaseLinks.used.kitamura)  usedLinks.push({ label: '🗺️ キタムラ', url: generateKitamuraUrl('', purchaseLinks.used.kitamura) })
-  if (purchaseLinks.used.mapcamera) usedLinks.push({ label: '📸 MapCamera', url: purchaseLinks.used.mapcamera })
+  if (purchaseLinks.used?.kitamura)  usedLinks.push({ label: '🗺️ キタムラ', url: generateKitamuraUrl('', purchaseLinks.used.kitamura) })
+  if (purchaseLinks.used?.mapcamera) usedLinks.push({ label: '📸 MapCamera', url: purchaseLinks.used.mapcamera })
 
   return { new: newLinks, used: usedLinks }
 }

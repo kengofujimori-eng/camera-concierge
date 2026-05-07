@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Package, Star, Check, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
-import { generateFallbackShoppingLinks, applyAffiliateToLinks } from '@/lib/affiliateLinks'
+import { generateFallbackShoppingLinks, applyAffiliateToLinks, type ShoppingLinks } from '@/lib/affiliateLinks'
 
 interface WarehouseItem {
   id: number
@@ -27,8 +27,8 @@ interface LensLinkDatabase { total: number; lenses: LensLinkData[] }
 
 // lens_data.json 型
 interface PurchaseLinks {
-  new: { amazon?: string; rakuten?: string; yahoo?: string }
-  used: { kitamura?: string; mapcamera?: string }
+  new?: { amazon?: string; rakuten?: string; yahoo?: string } | null
+  used?: { kitamura?: string; mapcamera?: string } | null
 }
 interface PriceInfo {
   new_price: number | null
@@ -58,6 +58,13 @@ interface LensPriceData {
   recommendation_note?: string
 }
 interface LensPriceDatabase { lenses: LensPriceData[] }
+
+function mergeShoppingLinks(primary: ShoppingLinks, fallback: ShoppingLinks): ShoppingLinks {
+  return {
+    new: primary.new.length > 0 ? primary.new : fallback.new,
+    used: primary.used.length > 0 ? primary.used : fallback.used,
+  }
+}
 
 // Dify の応答に「Sony」「Canon」等のブランド名が付く場合と付かない場合がある
 const BRAND_PREFIX_RE = /^(Sony|Canon|Nikon|Sigma|Tamron|Viltrox|Tokina|Samyang|LAOWA|Fujifilm)\s+/i
@@ -371,7 +378,7 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
 
   // レビューリンク (lens_links.json)
   const dbLens = lensLinkDb ? findLensInDatabase(cleanName, lensLinkDb) : null
-  const uniqueReviewLinks = dbLens
+  const uniqueReviewLinks = dbLens?.review_links?.length
     ? Object.values(
         dbLens.review_links.reduce((acc, link) => {
           if (!acc[link.site]) acc[link.site] = link
@@ -402,7 +409,7 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
 
   // lens_data.json のリンクにはアフィリエイトタグを付与、なければフォールバック
   const { new: newLinks, used: usedLinks } = purchaseLinks
-    ? applyAffiliateToLinks(purchaseLinks)
+    ? mergeShoppingLinks(applyAffiliateToLinks(purchaseLinks), fallback)
     : fallback
 
   return (
