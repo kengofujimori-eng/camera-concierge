@@ -64,8 +64,8 @@ const cases: RecommendationCase[] = [
 async function openChatWithMount(page: Page, mountId: string) {
   await page.addInitScript((id) => {
     localStorage.clear()
-    localStorage.setItem('setupDone', 'true')
-    localStorage.setItem('selectedMountId', id)
+    localStorage.setItem('setupDone', JSON.stringify('true'))
+    localStorage.setItem('selectedMountId', JSON.stringify(id))
   }, mountId)
 
   await page.goto('/')
@@ -97,8 +97,9 @@ test.describe('recommendation smoke tests', () => {
 
       await openChatWithMount(page, testCase.mountId)
 
-      await page.getByPlaceholder('例：運動会で動く子供を撮りたい...').fill(testCase.prompt)
-      await page.keyboard.press('Enter')
+      await page.getByTestId('chat-input').fill(testCase.prompt)
+      await expect(page.getByTestId('chat-send-button')).toBeEnabled()
+      await page.getByTestId('chat-send-button').click()
 
       const answer = page.getByTestId('assistant-answer').last()
       await expect(answer).toContainText('選択肢1')

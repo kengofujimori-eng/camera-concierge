@@ -1432,6 +1432,7 @@ export default function ChatInterface() {
 
             <div className="flex gap-3 items-end">
               <textarea
+                data-testid="chat-input"
                 ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -1449,6 +1450,7 @@ export default function ChatInterface() {
                 }}
               />
               <motion.button
+                data-testid="chat-send-button"
                 onClick={() => sendMessage(input)}
                 disabled={!input.trim() || loading}
                 whileHover={{ scale: 1.05 }}
