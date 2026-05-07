@@ -11993,7 +11993,6 @@
       "name": "RF 24-50mm F4.5-6.3 IS STM",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf24-50-f45-63/",
       "review_links": {},
-      "image_url": "/lens_images_processed/RF_24-50mm_F4.5-6.3_IS_STM.png",
       "official_url": "https://cweb.canon.jp/rf/lineup/rf24-50-f45-63/",
       "purchase_links": {
         "new": {
@@ -12013,7 +12012,8 @@
       },
       "photo_yodobashi_url": null,
       "model_code": "rf24-50-f45-63",
-      "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf24-50-f45-63/rf24-50-f45-63.jpg?sc_lang=ja-JP\\&hash=D4ECB73F4C859740A0C5BF282192AFC6"
+      "image_url": "/lens_images_processed/RF_24-50mm_F4.5-6.3_IS_STM.png",
+      "image_url_external": "https://s7d1.scene7.com/is/image/canon/5823C002_rf24-50mm-f45-63-is-stm_primary?fmt=webp-alpha&hei=800&wid=800"
     },
     {
       "name": "RF 100-400mm F5.6-8 IS USM",
