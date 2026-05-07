@@ -827,9 +827,17 @@ export default function ChatInterface() {
           '指定マウントに対応する候補が2本しかない場合は、3本目を無理に出さず2本で止めてください。',
         ].join('\n')
       : ''
+    const canonRfGuard = selectedMount?.id === 'canon-rf' || selectedMount?.id === 'canon-rf-s'
+      ? [
+          'Canon RF / RF-S相談では、Canon RFまたはCanon RF-Sにネイティブ対応するレンズだけを本文の通常候補にしてください。',
+          'Tamron Di III、Sigma DG DN、FE、Sony E、Nikon Z、L mountなどは、Canon RF / RF-S用として明確に対応している製品でない限り、Canon RF / RF-Sの選択肢に入れないでください。',
+          'Canon RF / RF-Sネイティブ対応が確実な候補が1本または2本しかない場合は、3本に増やさず確実な候補だけ提示してください。',
+        ].join('\n')
+      : ''
     const supplementalLines = [
       profileLines.length > 0 ? '2023〜2025年発売の最新レンズも積極的に含めて提案してください。' : '',
       mountGuard,
+      canonRfGuard,
       focalPriorityHint,
       macroHint,
     ].filter(Boolean)
