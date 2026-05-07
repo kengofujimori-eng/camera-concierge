@@ -834,10 +834,20 @@ export default function ChatInterface() {
           'Canon RF / RF-Sネイティブ対応が確実な候補が1本または2本しかない場合は、3本に増やさず確実な候補だけ提示してください。',
         ].join('\n')
       : ''
+    const omittedCandidateHint = selectedMount
+      ? [
+          '条件には合うが、重量・価格・用途限定性などで通常候補から外した重要レンズがある場合は、最後に「今回は外した候補」として1〜2本だけ短く理由を添えてください。',
+          '指定マウントに非対応のレンズは「今回は外した候補」にも入れないでください。',
+          selectedMount.id === 'canon-rf'
+            ? 'Canon RFの旅行・子供撮影では、RF28-70mm F2 L USMのような超高性能だが重いレンズは、必要に応じて「描写は強力だが携帯性で今回は見送り」と説明してください。'
+            : '',
+        ].filter(Boolean).join('\n')
+      : ''
     const supplementalLines = [
       profileLines.length > 0 ? '2023〜2025年発売の最新レンズも積極的に含めて提案してください。' : '',
       mountGuard,
       canonRfGuard,
+      omittedCandidateHint,
       focalPriorityHint,
       macroHint,
     ].filter(Boolean)
