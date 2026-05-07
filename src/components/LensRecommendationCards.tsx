@@ -41,6 +41,8 @@ interface LensPriceData {
   official_url?: string
   brand?: string
   maker?: string
+  mount?: string
+  supported_mounts?: string[]
   image_url?: string
   image_url_external?: string
   purchase_links?: PurchaseLinks
@@ -188,6 +190,8 @@ function stripMountInfo(str: string): string {
   return str
     // 日本語のマウント表記を除去（例: ソニーEマウント、ニコンZマウント）
     .replace(/[\u3040-\u30FF\u4E00-\u9FFF]+[A-Z]?マウント/g, '')
+    // 英語のマウント表記を除去（例: Z-mount, RF mount, L mount）
+    .replace(/\s+(sony\s*e|e-?mount|nikon\s*z|z-?mount|canon\s*rf|rf-?s?|rf-?mount|leica\s*l|l-?mount|leica\s*m|m-?mount|fujifilm\s*x|x-?mount|mft|micro\s*4\/?3)\s*$/i, '')
     // 末尾のFE, RF, Z, L, XF, GFX, E等のマウント略称を除去
     .replace(/\s+(FE|RF|Z|L|XF|GFX|EF|EF-M|EF-S|MFT|M4\/3|M43|FX|GX|EF-M)\s*$/i, '')
     // 末尾の富士フイルム、ソニー、ニコン等のブランド名を除去
@@ -257,6 +261,55 @@ function findLensInDatabase<T extends { name: string; brand?: string; maker?: st
   if (scored.length > 0) return scored[0].lens
 
   return null
+}
+
+type MountFamily =
+  | 'sony-e'
+  | 'canon-rf'
+  | 'nikon-z'
+  | 'fujifilm-x'
+  | 'fujifilm-gfx'
+  | 'l-mount'
+  | 'leica-m'
+  | 'm43'
+
+function normalizeMountFamily(text?: string): MountFamily | null {
+  if (!text) return null
+  const normalized = text.toLowerCase()
+
+  if (/leica\s*m|ライカm/.test(normalized)) return 'leica-m'
+  if (/micro\s*4\/?3|mft|m4\/?3|マイクロフォーサーズ/.test(normalized)) return 'm43'
+  if (/fujifilm\s*gfx|fuji\s*gfx|gfx|富士フイルムgfx/.test(normalized)) return 'fujifilm-gfx'
+  if (/fujifilm\s*x|fuji\s*x|xf\b|富士フイルムx/.test(normalized)) return 'fujifilm-x'
+  if (/nikon\s*z|z\s*mount|zマウント|ニコンz/.test(normalized)) return 'nikon-z'
+  if (/canon\s*rf|rf-?s|rf\s*mount|rfマウント|キヤノンrf|キャノンrf/.test(normalized)) return 'canon-rf'
+  if (/sony\s*e|e\s*mount|eマウント|ソニーe|\bfe\b/.test(normalized)) return 'sony-e'
+  if (/\bl\s*mount\b|lマウント|ライカl|leica\s*l/.test(normalized)) return 'l-mount'
+
+  return null
+}
+
+function getLensMountFamilies(lens?: Pick<LensPriceData, 'mount' | 'supported_mounts'> | null): MountFamily[] {
+  if (!lens) return []
+  const rawMounts = lens.supported_mounts?.length ? lens.supported_mounts : lens.mount ? lens.mount.split(/[、,/]+|\s+\+\s+/) : []
+  const families = rawMounts
+    .map((mount) => normalizeMountFamily(mount))
+    .filter((mount): mount is MountFamily => mount !== null)
+
+  return Array.from(new Set(families))
+}
+
+function isClearlyIncompatibleWithSelectedMount(
+  lens: Pick<LensPriceData, 'mount' | 'supported_mounts'> | null,
+  selectedMountPrompt?: string
+): boolean {
+  const selectedFamily = normalizeMountFamily(selectedMountPrompt)
+  if (!selectedFamily) return false
+
+  const lensFamilies = getLensMountFamilies(lens)
+  if (lensFamilies.length === 0) return false
+
+  return !lensFamilies.includes(selectedFamily)
 }
 
 function extractFocal(name: string): { min: number; max: number } | null {
@@ -510,7 +563,13 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
   )
 }
 
-export default function LensRecommendationCards({ responseText }: { responseText: string }) {
+export default function LensRecommendationCards({
+  responseText,
+  selectedMountPrompt,
+}: {
+  responseText: string
+  selectedMountPrompt?: string
+}) {
   const lensEntries = extractLensEntries(responseText)
   const [addedItems, setAddedItems] = useState<Record<string, 'owned' | 'wishlist'>>({})
   const [lensLinkDb, setLensLinkDb] = useState<LensLinkData[] | null>(null)
@@ -545,7 +604,9 @@ export default function LensRecommendationCards({ responseText }: { responseText
   const visibleLensEntries = lensPriceDb
     ? lensEntries.filter((entry) => {
         const priceData = findLensInDatabase(entry.name, lensPriceDb)
-        return priceData?.discontinued !== true
+        if (priceData?.discontinued === true) return false
+        if (isClearlyIncompatibleWithSelectedMount(priceData, selectedMountPrompt)) return false
+        return true
       })
     : []
 

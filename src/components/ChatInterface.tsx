@@ -819,7 +819,7 @@ export default function ChatInterface() {
       : ''
     const focalPriorityHint = getFocalPriorityHint(trimmed, selectedFocal)
     const mountGuard = selectedMount
-      ? `レンズ候補は${selectedMount.prompt}にネイティブ対応する製品だけを通常推薦してください。別マウント用、アダプター前提、対応マウント不明のレンズは候補にしないでください。`
+      ? `レンズ候補は${selectedMount.prompt}にネイティブ対応する製品だけを通常推薦してください。指定マウントに対応しないレンズ、別マウント用、アダプター前提、対応マウント不明のレンズは選択肢に絶対入れないでください。候補が3本未満の場合は、無理に3本へ増やさず対応が確実な本数だけ提案してください。`
       : ''
     const supplementalLines = [
       profileLines.length > 0 ? '2023〜2025年発売の最新レンズも積極的に含めて提案してください。' : '',
@@ -1230,7 +1230,7 @@ export default function ChatInterface() {
                           dangerouslySetInnerHTML={{ __html: renderAnswer(msg.content) }}
                         />
                         {/* レンズ推薦カード（Reactコンポーネント） */}
-                        <LensRecommendationCards responseText={msg.content} />
+                        <LensRecommendationCards responseText={msg.content} selectedMountPrompt={selectedMount?.prompt} />
                         {/* AI選択肢ボタン */}
                         <ChoiceButtons text={msg.content} onSelect={sendMessage} />
                       </>
