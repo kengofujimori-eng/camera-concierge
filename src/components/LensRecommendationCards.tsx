@@ -37,6 +37,7 @@ interface PriceInfo {
 }
 interface LensPriceData {
   name: string
+  aliases?: string[]
   source_url?: string
   official_url?: string
   brand?: string
@@ -198,14 +199,14 @@ function stripMountInfo(str: string): string {
     .replace(/\s+(富士フイルム|ソニー|ニコン|キヤノン|パナソニック|ライカ|シグマ)(.*?)?(マウント|用|対応)?\s*$/g, '')
 }
 
-function findLensInDatabase<T extends { name: string; brand?: string; maker?: string; source_url?: string; official_url?: string; model_code?: string }>(lensName: string, db: T[]): T | null {
+function findLensInDatabase<T extends { name: string; aliases?: string[]; brand?: string; maker?: string; source_url?: string; official_url?: string; model_code?: string }>(lensName: string, db: T[]): T | null {
   const candidates = [lensName, stripBrandPrefix(lensName)]
   const queryBrand = inferBrandFromText(lensName)
 
   for (const candidate of candidates) {
     const q = normalize(candidate)
     if (q.length < 6) continue
-    const exactMatches = db.filter((l) => normalize(l.name) === q)
+    const exactMatches = db.filter((l) => [l.name, ...(l.aliases ?? [])].some((name) => normalize(name) === q))
     if (exactMatches.length > 0) {
       return exactMatches.find((l) => !queryBrand || inferBrand(l) === queryBrand) ?? exactMatches[0]
     }
@@ -214,8 +215,7 @@ function findLensInDatabase<T extends { name: string; brand?: string; maker?: st
     const qCore = normalize(stripMountInfo(candidate))
     if (qCore.length >= 8 && qCore !== q) {
       const mountStripped = db.filter((l) => {
-        const nCore = normalize(stripMountInfo(l.name))
-        return nCore === qCore
+        return [l.name, ...(l.aliases ?? [])].some((name) => normalize(stripMountInfo(name)) === qCore)
       })
       if (mountStripped.length > 0) {
         return mountStripped.find((l) => !queryBrand || inferBrand(l) === queryBrand) ?? mountStripped[0]
@@ -231,28 +231,32 @@ function findLensInDatabase<T extends { name: string; brand?: string; maker?: st
       const qCore = normalize(stripMountInfo(stripBrandPrefix(lensName)))
       const qTokens = canonicalTokenKey(lensName)
       const qCoreTokens = canonicalTokenKey(stripMountInfo(stripBrandPrefix(lensName)))
-      const nameFull = normalize(lens.name)
-      const nameCore = normalize(stripMountInfo(stripBrandPrefix(lens.name)))
-      const nameTokens = canonicalTokenKey(lens.name)
-      const nameCoreTokens = canonicalTokenKey(stripMountInfo(stripBrandPrefix(lens.name)))
+      const names = [lens.name, ...(lens.aliases ?? [])]
       const modelCode = lens.model_code ? normalizeModelCode(lens.model_code) : ''
       const qModel = normalizeModelCode(lensName)
 
       let score = 0
       if (modelCode && (qModel === modelCode || qModel.includes(modelCode))) score = Math.max(score, 120)
-      if (nameTokens && nameTokens === qTokens) score = Math.max(score, 100)
-      if (nameCoreTokens && nameCoreTokens === qCoreTokens) score = Math.max(score, 92)
-      if (nameFull === qFull) score = Math.max(score, 90)
-      if (nameCore === qCore) score = Math.max(score, 82)
-      if ((nameFull.includes(qFull) || qFull.includes(nameFull)) && Math.min(nameFull.length, qFull.length) >= 10) {
-        score = Math.max(score, 45)
-      }
-      if ((nameCore.includes(qCore) || qCore.includes(nameCore)) && Math.min(nameCore.length, qCore.length) >= 10) {
-        score = Math.max(score, 40)
+      for (const candidateName of names) {
+        const nameFull = normalize(candidateName)
+        const nameCore = normalize(stripMountInfo(stripBrandPrefix(candidateName)))
+        const nameTokens = canonicalTokenKey(candidateName)
+        const nameCoreTokens = canonicalTokenKey(stripMountInfo(stripBrandPrefix(candidateName)))
+
+        if (nameTokens && nameTokens === qTokens) score = Math.max(score, 100)
+        if (nameCoreTokens && nameCoreTokens === qCoreTokens) score = Math.max(score, 92)
+        if (nameFull === qFull) score = Math.max(score, 90)
+        if (nameCore === qCore) score = Math.max(score, 82)
+        if ((nameFull.includes(qFull) || qFull.includes(nameFull)) && Math.min(nameFull.length, qFull.length) >= 10) {
+          score = Math.max(score, 45)
+        }
+        if ((nameCore.includes(qCore) || qCore.includes(nameCore)) && Math.min(nameCore.length, qCore.length) >= 10) {
+          score = Math.max(score, 40)
+        }
       }
 
       if (queryBrand) score += brandMatches ? 20 : -80
-      score += Math.min(nameFull.length, 30) / 100
+      score += Math.min(normalize(lens.name).length, 30) / 100
       return { lens, score }
     })
     .filter(({ score }) => score >= 60)
