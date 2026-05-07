@@ -23,6 +23,10 @@ __pycache__/
 # Logs
 *.log
 
+# Playwright
+test-results/
+playwright-report/
+
 # Local browser / temporary files
 chrome/
 scripts/*.tmp.js

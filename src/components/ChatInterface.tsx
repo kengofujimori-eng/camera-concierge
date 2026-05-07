@@ -1250,6 +1250,7 @@ export default function ChatInterface() {
                       <>
                         {/* HTMLレンダリング */}
                         <div
+                          data-testid="assistant-answer"
                           className="chat-answer prose-dify rounded-2xl rounded-tl-none bg-slate-100 dark:bg-slate-700 px-4 py-3 text-sm leading-relaxed text-slate-900 dark:text-slate-100"
                           dangerouslySetInnerHTML={{ __html: renderAnswer(msg.content) }}
                         />

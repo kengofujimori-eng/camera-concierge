@@ -23,7 +23,10 @@
     "check-links": "node scripts/check-photo-yodobashi.js",
     "check-links:fix": "node scripts/check-photo-yodobashi.js --fix",
     "lens:process": "python3 src/components/process_lens_images.py",
-    "db:check": "node scripts/check_lens_data.js"
+    "db:check": "node scripts/check_lens_data.js",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed"
   },
   "dependencies": {
     "@types/dompurify": "^3.0.5",
@@ -37,6 +40,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
     "@types/better-sqlite3": "^7.6.11",
     "@types/node": "^20",
     "@types/react": "^18",

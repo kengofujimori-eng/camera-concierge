@@ -414,6 +414,7 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
 
   return (
     <motion.div
+      data-testid="lens-card"
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: index * 0.1, ease: 'easeOut' }}
@@ -423,6 +424,7 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
       <div className="w-28 flex-shrink-0 bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden">
         {cardImageUrl ? (
           <img
+            data-testid="lens-card-image"
             src={cardImageUrl}
             alt={cleanName}
             onError={handleImgError}
@@ -430,7 +432,7 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
             className="h-full w-full object-contain p-2"
           />
         ) : (
-          <span className="text-3xl">📷</span>
+          <span data-testid="lens-card-placeholder" className="text-3xl">📷</span>
         )}
       </div>
 
@@ -442,12 +444,12 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
         {priceInfo && (priceInfo.new_price || priceInfo.used_price) && (
           <div className="mb-2 flex gap-1.5 flex-wrap">
             {priceInfo.new_price && (
-              <span className="inline-flex items-center rounded-full bg-blue-50 border border-blue-200 px-2 py-0.5 text-xs font-semibold text-blue-700 dark:bg-blue-900/30 dark:border-blue-700 dark:text-blue-300">
+              <span data-testid="price-badge" className="inline-flex items-center rounded-full bg-blue-50 border border-blue-200 px-2 py-0.5 text-xs font-semibold text-blue-700 dark:bg-blue-900/30 dark:border-blue-700 dark:text-blue-300">
                 🆕 {formatPrice(priceInfo.new_price)}〜
               </span>
             )}
             {priceInfo.used_price && (
-              <span className="inline-flex items-center rounded-full bg-green-50 border border-green-200 px-2 py-0.5 text-xs font-semibold text-green-700 dark:bg-green-900/30 dark:border-green-700 dark:text-green-300">
+              <span data-testid="price-badge" className="inline-flex items-center rounded-full bg-green-50 border border-green-200 px-2 py-0.5 text-xs font-semibold text-green-700 dark:bg-green-900/30 dark:border-green-700 dark:text-green-300">
                 ♻️ {formatPrice(priceInfo.used_price)}〜
               </span>
             )}
