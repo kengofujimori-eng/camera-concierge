@@ -6,6 +6,7 @@ type RecommendationCase = {
   prompt: string
   answer: string
   forbiddenText: RegExp[]
+  expectedCardNames?: string[]
 }
 
 const cases: RecommendationCase[] = [
@@ -97,6 +98,29 @@ const cases: RecommendationCase[] = [
     ].join('\n'),
     forbiddenText: [/Canon RF/i, /Nikon Z/i, /Fujifilm X/i, /RF-S/i],
   },
+  {
+    name: 'Sony E 室内子供撮影 35〜55mm単焦点',
+    mountButtonName: /Sony E\s*フルサイズ/,
+    prompt:
+      'Sony Eマウントのフルサイズ機で、室内の子供撮影に使う35〜55mmの単焦点レンズを探しています。明るさとAF性能を重視します。',
+    answer: [
+      'Sony Eフルサイズで、室内の子供撮影に向いた35〜55mm単焦点候補です。',
+      '',
+      '【選択肢1】FE 35mm F1.4 GM',
+      'おすすめ理由：明るさ、AF性能、画角の扱いやすさのバランスが高く、室内で動く子供を撮りやすい本命候補です。',
+      '注意点：価格は高めですが、35mm重視なら満足度が高いです。',
+      '',
+      '【選択肢2】FE 50mm F1.4 GM',
+      'おすすめ理由：AF性能と描写のバランスが良く、少し寄った子供撮影やポートレートにも使いやすい標準単焦点です。',
+      '注意点：室内が狭い場合は35mmより距離を取りにくい場面があります。',
+      '',
+      '【選択肢3】FE 35mm F1.8',
+      'おすすめ理由：軽量でAFも扱いやすく、室内・日常撮影で負担が少ない現実的な候補です。',
+      '注意点：明るさと描写の余裕はF1.4 GMに譲ります。',
+    ].join('\n'),
+    forbiddenText: [/Canon RF/i, /Nikon Z/i, /Fujifilm X/i, /RF-S/i],
+    expectedCardNames: ['FE 35mm F1.4 GM', 'FE 50mm F1.4 GM', 'FE 35mm F1.8'],
+  },
 ]
 
 async function openChatWithMount(page: Page, mountButtonName: RegExp) {
@@ -154,13 +178,27 @@ test.describe('recommendation smoke tests', () => {
 
       const cards = page.getByTestId('lens-card')
       await expect(cards.first()).toBeVisible()
-      expect(await cards.count()).toBeGreaterThan(0)
+      const cardCount = await cards.count()
+      expect(cardCount).toBeGreaterThan(0)
+
+      if (testCase.expectedCardNames) {
+        expect(cardCount).toBe(testCase.expectedCardNames.length)
+        for (const expectedName of testCase.expectedCardNames) {
+          await expect(cards.filter({ hasText: expectedName })).toHaveCount(1)
+        }
+        await expect(page.getByText('AI分析を表示')).toHaveCount(testCase.expectedCardNames.length)
+      }
 
       const imageCount = await page.getByTestId('lens-card-image').count()
       const priceCount = await page.getByTestId('price-badge').count()
       const placeholderCount = await page.getByTestId('lens-card-placeholder').count()
-      expect(placeholderCount).toBeLessThan(await cards.count())
+      expect(placeholderCount).toBeLessThan(cardCount)
       expect(imageCount + priceCount).toBeGreaterThan(0)
+
+      if (testCase.expectedCardNames) {
+        expect(imageCount).toBe(testCase.expectedCardNames.length)
+        expect(priceCount).toBeGreaterThanOrEqual(testCase.expectedCardNames.length)
+      }
 
       const crashMessages = [...consoleErrors, ...pageErrors].filter((message) =>
         /TypeError|Cannot read properties|Application error/i.test(message)
