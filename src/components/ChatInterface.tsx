@@ -1250,6 +1250,7 @@ export default function ChatInterface() {
                       <>
                         {/* HTMLレンダリング */}
                         <div
+                          data-testid="assistant-answer"
                           className="chat-answer prose-dify rounded-2xl rounded-tl-none bg-slate-100 dark:bg-slate-700 px-4 py-3 text-sm leading-relaxed text-slate-900 dark:text-slate-100"
                           dangerouslySetInnerHTML={{ __html: renderAnswer(msg.content) }}
                         />
@@ -1431,6 +1432,7 @@ export default function ChatInterface() {
 
             <div className="flex gap-3 items-end">
               <textarea
+                data-testid="chat-input"
                 ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -1448,6 +1450,7 @@ export default function ChatInterface() {
                 }}
               />
               <motion.button
+                data-testid="chat-send-button"
                 onClick={() => sendMessage(input)}
                 disabled={!input.trim() || loading}
                 whileHover={{ scale: 1.05 }}
