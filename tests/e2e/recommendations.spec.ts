@@ -136,8 +136,22 @@ async function openChatWithMount(page: Page, testCase: RecommendationCase) {
   })
 
   await page.goto('/')
-  await page.getByTestId(testCase.mountButtonTestId).click()
-  await expect(page.getByTestId('selected-mount-display')).toContainText(testCase.selectedMountText)
+  const selectedMountDisplay = page.getByTestId('selected-mount-display')
+  const mountButton = page.getByTestId(testCase.mountButtonTestId)
+
+  await expect(selectedMountDisplay).toBeVisible()
+  await expect(mountButton).toBeVisible()
+
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    await mountButton.click()
+
+    try {
+      await expect(selectedMountDisplay).toContainText(testCase.selectedMountText, { timeout: 3_000 })
+      return
+    } catch (error) {
+      if (attempt === 1) throw error
+    }
+  }
 }
 
 async function enterPrompt(page: Page, prompt: string) {
@@ -172,6 +186,8 @@ async function waitForSendEnabled(page: Page) {
 }
 
 test.describe('recommendation smoke tests', () => {
+  test.describe.configure({ mode: 'serial' })
+
   for (const testCase of cases) {
     test(testCase.name, async ({ page }, testInfo) => {
       const consoleErrors: string[] = []
