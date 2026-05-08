@@ -14,6 +14,7 @@ out/
 data/*.db
 *.db
 .price-update-progress.json
+audit-output/
 
 # OS / Python
 .DS_Store
