@@ -34,11 +34,11 @@ body {
 
 /* AI回答エリアのHTMLスタイル */
 .chat-answer a {
-  @apply text-blue-600 underline dark:text-blue-400;
+  @apply text-slate-600 no-underline underline-offset-4 decoration-slate-300 transition-colors dark:text-slate-300 dark:decoration-slate-500;
 }
 
 .chat-answer a:hover {
-  @apply text-blue-800 dark:text-blue-300;
+  @apply text-amber-600 underline dark:text-amber-300;
 }
 
 .chat-answer details {
@@ -110,12 +110,23 @@ body {
 
 /* prose-dify: Dify回答HTML用スタイル */
 .prose-dify a {
-  color: #60a5fa;
-  text-decoration: underline;
+  color: rgb(71 85 105);
+  text-decoration: none;
+  text-underline-offset: 4px;
+  text-decoration-color: rgb(203 213 225);
   cursor: pointer;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 .prose-dify a:hover {
-  color: #93c5fd;
+  color: #d97706;
+  text-decoration: underline;
+}
+.dark .prose-dify a {
+  color: rgb(203 213 225);
+  text-decoration-color: rgb(100 116 139);
+}
+.dark .prose-dify a:hover {
+  color: #fcd34d;
 }
 .prose-dify details {
   background: rgba(255, 255, 255, 0.05);
