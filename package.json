@@ -24,6 +24,7 @@
     "check-links:fix": "node scripts/check-photo-yodobashi.js --fix",
     "lens:process": "python3 src/components/process_lens_images.py",
     "db:check": "node scripts/check_lens_data.js",
+    "audit:images": "python3 scripts/generate_lens_contact_sheets.py",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed"
