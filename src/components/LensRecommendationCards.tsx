@@ -479,55 +479,58 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
 
         {/* レビューリンク */}
         <div className="mt-3 border-t border-slate-100 pt-2.5 dark:border-slate-700/60">
-          <p className="text-[11px] font-semibold uppercase text-slate-500 dark:text-slate-400 mb-1.5">
+          <p className="mb-1.5 text-[11px] font-semibold text-slate-500 dark:text-slate-400">
             {hasRealLinks ? 'レビュー・作例' : 'レビュー検索'}
           </p>
-          <div className="flex flex-wrap gap-x-2.5 gap-y-1.5">
+          <div className="flex flex-wrap gap-1.5">
             {hasRealLinks
               ? uniqueReviewLinks.map((link) => {
                   const href = link.site === 'Photo Yodobashi' && photoYodobashiUrl ? photoYodobashiUrl : link.url
                   return (
                     <a key={link.url} href={href} target="_blank" rel="noopener noreferrer"
-                      className="text-xs font-medium text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline underline-offset-2 decoration-blue-200 dark:decoration-blue-500/60">
-                      {SITE_ICONS[link.site] ?? '🔗'} {link.site}
+                      className="inline-flex min-h-7 items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold text-slate-600 transition-colors hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 dark:border-slate-700 dark:bg-slate-900/35 dark:text-slate-300 dark:hover:border-blue-500/40 dark:hover:bg-blue-500/10 dark:hover:text-blue-300">
+                      {SITE_ICONS[link.site] ? `${SITE_ICONS[link.site]} ` : ''}{link.site}
                     </a>
                   )
                 })
               : generateFallbackLinks(cleanName, photoYodobashiUrl, googleSampleUrl).map((link) => (
                   <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer"
-                    className="text-xs font-medium text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline underline-offset-2 decoration-blue-200 dark:decoration-blue-500/60">
-                    {link.label}
+                    className="inline-flex min-h-7 items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-semibold text-slate-600 transition-colors hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 dark:border-slate-700 dark:bg-slate-900/35 dark:text-slate-300 dark:hover:border-blue-500/40 dark:hover:bg-blue-500/10 dark:hover:text-blue-300">
+                    {link.label.replace(/^[📷🔍]\s*/, '')}
                   </a>
                 ))}
           </div>
         </div>
 
         {/* 購入リンク */}
-        <div className="mt-3 space-y-2 border-t border-slate-100 pt-2.5 dark:border-slate-700/60">
-          <div>
-            <p className="text-[11px] font-semibold uppercase text-slate-500 dark:text-slate-400 mb-1">
-              新品{priceInfo?.new_price ? `（${formatPrice(priceInfo.new_price)}〜）` : ''}
-            </p>
-            <div className="flex flex-wrap gap-x-2.5 gap-y-1.5">
+        <div className="mt-3 border-t border-slate-100 pt-2.5 dark:border-slate-700/60">
+          <p className="mb-1.5 text-[11px] font-semibold text-slate-500 dark:text-slate-400">購入先</p>
+          <div className="space-y-2 rounded-lg border border-slate-100 bg-slate-50/70 p-2.5 dark:border-slate-700/60 dark:bg-slate-900/25">
+            <div className="flex flex-col gap-1.5 sm:flex-row sm:items-start">
+              <p className="shrink-0 text-[11px] font-semibold text-slate-500 dark:text-slate-400 sm:w-24">
+                新品{priceInfo?.new_price ? ` ${formatPrice(priceInfo.new_price)}〜` : ''}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
               {newLinks.map((link) => (
                 <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer"
-                  className="text-xs font-medium text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline underline-offset-2 decoration-blue-200 dark:decoration-blue-500/60">
+                  className="inline-flex min-h-7 items-center rounded-full border border-blue-100 bg-white px-2.5 py-1 text-[11px] font-semibold text-blue-700 transition-colors hover:border-blue-200 hover:bg-blue-50 dark:border-blue-500/20 dark:bg-blue-500/10 dark:text-blue-300 dark:hover:bg-blue-500/15">
                   {link.label}
                 </a>
               ))}
+              </div>
             </div>
-          </div>
-          <div>
-            <p className="text-[11px] font-semibold uppercase text-slate-500 dark:text-slate-400 mb-1">
-              中古{priceInfo?.used_price ? `（${formatPrice(priceInfo.used_price)}〜）` : ''}
-            </p>
-            <div className="flex flex-wrap gap-x-2.5 gap-y-1.5">
+            <div className="flex flex-col gap-1.5 sm:flex-row sm:items-start">
+              <p className="shrink-0 text-[11px] font-semibold text-slate-500 dark:text-slate-400 sm:w-24">
+                中古{priceInfo?.used_price ? ` ${formatPrice(priceInfo.used_price)}〜` : ''}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
               {usedLinks.map((link) => (
                 <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer"
-                  className="text-xs font-medium text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline underline-offset-2 decoration-blue-200 dark:decoration-blue-500/60">
+                  className="inline-flex min-h-7 items-center rounded-full border border-emerald-100 bg-white px-2.5 py-1 text-[11px] font-semibold text-emerald-700 transition-colors hover:border-emerald-200 hover:bg-emerald-50 dark:border-emerald-500/20 dark:bg-emerald-500/10 dark:text-emerald-300 dark:hover:bg-emerald-500/15">
                   {link.label}
                 </a>
               ))}
+              </div>
             </div>
           </div>
         </div>
