@@ -2,16 +2,21 @@ import { expect, test, type Page } from '@playwright/test'
 
 type RecommendationCase = {
   name: string
-  mountButtonName: RegExp
+  mountId: string
+  mountOptionTestId: string
+  selectedMountText: string
   prompt: string
   answer: string
   forbiddenText: RegExp[]
+  expectedCardNames?: string[]
 }
 
 const cases: RecommendationCase[] = [
   {
     name: 'Canon RF 標準ズーム',
-    mountButtonName: /Canon RF\s*フルサイズ/,
+    mountId: 'canon-rf',
+    mountOptionTestId: 'mount-option-canon-rf',
+    selectedMountText: 'Canon RF',
     prompt:
       'Canon RFマウントのフルサイズ機で、旅行と子供撮影を両立できる標準ズームを探しています。予算は未設定です。AF性能、携帯性、描写のバランスを重視します。',
     answer: [
@@ -29,7 +34,9 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Nikon Z 35〜55mm単焦点',
-    mountButtonName: /Nikon Z\s*フルサイズ/,
+    mountId: 'nikon-z-ff',
+    mountOptionTestId: 'mount-option-nikon-z-ff',
+    selectedMountText: 'Nikon Z',
     prompt:
       'Nikon Zマウントで室内の子供撮影に使う単焦点レンズを探しています。35mm〜55mmの標準域で、明るさとAF性能を重視します。',
     answer: [
@@ -45,7 +52,9 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Fujifilm X 標準ズーム',
-    mountButtonName: /Fujifilm X\s*APS-C/,
+    mountId: 'fuji-x',
+    mountOptionTestId: 'mount-option-fuji-x',
+    selectedMountText: 'Fujifilm X',
     prompt:
       'Fujifilm Xマウントで旅行に使いやすい標準ズームを探しています。軽さ、画質、コスパのバランスを重視します。',
     answer: [
@@ -61,7 +70,9 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Sony E フルサイズ 50mm前後単焦点',
-    mountButtonName: /Sony E\s*フルサイズ/,
+    mountId: 'sony-e-ff',
+    mountOptionTestId: 'mount-option-sony-e-ff',
+    selectedMountText: 'Sony E',
     prompt:
       'Sony Eマウントのフルサイズ機で、子供撮影とポートレートに使う50mm前後の単焦点レンズを探しています。AF性能とコスパを重視します。',
     answer: [
@@ -80,7 +91,9 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Sony E フルサイズ 標準ズーム',
-    mountButtonName: /Sony E\s*フルサイズ/,
+    mountId: 'sony-e-ff',
+    mountOptionTestId: 'mount-option-sony-e-ff',
+    selectedMountText: 'Sony E',
     prompt:
       'Sony Eマウントのフルサイズ機で、旅行と子供撮影に使いやすい標準ズームを探しています。AF性能、携帯性、コスパのバランスを重視します。',
     answer: [
@@ -97,15 +110,91 @@ const cases: RecommendationCase[] = [
     ].join('\n'),
     forbiddenText: [/Canon RF/i, /Nikon Z/i, /Fujifilm X/i, /RF-S/i],
   },
+  {
+    name: 'Sony E 室内子供撮影 35〜55mm単焦点',
+    mountId: 'sony-e-ff',
+    mountOptionTestId: 'mount-option-sony-e-ff',
+    selectedMountText: 'Sony E',
+    prompt:
+      'Sony Eマウントのフルサイズ機で、室内の子供撮影に使う35〜55mmの単焦点レンズを探しています。明るさとAF性能を重視します。',
+    answer: [
+      'Sony Eフルサイズで、室内の子供撮影に向いた35〜55mm単焦点候補です。',
+      '',
+      '【選択肢1】FE 35mm F1.4 GM',
+      'おすすめ理由：明るさ、AF性能、画角の扱いやすさのバランスが高く、室内で動く子供を撮りやすい本命候補です。',
+      '注意点：価格は高めですが、35mm重視なら満足度が高いです。',
+      '',
+      '【選択肢2】FE 50mm F1.4 GM',
+      'おすすめ理由：AF性能と描写のバランスが良く、少し寄った子供撮影やポートレートにも使いやすい標準単焦点です。',
+      '注意点：室内が狭い場合は35mmより距離を取りにくい場面があります。',
+      '',
+      '【選択肢3】FE 35mm F1.8',
+      'おすすめ理由：軽量でAFも扱いやすく、室内・日常撮影で負担が少ない現実的な候補です。',
+      '注意点：明るさと描写の余裕はF1.4 GMに譲ります。',
+    ].join('\n'),
+    forbiddenText: [/Canon RF/i, /Nikon Z/i, /Fujifilm X/i, /RF-S/i],
+    expectedCardNames: ['FE 35mm F1.4 GM', 'FE 50mm F1.4 GM', 'FE 35mm F1.8'],
+  },
 ]
 
-async function openChatWithMount(page: Page, mountButtonName: RegExp) {
+async function openChatWithMount(page: Page, testCase: RecommendationCase) {
   await page.addInitScript(() => {
     localStorage.clear()
   })
 
   await page.goto('/')
-  await page.getByRole('button', { name: mountButtonName }).click()
+  const selectedMountDisplay = page.getByTestId('selected-mount-display')
+  const mountOption = page.getByTestId(testCase.mountOptionTestId)
+
+  await expect(selectedMountDisplay).toBeVisible()
+
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    await selectedMountDisplay.click()
+
+    await expect(mountOption).toBeVisible()
+    await mountOption.click()
+
+    try {
+      await expect(selectedMountDisplay).toContainText(testCase.selectedMountText, { timeout: 3_000 })
+      await expect
+        .poll(() => page.evaluate(() => localStorage.getItem('selectedMountId')))
+        .toBe(testCase.mountId)
+      return
+    } catch (error) {
+      if (attempt === 1) throw error
+    }
+  }
+}
+
+async function enterPrompt(page: Page, prompt: string) {
+  const input = page.getByTestId('chat-input')
+  await input.click()
+  await input.fill('')
+  await page.keyboard.insertText(prompt)
+  await expect(input).toHaveValue(prompt)
+}
+
+async function getSendState(page: Page) {
+  return page.evaluate(() => {
+    const input = document.querySelector<HTMLTextAreaElement>('[data-testid="chat-input"]')
+    const sendButton = document.querySelector<HTMLButtonElement>('[data-testid="chat-send-button"]')
+    const selectedMount = document.querySelector<HTMLElement>('[data-testid="selected-mount-display"]')
+
+    return {
+      inputValue: input?.value ?? null,
+      inputLength: input?.value.length ?? 0,
+      sendButtonDisabled: sendButton?.disabled ?? null,
+      selectedMountText: selectedMount?.textContent?.replace(/\s+/g, ' ').trim() ?? null,
+    }
+  })
+}
+
+async function waitForSendEnabled(page: Page) {
+  await expect
+    .poll(() => getSendState(page), {
+      message: 'chat send button should become enabled after mount selection and prompt input',
+    })
+    .toEqual(expect.objectContaining({ sendButtonDisabled: false }))
 }
 
 test.describe('recommendation smoke tests', () => {
@@ -132,13 +221,11 @@ test.describe('recommendation smoke tests', () => {
         })
       })
 
-      await openChatWithMount(page, testCase.mountButtonName)
+      await openChatWithMount(page, testCase)
 
-      const input = page.getByTestId('chat-input')
       const sendButton = page.getByTestId('chat-send-button')
-      await input.fill(testCase.prompt)
-      await expect(input).toHaveValue(testCase.prompt)
-      await expect(sendButton).toBeEnabled()
+      await enterPrompt(page, testCase.prompt)
+      await waitForSendEnabled(page)
       await sendButton.click()
 
       const answer = page.getByTestId('assistant-answer').last()
@@ -154,13 +241,27 @@ test.describe('recommendation smoke tests', () => {
 
       const cards = page.getByTestId('lens-card')
       await expect(cards.first()).toBeVisible()
-      expect(await cards.count()).toBeGreaterThan(0)
+      const cardCount = await cards.count()
+      expect(cardCount).toBeGreaterThan(0)
+
+      if (testCase.expectedCardNames) {
+        expect(cardCount).toBe(testCase.expectedCardNames.length)
+        for (const expectedName of testCase.expectedCardNames) {
+          await expect(cards.filter({ hasText: expectedName })).toHaveCount(1)
+        }
+        await expect(page.getByText('AI分析を表示')).toHaveCount(testCase.expectedCardNames.length)
+      }
 
       const imageCount = await page.getByTestId('lens-card-image').count()
       const priceCount = await page.getByTestId('price-badge').count()
       const placeholderCount = await page.getByTestId('lens-card-placeholder').count()
-      expect(placeholderCount).toBeLessThan(await cards.count())
+      expect(placeholderCount).toBeLessThan(cardCount)
       expect(imageCount + priceCount).toBeGreaterThan(0)
+
+      if (testCase.expectedCardNames) {
+        expect(imageCount).toBe(testCase.expectedCardNames.length)
+        expect(priceCount).toBeGreaterThanOrEqual(testCase.expectedCardNames.length)
+      }
 
       const crashMessages = [...consoleErrors, ...pageErrors].filter((message) =>
         /TypeError|Cannot read properties|Application error/i.test(message)

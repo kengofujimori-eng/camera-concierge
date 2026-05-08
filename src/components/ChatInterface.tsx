@@ -259,6 +259,7 @@ function MountSelector({
     <div className="relative">
       {/* 現在のマウント表示 */}
       <button
+        data-testid="selected-mount-display"
         onClick={() => setOpen((v) => !v)}
         className="w-full flex items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-left hover:bg-white/5 transition-colors group"
       >
@@ -295,6 +296,7 @@ function MountSelector({
               {MOUNTS.map((m) => (
                 <button
                   key={m.id}
+                  data-testid={`mount-option-${m.id}`}
                   onClick={() => { onChange(m); setOpen(false) }}
                   className="w-full flex items-center justify-between gap-2 px-3 py-2 hover:bg-white/5 transition-colors text-left"
                 >
@@ -1164,6 +1166,7 @@ export default function ChatInterface() {
                       {MOUNTS.map((m) => (
                         <button
                           key={m.id}
+                          data-testid={`mount-button-${m.id}`}
                           onClick={() => {
                             handleMountChange(m)
                             // モバイルで設定ボトムシートを開いて続きを設定
