@@ -2,7 +2,7 @@ import { expect, test, type Page } from '@playwright/test'
 
 type RecommendationCase = {
   name: string
-  mountId: string
+  mountButtonName: RegExp
   prompt: string
   answer: string
   forbiddenText: RegExp[]
@@ -11,7 +11,7 @@ type RecommendationCase = {
 const cases: RecommendationCase[] = [
   {
     name: 'Canon RF 標準ズーム',
-    mountId: 'canon-rf',
+    mountButtonName: /Canon RF\s*フルサイズ/,
     prompt:
       'Canon RFマウントのフルサイズ機で、旅行と子供撮影を両立できる標準ズームを探しています。予算は未設定です。AF性能、携帯性、描写のバランスを重視します。',
     answer: [
@@ -29,7 +29,7 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Nikon Z 35〜55mm単焦点',
-    mountId: 'nikon-z-ff',
+    mountButtonName: /Nikon Z\s*フルサイズ/,
     prompt:
       'Nikon Zマウントで室内の子供撮影に使う単焦点レンズを探しています。35mm〜55mmの標準域で、明るさとAF性能を重視します。',
     answer: [
@@ -45,7 +45,7 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Fujifilm X 標準ズーム',
-    mountId: 'fuji-x',
+    mountButtonName: /Fujifilm X\s*APS-C/,
     prompt:
       'Fujifilm Xマウントで旅行に使いやすい標準ズームを探しています。軽さ、画質、コスパのバランスを重視します。',
     answer: [
@@ -61,14 +61,13 @@ const cases: RecommendationCase[] = [
   },
 ]
 
-async function openChatWithMount(page: Page, mountId: string) {
-  await page.addInitScript((id) => {
+async function openChatWithMount(page: Page, mountButtonName: RegExp) {
+  await page.addInitScript(() => {
     localStorage.clear()
-    localStorage.setItem('setupDone', JSON.stringify('true'))
-    localStorage.setItem('selectedMountId', JSON.stringify(id))
-  }, mountId)
+  })
 
   await page.goto('/')
+  await page.getByRole('button', { name: mountButtonName }).click()
 }
 
 test.describe('recommendation smoke tests', () => {
@@ -90,16 +89,19 @@ test.describe('recommendation smoke tests', () => {
           contentType: 'application/json',
           body: JSON.stringify({
             answer: testCase.answer,
-            conversationId: `mock-${testCase.mountId}`,
+            conversationId: `mock-${testCase.name}`,
           }),
         })
       })
 
-      await openChatWithMount(page, testCase.mountId)
+      await openChatWithMount(page, testCase.mountButtonName)
 
-      await page.getByTestId('chat-input').fill(testCase.prompt)
-      await expect(page.getByTestId('chat-send-button')).toBeEnabled()
-      await page.getByTestId('chat-send-button').click()
+      const input = page.getByTestId('chat-input')
+      const sendButton = page.getByTestId('chat-send-button')
+      await input.fill(testCase.prompt)
+      await expect(input).toHaveValue(testCase.prompt)
+      await expect(sendButton).toBeEnabled()
+      await sendButton.click()
 
       const answer = page.getByTestId('assistant-answer').last()
       await expect(answer).toContainText('選択肢1')
