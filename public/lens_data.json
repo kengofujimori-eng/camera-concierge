@@ -16274,6 +16274,9 @@
     },
     {
       "name": "Samyang AF 85mm F1.4 II FE",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Samyang",
       "source_url": "https://www.samyanglens.com/jp/product/product-view.php?seq=441",
       "review_links": {
         "asobinet": "https://asobinet.com/review-af-85mm-f1-4-rf-aberration/"
@@ -16296,7 +16299,7 @@
         "fetched_at": "2026-04-28",
         "kakaku_url": "https://kakaku.com/item/K0001480196/"
       },
-      "image_url_external": "https://www.kenko-tokina.co.jp/camera-lens/assets_c/2023/04/syaf85f14fe2_features01-thumb-autox450-50157.jpg",
+      "image_url_external": "https://m.media-amazon.com/images/I/61Jb72fukPL._AC_SL1000_.jpg",
       "asobinet_info": {
         "review_url": "https://asobinet.com/review-af-85mm-f1-4-rf-aberration/",
         "has_full_review": false,
@@ -16306,7 +16309,7 @@
       },
       "availability_status": "current",
       "recommendation_status": "caution",
-      "recommendation_note": "軽量な大口径85mm。価格重視では魅力だが、AFや個体差を確認して選びたい。"
+      "recommendation_note": "明るい85mmポートレート候補。価格は魅力だが、AF追従・レビュー蓄積・純正やSigma/Viltroxとの比較は確認したい。"
     },
     {
       "name": "Samyang AF 135mm F1.8 FE",
@@ -16601,6 +16604,9 @@
     },
     {
       "name": "Tamron 70-180mm F/2.8 Di III VXD",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/a056/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-70-180mm-f-2-8-di-iii-vxd-centering/"
@@ -16626,7 +16632,7 @@
       "photo_yodobashi_url": null,
       "model_code": "a056",
       "discontinued": true,
-      "image_url_external": "https://www.tamron.com/jp/consumer/pc_file/file/a056_thumb.webp",
+      "image_url_external": "https://www.tamron.com/jp/consumer/pc_file/file/a056_main.webp",
       "asobinet_info": {
         "review_url": "https://asobinet.com/review-70-180mm-f-2-8-di-iii-vxd-centering/",
         "has_full_review": false,
@@ -16638,7 +16644,7 @@
       "replacement": "Tamron 70-180mm F/2.8 Di III VC VXD G2",
       "availability_status": "discontinued",
       "recommendation_status": "avoid",
-      "recommendation_note": "旧世代モデル。手ブレ補正なしのため、通常推薦ではVC搭載のG2世代を優先。"
+      "recommendation_note": "初代A056。軽量性は魅力だが、現行では手ブレ補正VC搭載のG2を通常推薦で優先したい。"
     },
     {
       "name": "Tamron 70-180mm F/2.8 Di III VC VXD G2",
