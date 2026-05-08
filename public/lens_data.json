@@ -2143,6 +2143,9 @@
     },
     {
       "name": "FE 12-24mm F2.8 GM",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-12-24mm-f2-8-gm/",
       "review_links": {
         "0": {
@@ -2192,6 +2195,9 @@
     },
     {
       "name": "FE 12-24mm F4 G",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-12-24mm-f4/",
       "review_links": {
         "0": {
@@ -2241,6 +2247,9 @@
     },
     {
       "name": "Vario-Tessar T* FE 16-35mm F4?",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/vario-tessar-t-fe-16-35mm-f4-za-oss/",
       "review_links": {
         "0": {
@@ -2304,6 +2313,9 @@
     },
     {
       "name": "FE 16-35mm F2.8 GM",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-16-35mm-f2-8-gm/",
       "review_links": {
         "0": {
@@ -2358,6 +2370,9 @@
     },
     {
       "name": "FE 24-70mm F2.8 GM",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-24-70mm-f2-8-gm/",
       "review_links": {
         "0": {
@@ -2420,6 +2435,9 @@
     },
     {
       "name": "FE 24-105mm F4 G OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-24-105mm-f4-g-oss/",
       "review_links": {
         "0": {
@@ -2487,6 +2505,9 @@
     },
     {
       "name": "FE 24-240mm F3.5-6.3 OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-24-240mm-f3-5-6-3-oss/",
       "review_links": {
         "0": {
@@ -2540,6 +2561,9 @@
     },
     {
       "name": "FE 28-60mm F4-5.6",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-28-60mm-f4-5-6/",
       "review_links": {
         "0": {
@@ -2587,6 +2611,9 @@
     },
     {
       "name": "FE 28-70mm F3.5-5.6 OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-28-70mm-f3-5-5-6-oss/",
       "review_links": {
         "0": {
@@ -2638,6 +2665,9 @@
     },
     {
       "name": "FE 70-200mm F2.8 GM OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-70-200mm-f2-8-gm-oss/",
       "review_links": {
         "0": {
@@ -2707,6 +2737,9 @@
     },
     {
       "name": "FE 70-200mm F4 G OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-70-200mm-f4-g-oss/",
       "review_links": {
         "0": {
@@ -2772,6 +2805,9 @@
     },
     {
       "name": "FE 70-300mm F4.5-5.6 G OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-70-300mm-f4-5-5-6-g-oss/",
       "review_links": {
         "0": {
@@ -2826,6 +2862,9 @@
     },
     {
       "name": "FE 100-400mm F4.5-5.6 GM OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe100-400mm-f4-5-5-6-gm-oss/",
       "review_links": {
         "0": {
@@ -2880,6 +2919,9 @@
     },
     {
       "name": "FE 200-600mm F5.6-6.3 G OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe200-600mm-f5-6-6-3-g-oss/",
       "review_links": {
         "0": {
@@ -2934,6 +2976,9 @@
     },
     {
       "name": "FE 20mm F1.8 G",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-20mm-f1-8-g/",
       "review_links": {
         "0": {
@@ -3001,6 +3046,9 @@
     },
     {
       "name": "FE 24mm F1.4 GM",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-24mm-f1-4-gm/",
       "review_links": {
         "0": {
@@ -3060,6 +3108,9 @@
     },
     {
       "name": "Sonnar T* FE 35mm F2.8 ZA",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-35mm-f2-8-za/",
       "review_links": {
         "0": {
@@ -3116,6 +3167,9 @@
     },
     {
       "name": "FE 35mm F1.8",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-35mm-f1-8/",
       "review_links": {
         "0": {
@@ -3265,6 +3319,9 @@
     },
     {
       "name": "Distagon T* FE 35mm F1.4 ZA",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/distagon-t-fe-35mm-f1-4-za/",
       "review_links": {
         "0": {
@@ -3321,6 +3378,9 @@
     },
     {
       "name": "FE 50mm F1.8",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-50mm-f1-8/",
       "review_links": {
         "0": {
@@ -3400,6 +3460,9 @@
     },
     {
       "name": "FE 50mm F2.8 マクロ",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-50mm-f2-8-macro/",
       "review_links": {
         "0": {
@@ -3460,6 +3523,9 @@
     },
     {
       "name": "Planar T* FE 50mm F1.4 ZA",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/planar-t-fe-50mm-f1-4-za/",
       "review_links": {
         "0": {
@@ -3516,6 +3582,9 @@
     },
     {
       "name": "Sonnar T* FE 55mm F1.8 ZA",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/sonnar-t-fe-55mm-f1-8-za/",
       "review_links": {
         "0": {
@@ -3593,6 +3662,9 @@
     },
     {
       "name": "FE 85mm F1.8",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-85mm-f1-8/",
       "review_links": {
         "0": {
@@ -3734,6 +3806,9 @@
     },
     {
       "name": "FE 85mm F1.4 GM",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-85mm-f1-4-gm/",
       "review_links": {
         "0": {
@@ -3804,6 +3879,9 @@
     },
     {
       "name": "FE 90mm F2.8 Macro G OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-90mm-f2-8-macro-g-oss-sel90m28g/",
       "review_links": {
         "0": {
@@ -3866,6 +3944,9 @@
     },
     {
       "name": "FE 100mm F2.8 STF GM OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-100mm-f2-8-stf-gm-oss/",
       "review_links": {
         "0": {
@@ -4005,6 +4086,9 @@
     },
     {
       "name": "FE 600mm F4 GM OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://asobinet.com/fe-600mm-f4-gm-oss/",
       "review_links": {
         "0": {
@@ -5287,6 +5371,9 @@
     },
     {
       "name": "FíRIN 20mm F2 FE AF",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Tokina",
       "source_url": "https://asobinet.com/firin-20mm-f2-fe-af/",
       "review_links": {
         "0": {
@@ -5325,6 +5412,9 @@
     },
     {
       "name": "Batis 2.8/18",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Zeiss",
       "source_url": "https://asobinet.com/batis-2-818/",
       "review_links": {
         "0": {
@@ -5373,6 +5463,9 @@
     },
     {
       "name": "Batis 2/40 CF",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Zeiss",
       "source_url": "https://asobinet.com/batis-2-40-cf/",
       "review_links": {
         "0": {
@@ -5416,6 +5509,9 @@
     },
     {
       "name": "Batis 1.8/85",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Zeiss",
       "source_url": "https://asobinet.com/batis-1-885/",
       "review_links": {
         "0": {
@@ -5474,6 +5570,9 @@
     },
     {
       "name": "Batis 2.8/135",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Zeiss",
       "source_url": "https://asobinet.com/batis-f2-8-135/",
       "review_links": {
         "0": {
@@ -5507,6 +5606,9 @@
     },
     {
       "name": "SUPER-VARIO-ELMAR-SL 16-35mm f/3.5-4.5 ASPH",
+      "supported_mounts": ["L mount"],
+      "mount": "L mount",
+      "brand": "Leica",
       "source_url": "https://asobinet.com/super-vario-elmar-sl-16-35mm-f-3-5-4-5-asph/",
       "review_links": {
         "0": {
@@ -5545,6 +5647,9 @@
     },
     {
       "name": "VARIO-ELMARIT-SL 24-90mm f/2.8-4 ASPH.",
+      "supported_mounts": ["L mount"],
+      "mount": "L mount",
+      "brand": "Leica",
       "source_url": "https://asobinet.com/vario-elmarit-sl-24-90mm-f-2-8-4-asph/",
       "review_links": {
         "0": {
@@ -5588,6 +5693,9 @@
     },
     {
       "name": "ELMARIT-TL 18mm f / 2.8 ASPH",
+      "supported_mounts": ["L mount"],
+      "mount": "L mount",
+      "brand": "Leica",
       "source_url": "https://asobinet.com/elmarit-tl-18mm-f-2-8-asph/",
       "review_links": {
         "0": {
@@ -5626,6 +5734,9 @@
     },
     {
       "name": "SUMMILUX-SL F1.4/50mm ASPH.",
+      "supported_mounts": ["L mount"],
+      "mount": "L mount",
+      "brand": "Leica",
       "source_url": "https://asobinet.com/summilux-sl-f1-4-50mm-asph/",
       "review_links": {
         "0": {
@@ -6410,6 +6521,9 @@
     },
     {
       "name": "FE 14mm F1.8 GM",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL1418GM/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_14mm_F1.8_GM.png",
@@ -6436,6 +6550,9 @@
     },
     {
       "name": "FE 16-35mm F2.8 GM II",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL1635GM2/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_16-35mm_F2.8_GM_II.png",
@@ -6462,6 +6579,9 @@
     },
     {
       "name": "FE 24-70mm F2.8 GM II",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL2470GM2/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_24-70mm_F2.8_GM_II.png",
@@ -6491,6 +6611,9 @@
     },
     {
       "name": "FE 35mm F1.4 GM",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL35F14GM/",
       "review_links": {
         "asobinet": "https://asobinet.com/fullreview-fe-35mm-f1-4-gm/"
@@ -6530,6 +6653,9 @@
     },
     {
       "name": "FE 50mm F1.2 GM",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL50F12GM/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_50mm_F1.2_GM.png",
@@ -6559,6 +6685,9 @@
     },
     {
       "name": "FE 50mm F1.4 GM",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL50F14GM/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-fe-50mm-f1-4-gm-vine/"
@@ -6597,6 +6726,9 @@
     },
     {
       "name": "FE 70-200mm F2.8 GM OSS II",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL70200GM2/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_70-200mm_F2.8_GM_OSS_II.png",
@@ -6623,6 +6755,9 @@
     },
     {
       "name": "FE 135mm F1.8 GM",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL135F18GM/",
       "review_links": {
         "asobinet": "https://asobinet.com/fullreview-135mm-f1-8-dg-hsm/"
@@ -6725,6 +6860,9 @@
     },
     {
       "name": "FE 300mm F2.8 GM OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL300F28GM/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_300mm_F2.8_GM_OSS.png",
@@ -6751,6 +6889,9 @@
     },
     {
       "name": "FE 400mm F2.8 GM OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL400F28GM/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_400mm_F2.8_GM_OSS.png",
@@ -6777,6 +6918,9 @@
     },
     {
       "name": "FE 16-35mm F4 ZA OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL1635Z/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_16-35mm_F4_ZA_OSS.png",
@@ -6803,6 +6947,9 @@
     },
     {
       "name": "FE 24-70mm F4 ZA OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL2470Z/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_24-70mm_F4_ZA_OSS.png",
@@ -6832,6 +6979,9 @@
     },
     {
       "name": "FE 28mm F2",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL28F20/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_28mm_F2.png",
@@ -6858,6 +7008,9 @@
     },
     {
       "name": "FE 40mm F2.5 G",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL40F25G/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-fe-40mm-f2-5-g-impre/"
@@ -6893,6 +7046,9 @@
     },
     {
       "name": "FE 50mm F2.5 G",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL50F25G/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_50mm_F2.5_G.png",
@@ -6922,6 +7078,9 @@
     },
     {
       "name": "FE 70-200mm F4 Macro G OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL70200G2/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-fe-70-200mm-f4-macro-g-oss-ii-vine/"
@@ -6957,6 +7116,9 @@
     },
     {
       "name": "FE PZ 10-20mm F4 G",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SELP1020G/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-e-pz-10-20mm-f4-g-ab/"
@@ -6991,6 +7153,9 @@
     },
     {
       "name": "FE PZ 16-35mm F4 G",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SELP1635G/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_PZ_16-35mm_F4_G.png",
@@ -7017,6 +7182,9 @@
     },
     {
       "name": "FE PZ 28-135mm F4 G OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SELP28135G/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_PZ_28-135mm_F4_G_OSS.png",
@@ -7043,6 +7211,9 @@
     },
     {
       "name": "E 10-18mm F4 OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL1018/",
       "review_links": {},
       "image_url": "/lens_images_processed/E_10-18mm_F4_OSS.png",
@@ -7069,6 +7240,9 @@
     },
     {
       "name": "E 11mm F1.8",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL11F18/",
       "review_links": {},
       "image_url": "/lens_images_processed/E_11mm_F1.8.png",
@@ -7095,6 +7269,9 @@
     },
     {
       "name": "E 15mm F1.4 G",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL15F14G/",
       "review_links": {},
       "image_url": "/lens_images_processed/E_15mm_F1.4_G.png",
@@ -7121,6 +7298,9 @@
     },
     {
       "name": "E 16-55mm F2.8 G",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL1655G/",
       "review_links": {},
       "image_url": "/lens_images_processed/E_16-55mm_F2.8_G.png",
@@ -7147,6 +7327,9 @@
     },
     {
       "name": "E 18-105mm F4 G OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SELP18105G/",
       "review_links": {},
       "image_url": "/lens_images_processed/E_18-105mm_F4_G_OSS.png",
@@ -7173,6 +7356,9 @@
     },
     {
       "name": "E 18-135mm F3.5-5.6 OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL18135/",
       "review_links": {},
       "image_url": "/lens_images_processed/E_18-135mm_F3.5-5.6_OSS.png",
@@ -7199,6 +7385,9 @@
     },
     {
       "name": "E 24mm F1.8 ZA",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL24F18Z/",
       "review_links": {},
       "image_url": "/lens_images_processed/E_24mm_F1.8_ZA.png",
@@ -7225,6 +7414,9 @@
     },
     {
       "name": "E 35mm F1.8 OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL35F18/",
       "review_links": {},
       "image_url": "/lens_images_processed/E_35mm_F1.8_OSS.png",
@@ -7325,6 +7517,9 @@
     },
     {
       "name": "E 50mm F1.8 OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL50F18/",
       "review_links": {},
       "image_url": "/lens_images_processed/E_50mm_F1.8_OSS.png",
@@ -7358,6 +7553,9 @@
     },
     {
       "name": "E 55-210mm F4.5-6.3 OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL55210/",
       "review_links": {},
       "image_url": "/lens_images_processed/E_55-210mm_F4.5-6.3_OSS.png",
@@ -7384,6 +7582,9 @@
     },
     {
       "name": "E 70-350mm F4.5-6.3 G OSS",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL70350G/",
       "review_links": {},
       "image_url": "/lens_images_processed/E_70-350mm_F4.5-6.3_G_OSS.png",
@@ -7410,6 +7611,9 @@
     },
     {
       "name": "FE 16-25mm F2.8 G",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL1625G/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_16-25mm_F2.8_G.png",
@@ -7436,6 +7640,9 @@
     },
     {
       "name": "FE 85mm F1.4 GM II",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL85F14GM2/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_85mm_F1.4_GM_II.png",
@@ -7472,6 +7679,9 @@
     },
     {
       "name": "FE 24mm F2.8 G",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL24F28G/",
       "review_links": {},
       "image_url": "/lens_images_processed/FE_24mm_F2.8_G.png",
@@ -7498,6 +7708,9 @@
     },
     {
       "name": "Nikkor Z 17-28mm f/2.8",
+      "supported_mounts": ["Nikon Z"],
+      "mount": "Nikon Z",
+      "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z17-28mm_f28/",
       "review_links": {},
       "image_url": "/lens_images_processed/Nikkor_Z_17-28mm_f_2.8.png",
@@ -7524,6 +7737,9 @@
     },
     {
       "name": "Nikkor Z 24-120mm f/4 S",
+      "supported_mounts": ["Nikon Z"],
+      "mount": "Nikon Z",
+      "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z24-120mm_f4s/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-nikkor-z-24-120mm-f-4-s-aberrations/"
@@ -7559,6 +7775,9 @@
     },
     {
       "name": "Nikkor Z 28mm f/2.8",
+      "supported_mounts": ["Nikon Z"],
+      "mount": "Nikon Z",
+      "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z28mm_f28/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-nikkor-z-28mm-f-2-8-aberrations/"
@@ -7594,6 +7813,9 @@
     },
     {
       "name": "Nikkor Z 35mm f/1.4",
+      "supported_mounts": ["Nikon Z"],
+      "mount": "Nikon Z",
+      "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z35mm_f14/",
       "review_links": {
         "asobinet": "https://asobinet.com/fullreview-nikkor-z-35mm-f-1-4/"
@@ -7700,6 +7922,9 @@
     },
     {
       "name": "Nikkor Z 85mm f/1.2 S",
+      "supported_mounts": ["Nikon Z"],
+      "mount": "Nikon Z",
+      "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z85mm_f12s/",
       "review_links": {},
       "image_url": "/lens_images_processed/Nikkor_Z_85mm_f_1.2_S.png",
@@ -7726,6 +7951,9 @@
     },
     {
       "name": "Nikkor Z 100-400mm f/4.5-5.6 VR S",
+      "supported_mounts": ["Nikon Z"],
+      "mount": "Nikon Z",
+      "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z100-400mm_f45-56_vr_s/",
       "review_links": {},
       "image_url": "/lens_images_processed/Nikkor_Z_100-400mm_f_4.5-5.6_VR_S.png",
@@ -7752,6 +7980,9 @@
     },
     {
       "name": "Nikkor Z 135mm f/1.8 S Plena",
+      "supported_mounts": ["Nikon Z"],
+      "mount": "Nikon Z",
+      "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z135mm_f18s_plena/",
       "review_links": {},
       "image_url": "/lens_images_processed/Nikkor_Z_135mm_f_1.8_S_Plena.png",
@@ -7778,6 +8009,9 @@
     },
     {
       "name": "Nikkor Z 28-400mm f/4-8 VR",
+      "supported_mounts": ["Nikon Z"],
+      "mount": "Nikon Z",
+      "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z28-400mm_f4-8_vr/",
       "review_links": {
         "asobinet": "https://asobinet.com/fullreview-nikkor-z-28-400mm-f-4-8-vr/"
@@ -7884,6 +8118,9 @@
     },
     {
       "name": "Nikkor Z 400mm f/2.8 TC VR S",
+      "supported_mounts": ["Nikon Z"],
+      "mount": "Nikon Z",
+      "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z400mm_f28_tc_vr_s/",
       "review_links": {},
       "image_url": "/lens_images_processed/Nikkor_Z_400mm_f_2.8_TC_VR_S.png",
@@ -7910,6 +8147,9 @@
     },
     {
       "name": "Nikkor Z 600mm f/4 TC VR S",
+      "supported_mounts": ["Nikon Z"],
+      "mount": "Nikon Z",
+      "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z600mm_f4_tc_vr_s/",
       "review_links": {},
       "image_url": "/lens_images_processed/Nikkor_Z_600mm_f_4_TC_VR_S.png",
@@ -7936,6 +8176,9 @@
     },
     {
       "name": "Nikkor Z 800mm f/6.3 VR S",
+      "supported_mounts": ["Nikon Z"],
+      "mount": "Nikon Z",
+      "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z800mm_f63_vr_s/",
       "review_links": {},
       "image_url": "/lens_images_processed/Nikkor_Z_800mm_f_6.3_VR_S.png",
@@ -15066,6 +15309,9 @@
     },
     {
       "name": "XC35mmF2",
+      "supported_mounts": ["Fujifilm X"],
+      "mount": "Fujifilm X",
+      "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xc35mmf2/",
       "review_links": {},
       "image_url": "/lens_images_processed/XC35mmF2.png",
@@ -15467,6 +15713,9 @@
     },
     {
       "name": "XC13-33mmF3.5-6.3 OIS",
+      "supported_mounts": ["Fujifilm X"],
+      "mount": "Fujifilm X",
+      "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xc13-33mmf35-63-ois/",
       "review_links": {},
       "image_url": "/lens_images_processed/XC13-33mmF3.5-6.3_OIS.png",
@@ -15493,6 +15742,9 @@
     },
     {
       "name": "XC15-45mmF3.5-5.6 OIS PZ",
+      "supported_mounts": ["Fujifilm X"],
+      "mount": "Fujifilm X",
+      "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xc15-45mmf35-56-ois-pz/",
       "review_links": {},
       "image_url": "/lens_images_processed/XC15-45mmF3.5-5.6_OIS_PZ.png",
@@ -15519,6 +15771,9 @@
     },
     {
       "name": "XC50-230mmF4.5-6.7 OIS II",
+      "supported_mounts": ["Fujifilm X"],
+      "mount": "Fujifilm X",
+      "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xc50-230mmf45-67-ois-2/",
       "review_links": {},
       "image_url": "/lens_images_processed/XC50-230mmF4.5-6.7_OIS_II.png",
@@ -16873,8 +17128,9 @@
     },
     {
       "name": "FE 28-70mm F2 GM",
+      "supported_mounts": ["Sony E"],
       "brand": "Sony",
-      "mount": "FE",
+      "mount": "Sony E",
       "type": "zoom",
       "focal_length": "28-70",
       "max_aperture": 2,
@@ -16908,8 +17164,9 @@
     },
     {
       "name": "FE 50-150mm F2 GM",
+      "supported_mounts": ["Sony E"],
       "brand": "Sony",
-      "mount": "FE",
+      "mount": "Sony E",
       "type": "zoom",
       "focal_length": "50-150",
       "max_aperture": 2,
@@ -16943,8 +17200,9 @@
     },
     {
       "name": "FE 20-70mm F4 G",
+      "supported_mounts": ["Sony E"],
       "brand": "Sony",
-      "mount": "FE",
+      "mount": "Sony E",
       "type": "zoom",
       "focal_length": "20-70",
       "max_aperture": 4,
@@ -16987,8 +17245,9 @@
     },
     {
       "name": "FE 24-50mm F2.8 G",
+      "supported_mounts": ["Sony E"],
       "brand": "Sony",
-      "mount": "FE",
+      "mount": "Sony E",
       "type": "zoom",
       "focal_length": "24-50",
       "max_aperture": 2.8,
@@ -17103,8 +17362,9 @@
     },
     {
       "name": "FE 70-200mm F4 Macro G OSS II",
+      "supported_mounts": ["Sony E"],
       "brand": "Sony",
-      "mount": "FE",
+      "mount": "Sony E",
       "type": "zoom",
       "focal_length": "70-200",
       "max_aperture": 4,
@@ -17147,8 +17407,9 @@
     },
     {
       "name": "FE 400-800mm F6.3-8 G OSS",
+      "supported_mounts": ["Sony E"],
       "brand": "Sony",
-      "mount": "FE",
+      "mount": "Sony E",
       "type": "zoom",
       "focal_length": "400-800",
       "max_aperture": 6.3,
@@ -17182,8 +17443,9 @@
     },
     {
       "name": "FE 16mm F1.8 G",
+      "supported_mounts": ["Sony E"],
       "brand": "Sony",
-      "mount": "FE",
+      "mount": "Sony E",
       "type": "prime",
       "focal_length": "16",
       "max_aperture": 1.8,
@@ -20550,6 +20812,9 @@
     },
     {
       "name": "Batis 2/25",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Zeiss",
       "source_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/batis/batis-225.html",
       "official_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/batis/batis-225.html",
       "purchase_links": {
@@ -20577,6 +20842,9 @@
     },
     {
       "name": "Loxia 2.8/21",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Zeiss",
       "source_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-2821.html",
       "official_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-2821.html",
       "purchase_links": {
@@ -20604,6 +20872,9 @@
     },
     {
       "name": "Loxia 2.4/25",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Zeiss",
       "source_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-2425.html",
       "official_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-2425.html",
       "purchase_links": {
@@ -20631,6 +20902,9 @@
     },
     {
       "name": "Loxia 2/35",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Zeiss",
       "source_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-235.html",
       "official_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-235.html",
       "purchase_links": {
@@ -20657,6 +20931,9 @@
     },
     {
       "name": "Loxia 2/50",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Zeiss",
       "source_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-250.html",
       "official_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-250.html",
       "purchase_links": {
@@ -20684,6 +20961,9 @@
     },
     {
       "name": "Loxia 2.4/85",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Zeiss",
       "source_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-2485.html",
       "official_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-2485.html",
       "purchase_links": {
