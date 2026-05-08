@@ -59,6 +59,44 @@ const cases: RecommendationCase[] = [
     ].join('\n'),
     forbiddenText: [/Canon RF/i, /Nikon Z/i, /Sony E/i, /\bFE\b/i],
   },
+  {
+    name: 'Sony E フルサイズ 50mm前後単焦点',
+    mountButtonName: /Sony E\s*フルサイズ/,
+    prompt:
+      'Sony Eマウントのフルサイズ機で、子供撮影とポートレートに使う50mm前後の単焦点レンズを探しています。AF性能とコスパを重視します。',
+    answer: [
+      'Sony Eフルサイズで50mm前後の単焦点候補です。',
+      '',
+      '【選択肢1】FE 50mm F1.4 GM',
+      'おすすめ理由：AF性能と描写のバランスが高く、子供撮影とポートレートの両方に使いやすいです。',
+      '',
+      '【選択肢2】FE 50mm F1.8',
+      'おすすめ理由：価格を抑えた50mm入門候補として選びやすいです。',
+      '',
+      '【選択肢3】Sigma 50mm F1.4 DG DN Art',
+      'おすすめ理由：Sony Eで使える大口径標準単焦点で、描写と価格のバランスが良い候補です。',
+    ].join('\n'),
+    forbiddenText: [/Canon RF/i, /Nikon Z/i, /Fujifilm X/i, /RF-S/i],
+  },
+  {
+    name: 'Sony E フルサイズ 標準ズーム',
+    mountButtonName: /Sony E\s*フルサイズ/,
+    prompt:
+      'Sony Eマウントのフルサイズ機で、旅行と子供撮影に使いやすい標準ズームを探しています。AF性能、携帯性、コスパのバランスを重視します。',
+    answer: [
+      'Sony Eフルサイズで使いやすい標準ズーム候補です。',
+      '',
+      '【選択肢1】Tamron 28-75mm F/2.8 Di III VXD G2',
+      'おすすめ理由：軽さとF2.8通し、価格のバランスが良く、旅行と子供撮影に使いやすいです。',
+      '',
+      '【選択肢2】Sigma 28-70mm F2.8 DG DN Contemporary',
+      'おすすめ理由：小型軽量で日常・旅行に向いたF2.8標準ズームです。',
+      '',
+      '【選択肢3】FE 24-70mm F2.8 GM II',
+      'おすすめ理由：予算が許せばAFと描写の総合力が高い純正候補です。',
+    ].join('\n'),
+    forbiddenText: [/Canon RF/i, /Nikon Z/i, /Fujifilm X/i, /RF-S/i],
+  },
 ]
 
 async function openChatWithMount(page: Page, mountButtonName: RegExp) {
@@ -120,6 +158,8 @@ test.describe('recommendation smoke tests', () => {
 
       const imageCount = await page.getByTestId('lens-card-image').count()
       const priceCount = await page.getByTestId('price-badge').count()
+      const placeholderCount = await page.getByTestId('lens-card-placeholder').count()
+      expect(placeholderCount).toBeLessThan(await cards.count())
       expect(imageCount + priceCount).toBeGreaterThan(0)
 
       const crashMessages = [...consoleErrors, ...pageErrors].filter((message) =>
