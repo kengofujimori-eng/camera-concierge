@@ -2,7 +2,8 @@ import { expect, test, type Page } from '@playwright/test'
 
 type RecommendationCase = {
   name: string
-  mountButtonTestId: string
+  mountId: string
+  mountOptionTestId: string
   selectedMountText: string
   prompt: string
   answer: string
@@ -13,7 +14,8 @@ type RecommendationCase = {
 const cases: RecommendationCase[] = [
   {
     name: 'Canon RF 標準ズーム',
-    mountButtonTestId: 'mount-button-canon-rf',
+    mountId: 'canon-rf',
+    mountOptionTestId: 'mount-option-canon-rf',
     selectedMountText: 'Canon RF',
     prompt:
       'Canon RFマウントのフルサイズ機で、旅行と子供撮影を両立できる標準ズームを探しています。予算は未設定です。AF性能、携帯性、描写のバランスを重視します。',
@@ -32,7 +34,8 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Nikon Z 35〜55mm単焦点',
-    mountButtonTestId: 'mount-button-nikon-z-ff',
+    mountId: 'nikon-z-ff',
+    mountOptionTestId: 'mount-option-nikon-z-ff',
     selectedMountText: 'Nikon Z',
     prompt:
       'Nikon Zマウントで室内の子供撮影に使う単焦点レンズを探しています。35mm〜55mmの標準域で、明るさとAF性能を重視します。',
@@ -49,7 +52,8 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Fujifilm X 標準ズーム',
-    mountButtonTestId: 'mount-button-fuji-x',
+    mountId: 'fuji-x',
+    mountOptionTestId: 'mount-option-fuji-x',
     selectedMountText: 'Fujifilm X',
     prompt:
       'Fujifilm Xマウントで旅行に使いやすい標準ズームを探しています。軽さ、画質、コスパのバランスを重視します。',
@@ -66,7 +70,8 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Sony E フルサイズ 50mm前後単焦点',
-    mountButtonTestId: 'mount-button-sony-e-ff',
+    mountId: 'sony-e-ff',
+    mountOptionTestId: 'mount-option-sony-e-ff',
     selectedMountText: 'Sony E',
     prompt:
       'Sony Eマウントのフルサイズ機で、子供撮影とポートレートに使う50mm前後の単焦点レンズを探しています。AF性能とコスパを重視します。',
@@ -86,7 +91,8 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Sony E フルサイズ 標準ズーム',
-    mountButtonTestId: 'mount-button-sony-e-ff',
+    mountId: 'sony-e-ff',
+    mountOptionTestId: 'mount-option-sony-e-ff',
     selectedMountText: 'Sony E',
     prompt:
       'Sony Eマウントのフルサイズ機で、旅行と子供撮影に使いやすい標準ズームを探しています。AF性能、携帯性、コスパのバランスを重視します。',
@@ -106,7 +112,8 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Sony E 室内子供撮影 35〜55mm単焦点',
-    mountButtonTestId: 'mount-button-sony-e-ff',
+    mountId: 'sony-e-ff',
+    mountOptionTestId: 'mount-option-sony-e-ff',
     selectedMountText: 'Sony E',
     prompt:
       'Sony Eマウントのフルサイズ機で、室内の子供撮影に使う35〜55mmの単焦点レンズを探しています。明るさとAF性能を重視します。',
@@ -137,16 +144,21 @@ async function openChatWithMount(page: Page, testCase: RecommendationCase) {
 
   await page.goto('/')
   const selectedMountDisplay = page.getByTestId('selected-mount-display')
-  const mountButton = page.getByTestId(testCase.mountButtonTestId)
+  const mountOption = page.getByTestId(testCase.mountOptionTestId)
 
   await expect(selectedMountDisplay).toBeVisible()
-  await expect(mountButton).toBeVisible()
 
   for (let attempt = 0; attempt < 2; attempt += 1) {
-    await mountButton.click()
+    await selectedMountDisplay.click()
+
+    await expect(mountOption).toBeVisible()
+    await mountOption.click()
 
     try {
       await expect(selectedMountDisplay).toContainText(testCase.selectedMountText, { timeout: 3_000 })
+      await expect
+        .poll(() => page.evaluate(() => localStorage.getItem('selectedMountId')))
+        .toBe(testCase.mountId)
       return
     } catch (error) {
       if (attempt === 1) throw error
@@ -186,8 +198,6 @@ async function waitForSendEnabled(page: Page) {
 }
 
 test.describe('recommendation smoke tests', () => {
-  test.describe.configure({ mode: 'serial' })
-
   for (const testCase of cases) {
     test(testCase.name, async ({ page }, testInfo) => {
       const consoleErrors: string[] = []

@@ -296,7 +296,7 @@ function MountSelector({
               {MOUNTS.map((m) => (
                 <button
                   key={m.id}
-                  data-testid={`mount-menu-button-${m.id}`}
+                  data-testid={`mount-option-${m.id}`}
                   onClick={() => { onChange(m); setOpen(false) }}
                   className="w-full flex items-center justify-between gap-2 px-3 py-2 hover:bg-white/5 transition-colors text-left"
                 >
