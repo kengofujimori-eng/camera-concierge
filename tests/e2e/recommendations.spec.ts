@@ -2,7 +2,8 @@ import { expect, test, type Page } from '@playwright/test'
 
 type RecommendationCase = {
   name: string
-  mountButtonName: RegExp
+  mountButtonTestId: string
+  selectedMountText: string
   prompt: string
   answer: string
   forbiddenText: RegExp[]
@@ -12,7 +13,8 @@ type RecommendationCase = {
 const cases: RecommendationCase[] = [
   {
     name: 'Canon RF 標準ズーム',
-    mountButtonName: /Canon RF\s*フルサイズ/,
+    mountButtonTestId: 'mount-button-canon-rf',
+    selectedMountText: 'Canon RF',
     prompt:
       'Canon RFマウントのフルサイズ機で、旅行と子供撮影を両立できる標準ズームを探しています。予算は未設定です。AF性能、携帯性、描写のバランスを重視します。',
     answer: [
@@ -30,7 +32,8 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Nikon Z 35〜55mm単焦点',
-    mountButtonName: /Nikon Z\s*フルサイズ/,
+    mountButtonTestId: 'mount-button-nikon-z-ff',
+    selectedMountText: 'Nikon Z',
     prompt:
       'Nikon Zマウントで室内の子供撮影に使う単焦点レンズを探しています。35mm〜55mmの標準域で、明るさとAF性能を重視します。',
     answer: [
@@ -46,7 +49,8 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Fujifilm X 標準ズーム',
-    mountButtonName: /Fujifilm X\s*APS-C/,
+    mountButtonTestId: 'mount-button-fuji-x',
+    selectedMountText: 'Fujifilm X',
     prompt:
       'Fujifilm Xマウントで旅行に使いやすい標準ズームを探しています。軽さ、画質、コスパのバランスを重視します。',
     answer: [
@@ -62,7 +66,8 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Sony E フルサイズ 50mm前後単焦点',
-    mountButtonName: /Sony E\s*フルサイズ/,
+    mountButtonTestId: 'mount-button-sony-e-ff',
+    selectedMountText: 'Sony E',
     prompt:
       'Sony Eマウントのフルサイズ機で、子供撮影とポートレートに使う50mm前後の単焦点レンズを探しています。AF性能とコスパを重視します。',
     answer: [
@@ -81,7 +86,8 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Sony E フルサイズ 標準ズーム',
-    mountButtonName: /Sony E\s*フルサイズ/,
+    mountButtonTestId: 'mount-button-sony-e-ff',
+    selectedMountText: 'Sony E',
     prompt:
       'Sony Eマウントのフルサイズ機で、旅行と子供撮影に使いやすい標準ズームを探しています。AF性能、携帯性、コスパのバランスを重視します。',
     answer: [
@@ -100,7 +106,8 @@ const cases: RecommendationCase[] = [
   },
   {
     name: 'Sony E 室内子供撮影 35〜55mm単焦点',
-    mountButtonName: /Sony E\s*フルサイズ/,
+    mountButtonTestId: 'mount-button-sony-e-ff',
+    selectedMountText: 'Sony E',
     prompt:
       'Sony Eマウントのフルサイズ機で、室内の子供撮影に使う35〜55mmの単焦点レンズを探しています。明るさとAF性能を重視します。',
     answer: [
@@ -123,13 +130,45 @@ const cases: RecommendationCase[] = [
   },
 ]
 
-async function openChatWithMount(page: Page, mountButtonName: RegExp) {
+async function openChatWithMount(page: Page, testCase: RecommendationCase) {
   await page.addInitScript(() => {
     localStorage.clear()
   })
 
   await page.goto('/')
-  await page.getByRole('button', { name: mountButtonName }).click()
+  await page.getByTestId(testCase.mountButtonTestId).click()
+  await expect(page.getByTestId('selected-mount-display')).toContainText(testCase.selectedMountText)
+}
+
+async function enterPrompt(page: Page, prompt: string) {
+  const input = page.getByTestId('chat-input')
+  await input.click()
+  await input.fill('')
+  await page.keyboard.insertText(prompt)
+  await expect(input).toHaveValue(prompt)
+}
+
+async function getSendState(page: Page) {
+  return page.evaluate(() => {
+    const input = document.querySelector<HTMLTextAreaElement>('[data-testid="chat-input"]')
+    const sendButton = document.querySelector<HTMLButtonElement>('[data-testid="chat-send-button"]')
+    const selectedMount = document.querySelector<HTMLElement>('[data-testid="selected-mount-display"]')
+
+    return {
+      inputValue: input?.value ?? null,
+      inputLength: input?.value.length ?? 0,
+      sendButtonDisabled: sendButton?.disabled ?? null,
+      selectedMountText: selectedMount?.textContent?.replace(/\s+/g, ' ').trim() ?? null,
+    }
+  })
+}
+
+async function waitForSendEnabled(page: Page) {
+  await expect
+    .poll(() => getSendState(page), {
+      message: 'chat send button should become enabled after mount selection and prompt input',
+    })
+    .toEqual(expect.objectContaining({ sendButtonDisabled: false }))
 }
 
 test.describe('recommendation smoke tests', () => {
@@ -156,13 +195,11 @@ test.describe('recommendation smoke tests', () => {
         })
       })
 
-      await openChatWithMount(page, testCase.mountButtonName)
+      await openChatWithMount(page, testCase)
 
-      const input = page.getByTestId('chat-input')
       const sendButton = page.getByTestId('chat-send-button')
-      await input.fill(testCase.prompt)
-      await expect(input).toHaveValue(testCase.prompt)
-      await expect(sendButton).toBeEnabled()
+      await enterPrompt(page, testCase.prompt)
+      await waitForSendEnabled(page)
       await sendButton.click()
 
       const answer = page.getByTestId('assistant-answer').last()
