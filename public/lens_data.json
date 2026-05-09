@@ -4715,6 +4715,12 @@
     },
     {
       "name": "Sigma 14mm F1.8 DG HSM Art",
+      "supported_mounts": ["DSLR / adapter"],
+      "mount": "DSLR / adapter",
+      "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
+      "recommendation_status": "avoid",
+      "availability_status": "unknown",
+      "brand": "Sigma",
       "source_url": "https://asobinet.com/14mm-f1-8-dg-hsm-art/",
       "review_links": {
         "0": {
@@ -4818,6 +4824,12 @@
     },
     {
       "name": "Sigma 20mm F1.4 DG HSM Art",
+      "supported_mounts": ["DSLR / adapter"],
+      "mount": "DSLR / adapter",
+      "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
+      "recommendation_status": "avoid",
+      "availability_status": "unknown",
+      "brand": "Sigma",
       "source_url": "https://asobinet.com/20mm-f1-4-dg-hsm/",
       "review_links": {
         "0": {
@@ -4881,6 +4893,12 @@
     },
     {
       "name": "Sigma 24mm F1.4 DG HSM Art",
+      "supported_mounts": ["DSLR / adapter"],
+      "mount": "DSLR / adapter",
+      "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
+      "recommendation_status": "avoid",
+      "availability_status": "unknown",
+      "brand": "Sigma",
       "source_url": "https://asobinet.com/24mm-f1-4-dg-hsm/",
       "review_links": {
         "0": {
@@ -4949,6 +4967,12 @@
     },
     {
       "name": "Sigma 28mm F1.4 DG HSM Art",
+      "supported_mounts": ["DSLR / adapter"],
+      "mount": "DSLR / adapter",
+      "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
+      "recommendation_status": "avoid",
+      "availability_status": "unknown",
+      "brand": "Sigma",
       "source_url": "https://asobinet.com/28mm-f1-4-dg-hsm-art/",
       "review_links": {
         "0": {
@@ -5002,6 +5026,12 @@
     },
     {
       "name": "Sigma 35mm F1.4 DG HSM Art",
+      "supported_mounts": ["DSLR / adapter"],
+      "mount": "DSLR / adapter",
+      "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
+      "recommendation_status": "avoid",
+      "availability_status": "unknown",
+      "brand": "Sigma",
       "source_url": "https://asobinet.com/35mm-f1-4-dg-hsm/",
       "review_links": {
         "0": {
@@ -5088,6 +5118,12 @@
     },
     {
       "name": "Sigma 40mm F1.4 DG HSM Art",
+      "supported_mounts": ["DSLR / adapter"],
+      "mount": "DSLR / adapter",
+      "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
+      "recommendation_status": "avoid",
+      "availability_status": "unknown",
+      "brand": "Sigma",
       "source_url": "https://asobinet.com/40mm-f1-4-dg-hsm-art/",
       "review_links": {
         "0": {
@@ -5146,6 +5182,12 @@
     },
     {
       "name": "Sigma 50mm F1.4 DG HSM Art",
+      "supported_mounts": ["DSLR / adapter"],
+      "mount": "DSLR / adapter",
+      "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
+      "recommendation_status": "avoid",
+      "availability_status": "unknown",
+      "brand": "Sigma",
       "source_url": "https://asobinet.com/50mm-f1-4-dg-hsm/",
       "review_links": {
         "0": {
@@ -5227,6 +5269,12 @@
     },
     {
       "name": "Sigma 85mm F1.4 DG HSM Art",
+      "supported_mounts": ["DSLR / adapter"],
+      "mount": "DSLR / adapter",
+      "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
+      "recommendation_status": "avoid",
+      "availability_status": "unknown",
+      "brand": "Sigma",
       "source_url": "https://asobinet.com/85mm-f1-4-dg-hsm-art/",
       "review_links": {
         "0": {
@@ -5308,6 +5356,12 @@
     },
     {
       "name": "Sigma 105mm F1.4 DG HSM Art",
+      "supported_mounts": ["DSLR / adapter"],
+      "mount": "DSLR / adapter",
+      "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
+      "recommendation_status": "avoid",
+      "availability_status": "unknown",
+      "brand": "Sigma",
       "source_url": "https://asobinet.com/105mm-f1-4-dg-hsm-art/",
       "review_links": {
         "0": {
@@ -13022,6 +13076,12 @@
     },
     {
       "name": "Sigma 135mm F1.8 DG HSM Art",
+      "supported_mounts": ["DSLR / adapter"],
+      "mount": "DSLR / adapter",
+      "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
+      "recommendation_status": "avoid",
+      "availability_status": "unknown",
+      "brand": "Sigma",
       "source_url": "https://www.sigma-global.com/jp/lenses/a017_135_f18/",
       "review_links": {
         "asobinet": "https://asobinet.com/fullreview-135mm-f1-8-dg-hsm/"
@@ -16418,6 +16478,9 @@
     },
     {
       "name": "Tamron 17-28mm F/2.8 Di III RXD",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/a046/",
       "review_links": {},
       "image_url": "/lens_images_processed/Tamron_17-28mm_F_2.8_Di_III_RXD.png",
@@ -16692,6 +16755,9 @@
     },
     {
       "name": "Tamron 17-50mm F/4 Di III VXD",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/a068/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-17-50mm-f-4-di-iii-vxd-vine/"
@@ -16727,6 +16793,9 @@
     },
     {
       "name": "Tamron 28-200mm F/2.8-5.6 Di III RXD",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/a071/",
       "review_links": {},
       "image_url": "/lens_images_processed/Tamron_28-200mm_F_2.8-5.6_Di_III_RXD.png",
@@ -16753,6 +16822,9 @@
     },
     {
       "name": "Tamron 20mm F/2.8 Di III OSD M1:2",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/f050/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-20mm-f-2-8-di-iii-osd-m12-conclusion/"
@@ -16788,6 +16860,9 @@
     },
     {
       "name": "Tamron 24mm F/2.8 Di III OSD M1:2",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/f051/",
       "review_links": {},
       "image_url": "/lens_images_processed/Tamron_24mm_F_2.8_Di_III_OSD_M1_2.png",
@@ -16814,6 +16889,9 @@
     },
     {
       "name": "Tamron 35mm F/2.8 Di III OSD M1:2",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/f053/",
       "review_links": {},
       "image_url": "/lens_images_processed/Tamron_35mm_F_2.8_Di_III_OSD_M1_2.png",
@@ -17012,6 +17090,9 @@
     },
     {
       "name": "Tamron 20-40mm F/2.8 Di III VXD",
+      "supported_mounts": ["Sony E"],
+      "mount": "Sony E",
+      "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/a062/",
       "review_links": {
         "asobinet": "https://asobinet.com/review-20-40mm-f-2-8-di-iii-vxd-vine/"
@@ -17577,8 +17658,9 @@
     },
     {
       "name": "Tamron 16-30mm F/2.8 Di III VXD G2",
+      "supported_mounts": ["Sony E","Nikon Z"],
       "brand": "Tamron",
-      "mount": "FE/Z",
+      "mount": "Sony E / Nikon Z",
       "type": "zoom",
       "focal_length": "16-30",
       "max_aperture": 2.8,
@@ -17618,8 +17700,9 @@
     },
     {
       "name": "Tamron 25-200mm F/2.8-5.6 Di III VXD G2",
+      "supported_mounts": ["Sony E"],
       "brand": "Tamron",
-      "mount": "FE",
+      "mount": "Sony E",
       "type": "zoom",
       "focal_length": "25-200",
       "max_aperture": 2.8,
@@ -17726,8 +17809,9 @@
     },
     {
       "name": "Tamron 28-300mm F/4-7.1 Di III VC VXD",
+      "supported_mounts": ["Sony E","Nikon Z"],
       "brand": "Tamron",
-      "mount": "FE/Z",
+      "mount": "Sony E / Nikon Z",
       "type": "zoom",
       "focal_length": "28-300",
       "max_aperture": 4,
@@ -17758,8 +17842,9 @@
     },
     {
       "name": "Tamron 70-300mm F/4.5-6.3 Di III RXD",
+      "supported_mounts": ["Sony E","Nikon Z"],
       "brand": "Tamron",
-      "mount": "FE/Z",
+      "mount": "Sony E / Nikon Z",
       "type": "zoom",
       "focal_length": "70-300",
       "max_aperture": 4.5,
