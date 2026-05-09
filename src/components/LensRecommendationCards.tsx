@@ -418,10 +418,10 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: index * 0.1, ease: 'easeOut' }}
-      className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm shadow-slate-200/40 dark:border-slate-700 dark:bg-slate-800/60 dark:shadow-none flex"
+      className="overflow-hidden rounded-xl border border-slate-200/90 bg-white/95 shadow-lg shadow-slate-200/70 backdrop-blur dark:border-white/15 dark:bg-slate-900/85 dark:shadow-black/20 flex"
     >
       {/* 左: レンズ画像 */}
-      <div className="w-24 sm:w-28 flex-shrink-0 bg-slate-50 dark:bg-slate-900/40 flex items-center justify-center overflow-hidden border-r border-slate-100 dark:border-slate-700/70">
+      <div className="w-24 sm:w-28 flex-shrink-0 bg-slate-50/90 dark:bg-slate-950/55 flex items-center justify-center overflow-hidden border-r border-slate-200/80 dark:border-white/10">
         {cardImageUrl ? (
           <img
             data-testid="lens-card-image"
