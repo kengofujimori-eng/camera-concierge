@@ -261,22 +261,22 @@ function MountSelector({
       <button
         data-testid="selected-mount-display"
         onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between gap-2 rounded-xl border border-white/15 bg-white/[0.07] px-3 py-2.5 text-left shadow-sm shadow-black/5 transition-all hover:border-indigo-300/40 hover:bg-white/[0.11] group"
+        className="w-full flex items-center justify-between gap-2 rounded-xl border border-slate-200/80 bg-white/90 px-3 py-2.5 text-left shadow-sm shadow-slate-200/60 transition-all hover:border-indigo-300/70 hover:bg-white group dark:border-white/15 dark:bg-white/[0.08] dark:shadow-black/5 dark:hover:border-indigo-300/40 dark:hover:bg-white/[0.12]"
       >
         <div className="flex items-center gap-2 min-w-0">
-          <div className="h-6 w-6 rounded-md bg-indigo-500/20 flex items-center justify-center flex-shrink-0 ring-1 ring-indigo-300/20">
-            <CameraIcon className="h-3.5 w-3.5 text-indigo-300" />
+          <div className="h-6 w-6 rounded-md bg-indigo-500/12 flex items-center justify-center flex-shrink-0 ring-1 ring-indigo-300/30 dark:bg-indigo-500/20 dark:ring-indigo-300/20">
+            <CameraIcon className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-300" />
           </div>
           {selected ? (
             <div className="min-w-0">
-              <p className="text-xs font-semibold text-white truncate">{selected.label}</p>
-              <p className="text-[10px] text-slate-400 truncate">{selected.sub}</p>
+              <p className="text-xs font-semibold text-slate-900 truncate dark:text-white">{selected.label}</p>
+              <p className="text-[10px] text-slate-600 truncate dark:text-slate-400">{selected.sub}</p>
             </div>
           ) : (
-            <p className="text-xs text-slate-400">マウントを選択...</p>
+            <p className="text-xs font-medium text-slate-600 dark:text-slate-400">マウントを選択...</p>
           )}
         </div>
-        <ChevronDown className={`h-3.5 w-3.5 text-slate-400 flex-shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`h-3.5 w-3.5 text-slate-500 flex-shrink-0 transition-transform dark:text-slate-400 ${open ? 'rotate-180' : ''}`} />
       </button>
 
       {/* ドロップダウン */}
@@ -287,9 +287,9 @@ function MountSelector({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.15 }}
-            className="absolute top-full left-0 right-0 mt-1 rounded-xl border border-white/10 bg-slate-950/85 shadow-2xl shadow-indigo-950/30 backdrop-blur-xl overflow-hidden z-50"
+            className="absolute top-full left-0 right-0 mt-1 rounded-xl border border-slate-200/90 bg-white/95 shadow-2xl shadow-slate-900/10 backdrop-blur-xl overflow-hidden z-50 dark:border-white/10 dark:bg-slate-950/90 dark:shadow-indigo-950/30"
           >
-            <p className="px-3 pt-2.5 pb-1 text-[10px] font-semibold text-slate-400 uppercase tracking-widest">
+            <p className="px-3 pt-2.5 pb-1 text-[10px] font-semibold text-slate-500 uppercase tracking-widest dark:text-slate-400">
               使用マウント
             </p>
             <div className="pb-1.5 max-h-60 overflow-y-auto">
@@ -298,11 +298,11 @@ function MountSelector({
                   key={m.id}
                   data-testid={`mount-option-${m.id}`}
                   onClick={() => { onChange(m); setOpen(false) }}
-                  className="w-full flex items-center justify-between gap-2 px-3 py-2 text-left transition-colors hover:bg-indigo-400/10"
+                  className="w-full flex items-center justify-between gap-2 px-3 py-2 text-left transition-colors hover:bg-indigo-50 dark:hover:bg-indigo-400/10"
                 >
                   <div>
-                    <p className="text-xs font-medium text-slate-200">{m.label}</p>
-                    <p className="text-[10px] text-slate-400">{m.sub}</p>
+                    <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">{m.label}</p>
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400">{m.sub}</p>
                   </div>
                   {selected?.id === m.id && (
                     <Check className="h-3.5 w-3.5 text-indigo-300 flex-shrink-0" />
@@ -330,11 +330,11 @@ function BudgetSlider({
   return (
     <div className="px-1">
       <div className="flex items-center justify-between mb-2">
-        <p className="text-[10px] text-slate-500">レンズ予算</p>
+        <p className="text-[10px] font-medium text-slate-600 dark:text-slate-400">レンズ予算</p>
         {selected && (
           <button
             onClick={() => onChange(null)}
-            className="text-[9px] text-slate-600 hover:text-slate-400 transition-colors"
+            className="text-[9px] text-slate-500 hover:text-slate-800 transition-colors dark:text-slate-400 dark:hover:text-slate-200"
           >
             ✕ 解除
           </button>
@@ -346,7 +346,7 @@ function BudgetSlider({
           <span
             key={b.id}
             className={`text-[9px] font-medium transition-colors ${
-              i === idx ? 'text-indigo-300' : 'text-slate-600'
+              i === idx ? 'text-indigo-600 dark:text-indigo-300' : 'text-slate-500 dark:text-slate-400'
             }`}
           >
             {b.label}
@@ -356,7 +356,7 @@ function BudgetSlider({
       {/* トラック + ステップドット */}
       <div className="relative h-5 flex items-center px-1">
         {/* ベーストラック */}
-        <div className="absolute inset-x-1 h-0.5 rounded-full bg-slate-700" />
+        <div className="absolute inset-x-1 h-0.5 rounded-full bg-slate-300 dark:bg-slate-700" />
         {/* アクティブ部分 */}
         {idx >= 0 && (
           <div
@@ -374,7 +374,7 @@ function BudgetSlider({
               className={`h-3.5 w-3.5 rounded-full border-2 transition-all duration-150 hover:scale-125 focus:outline-none ${
                 i <= idx
                   ? 'bg-indigo-500 border-indigo-300 shadow-sm shadow-indigo-500/40'
-                  : 'bg-slate-800/80 border-slate-600 hover:border-indigo-300/60'
+                  : 'bg-white border-slate-300 hover:border-indigo-300/80 dark:bg-slate-800/80 dark:border-slate-600 dark:hover:border-indigo-300/60'
               }`}
             />
           ))}
@@ -462,11 +462,11 @@ function FocalRangeSlider({
     <div className="px-1">
       {/* ヘッダー */}
       <div className="flex items-center justify-between mb-1.5">
-        <p className="text-[10px] text-slate-500">焦点距離</p>
+        <p className="text-[10px] font-medium text-slate-600 dark:text-slate-400">焦点距離</p>
         {active && (
           <button
             onClick={() => { setActive(false); setDisplay(DEFAULT); liveRef.current = DEFAULT; onChange(null) }}
-            className="text-[9px] text-slate-600 hover:text-slate-400 transition-colors"
+            className="text-[9px] text-slate-500 hover:text-slate-800 transition-colors dark:text-slate-400 dark:hover:text-slate-200"
           >
             ✕ 解除
           </button>
@@ -527,25 +527,25 @@ function FocalRangeSlider({
       <div className="relative h-4 mt-0.5">
         {maxPct - minPct > 14 ? (
           <>
-            <span className={`absolute text-[10px] font-mono font-semibold -translate-x-1/2 ${active ? 'text-sky-400' : 'text-slate-600'}`}
+            <span className={`absolute text-[10px] font-mono font-semibold -translate-x-1/2 ${active ? 'text-sky-600 dark:text-sky-400' : 'text-slate-500 dark:text-slate-400'}`}
               style={{ left: `${minPct}%` }}>{display.minMm}</span>
-            <span className={`absolute text-[10px] font-mono font-semibold -translate-x-1/2 ${active ? 'text-sky-400' : 'text-slate-600'}`}
+            <span className={`absolute text-[10px] font-mono font-semibold -translate-x-1/2 ${active ? 'text-sky-600 dark:text-sky-400' : 'text-slate-500 dark:text-slate-400'}`}
               style={{ left: `${maxPct}%` }}>{display.maxMm}</span>
           </>
         ) : (
-          <span className={`absolute text-[10px] font-mono font-semibold -translate-x-1/2 ${active ? 'text-sky-400' : 'text-slate-600'}`}
+          <span className={`absolute text-[10px] font-mono font-semibold -translate-x-1/2 ${active ? 'text-sky-600 dark:text-sky-400' : 'text-slate-500 dark:text-slate-400'}`}
             style={{ left: `${(minPct + maxPct) / 2}%` }}>{display.minMm}–{display.maxMm}</span>
         )}
       </div>
 
       {/* ゾーン境界ティック（モバイルでは両端のみ） */}
       <div className="relative h-3">
-        <span className="absolute text-[8px] text-slate-700" style={{ left: '0%' }}>12mm</span>
+        <span className="absolute text-[8px] text-slate-500 dark:text-slate-400" style={{ left: '0%' }}>12mm</span>
         {ZONE_TICKS.map((mm) => (
-          <span key={mm} className="absolute text-[8px] text-slate-700 -translate-x-1/2 hidden sm:inline"
+          <span key={mm} className="absolute text-[8px] text-slate-500 dark:text-slate-400 -translate-x-1/2 hidden sm:inline"
             style={{ left: `${mmToLogPct(mm) * 100}%` }}>{mm}</span>
         ))}
-        <span className="absolute text-[8px] text-slate-700 -translate-x-full" style={{ left: '100%' }}>600mm</span>
+        <span className="absolute text-[8px] text-slate-500 dark:text-slate-400 -translate-x-full" style={{ left: '100%' }}>600mm</span>
       </div>
 
       {/* マクロトグル */}
@@ -554,16 +554,16 @@ function FocalRangeSlider({
         className={`mt-2 w-full rounded-lg px-3 py-1.5 text-[11px] font-medium transition-all flex items-center justify-between ${
           macro
             ? 'bg-gradient-to-r from-indigo-500 to-violet-500 text-white shadow-sm shadow-indigo-500/25'
-            : 'bg-slate-800/60 text-slate-400 hover:bg-indigo-400/10 hover:text-slate-200 border border-white/10'
+            : 'bg-white/85 text-slate-600 hover:bg-indigo-50 hover:text-indigo-700 border border-slate-200/80 dark:bg-slate-800/60 dark:text-slate-400 dark:hover:bg-indigo-400/10 dark:hover:text-slate-200 dark:border-white/10'
         }`}
       >
         <span>🔬 マクロ</span>
-        <span className={`text-[9px] ${macro ? 'text-purple-200' : 'text-slate-600'}`}>等倍近接</span>
+        <span className={`text-[9px] ${macro ? 'text-purple-200' : 'text-slate-500 dark:text-slate-500'}`}>等倍近接</span>
       </button>
 
       {/* 送信内容プレビュー */}
       {(active || macro) && (
-        <p className="text-[10px] text-sky-400/70 mt-1.5 leading-snug">
+        <p className="text-[10px] text-sky-600 dark:text-sky-400/80 mt-1.5 leading-snug">
           {[active && getFocalRangePrompt(display), macro && 'マクロ撮影を含む'].filter(Boolean).join('・')}
         </p>
       )}
@@ -991,20 +991,20 @@ export default function ChatInterface() {
     <div className="flex h-[calc(100vh-64px)] bg-transparent">
 
       {/* ── サイドバー（デスクトップのみ） ── */}
-      <aside className="hidden md:flex flex-col w-[280px] flex-shrink-0 overflow-visible border-r border-white/15 bg-slate-950/86 shadow-2xl shadow-indigo-950/20 backdrop-blur-2xl">
-        <div className="p-5 border-b border-white/10">
+      <aside className="hidden md:flex flex-col w-[280px] flex-shrink-0 overflow-visible border-r border-slate-200/90 bg-white/88 shadow-2xl shadow-slate-900/10 backdrop-blur-2xl dark:border-white/15 dark:bg-slate-950/92 dark:shadow-indigo-950/20">
+        <div className="p-5 border-b border-slate-200/80 dark:border-white/10">
           <div className="flex items-center gap-2.5 mb-0.5">
             <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/25 to-violet-500/25 ring-1 ring-indigo-300/25">
-              <CameraIcon className="h-4 w-4 text-indigo-200" />
+              <CameraIcon className="h-4 w-4 text-indigo-600 dark:text-indigo-200" />
             </div>
-            <span className="font-bold text-white text-sm tracking-wide">Camera Concierge</span>
+            <span className="font-bold text-slate-950 text-sm tracking-wide dark:text-white">Camera Concierge</span>
           </div>
-          <p className="text-[11px] text-slate-400 ml-[42px]">AI カメラ・レンズ相談</p>
+          <p className="text-[11px] text-slate-600 ml-[42px] dark:text-slate-400">AI カメラ・レンズ相談</p>
         </div>
 
         {/* プロフィール設定 */}
-        <div className="px-3 py-3 border-b border-white/10 relative z-10 space-y-3">
-          <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest px-1">
+        <div className="px-3 py-3 border-b border-slate-200/80 relative z-10 space-y-3 dark:border-white/10">
+          <p className="text-[10px] font-semibold text-slate-600 uppercase tracking-widest px-1 dark:text-slate-400">
             マイプロフィール
           </p>
 
@@ -1013,7 +1013,7 @@ export default function ChatInterface() {
 
           {/* 使用ボディ */}
           <div className="px-1">
-            <p className="text-[10px] text-slate-400 mb-1">使用ボディ</p>
+            <p className="text-[10px] font-medium text-slate-600 mb-1 dark:text-slate-400">使用ボディ</p>
             {selectedMount && BODIES_BY_MOUNT[selectedMount.id] ? (
               /* マウント選択済み → ドロップダウン + 自由入力 */
               <div className="space-y-1">
@@ -1022,7 +1022,7 @@ export default function ChatInterface() {
                   onChange={(e) => {
                     if (e.target.value !== '__custom__') handleBodySave(e.target.value)
                   }}
-                  className="w-full rounded-xl bg-white/[0.08] border border-white/15 px-2.5 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-indigo-300/60 focus:ring-2 focus:ring-indigo-400/20"
+                  className="w-full rounded-xl bg-white/95 border border-slate-200/90 px-2.5 py-1.5 text-xs text-slate-900 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-300/80 focus:ring-2 focus:ring-indigo-400/20 dark:bg-white/[0.08] dark:border-white/15 dark:text-slate-100 dark:shadow-none dark:focus:border-indigo-300/60"
                 >
                   <option value="">-- 選択してください --</option>
                   {BODIES_BY_MOUNT[selectedMount.id].map((b) => (
@@ -1038,7 +1038,7 @@ export default function ChatInterface() {
                     onChange={(e) => setBodyInput(e.target.value)}
                     onBlur={(e) => handleBodySave(e.target.value)}
                     placeholder="機種名を直接入力..."
-                    className="w-full rounded-xl bg-white/[0.08] border border-white/15 px-2.5 py-1.5 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-300/60 focus:ring-2 focus:ring-indigo-400/20"
+                    className="w-full rounded-xl bg-white/95 border border-slate-200/90 px-2.5 py-1.5 text-xs text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-300/80 focus:ring-2 focus:ring-indigo-400/20 dark:bg-white/[0.08] dark:border-white/15 dark:text-slate-100 dark:placeholder-slate-500 dark:shadow-none dark:focus:border-indigo-300/60"
                   />
                 )}
               </div>
@@ -1050,7 +1050,7 @@ export default function ChatInterface() {
                 onChange={(e) => setBodyInput(e.target.value)}
                 onBlur={(e) => handleBodySave(e.target.value)}
                 placeholder="マウントを先に選択すると候補が出ます"
-                className="w-full rounded-xl bg-white/[0.08] border border-white/15 px-2.5 py-1.5 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-300/60 focus:ring-2 focus:ring-indigo-400/20"
+                className="w-full rounded-xl bg-white/95 border border-slate-200/90 px-2.5 py-1.5 text-xs text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-300/80 focus:ring-2 focus:ring-indigo-400/20 dark:bg-white/[0.08] dark:border-white/15 dark:text-slate-100 dark:placeholder-slate-500 dark:shadow-none dark:focus:border-indigo-300/60"
               />
             )}
           </div>
@@ -1068,14 +1068,14 @@ export default function ChatInterface() {
 
           {/* 設定済みバッジ */}
           {(selectedMount || bodyInput || selectedBudget || selectedFocal || isMacro) && (
-            <p className="px-1 text-[10px] text-indigo-300/80">
+            <p className="px-1 text-[10px] text-indigo-600 dark:text-indigo-300/80">
               ✓ 質問に自動付与されます
             </p>
           )}
         </div>
 
         <div className="flex-1 overflow-y-auto p-4">
-          <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-3 px-1">
+          <p className="text-[10px] font-semibold text-slate-600 uppercase tracking-widest mb-3 px-1 dark:text-slate-400">
             クイック質問
           </p>
           <div className="space-y-1">
@@ -1088,16 +1088,16 @@ export default function ChatInterface() {
                 transition={{ duration: 0.3, delay: i * 0.06, ease: 'easeOut' }}
                 whileHover={{ x: 5 }}
                 whileTap={{ scale: 0.97 }}
-                className="group w-full flex items-center gap-2 rounded-xl px-3 py-2.5 text-left text-[13px] text-slate-300 transition-all hover:bg-indigo-400/10 hover:text-white"
+                className="group w-full flex items-center gap-2 rounded-xl px-3 py-2.5 text-left text-[13px] text-slate-700 transition-all hover:-translate-y-0.5 hover:bg-indigo-50 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-indigo-400/10 dark:hover:text-white"
               >
-                <ChevronRight className="h-3.5 w-3.5 flex-shrink-0 text-slate-500 group-hover:text-indigo-300 transition-colors" />
+                <ChevronRight className="h-3.5 w-3.5 flex-shrink-0 text-slate-400 group-hover:text-indigo-600 transition-colors dark:text-slate-500 dark:group-hover:text-indigo-300" />
                 <span className="leading-snug">{q}</span>
               </motion.button>
             ))}
           </div>
         </div>
 
-        <div className="p-4 border-t border-white/10 flex flex-col gap-2">
+        <div className="p-4 border-t border-slate-200/80 flex flex-col gap-2 dark:border-white/10">
           {/* 新規会話ボタン */}
           {messages.length > 0 && (
             <button
@@ -1109,17 +1109,17 @@ export default function ChatInterface() {
                   setConversationId(undefined)
                 }
               }}
-              className="w-full rounded-xl px-3 py-2 text-xs text-slate-400 hover:bg-white/[0.07] hover:text-slate-100 transition-colors text-left"
+              className="w-full rounded-xl px-3 py-2 text-xs text-slate-600 hover:bg-slate-100 hover:text-slate-950 transition-colors text-left dark:text-slate-400 dark:hover:bg-white/[0.07] dark:hover:text-slate-100"
             >
               🗑️ 新規会話を開始
             </button>
           )}
           <Link
             href="/warehouse"
-            className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/[0.07] hover:text-white group"
+            className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950 group dark:text-slate-300 dark:hover:bg-white/[0.07] dark:hover:text-white"
           >
             <div className="flex items-center gap-2">
-              <Warehouse className="h-4 w-4 text-slate-500 group-hover:text-indigo-300 transition-colors" />
+              <Warehouse className="h-4 w-4 text-slate-500 group-hover:text-indigo-600 transition-colors dark:group-hover:text-indigo-300" />
               <span>デジタル倉庫</span>
             </div>
             {warehouseCount > 0 && (
