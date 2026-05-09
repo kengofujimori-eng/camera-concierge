@@ -1,7 +1,28 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { Send, Bot, User, Warehouse, Camera as CameraIcon, ChevronRight, ChevronDown, Check, Settings, RotateCcw, X } from 'lucide-react'
+import {
+  Activity,
+  Baby,
+  Bird,
+  Bot,
+  Camera as CameraIcon,
+  Check,
+  ChevronDown,
+  ChevronRight,
+  CircleDollarSign,
+  Map,
+  Mountain,
+  Package,
+  Send,
+  Settings,
+  User,
+  UserRound,
+  Warehouse,
+  X,
+  RotateCcw,
+  type LucideIcon,
+} from 'lucide-react'
 import { motion, AnimatePresence, type Variants } from 'framer-motion'
 import Link from 'next/link'
 import { ChatMessage } from '@/types'
@@ -32,6 +53,19 @@ const MOUNTS: MountOption[] = [
   { id: 'm43',         label: 'Micro 4/3',     sub: 'マイクロフォーサーズ', prompt: 'マイクロフォーサーズマウント（MFT）' },
   { id: 'leica-m',     label: 'Leica M',       sub: 'フルサイズ',          prompt: 'Leica Mマウント（フルサイズ）' },
 ]
+
+const MOUNT_EXAMPLES: Record<string, string> = {
+  'sony-e-ff': 'α7 / α9 / α1 系',
+  'sony-e-apsc': 'α6000 / α6400 / ZV-E10 系',
+  'canon-rf': 'EOS R / R6 / R5 系',
+  'canon-rf-s': 'R50 / R10 / R7 系',
+  'nikon-z-ff': 'Z5 / Z6 / Z7 / Z8 系',
+  'nikon-z-apsc': 'Z30 / Z50 / Z fc 系',
+  'fuji-x': 'X-T / X-S / X-E 系',
+  'fuji-gfx': 'GFX 系',
+  m43: 'OM / Lumix G 系',
+  'leica-m': 'M型ライカ',
+}
 
 // ── マウント別ボディ一覧 ──────────────────────────────────
 const BODIES_BY_MOUNT: Record<string, string[]> = {
@@ -232,15 +266,22 @@ function ChoiceButtons({ text, onSelect }: { text: string; onSelect: (t: string)
 }
 
 // ── 撮影シーン ────────────────────────────────────────────
-const SCENES = [
-  { emoji: '👶', label: '子供・家族',    q: '子供を室内で撮りたい' },
-  { emoji: '👤', label: 'ポートレート',  q: 'ポートレートを美しく撮りたい' },
-  { emoji: '🌄', label: '風景・星空',    q: '風景や星空を撮りたい' },
-  { emoji: '🏃', label: 'スポーツ・動体', q: '動き回る被写体をしっかり撮りたい' },
-  { emoji: '🐦', label: '野鳥・望遠',    q: '野鳥や飛行機を望遠で撮りたい' },
-  { emoji: '🍽️', label: '料理・物撮り',  q: '料理やテーブルフォトを撮りたい' },
-  { emoji: '✈️', label: '旅行・街歩き',  q: '旅行に持ち出せる軽いレンズが欲しい' },
-  { emoji: '💰', label: 'コスパ重視',    q: 'コスパ最強のレンズを教えてほしい' },
+interface SceneOption {
+  icon: LucideIcon
+  label: string
+  desc: string
+  q: string
+}
+
+const SCENES: SceneOption[] = [
+  { icon: Baby, label: '子供・家族', desc: '室内・動き・AF', q: '子供を室内で撮りたい' },
+  { icon: UserRound, label: 'ポートレート', desc: '背景ぼけ・肌写り', q: 'ポートレートを美しく撮りたい' },
+  { icon: Mountain, label: '風景・星空', desc: '広角・解像感', q: '風景や星空を撮りたい' },
+  { icon: Activity, label: 'スポーツ・動体', desc: '追従AF・望遠', q: '動き回る被写体をしっかり撮りたい' },
+  { icon: Bird, label: '野鳥・望遠', desc: '超望遠・軽さ', q: '野鳥や飛行機を望遠で撮りたい' },
+  { icon: Package, label: '料理・物撮り', desc: '近接・質感', q: '料理やテーブルフォトを撮りたい' },
+  { icon: Map, label: '旅行・街歩き', desc: '携帯性・汎用性', q: '旅行に持ち出せる軽いレンズが欲しい' },
+  { icon: CircleDollarSign, label: 'コスパ重視', desc: '価格・性能バランス', q: 'コスパ最強のレンズを教えてほしい' },
 ]
 
 const QUICK_QUESTIONS = SCENES.map((s) => s.q)
@@ -1146,7 +1187,7 @@ export default function ChatInterface() {
                 transition={{ duration: 0.4, ease: 'easeOut' }}
               >
                 {/* ── セットアップガイダンス（初回のみ・設定済みなら非表示） ── */}
-                {!selectedMount && !setupDone && (
+                {!setupDone && (
                   <motion.div
                     className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 max-w-2xl mx-auto shadow-lg shadow-slate-200/70 dark:border-white/15 dark:bg-slate-950/70 dark:shadow-indigo-950/20"
                     initial={{ opacity: 0, scale: 0.97 }}
@@ -1158,28 +1199,43 @@ export default function ChatInterface() {
                         <CameraIcon className="h-5 w-5 text-indigo-500 dark:text-indigo-300" />
                       </div>
                       <div>
-                        <p className="text-sm font-bold text-slate-800 dark:text-white">まずカメラの情報を教えてください</p>
-                        <p className="text-xs text-slate-500 dark:text-slate-400">マウントを設定すると、より精度の高い提案ができます</p>
+                        <p className="text-sm font-bold text-slate-800 dark:text-white">カメラを選ぶと、提案がもっと正確になります</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">カメラ名の例を見ながら選べます。わからなければ後で変更できます</p>
                       </div>
                     </div>
 
                     {/* マウント選択グリッド */}
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-3">
-                      {MOUNTS.map((m) => (
-                        <button
-                          key={m.id}
-                          data-testid={`mount-button-${m.id}`}
-                          onClick={() => {
-                            handleMountChange(m)
-                            // モバイルで設定ボトムシートを開いて続きを設定
-                            if (window.innerWidth < 768) setShowMobileSettings(true)
-                          }}
-                          className="flex flex-col items-start rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-left shadow-sm shadow-slate-200/60 transition-all hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-slate-50 hover:shadow-indigo-500/10 dark:border-white/15 dark:bg-white/[0.07] dark:shadow-none dark:hover:border-indigo-300/40 dark:hover:bg-indigo-400/10"
-                        >
-                          <span className="text-xs font-semibold text-slate-800 dark:text-slate-100">{m.label}</span>
-                          <span className="text-[10px] text-slate-400">{m.sub}</span>
-                        </button>
-                      ))}
+                      {MOUNTS.map((m) => {
+                        const isSelected = selectedMount?.id === m.id
+                        return (
+                          <button
+                            key={m.id}
+                            data-testid={`mount-button-${m.id}`}
+                            onClick={() => {
+                              handleMountChange(m)
+                              // モバイルで設定ボトムシートを開いて続きを設定
+                              if (window.innerWidth < 768) setShowMobileSettings(true)
+                            }}
+                            className={`group flex min-h-[92px] flex-col items-start rounded-xl border bg-white px-3 py-2.5 text-left shadow-sm shadow-slate-200/60 transition-all hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-slate-50 hover:shadow-indigo-500/10 dark:bg-slate-900/80 dark:shadow-none dark:hover:border-indigo-300/40 dark:hover:bg-slate-800 ${
+                              isSelected
+                                ? 'border-indigo-400 ring-2 ring-indigo-500/15 dark:border-indigo-300/70 dark:ring-indigo-300/15'
+                                : 'border-slate-200 dark:border-white/10'
+                            }`}
+                          >
+                            <span className="flex w-full items-start justify-between gap-2">
+                              <span>
+                                <span className="block text-xs font-semibold text-slate-900 dark:text-slate-100">{m.label}</span>
+                                <span className="mt-0.5 block text-[10px] font-medium text-slate-500 dark:text-slate-400">{m.sub}</span>
+                              </span>
+                              {isSelected && <Check className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-indigo-600 dark:text-indigo-300" />}
+                            </span>
+                            <span className="mt-2 text-[10px] leading-snug text-slate-500 dark:text-slate-400">
+                              {MOUNT_EXAMPLES[m.id]}
+                            </span>
+                          </button>
+                        )
+                      })}
                     </div>
 
                     <button
@@ -1199,6 +1255,12 @@ export default function ChatInterface() {
                   <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white ring-1 ring-slate-200 mb-3 shadow-lg shadow-slate-200/70 dark:bg-white/[0.08] dark:ring-white/15 dark:shadow-black/20">
                     <CameraIcon className="h-7 w-7 text-indigo-500 dark:text-indigo-300" />
                   </div>
+                  {selectedMount && (
+                    <div className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700 shadow-sm shadow-indigo-500/5 dark:border-indigo-300/20 dark:bg-indigo-400/10 dark:text-indigo-200">
+                      <Check className="h-3.5 w-3.5" />
+                      現在の設定: {selectedMount.label} / {selectedMount.sub}
+                    </div>
+                  )}
                   <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
                     何を撮りたいですか？
                   </h2>
@@ -1206,21 +1268,29 @@ export default function ChatInterface() {
                     シーンを選ぶか、自由に話しかけてください
                   </p>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 max-w-2xl mx-auto">
-                    {SCENES.map((s, i) => (
-                      <motion.button
-                        key={s.q}
-                        onClick={() => sendMessage(s.q)}
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: i * 0.05, ease: 'easeOut' }}
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                        className="flex flex-col items-center gap-1.5 rounded-2xl border border-slate-200 bg-white px-3 py-3.5 text-slate-800 shadow-sm shadow-slate-200/60 transition-all hover:-translate-y-0.5 hover:border-indigo-300 hover:bg-slate-50 hover:shadow-lg hover:shadow-indigo-500/10 dark:border-white/15 dark:bg-white/[0.07] dark:text-slate-100 dark:shadow-none dark:hover:border-indigo-300/40 dark:hover:bg-indigo-400/10"
-                      >
-                        <span className="text-xl opacity-80">{s.emoji}</span>
-                        <span className="text-xs font-medium leading-tight">{s.label}</span>
-                      </motion.button>
-                    ))}
+                    {SCENES.map((s, i) => {
+                      const Icon = s.icon
+                      return (
+                        <motion.button
+                          key={s.q}
+                          onClick={() => sendMessage(s.q)}
+                          initial={{ opacity: 0, y: 12 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.3, delay: i * 0.05, ease: 'easeOut' }}
+                          whileHover={{ y: -2 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="group flex min-h-[104px] flex-col items-start justify-between rounded-2xl border border-slate-200 bg-white px-3 py-3.5 text-left text-slate-800 shadow-sm shadow-slate-200/60 transition-all hover:border-indigo-300 hover:bg-slate-50 hover:shadow-lg hover:shadow-indigo-500/10 dark:border-white/15 dark:bg-slate-900/80 dark:text-slate-100 dark:shadow-none dark:hover:border-indigo-300/40 dark:hover:bg-slate-800"
+                        >
+                          <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-colors group-hover:border-indigo-200 group-hover:bg-indigo-50 group-hover:text-indigo-600 dark:border-white/10 dark:bg-slate-950 dark:text-slate-300 dark:group-hover:border-indigo-300/30 dark:group-hover:bg-indigo-400/10 dark:group-hover:text-indigo-200">
+                            <Icon className="h-4 w-4" />
+                          </span>
+                          <span>
+                            <span className="block text-xs font-semibold leading-tight text-slate-900 dark:text-slate-100">{s.label}</span>
+                            <span className="mt-1 block text-[10px] leading-snug text-slate-500 dark:text-slate-400">{s.desc}</span>
+                          </span>
+                        </motion.button>
+                      )
+                    })}
                   </div>
                 </div>
               </motion.div>
