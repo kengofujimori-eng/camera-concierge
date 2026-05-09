@@ -218,9 +218,9 @@ function ChoiceButtons({ text, onSelect }: { text: string; onSelect: (t: string)
             onClick={() => onSelect(c.sendText)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
-            className="flex items-center gap-2 rounded-xl border border-amber-300/40 bg-amber-50 px-3 py-2 text-xs font-medium text-amber-800 hover:bg-amber-100 hover:border-amber-400 transition-colors dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-300 dark:hover:bg-amber-500/20"
+            className="flex items-center gap-2 rounded-xl border border-indigo-200/70 bg-white/70 px-3 py-2 text-xs font-medium text-indigo-700 shadow-sm shadow-indigo-500/5 backdrop-blur transition-colors hover:border-indigo-300 hover:bg-indigo-50 dark:border-indigo-400/20 dark:bg-indigo-400/10 dark:text-indigo-200 dark:hover:bg-indigo-400/15"
           >
-            <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-amber-400/30 text-[10px] font-bold text-amber-700 dark:text-amber-300">
+            <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-indigo-400/15 text-[10px] font-bold text-indigo-700 dark:text-indigo-200">
               {c.number}
             </span>
             {c.label}
@@ -261,11 +261,11 @@ function MountSelector({
       <button
         data-testid="selected-mount-display"
         onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-left hover:bg-white/5 transition-colors group"
+        className="w-full flex items-center justify-between gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-left shadow-sm shadow-black/5 transition-all hover:border-indigo-300/30 hover:bg-white/[0.07] group"
       >
         <div className="flex items-center gap-2 min-w-0">
-          <div className="h-6 w-6 rounded-md bg-amber-500/20 flex items-center justify-center flex-shrink-0">
-            <CameraIcon className="h-3.5 w-3.5 text-amber-400" />
+          <div className="h-6 w-6 rounded-md bg-indigo-500/20 flex items-center justify-center flex-shrink-0 ring-1 ring-indigo-300/20">
+            <CameraIcon className="h-3.5 w-3.5 text-indigo-300" />
           </div>
           {selected ? (
             <div className="min-w-0">
@@ -287,7 +287,7 @@ function MountSelector({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.15 }}
-            className="absolute top-full left-0 right-0 mt-1 rounded-xl bg-slate-800 border border-white/10 shadow-xl overflow-hidden z-50"
+            className="absolute top-full left-0 right-0 mt-1 rounded-xl border border-white/10 bg-slate-950/85 shadow-2xl shadow-indigo-950/30 backdrop-blur-xl overflow-hidden z-50"
           >
             <p className="px-3 pt-2.5 pb-1 text-[10px] font-semibold text-slate-500 uppercase tracking-widest">
               使用マウント
@@ -298,14 +298,14 @@ function MountSelector({
                   key={m.id}
                   data-testid={`mount-option-${m.id}`}
                   onClick={() => { onChange(m); setOpen(false) }}
-                  className="w-full flex items-center justify-between gap-2 px-3 py-2 hover:bg-white/5 transition-colors text-left"
+                  className="w-full flex items-center justify-between gap-2 px-3 py-2 text-left transition-colors hover:bg-indigo-400/10"
                 >
                   <div>
                     <p className="text-xs font-medium text-slate-200">{m.label}</p>
                     <p className="text-[10px] text-slate-500">{m.sub}</p>
                   </div>
                   {selected?.id === m.id && (
-                    <Check className="h-3.5 w-3.5 text-amber-400 flex-shrink-0" />
+                    <Check className="h-3.5 w-3.5 text-indigo-300 flex-shrink-0" />
                   )}
                 </button>
               ))}
@@ -346,7 +346,7 @@ function BudgetSlider({
           <span
             key={b.id}
             className={`text-[9px] font-medium transition-colors ${
-              i === idx ? 'text-amber-400' : 'text-slate-600'
+              i === idx ? 'text-indigo-300' : 'text-slate-600'
             }`}
           >
             {b.label}
@@ -360,7 +360,7 @@ function BudgetSlider({
         {/* アクティブ部分 */}
         {idx >= 0 && (
           <div
-            className="absolute left-1 h-0.5 rounded-full bg-amber-500 transition-all duration-200"
+            className="absolute left-1 h-0.5 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 transition-all duration-200"
             style={{ width: `${(idx / (BUDGETS.length - 1)) * (100)}%` }}
           />
         )}
@@ -373,8 +373,8 @@ function BudgetSlider({
               onClick={() => onChange(idx === i ? null : b)}
               className={`h-3.5 w-3.5 rounded-full border-2 transition-all duration-150 hover:scale-125 focus:outline-none ${
                 i <= idx
-                  ? 'bg-amber-500 border-amber-400 shadow-sm shadow-amber-500/40'
-                  : 'bg-slate-800 border-slate-600 hover:border-slate-400'
+                  ? 'bg-indigo-500 border-indigo-300 shadow-sm shadow-indigo-500/40'
+                  : 'bg-slate-800/80 border-slate-600 hover:border-indigo-300/60'
               }`}
             />
           ))}
@@ -553,8 +553,8 @@ function FocalRangeSlider({
         onClick={() => onMacroChange(!macro)}
         className={`mt-2 w-full rounded-lg px-3 py-1.5 text-[11px] font-medium transition-all flex items-center justify-between ${
           macro
-            ? 'bg-purple-600 text-white'
-            : 'bg-slate-800/60 text-slate-400 hover:bg-slate-700 hover:text-slate-200 border border-white/10'
+            ? 'bg-gradient-to-r from-indigo-500 to-violet-500 text-white shadow-sm shadow-indigo-500/25'
+            : 'bg-slate-800/60 text-slate-400 hover:bg-indigo-400/10 hover:text-slate-200 border border-white/10'
         }`}
       >
         <span>🔬 マクロ</span>
@@ -956,9 +956,9 @@ export default function ChatInterface() {
         const safeRoleLabel = escapeHtmlForDisplay(roleLabel)
 
         formatted.push(`
-<div class="my-3 rounded-xl border border-slate-200 bg-white/65 px-4 py-3 shadow-sm dark:border-slate-700 dark:bg-slate-900/40">
+<div class="my-3 rounded-xl border border-white/65 bg-white/70 px-4 py-3 shadow-sm shadow-slate-200/40 backdrop-blur dark:border-white/10 dark:bg-white/[0.06] dark:shadow-none">
   <div class="flex flex-wrap items-center gap-2">
-    <span class="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-700 dark:bg-amber-900/40 dark:text-amber-200">${optionLabel}</span>
+    <span class="rounded-full bg-indigo-500/10 px-2.5 py-1 text-xs font-bold text-indigo-700 dark:bg-indigo-400/15 dark:text-indigo-200">${optionLabel}</span>
     <strong class="text-slate-900 dark:text-slate-100">${lensName}</strong>
   </div>
   ${safeRoleLabel ? `<div class="mt-2 text-sm font-medium text-slate-600 dark:text-slate-300">${safeRoleLabel}</div>` : ''}
@@ -988,14 +988,14 @@ export default function ChatInterface() {
   }
 
   return (
-    <div className="flex h-[calc(100vh-64px)]">
+    <div className="flex h-[calc(100vh-64px)] bg-transparent">
 
       {/* ── サイドバー（デスクトップのみ） ── */}
-      <aside className="hidden md:flex flex-col w-[280px] flex-shrink-0 bg-slate-950 border-r border-white/5 overflow-visible">
-        <div className="p-5 border-b border-white/5">
+      <aside className="hidden md:flex flex-col w-[280px] flex-shrink-0 overflow-visible border-r border-white/10 bg-slate-950/78 shadow-2xl shadow-indigo-950/20 backdrop-blur-2xl">
+        <div className="p-5 border-b border-white/10">
           <div className="flex items-center gap-2.5 mb-0.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500/20 ring-1 ring-amber-500/30">
-              <CameraIcon className="h-4 w-4 text-amber-400" />
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/25 to-violet-500/25 ring-1 ring-indigo-300/25">
+              <CameraIcon className="h-4 w-4 text-indigo-200" />
             </div>
             <span className="font-bold text-white text-sm tracking-wide">Camera Concierge</span>
           </div>
@@ -1003,7 +1003,7 @@ export default function ChatInterface() {
         </div>
 
         {/* プロフィール設定 */}
-        <div className="px-3 py-3 border-b border-white/5 relative z-10 space-y-3">
+        <div className="px-3 py-3 border-b border-white/10 relative z-10 space-y-3">
           <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest px-1">
             マイプロフィール
           </p>
@@ -1022,7 +1022,7 @@ export default function ChatInterface() {
                   onChange={(e) => {
                     if (e.target.value !== '__custom__') handleBodySave(e.target.value)
                   }}
-                  className="w-full rounded-lg bg-slate-800/60 border border-white/10 px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30"
+                  className="w-full rounded-xl bg-white/[0.04] border border-white/10 px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-300/50 focus:ring-2 focus:ring-indigo-400/15"
                 >
                   <option value="">-- 選択してください --</option>
                   {BODIES_BY_MOUNT[selectedMount.id].map((b) => (
@@ -1038,7 +1038,7 @@ export default function ChatInterface() {
                     onChange={(e) => setBodyInput(e.target.value)}
                     onBlur={(e) => handleBodySave(e.target.value)}
                     placeholder="機種名を直接入力..."
-                    className="w-full rounded-lg bg-slate-800/60 border border-white/10 px-2.5 py-1.5 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30"
+                    className="w-full rounded-xl bg-white/[0.04] border border-white/10 px-2.5 py-1.5 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-indigo-300/50 focus:ring-2 focus:ring-indigo-400/15"
                   />
                 )}
               </div>
@@ -1050,7 +1050,7 @@ export default function ChatInterface() {
                 onChange={(e) => setBodyInput(e.target.value)}
                 onBlur={(e) => handleBodySave(e.target.value)}
                 placeholder="マウントを先に選択すると候補が出ます"
-                className="w-full rounded-lg bg-slate-800/60 border border-white/10 px-2.5 py-1.5 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30"
+                className="w-full rounded-xl bg-white/[0.04] border border-white/10 px-2.5 py-1.5 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-indigo-300/50 focus:ring-2 focus:ring-indigo-400/15"
               />
             )}
           </div>
@@ -1068,7 +1068,7 @@ export default function ChatInterface() {
 
           {/* 設定済みバッジ */}
           {(selectedMount || bodyInput || selectedBudget || selectedFocal || isMacro) && (
-            <p className="px-1 text-[10px] text-amber-500/70">
+            <p className="px-1 text-[10px] text-indigo-300/80">
               ✓ 質問に自動付与されます
             </p>
           )}
@@ -1088,16 +1088,16 @@ export default function ChatInterface() {
                 transition={{ duration: 0.3, delay: i * 0.06, ease: 'easeOut' }}
                 whileHover={{ x: 5 }}
                 whileTap={{ scale: 0.97 }}
-                className="group w-full flex items-center gap-2 rounded-lg px-3 py-2.5 text-left text-[13px] text-slate-400 hover:bg-amber-500/10 hover:text-amber-300 transition-colors"
+                className="group w-full flex items-center gap-2 rounded-xl px-3 py-2.5 text-left text-[13px] text-slate-400 transition-all hover:bg-indigo-400/10 hover:text-indigo-100"
               >
-                <ChevronRight className="h-3.5 w-3.5 flex-shrink-0 text-slate-600 group-hover:text-amber-400 transition-colors" />
+                <ChevronRight className="h-3.5 w-3.5 flex-shrink-0 text-slate-600 group-hover:text-indigo-300 transition-colors" />
                 <span className="leading-snug">{q}</span>
               </motion.button>
             ))}
           </div>
         </div>
 
-        <div className="p-4 border-t border-white/5 flex flex-col gap-2">
+        <div className="p-4 border-t border-white/10 flex flex-col gap-2">
           {/* 新規会話ボタン */}
           {messages.length > 0 && (
             <button
@@ -1109,21 +1109,21 @@ export default function ChatInterface() {
                   setConversationId(undefined)
                 }
               }}
-              className="w-full rounded-lg px-3 py-2 text-xs text-slate-500 hover:bg-slate-800 hover:text-slate-300 transition-colors text-left"
+              className="w-full rounded-xl px-3 py-2 text-xs text-slate-500 hover:bg-white/[0.05] hover:text-slate-300 transition-colors text-left"
             >
               🗑️ 新規会話を開始
             </button>
           )}
           <Link
             href="/warehouse"
-            className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-slate-400 hover:bg-slate-800 hover:text-white transition-colors group"
+            className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm text-slate-400 transition-colors hover:bg-white/[0.05] hover:text-white group"
           >
             <div className="flex items-center gap-2">
-              <Warehouse className="h-4 w-4 text-slate-500 group-hover:text-amber-400 transition-colors" />
+              <Warehouse className="h-4 w-4 text-slate-500 group-hover:text-indigo-300 transition-colors" />
               <span>デジタル倉庫</span>
             </div>
             {warehouseCount > 0 && (
-              <span className="rounded-full bg-amber-500/20 px-2 py-0.5 text-xs text-amber-400 font-semibold tabular-nums">
+              <span className="rounded-full bg-indigo-500/20 px-2 py-0.5 text-xs text-indigo-200 font-semibold tabular-nums">
                 {warehouseCount}
               </span>
             )}
@@ -1146,14 +1146,14 @@ export default function ChatInterface() {
                 {/* ── セットアップガイダンス（初回のみ・設定済みなら非表示） ── */}
                 {!selectedMount && !setupDone && (
                   <motion.div
-                    className="mb-6 rounded-2xl border border-amber-400/30 bg-amber-500/5 dark:bg-amber-500/10 p-5 max-w-2xl mx-auto"
+                    className="mb-6 rounded-2xl border border-white/60 bg-white/65 p-5 max-w-2xl mx-auto shadow-xl shadow-indigo-500/10 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/45 dark:shadow-indigo-950/20"
                     initial={{ opacity: 0, scale: 0.97 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.35 }}
                   >
                     <div className="flex items-center gap-2.5 mb-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-500/20 ring-1 ring-amber-500/30 flex-shrink-0">
-                        <CameraIcon className="h-5 w-5 text-amber-400" />
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/15 to-violet-500/15 ring-1 ring-indigo-300/30 flex-shrink-0">
+                        <CameraIcon className="h-5 w-5 text-indigo-500 dark:text-indigo-300" />
                       </div>
                       <div>
                         <p className="text-sm font-bold text-slate-800 dark:text-white">まずカメラの情報を教えてください</p>
@@ -1172,7 +1172,7 @@ export default function ChatInterface() {
                             // モバイルで設定ボトムシートを開いて続きを設定
                             if (window.innerWidth < 768) setShowMobileSettings(true)
                           }}
-                          className="flex flex-col items-start rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-800/60 px-3 py-2.5 text-left hover:border-amber-400 hover:bg-amber-50 dark:hover:bg-amber-500/10 transition-all"
+                          className="flex flex-col items-start rounded-xl border border-slate-200/70 bg-white/75 px-3 py-2.5 text-left shadow-sm shadow-slate-200/40 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-indigo-300/70 hover:bg-indigo-50/70 hover:shadow-indigo-500/10 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none dark:hover:border-indigo-300/30 dark:hover:bg-indigo-400/10"
                         >
                           <span className="text-xs font-semibold text-slate-800 dark:text-slate-100">{m.label}</span>
                           <span className="text-[10px] text-slate-400">{m.sub}</span>
@@ -1194,8 +1194,8 @@ export default function ChatInterface() {
 
                 {/* ── 通常の空状態 ── */}
                 <div className="text-center">
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-500/10 ring-1 ring-amber-500/20 mb-3">
-                    <CameraIcon className="h-7 w-7 text-amber-400" />
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500/12 to-sky-400/12 ring-1 ring-indigo-300/25 mb-3 shadow-lg shadow-indigo-500/10">
+                    <CameraIcon className="h-7 w-7 text-indigo-500 dark:text-indigo-300" />
                   </div>
                   <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
                     何を撮りたいですか？
@@ -1213,7 +1213,7 @@ export default function ChatInterface() {
                         transition={{ duration: 0.3, delay: i * 0.05, ease: 'easeOut' }}
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
-                        className="flex flex-col items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-3.5 text-slate-700 shadow-sm hover:border-amber-300 hover:shadow-md hover:bg-amber-50 transition-all dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-amber-500 dark:hover:bg-amber-500/10"
+                        className="flex flex-col items-center gap-1.5 rounded-2xl border border-slate-200/70 bg-white/70 px-3 py-3.5 text-slate-700 shadow-sm shadow-slate-200/50 backdrop-blur transition-all hover:-translate-y-0.5 hover:border-indigo-300/70 hover:bg-white/90 hover:shadow-lg hover:shadow-indigo-500/10 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-200 dark:shadow-none dark:hover:border-indigo-300/30 dark:hover:bg-indigo-400/10"
                       >
                         <span className="text-2xl">{s.emoji}</span>
                         <span className="text-xs font-medium leading-tight">{s.label}</span>
@@ -1234,7 +1234,7 @@ export default function ChatInterface() {
                   className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
                 >
                   <div className={`flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center ${
-                    msg.role === 'user' ? 'bg-amber-500' : 'bg-slate-100 dark:bg-slate-700'
+                    msg.role === 'user' ? 'bg-gradient-to-br from-indigo-500 to-violet-500 shadow-sm shadow-indigo-500/30' : 'bg-white/75 ring-1 ring-slate-200/80 backdrop-blur dark:bg-white/[0.06] dark:ring-white/10'
                   }`}>
                     {msg.role === 'user'
                       ? <User className="h-4 w-4 text-white" />
@@ -1245,7 +1245,7 @@ export default function ChatInterface() {
                   <div className="flex-1">
                     {msg.role === 'user' ? (
                       <div className="flex justify-end">
-                        <div className="max-w-[85%] rounded-2xl rounded-tr-none bg-amber-500 px-4 py-3 text-sm leading-relaxed text-white whitespace-pre-wrap">
+                        <div className="max-w-[85%] rounded-2xl rounded-tr-none border border-indigo-300/20 bg-gradient-to-br from-indigo-500 to-violet-500 px-4 py-3 text-sm leading-relaxed text-white shadow-lg shadow-indigo-500/15 whitespace-pre-wrap">
                           {msg.content}
                         </div>
                       </div>
@@ -1254,7 +1254,7 @@ export default function ChatInterface() {
                         {/* HTMLレンダリング */}
                         <div
                           data-testid="assistant-answer"
-                          className="chat-answer prose-dify rounded-2xl rounded-tl-none bg-slate-100 dark:bg-slate-700 px-4 py-3 text-sm leading-relaxed text-slate-900 dark:text-slate-100"
+                          className="chat-answer prose-dify rounded-2xl rounded-tl-none border border-white/65 bg-white/72 px-4 py-3 text-sm leading-relaxed text-slate-900 shadow-lg shadow-slate-200/40 backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-100 dark:shadow-none"
                           dangerouslySetInnerHTML={{ __html: renderAnswer(msg.content) }}
                         />
                         {/* レンズ推薦カード（Reactコンポーネント） */}
@@ -1278,10 +1278,10 @@ export default function ChatInterface() {
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ duration: 0.25, ease: 'easeOut' }}
                 >
-                  <div className="h-8 w-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center flex-shrink-0">
+                  <div className="h-8 w-8 rounded-full bg-white/75 ring-1 ring-slate-200/80 backdrop-blur dark:bg-white/[0.06] dark:ring-white/10 flex items-center justify-center flex-shrink-0">
                     <Bot className="h-4 w-4 text-slate-600 dark:text-slate-300" />
                   </div>
-                  <div className="rounded-2xl rounded-tl-none bg-slate-100 dark:bg-slate-700 px-4 py-3">
+                  <div className="rounded-2xl rounded-tl-none border border-white/65 bg-white/72 px-4 py-3 shadow-lg shadow-slate-200/40 backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06] dark:shadow-none">
                     <TypingDots />
                   </div>
                 </motion.div>
@@ -1306,7 +1306,7 @@ export default function ChatInterface() {
               />
               {/* パネル */}
               <motion.div
-                className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-950 rounded-t-2xl border-t border-white/10 max-h-[80vh] overflow-y-auto"
+                className="md:hidden fixed bottom-0 left-0 right-0 z-50 rounded-t-2xl border-t border-white/10 bg-slate-950/88 shadow-2xl shadow-indigo-950/30 backdrop-blur-2xl max-h-[80vh] overflow-y-auto"
                 initial={{ y: '100%' }}
                 animate={{ y: 0 }}
                 exit={{ y: '100%' }}
@@ -1328,7 +1328,7 @@ export default function ChatInterface() {
                         <select
                           value={BODIES_BY_MOUNT[selectedMount.id].includes(bodyInput) ? bodyInput : '__custom__'}
                           onChange={(e) => { if (e.target.value !== '__custom__') handleBodySave(e.target.value) }}
-                          className="w-full rounded-lg bg-slate-800/60 border border-white/10 px-2.5 py-2 text-sm text-slate-200 focus:outline-none"
+                          className="w-full rounded-xl bg-white/[0.04] border border-white/10 px-2.5 py-2 text-sm text-slate-200 focus:outline-none focus:border-indigo-300/50 focus:ring-2 focus:ring-indigo-400/15"
                         >
                           <option value="">-- 選択してください --</option>
                           {BODIES_BY_MOUNT[selectedMount.id].map((b) => (
@@ -1341,7 +1341,7 @@ export default function ChatInterface() {
                             onChange={(e) => setBodyInput(e.target.value)}
                             onBlur={(e) => handleBodySave(e.target.value)}
                             placeholder="機種名を直接入力..."
-                            className="w-full rounded-lg bg-slate-800/60 border border-white/10 px-2.5 py-2 text-sm text-slate-200 placeholder-slate-600 focus:outline-none"
+                            className="w-full rounded-xl bg-white/[0.04] border border-white/10 px-2.5 py-2 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-indigo-300/50 focus:ring-2 focus:ring-indigo-400/15"
                           />
                         )}
                       </div>
@@ -1350,18 +1350,18 @@ export default function ChatInterface() {
                         onChange={(e) => setBodyInput(e.target.value)}
                         onBlur={(e) => handleBodySave(e.target.value)}
                         placeholder="マウントを先に選択すると候補が出ます"
-                        className="w-full rounded-lg bg-slate-800/60 border border-white/10 px-2.5 py-2 text-sm text-slate-200 placeholder-slate-600 focus:outline-none"
+                        className="w-full rounded-xl bg-white/[0.04] border border-white/10 px-2.5 py-2 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-indigo-300/50 focus:ring-2 focus:ring-indigo-400/15"
                       />
                     )}
                   </div>
                   <BudgetSlider selected={selectedBudget} onChange={handleBudgetChange} />
                   <FocalRangeSlider range={selectedFocal} onChange={handleFocalChange} macro={isMacro} onMacroChange={handleMacroChange} />
                   {(selectedMount || bodyInput || selectedBudget || selectedFocal || isMacro) && (
-                    <p className="px-1 text-[11px] text-amber-500/70">✓ 質問に自動付与されます</p>
+                    <p className="px-1 text-[11px] text-indigo-300/80">✓ 質問に自動付与されます</p>
                   )}
                   <button
                     onClick={() => setShowMobileSettings(false)}
-                    className="w-full rounded-xl bg-amber-500 py-3 text-sm font-semibold text-white"
+                    className="w-full rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20"
                   >
                     設定を保存して閉じる
                   </button>
@@ -1372,14 +1372,14 @@ export default function ChatInterface() {
         </AnimatePresence>
 
         {/* 入力エリア */}
-        <div className="border-t border-slate-200 bg-white dark:border-slate-700/60 dark:bg-slate-900 px-4 py-3">
+        <div className="border-t border-white/60 bg-white/58 px-4 py-3 shadow-[0_-18px_50px_rgba(15,23,42,0.06)] backdrop-blur-2xl dark:border-white/10 dark:bg-slate-950/55 dark:shadow-black/20">
           <div className="mx-auto max-w-3xl">
             {/* モバイル用ツールバー */}
             <div className="md:hidden flex items-center justify-between mb-2">
               {/* 設定バッジ */}
               <div className="flex flex-wrap items-center gap-1.5 flex-1 min-w-0">
                 {selectedMount && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 text-[11px] text-amber-600 dark:text-amber-400">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 px-2 py-0.5 text-[11px] text-indigo-600 dark:text-indigo-300">
                     <CameraIcon className="h-2.5 w-2.5" />{selectedMount.label}
                   </span>
                 )}
@@ -1419,15 +1419,15 @@ export default function ChatInterface() {
                   onClick={() => setShowMobileSettings(true)}
                   className={`relative flex h-8 w-8 items-center justify-center rounded-lg transition-colors ${
                     !selectedMount
-                      ? 'bg-amber-500/20 text-amber-400 ring-1 ring-amber-500/40'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-amber-400'
+                      ? 'bg-indigo-500/15 text-indigo-500 ring-1 ring-indigo-500/30 dark:text-indigo-300'
+                      : 'bg-white/70 dark:bg-white/[0.06] text-slate-500 hover:text-indigo-500 dark:hover:text-indigo-300'
                   }`}
                   title="設定"
                 >
                   <Settings className="h-3.5 w-3.5" />
                   {/* 未設定バッジ */}
                   {!selectedMount && (
-                    <span className="absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full bg-amber-500 ring-2 ring-white dark:ring-slate-900" />
+                    <span className="absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full bg-indigo-500 ring-2 ring-white dark:ring-slate-900" />
                   )}
                 </button>
               </div>
@@ -1444,7 +1444,7 @@ export default function ChatInterface() {
                 onCompositionEnd={() => { isComposingRef.current = false }}
                 placeholder="例：運動会で動く子供を撮りたい..."
                 rows={1}
-                className="flex-1 resize-none rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:border-amber-400 focus:outline-none focus:ring-1 focus:ring-amber-400/30 max-h-32 overflow-y-auto dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder-slate-500 dark:focus:border-amber-500"
+                className="flex-1 resize-none rounded-2xl border border-white/70 bg-white/78 px-4 py-3 text-sm text-slate-900 shadow-sm shadow-slate-200/50 backdrop-blur-xl placeholder-slate-400 focus:border-indigo-300/80 focus:outline-none focus:ring-4 focus:ring-indigo-400/15 max-h-32 overflow-y-auto dark:border-white/10 dark:bg-white/[0.06] dark:text-white dark:placeholder-slate-500 dark:shadow-none dark:focus:border-indigo-300/50"
                 style={{ height: 'auto' }}
                 onInput={(e) => {
                   const el = e.currentTarget
@@ -1459,7 +1459,7 @@ export default function ChatInterface() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.15 }}
-                className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-amber-500 text-white hover:bg-amber-600 disabled:opacity-30 disabled:cursor-not-allowed"
+                className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-500 text-white shadow-lg shadow-indigo-500/25 transition-all hover:from-indigo-400 hover:to-violet-400 disabled:opacity-30 disabled:cursor-not-allowed disabled:shadow-none"
               >
                 <Send className="h-4 w-4" />
               </motion.button>

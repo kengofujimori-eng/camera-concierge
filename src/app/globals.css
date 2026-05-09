@@ -29,7 +29,18 @@ html {
 }
 
 body {
-  @apply bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-50 transition-colors duration-200;
+  @apply min-h-screen text-slate-900 dark:text-slate-50 transition-colors duration-200;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(129, 140, 248, 0.18), transparent 34%),
+    radial-gradient(circle at 88% 4%, rgba(56, 189, 248, 0.14), transparent 30%),
+    linear-gradient(135deg, #f8fafc 0%, #eef2ff 45%, #f8fafc 100%);
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(129, 140, 248, 0.22), transparent 32%),
+    radial-gradient(circle at 86% 2%, rgba(14, 165, 233, 0.16), transparent 30%),
+    linear-gradient(135deg, #020617 0%, #0f172a 48%, #111827 100%);
 }
 
 /* AI回答エリアのHTMLスタイル */
@@ -38,7 +49,7 @@ body {
 }
 
 .chat-answer a:hover {
-  @apply text-amber-600 underline dark:text-amber-300;
+  @apply text-indigo-600 underline dark:text-indigo-300;
 }
 
 .chat-answer details {
@@ -118,7 +129,7 @@ body {
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 .prose-dify a:hover {
-  color: #d97706;
+  color: #4f46e5;
   text-decoration: underline;
 }
 .dark .prose-dify a {
@@ -126,7 +137,7 @@ body {
   text-decoration-color: rgb(100 116 139);
 }
 .dark .prose-dify a:hover {
-  color: #fcd34d;
+  color: #a5b4fc;
 }
 .prose-dify details {
   background: rgba(255, 255, 255, 0.05);
