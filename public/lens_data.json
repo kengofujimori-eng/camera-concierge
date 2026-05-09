@@ -5828,6 +5828,9 @@
     },
     {
       "name": "AF 14mm F2.8 FE/RF",
+      "brand": "Samyang",
+      "mount": "mixed FE/RF",
+      "supported_mounts": [],
       "source_url": "https://asobinet.com/af14mm-f2-8-fe/",
       "review_links": {
         "0": {
@@ -5878,7 +5881,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "unknown",
+      "recommendation_status": "avoid",
+      "recommendation_note": "FE版/RF版は存在するが、DB上でマウント混在のため、分割するまで通常推薦しない。"
     },
     {
       "name": "AF 24mm f/2.8 FE",
@@ -6286,6 +6292,11 @@
     },
     {
       "name": "AF 85mm F1.4 EF",
+      "brand": "Samyang",
+      "mount": "Canon EF",
+      "supported_mounts": [
+        "Canon EF"
+      ],
       "source_url": "https://asobinet.com/af85mm-f1-4-ef/",
       "review_links": {
         "0": {
@@ -6333,10 +6344,16 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "unknown",
+      "recommendation_status": "avoid",
+      "recommendation_note": "Canon EF用・一眼レフ/アダプター前提のため、ミラーレス通常推薦では使わない。"
     },
     {
       "name": "AF 85mm F1.4 FE/RF",
+      "brand": "Samyang",
+      "mount": "mixed FE/RF",
+      "supported_mounts": [],
       "source_url": "https://asobinet.com/af85mm-f1-4-fe/",
       "review_links": {
         "0": {
@@ -6378,7 +6395,10 @@
         "ratings": null,
         "sample_images": null,
         "fetched_at": "2026-04-30"
-      }
+      },
+      "availability_status": "unknown",
+      "recommendation_status": "avoid",
+      "recommendation_note": "FE版/RF版は存在するが、DB上でマウント混在のため、分割するまで通常推薦しない。"
     },
     {
       "name": "VILTROX PFU RBMH 85mm F1.8",
@@ -18006,9 +18026,9 @@
         "fetched_at": "2026-04-30"
       },
       "review_links": {},
-      "availability_status": "current",
-      "recommendation_status": "recommend",
-      "recommendation_note": "軽量低価格な50mm。予算重視で明るい単焦点を使いたい場合に有力。"
+      "availability_status": "unknown",
+      "recommendation_status": "avoid",
+      "recommendation_note": "公式確認できず、価格.com URLもAF 45mm F1.8 FEを指している疑いがあるため通常推薦しない。"
     },
     {
       "name": "Samyang Remaster Slim 21mm F3.5",
