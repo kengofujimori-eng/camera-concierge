@@ -679,6 +679,7 @@ export default function ChatInterface() {
   const [setupDone, setSetupDone] = useState<boolean>(() =>
     loadFromStorage<string | null>('setupDone', null) === 'true'
   )
+  const [showBodyHint, setShowBodyHint] = useState(false)
 
   // ── マウント設定（localStorage で永続化）────────────────
   const [selectedMount, setSelectedMount] = useState<MountOption | null>(() => {
@@ -693,6 +694,7 @@ export default function ChatInterface() {
       try { localStorage.setItem('setupDone', 'true') } catch { /* ignore */ }
     }
     try { localStorage.setItem('selectedMountId', mount.id) } catch { /* ignore */ }
+    if (!bodyInput.trim()) setShowBodyHint(true)
   }
 
   // ── 予算設定（localStorage で永続化）─────────────────────
@@ -701,6 +703,7 @@ export default function ChatInterface() {
     return BUDGETS.find((b) => b.id === savedId) ?? null
   })
   function handleBudgetChange(budget: BudgetOption | null) {
+    setShowBodyHint(false)
     setSelectedBudget(budget)
     try {
       if (budget) localStorage.setItem('selectedBudgetId', budget.id)
@@ -713,6 +716,7 @@ export default function ChatInterface() {
     loadFromStorage<FocalRange | null>('selectedFocalRange', null)
   )
   function handleFocalChange(range: FocalRange | null) {
+    setShowBodyHint(false)
     setSelectedFocal(range)
     try {
       if (range) localStorage.setItem('selectedFocalRange', JSON.stringify(range))
@@ -725,6 +729,7 @@ export default function ChatInterface() {
     loadFromStorage<string | null>('isMacro', null) === 'true'
   )
   function handleMacroChange(val: boolean) {
+    setShowBodyHint(false)
     setIsMacro(val)
     try {
       if (val) localStorage.setItem('isMacro', 'true')
@@ -737,6 +742,7 @@ export default function ChatInterface() {
     loadFromStorage<string>('cameraBody', '')
   )
   function handleBodySave(val: string) {
+    if (val.trim()) setShowBodyHint(false)
     setBodyInput(val)
     try {
       if (val.trim()) localStorage.setItem('cameraBody', val.trim())
@@ -750,6 +756,12 @@ export default function ChatInterface() {
   const chatAreaRef = useRef<HTMLDivElement>(null)
   const bottomRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
+
+  useEffect(() => {
+    if (!showBodyHint) return
+    const timer = window.setTimeout(() => setShowBodyHint(false), 9000)
+    return () => window.clearTimeout(timer)
+  }, [showBodyHint])
 
   // メッセージが変わるたびに保存（最新30件）
   useEffect(() => {
@@ -1064,7 +1076,9 @@ export default function ChatInterface() {
                   onChange={(e) => {
                     if (e.target.value !== '__custom__') handleBodySave(e.target.value)
                   }}
-                  className="w-full rounded-lg bg-white border border-slate-200 px-2.5 py-1.5 text-xs text-slate-900 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:shadow-none dark:focus:border-indigo-300/60"
+                  className={`w-full rounded-lg bg-white border border-slate-200 px-2.5 py-1.5 text-xs text-slate-900 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:shadow-none dark:focus:border-indigo-300/60 ${
+                    showBodyHint && !bodyInput.trim() ? 'ring-2 ring-sky-400/20 shadow-sky-500/10 dark:ring-sky-300/20' : ''
+                  }`}
                 >
                   <option value="">-- 選択してください --</option>
                   {BODIES_BY_MOUNT[selectedMount.id].map((b) => (
@@ -1077,10 +1091,15 @@ export default function ChatInterface() {
                   <input
                     type="text"
                     value={bodyInput}
-                    onChange={(e) => setBodyInput(e.target.value)}
+                    onChange={(e) => {
+                      setBodyInput(e.target.value)
+                      if (e.target.value.trim()) setShowBodyHint(false)
+                    }}
                     onBlur={(e) => handleBodySave(e.target.value)}
                     placeholder="機種名を直接入力..."
-                    className="w-full rounded-lg bg-white border border-slate-200 px-2.5 py-1.5 text-xs text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:placeholder-slate-400 dark:shadow-none dark:focus:border-indigo-300/60"
+                    className={`w-full rounded-lg bg-white border border-slate-200 px-2.5 py-1.5 text-xs text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:placeholder-slate-400 dark:shadow-none dark:focus:border-indigo-300/60 ${
+                      showBodyHint && !bodyInput.trim() ? 'ring-2 ring-sky-400/20 shadow-sky-500/10 dark:ring-sky-300/20' : ''
+                    }`}
                   />
                 )}
               </div>
@@ -1089,11 +1108,24 @@ export default function ChatInterface() {
               <input
                 type="text"
                 value={bodyInput}
-                onChange={(e) => setBodyInput(e.target.value)}
+                onChange={(e) => {
+                  setBodyInput(e.target.value)
+                  if (e.target.value.trim()) setShowBodyHint(false)
+                }}
                 onBlur={(e) => handleBodySave(e.target.value)}
                 placeholder="マウントを先に選択すると候補が出ます"
                 className="w-full rounded-lg bg-white border border-slate-200 px-2.5 py-1.5 text-xs text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:placeholder-slate-400 dark:shadow-none dark:focus:border-indigo-300/60"
               />
+            )}
+            {showBodyHint && selectedMount && !bodyInput.trim() && (
+              <motion.p
+                initial={{ opacity: 0, y: -3 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-1.5 flex items-center gap-1.5 text-[10px] leading-snug text-sky-700 dark:text-sky-300/90"
+              >
+                <ChevronRight className="h-3 w-3 flex-shrink-0" />
+                機種名を入れると、さらに精度が上がります
+              </motion.p>
             )}
           </div>
 
@@ -1400,7 +1432,9 @@ export default function ChatInterface() {
                         <select
                           value={BODIES_BY_MOUNT[selectedMount.id].includes(bodyInput) ? bodyInput : '__custom__'}
                           onChange={(e) => { if (e.target.value !== '__custom__') handleBodySave(e.target.value) }}
-                          className="w-full rounded-lg bg-white border border-slate-200 px-2.5 py-2 text-sm text-slate-900 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:shadow-none dark:focus:border-indigo-300/60"
+                          className={`w-full rounded-lg bg-white border border-slate-200 px-2.5 py-2 text-sm text-slate-900 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:shadow-none dark:focus:border-indigo-300/60 ${
+                            showBodyHint && !bodyInput.trim() ? 'ring-2 ring-sky-400/20 shadow-sky-500/10 dark:ring-sky-300/20' : ''
+                          }`}
                         >
                           <option value="">-- 選択してください --</option>
                           {BODIES_BY_MOUNT[selectedMount.id].map((b) => (
@@ -1410,20 +1444,38 @@ export default function ChatInterface() {
                         </select>
                         {(!BODIES_BY_MOUNT[selectedMount.id].includes(bodyInput) || bodyInput === '') && (
                           <input type="text" value={bodyInput}
-                            onChange={(e) => setBodyInput(e.target.value)}
+                            onChange={(e) => {
+                              setBodyInput(e.target.value)
+                              if (e.target.value.trim()) setShowBodyHint(false)
+                            }}
                             onBlur={(e) => handleBodySave(e.target.value)}
                             placeholder="機種名を直接入力..."
-                            className="w-full rounded-lg bg-white border border-slate-200 px-2.5 py-2 text-sm text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:placeholder-slate-400 dark:shadow-none dark:focus:border-indigo-300/60"
+                            className={`w-full rounded-lg bg-white border border-slate-200 px-2.5 py-2 text-sm text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:placeholder-slate-400 dark:shadow-none dark:focus:border-indigo-300/60 ${
+                              showBodyHint && !bodyInput.trim() ? 'ring-2 ring-sky-400/20 shadow-sky-500/10 dark:ring-sky-300/20' : ''
+                            }`}
                           />
                         )}
                       </div>
                     ) : (
                       <input type="text" value={bodyInput}
-                        onChange={(e) => setBodyInput(e.target.value)}
+                        onChange={(e) => {
+                          setBodyInput(e.target.value)
+                          if (e.target.value.trim()) setShowBodyHint(false)
+                        }}
                         onBlur={(e) => handleBodySave(e.target.value)}
                         placeholder="マウントを先に選択すると候補が出ます"
                         className="w-full rounded-lg bg-white border border-slate-200 px-2.5 py-2 text-sm text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:placeholder-slate-400 dark:shadow-none dark:focus:border-indigo-300/60"
                       />
+                    )}
+                    {showBodyHint && selectedMount && !bodyInput.trim() && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -3 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="mt-1.5 flex items-center gap-1.5 text-[11px] leading-snug text-sky-700 dark:text-sky-300/90"
+                      >
+                        <ChevronRight className="h-3 w-3 flex-shrink-0" />
+                        機種名を入れると、さらに精度が上がります
+                      </motion.p>
                     )}
                   </div>
                   <BudgetSlider selected={selectedBudget} onChange={handleBudgetChange} />
