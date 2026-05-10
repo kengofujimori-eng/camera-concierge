@@ -27,7 +27,11 @@
     "audit:images": "python3 scripts/generate_lens_contact_sheets.py",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:e2e:headed": "playwright test --headed"
+    "test:e2e:headed": "playwright test --headed",
+    "dev:status": "git status --short && git branch --show-current && git log --oneline -8",
+    "dev:sync": "git fetch origin && git switch main && git reset --hard origin/main && git status --short && git log --oneline -6",
+    "dev:check": "npm run build && npm run db:check && npm run test:e2e",
+    "dev:audit-check": "npm run audit:images && npm run build && npm run db:check"
   },
   "dependencies": {
     "@types/dompurify": "^3.0.5",
