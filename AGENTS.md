@@ -82,3 +82,22 @@ Always confirm:
 - working tree is clean
 - relevant checks passed
 - no unintended files are included
+
+## Working without Codex
+When Codex is unavailable, ChatGPT should help by referring to the latest code in the GitHub repository whenever possible.
+
+Rules:
+- Prefer the current `main` branch as the source of truth.
+- If repository access is available, inspect the relevant files from GitHub before suggesting code changes.
+- If repository access is not available, ask the user to paste the relevant file snippets or command output.
+- Provide small, copy-pasteable commands and patches.
+- Avoid large multi-step rewrites unless necessary.
+- Keep changes incremental and easy to verify.
+- For manual local edits, split work into:
+  1. inspect current code
+  2. apply a small patch
+  3. run checks
+  4. commit
+  5. create PR
+- Do not assume Codex can run commands in the background.
+- Do not ask the user to repeat repository context that is already documented in this file.
