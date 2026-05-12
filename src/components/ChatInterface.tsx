@@ -165,6 +165,46 @@ const BUDGETS: BudgetOption[] = [
   { id: 'bany',  label: '無制限',  prompt: '予算は特に問わない' },
 ]
 
+type LensType = 'auto' | 'prime' | 'zoom' | 'macro'
+
+interface LensTypeOption {
+  id: LensType
+  label: string
+  description: string
+  prompt?: string
+  hint?: string
+}
+
+const LENS_TYPES: LensTypeOption[] = [
+  { id: 'auto', label: 'おまかせ', description: '用途に合わせて最適化' },
+  {
+    id: 'prime',
+    label: '単焦点',
+    description: '明るさ・描写・ボケ重視',
+    prompt: 'レンズタイプ希望: 単焦点',
+    hint: 'ズームではなく、明るさ・描写・ボケを重視した単焦点レンズを優先してください。',
+  },
+  {
+    id: 'zoom',
+    label: 'ズーム',
+    description: '焦点距離の柔軟性重視',
+    prompt: 'レンズタイプ希望: ズーム',
+    hint: '焦点距離の柔軟性と使いやすさを重視したズームレンズを優先してください。',
+  },
+  {
+    id: 'macro',
+    label: 'マクロ',
+    description: '近接・等倍撮影を重視',
+    prompt: 'レンズタイプ希望: マクロ',
+    hint: '近接撮影や等倍近接に対応するマクロレンズを優先してください。',
+  },
+]
+
+function getLensTypeOption(id: LensType): LensTypeOption {
+  return LENS_TYPES.find((type) => type.id === id) ?? LENS_TYPES[0]
+}
+
+
 // ── 焦点距離レンジ ────────────────────────────────────────
 interface FocalRange { minMm: number; maxMm: number }
 
@@ -442,13 +482,13 @@ const ZONE_TICKS = [24, 35, 85, 135]
 function FocalRangeSlider({
   range,
   onChange,
-  macro,
-  onMacroChange,
+  lensType,
+  onLensTypeChange,
 }: {
   range: FocalRange | null
   onChange: (r: FocalRange | null) => void
-  macro: boolean
-  onMacroChange: (v: boolean) => void
+  lensType: LensType
+  onLensTypeChange: (v: LensType) => void
 }) {
   const DEFAULT: FocalRange = { minMm: 24, maxMm: 85 }
   const trackRef = useRef<HTMLDivElement>(null)
@@ -592,24 +632,44 @@ function FocalRangeSlider({
         ))}
         <span className="absolute text-[8px] text-slate-500 dark:text-slate-400 -translate-x-full" style={{ left: '100%' }}>600mm</span>
       </div>
-
-      {/* マクロトグル */}
-      <button
-        onClick={() => onMacroChange(!macro)}
-        className={`mt-2 w-full rounded-lg px-3 py-1.5 text-[11px] font-medium transition-all flex items-center justify-between ${
-          macro
-            ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white shadow-sm shadow-violet-500/15'
-            : 'bg-white/85 text-slate-600 hover:bg-indigo-50 hover:text-violet-700 border border-slate-200/80 dark:bg-slate-900/80 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100 dark:border-white/10'
-        }`}
-      >
-        <span>マクロ</span>
-        <span className={`text-[9px] ${macro ? 'text-sky-100' : 'text-slate-500 dark:text-slate-400'}`}>等倍近接</span>
-      </button>
+      {/* レンズタイプ */}
+      <div className="mt-3">
+        <div className="mb-1.5 flex items-center justify-between">
+          <p className="text-[10px] font-medium text-slate-600 dark:text-slate-300">レンズタイプ</p>
+          <span className="text-[9px] text-slate-400 dark:text-slate-500">迷ったらおまかせ</span>
+        </div>
+        <div className="grid grid-cols-2 gap-1.5">
+          {LENS_TYPES.map((type) => {
+            const selected = lensType === type.id
+            return (
+              <button
+                key={type.id}
+                type="button"
+                onClick={() => onLensTypeChange(type.id)}
+                className={`rounded-lg border px-2.5 py-2 text-left transition-all ${
+                  selected
+                    ? 'border-violet-300 bg-indigo-50 text-violet-800 shadow-sm shadow-violet-500/10 dark:border-violet-400/60 dark:bg-violet-500/15 dark:text-violet-100'
+                    : 'border-slate-200 bg-white text-slate-700 hover:border-violet-300 hover:bg-slate-50 dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-300 dark:hover:border-violet-400/50 dark:hover:bg-slate-800'
+                }`}
+              >
+                <span className="block text-[11px] font-semibold">{type.label}</span>
+                <span className={`mt-0.5 block text-[9px] leading-snug ${
+                  selected
+                    ? 'text-violet-700/80 dark:text-violet-200/80'
+                    : 'text-slate-500 dark:text-slate-400'
+                }`}>
+                  {type.description}
+                </span>
+              </button>
+            )
+          })}
+        </div>
+      </div>
 
       {/* 送信内容プレビュー */}
-      {(active || macro) && (
+      {(active || lensType !== 'auto') && (
         <p className="text-[10px] text-[#4F46E5] dark:text-violet-300/80 mt-1.5 leading-snug">
-          {[active && getFocalRangePrompt(display), macro && 'マクロ撮影を含む'].filter(Boolean).join('・')}
+          {[active && getFocalRangePrompt(display), lensType !== 'auto' && getLensTypeOption(lensType).prompt].filter(Boolean).join('・')}
         </p>
       )}
     </div>
@@ -726,16 +786,21 @@ export default function ChatInterface() {
       else localStorage.removeItem('selectedFocalRange')
     } catch { /* ignore */ }
   }
+  // ── レンズタイプ設定（localStorage で永続化）──────────────
+  const [lensType, setLensType] = useState<LensType>(() => {
+    const saved = loadFromStorage<string | null>('selectedLensType', null)
+    if (saved === 'auto' || saved === 'prime' || saved === 'zoom' || saved === 'macro') return saved
+    return loadFromStorage<string | null>('isMacro', null) === 'true' ? 'macro' : 'auto'
+  })
 
-  // ── マクロフラグ（localStorage で永続化）────────────────
-  const [isMacro, setIsMacro] = useState<boolean>(() =>
-    loadFromStorage<string | null>('isMacro', null) === 'true'
-  )
-  function handleMacroChange(val: boolean) {
+  function handleLensTypeChange(val: LensType) {
     setShowBodyHint(false)
-    setIsMacro(val)
+    setLensType(val)
     try {
-      if (val) localStorage.setItem('isMacro', 'true')
+      if (val === 'auto') localStorage.removeItem('selectedLensType')
+      else localStorage.setItem('selectedLensType', val)
+
+      if (val === 'macro') localStorage.setItem('isMacro', 'true')
       else localStorage.removeItem('isMacro')
     } catch { /* ignore */ }
   }
@@ -871,11 +936,10 @@ export default function ChatInterface() {
     if (bodyInput.trim())       profileLines.push(`使用ボディ: ${bodyInput.trim()}`)
     if (selectedBudget)         profileLines.push(selectedBudget.prompt)
     if (selectedFocal)          profileLines.push(getFocalRangePrompt(selectedFocal))
-    if (isMacro)                profileLines.push('マクロ撮影（等倍近接）ができるレンズを希望')
+    const lensTypeOption = getLensTypeOption(lensType)
+    if (lensTypeOption.prompt)  profileLines.push(lensTypeOption.prompt)
 
-    const macroHint = isMacro
-      ? 'マクロの場合はLAOWA（65mm F2.8 2X Ultra Macro APO、100mm F2.8 2X Ultra Macro APOなど）もレビュアーに評価されていれば選択肢の1つとして含めてください。'
-      : ''
+    const lensTypeHint = lensTypeOption.hint ?? ''
     const focalPriorityHint = getFocalPriorityHint(trimmed, selectedFocal)
     const mountGuard = selectedMount
       ? [
@@ -908,7 +972,7 @@ export default function ChatInterface() {
       canonRfGuard,
       omittedCandidateHint,
       focalPriorityHint,
-      macroHint,
+      lensTypeHint,
     ].filter(Boolean)
     const profilePrefix = [
       profileLines.length > 0 ? `【プロフィール】${profileLines.join(' / ')}` : '',
@@ -1139,12 +1203,12 @@ export default function ChatInterface() {
           <FocalRangeSlider
             range={selectedFocal}
             onChange={handleFocalChange}
-            macro={isMacro}
-            onMacroChange={handleMacroChange}
+            lensType={lensType}
+            onLensTypeChange={handleLensTypeChange}
           />
 
           {/* 設定済みバッジ */}
-          {(selectedMount || bodyInput || selectedBudget || selectedFocal || isMacro) && (
+          {(selectedMount || bodyInput || selectedBudget || selectedFocal || lensType !== 'auto') && (
             <p className="px-1 text-[10px] text-[#4F46E5] dark:text-violet-300/80">
               ✓ 質問に自動付与されます
             </p>
@@ -1482,8 +1546,8 @@ export default function ChatInterface() {
                     )}
                   </div>
                   <BudgetSlider selected={selectedBudget} onChange={handleBudgetChange} />
-                  <FocalRangeSlider range={selectedFocal} onChange={handleFocalChange} macro={isMacro} onMacroChange={handleMacroChange} />
-                  {(selectedMount || bodyInput || selectedBudget || selectedFocal || isMacro) && (
+                  <FocalRangeSlider range={selectedFocal} onChange={handleFocalChange} lensType={lensType} onLensTypeChange={handleLensTypeChange} />
+                  {(selectedMount || bodyInput || selectedBudget || selectedFocal || lensType !== 'auto') && (
                     <p className="px-1 text-[11px] text-[#4F46E5] dark:text-violet-300/80">✓ 質問に自動付与されます</p>
                   )}
                   <button

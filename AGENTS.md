@@ -101,3 +101,18 @@ Rules:
   5. create PR
 - Do not assume Codex can run commands in the background.
 - Do not ask the user to repeat repository context that is already documented in this file.
+
+## Camera Concierge current handoff
+
+Also read:
+
+- docs/handoff-current-ui-phase.md
+
+Current rules:
+- When Codex is unavailable, inspect GitHub/repo or local file snippets before proposing changes.
+- Prefer small copy-pasteable commands.
+- Use python3, not python.
+- Preserve E2E selectors.
+- Keep visual direction as white/slate product UI with local blue-violet to magenta accents.
+- Do not reintroduce full-screen purple haze, pastel lavender fog, emoji-heavy scene cards, or noisy neon gradients.
+- Protect recommendation logic, Dify/API behavior, DB data, price logic, review links, and affiliate link behavior.
