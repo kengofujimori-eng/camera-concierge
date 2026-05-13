@@ -231,8 +231,14 @@ function FocalMap({ items }: { items: LensItem[] }) {
   const owned = lenses.filter(i => i.type === 'owned')
   const wishlist = lenses.filter(i => i.type === 'wishlist')
   return (
-    <div className="mb-6 rounded-xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
-      <h2 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">📐 焦点距離カバレッジマップ</h2>
+    <div className="mb-6 rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-slate-950/80">
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <h2 className="text-sm font-semibold text-slate-800 dark:text-slate-200">焦点距離カバレッジ</h2>
+        <div className="flex items-center gap-3 text-[10px] font-medium text-slate-500 dark:text-slate-400">
+          <span className="inline-flex items-center gap-1.5"><span className="h-1.5 w-4 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_100%)]" />所有</span>
+          <span className="inline-flex items-center gap-1.5"><span className="h-1.5 w-4 rounded-full border border-dashed border-fuchsia-400 bg-fuchsia-50 dark:bg-fuchsia-400/10" />欲しい</span>
+        </div>
+      </div>
       {/* 目盛り軸 */}
       <div className="flex items-start mb-1">
         <div className="w-32 flex-shrink-0" />
@@ -254,8 +260,8 @@ function FocalMap({ items }: { items: LensItem[] }) {
         </div>
       </div>
       {/* レンズ行 */}
-      {[...owned.map(l => ({ l, color: '#3b82f6', dashed: false })),
-        ...wishlist.map(l => ({ l, color: '#f59e0b', dashed: true }))].map(({ l, color, dashed }) => {
+      {[...owned.map(l => ({ l, color: 'linear-gradient(90deg,#2563EB 0%,#7C3AED 100%)', dashed: false })),
+        ...wishlist.map(l => ({ l, color: 'linear-gradient(90deg,rgba(124,58,237,0.12) 0%,rgba(217,70,239,0.18) 100%)', dashed: true }))].map(({ l, color, dashed }) => {
         const left = focalToPercent(l.focalMin!)
         const right = focalToPercent(l.focalMax ?? l.focalMin!)
         const width = Math.max(right - left, 1.5)
@@ -266,14 +272,14 @@ function FocalMap({ items }: { items: LensItem[] }) {
             <div className="w-32 flex-shrink-0 text-right">
               <span className="text-[10px] text-slate-500 dark:text-slate-400 truncate block">{clean}</span>
             </div>
-            <div className="flex-1 relative h-5 rounded" style={{ background: 'rgba(148,163,184,0.08)' }}>
+            <div className="flex-1 relative h-5 rounded-lg border border-slate-200/70 bg-slate-50/70 dark:border-white/10 dark:bg-white/[0.03]">
               {ZONE_RANGES.slice(1).map(([lo], i) => (
                 <div key={i} className="absolute top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-700"
                   style={{ left: `${focalToPercent(lo)}%` }} />
               ))}
-              <div className="absolute top-0.5 bottom-0.5 rounded-sm flex items-center overflow-hidden"
-                style={{ left: `${left}%`, width: `${width}%`, backgroundColor: color, opacity: dashed ? 0.5 : 0.8,
-                  border: dashed ? `1.5px dashed ${color}` : 'none' }}>
+              <div className="absolute top-0.5 bottom-0.5 rounded-md flex items-center overflow-hidden"
+                style={{ left: `${left}%`, width: `${width}%`, background: color,
+                  border: dashed ? '1.5px dashed rgba(217,70,239,0.65)' : 'none' }}>
                 {width > 8 && <span className="text-[9px] text-white font-semibold px-1 truncate">{label}</span>}
               </div>
               {width <= 8 && (
@@ -363,17 +369,17 @@ function LensCard({ item, priceDb, linkDb, onDelete }: {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden dark:border-slate-700 dark:bg-slate-800 flex flex-col"
+      className="flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-shadow hover:shadow-[0_18px_46px_rgba(15,23,42,0.09)] dark:border-white/10 dark:bg-slate-950/80"
     >
       {/* 画像 */}
       {imageUrl ? (
-        <div className="h-32 bg-slate-100 dark:bg-slate-700 overflow-hidden flex-shrink-0">
+        <div className="h-32 flex-shrink-0 overflow-hidden border-b border-slate-100 bg-slate-50 dark:border-white/10 dark:bg-white/[0.03]">
           <img src={imageUrl} alt={cleanName} onError={handleImgError}
             referrerPolicy="no-referrer"
             className="w-full h-full object-contain p-2" />
         </div>
       ) : (
-        <div className="h-20 bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center flex-shrink-0 px-4">
+        <div className="flex h-20 flex-shrink-0 items-center justify-center border-b border-slate-100 bg-slate-50 px-4 dark:border-white/10 dark:bg-white/[0.03]">
           <div className="text-center">
             <Camera className="h-6 w-6 text-slate-500 mx-auto mb-1" />
             <p className="text-[10px] text-slate-500 truncate max-w-[160px]">{cleanName}</p>
@@ -388,12 +394,12 @@ function LensCard({ item, priceDb, linkDb, onDelete }: {
             {/* タグ + 焦点距離 */}
             <div className="flex flex-wrap items-center gap-1.5 mb-1">
               {item.tag && (
-                <span className="inline-block rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+                <span className="inline-block rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-400/20 dark:bg-amber-400/10 dark:text-amber-300">
                   {item.tag}
                 </span>
               )}
               {focalLabel && (
-                <span className="inline-block rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-medium text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+                <span className="inline-block rounded-full border border-blue-200 bg-blue-50 px-2 py-0.5 text-[10px] font-medium text-blue-700 dark:border-blue-400/20 dark:bg-blue-400/10 dark:text-blue-300">
                   {focalLabel}
                 </span>
               )}
@@ -513,26 +519,28 @@ function AddForm({ onAdd }: { onAdd: (name: string, type: 'owned' | 'wishlist') 
     <div className="mb-4">
       {!open ? (
         <button onClick={() => setOpen(true)}
-          className="w-full rounded-xl border-2 border-dashed border-slate-200 dark:border-slate-700 py-3 text-sm text-slate-400 hover:border-blue-300 hover:text-blue-400 transition-colors flex items-center justify-center gap-2">
+          className="flex w-full items-center justify-center gap-2 rounded-2xl border border-dashed border-slate-300 bg-white py-3 text-sm font-medium text-slate-500 transition-all hover:border-violet-300 hover:text-slate-800 hover:shadow-sm dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-400 dark:hover:border-violet-400/40 dark:hover:text-slate-200">
           <Plus className="h-4 w-4" /> レンズを手動追加
         </button>
       ) : (
-        <div className="rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20 p-4">
+        <div className="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm dark:border-white/10 dark:bg-slate-950/80">
           <input value={name} onChange={e => setName(e.target.value)}
             placeholder="例: Sigma 50mm F1.4 DG DN Art"
-            className="w-full rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-400 mb-3"
+            className="mb-3 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-200 dark:border-white/10 dark:bg-slate-900 dark:text-white dark:focus:ring-violet-500/30"
             onKeyDown={e => e.key === 'Enter' && submit()} autoFocus />
           <div className="flex gap-2 mb-3">
             {(['owned', 'wishlist'] as const).map(t => (
               <button key={t} onClick={() => setType(t)}
-                className={`flex-1 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${type === t ? 'bg-blue-500 text-white' : 'bg-white dark:bg-slate-700 text-slate-500 hover:bg-blue-50'}`}>
-                {t === 'owned' ? '📦 所有済み' : '⭐ 欲しいリスト'}
+                className={`flex-1 rounded-xl p-[1px] text-xs font-medium transition-all ${type === t ? 'bg-[linear-gradient(120deg,#2563EB_0%,#7C3AED_56%,#D946EF_100%)] shadow-[0_10px_24px_rgba(79,70,229,0.12)]' : 'bg-slate-200/80 hover:bg-violet-300/70 dark:bg-white/10 dark:hover:bg-violet-400/30'}`}>
+                <span className={`block rounded-[11px] px-3 py-1.5 ${type === t ? 'bg-white text-slate-950 dark:bg-slate-950 dark:text-white' : 'bg-white text-slate-500 dark:bg-slate-900 dark:text-slate-400'}`}>
+                  {t === 'owned' ? '所有済み' : '欲しいリスト'}
+                </span>
               </button>
             ))}
           </div>
           <div className="flex gap-2">
-            <button onClick={submit} className="flex-1 rounded-lg bg-blue-500 text-white py-2 text-sm hover:bg-blue-600">追加</button>
-            <button onClick={() => setOpen(false)} className="rounded-lg border border-slate-200 dark:border-slate-600 px-4 py-2 text-sm text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-700">キャンセル</button>
+            <button onClick={submit} className="flex-1 rounded-xl bg-slate-950 py-2 text-sm font-medium text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200">追加</button>
+            <button onClick={() => setOpen(false)} className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-medium text-slate-500 transition-colors hover:bg-slate-50 hover:text-slate-800 dark:border-white/10 dark:text-slate-400 dark:hover:bg-white/5 dark:hover:text-slate-200">キャンセル</button>
           </div>
         </div>
       )}
@@ -611,21 +619,32 @@ export default function WarehousePage() {
   if (!loaded) return null
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8">
+    <div className="mx-auto max-w-5xl px-4 py-8 text-slate-900 dark:text-slate-100">
       {/* ヘッダー */}
-      <div className="mb-6">
-        <h1 className="text-xl font-bold text-slate-900 dark:text-white mb-1">🏪 デジタルレンズ倉庫</h1>
-        <p className="text-sm text-slate-500 dark:text-slate-400">所有 {owned.length}本 ／ 欲しい {wishlist.length}本</p>
+      <div className="mb-6 rounded-2xl border border-slate-200/80 bg-white px-5 py-5 shadow-[0_18px_50px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-slate-950/80">
+        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400">
+          <span className="h-1.5 w-1.5 rounded-full bg-[linear-gradient(120deg,#2563EB_0%,#7C3AED_56%,#D946EF_100%)]" />
+          Lens warehouse
+        </div>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h1 className="text-2xl font-semibold tracking-tight text-slate-950 dark:text-white">デジタルレンズ倉庫</h1>
+            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">保存したレンズを、所有と欲しいリストで整理します。</p>
+          </div>
+          <p className="text-sm font-medium text-slate-500 dark:text-slate-400">所有 {owned.length}本 ／ 欲しい {wishlist.length}本</p>
+        </div>
       </div>
 
       {items.length > 0 && <FocalMap items={items} />}
 
       {/* タブ */}
-      <div className="flex gap-2 mb-4">
+      <div className="mb-4 flex gap-2 rounded-2xl border border-slate-200/80 bg-white p-1 shadow-sm dark:border-white/10 dark:bg-slate-950/80">
         {(['owned', 'wishlist'] as const).map(t => (
           <button key={t} onClick={() => setTab(t)}
-            className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${tab === t ? 'bg-blue-500 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}`}>
-            {t === 'owned' ? `📦 所有レンズ (${owned.length})` : `⭐ 欲しいレンズ (${wishlist.length})`}
+            className={`group flex-1 rounded-xl p-[1px] text-sm font-medium transition-all ${tab === t ? 'bg-[linear-gradient(120deg,#2563EB_0%,#7C3AED_56%,#D946EF_100%)] shadow-[0_10px_24px_rgba(79,70,229,0.14)]' : 'bg-transparent hover:bg-slate-200/80 dark:hover:bg-white/10'}`}>
+            <span className={`block rounded-[11px] px-4 py-2 transition-colors ${tab === t ? 'bg-white text-slate-950 dark:bg-slate-950 dark:text-white' : 'text-slate-500 group-hover:text-slate-800 dark:text-slate-400 dark:group-hover:text-slate-200'}`}>
+              {t === 'owned' ? `所有レンズ (${owned.length})` : `欲しいレンズ (${wishlist.length})`}
+            </span>
           </button>
         ))}
       </div>

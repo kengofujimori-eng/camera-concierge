@@ -249,7 +249,7 @@ test.describe('recommendation smoke tests', () => {
         for (const expectedName of testCase.expectedCardNames) {
           await expect(cards.filter({ hasText: expectedName })).toHaveCount(1)
         }
-        await expect(page.getByText('AI分析を表示')).toHaveCount(testCase.expectedCardNames.length)
+        await expect(page.getByText('AIが選んだ理由を見る')).toHaveCount(testCase.expectedCardNames.length)
       }
 
       const imageCount = await page.getByTestId('lens-card-image').count()
