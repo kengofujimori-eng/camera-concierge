@@ -4,7 +4,7 @@ Last updated: 2026-05-13
 
 ## Current direction
 
-Camera Concierge is moving toward a modern product UI, not a handmade personal app.
+Camera Concierge is moving toward a modern product UI.
 
 Design direction:
 - White / slate base
@@ -21,16 +21,14 @@ Design direction:
 
 ## Current accent colors
 
-Use accent locally only.
-
-Current preferred range:
+Preferred range:
 - Blue: #2563EB
 - Blue-violet: #4F46E5
 - Violet: #7C3AED
 - Purple: #9333EA
 - Magenta: #D946EF
 
-Use these for:
+Use accents locally only:
 - sliders
 - selected states
 - icons
@@ -39,31 +37,98 @@ Use these for:
 
 Do not tint the whole background.
 
-## Completed UI phase
+## Current UI language
 
-Completed or in progress:
-- Scene cards changed from emoji-feel to lucide icon product cards.
-- Mount selection improved with sensor size and body examples.
-- Sidebar hint appears after mount selection.
-- Budget and focal sliders use blue-to-magenta accents.
-- Budget dots are colored by position.
-- Focal min handle is blue-violet.
-- Focal max handle is magenta.
-- Focal slider was slimmed.
-- Old macro-only toggle is being replaced with lens type selector.
+Preferred selected-state style:
+- Outer wrapper: thin blue-violet to magenta gradient outline.
+- Inner surface: white / slate.
+- Avoid purple filled selected cards.
+- Shadow should be subtle.
+- Text should mostly remain slate / white.
+- Avoid gradient text unless intentionally small.
 
-Lens type options:
-- おまかせ
-- 単焦点
-- ズーム
-- マクロ
+Recommended selected outer background:
 
-Expected behavior:
-- Store selected lens type in localStorage as selectedLensType.
-- Keep old isMacro localStorage compatibility.
+bg-[linear-gradient(120deg,#2563EB_0%,#7C3AED_56%,#D946EF_100%)]
+
+Recommended unselected outer background:
+
+bg-slate-200/80 hover:bg-violet-300/70 dark:bg-white/10 dark:hover:bg-violet-400/30
+
+Recommended structure:
+
+button: group rounded-xl p-[1px]
+inner span/div: block h-full rounded-[11px] bg-white dark:bg-slate-950
+
+## Completed or merged
+
+- Branch add-lens-type-selector was merged into main.
+- AGENTS.md now references this handoff file.
+- Lens type selector is on main.
+- Lens type options:
+  - おまかせ
+  - 単焦点
+  - ズーム
+  - マクロ
+- Lens type selection is stored as selectedLensType.
+- Old isMacro localStorage compatibility should be preserved.
 - Macro behaves like the old macro toggle.
 - Prime / Zoom / Macro are passed into the recommendation prompt.
 - Auto does not constrain recommendations.
+- Budget and focal sliders use blue-to-magenta accents.
+- Focal min handle is blue-violet.
+- Focal max handle is magenta.
+- Scene cards use lucide icons, not emoji-heavy design.
+
+## Latest local UI work
+
+The sidebar lens type selector was refined locally toward:
+- thin gradient outline
+- white/slate inner surface
+- less purple fill
+- calmer text color
+
+User feedback: this looked better and should become the shared selected-state language.
+
+Before continuing, confirm whether this local lens type outline change has been committed and pushed.
+
+## Next UI phase
+
+Next likely work:
+1. Confirm branch and local status.
+2. Inspect src/components/ChatInterface.tsx.
+3. Apply the same selected outline language to the initial mount/brand selection cards.
+4. Apply the same selected outline language to scene cards if applicable.
+5. Then modernize recommendation cards and warehouse page.
+
+Important note:
+- When a mount is already selected, the initial mount card grid is hidden.
+- Screenshots may show scene cards instead of mount cards.
+- To reveal initial mount selection, clear selectedMountId in browser localStorage.
+
+Browser console:
+
+localStorage.removeItem('selectedMountId')
+location.reload()
+
+## Useful inspection commands
+
+git branch --show-current
+git status --short
+git log --oneline --decorate -5
+
+grep -n "SCENES.map\|子供・家族\|quick-question\|scene\|撮影シーン" src/components/ChatInterface.tsx | head -120
+grep -n "カメラを選ぶと\|MOUNTS.map\|mount-button\|selectedMount\|マウントを選ばず" src/components/ChatInterface.tsx | head -160
+
+Known approximate locations during this phase:
+- Initial mount/brand cards: around lines 1312-1358.
+- Scene cards: around line 1384.
+
+## Restart local dev if UI appears stale
+
+lsof -ti:3000 | xargs kill -9 2>/dev/null || true
+rm -rf .next
+npm run dev
 
 ## Preserve E2E selectors
 
@@ -88,6 +153,7 @@ Avoid touching unless explicitly needed:
 - price logic
 - review links
 - affiliate link behavior
+- localStorage formats
 
 ## Main files
 
@@ -101,56 +167,24 @@ For recommendation cards:
 For warehouse:
 - src/app/warehouse/page.tsx
 
-## Image audit notes
-
-Image audit tools:
-- /image-audit
-- npm run audit:images
-- audit-output/ is ignored by Git
-
-Purpose:
-- Check missing images.
-- Check whether images are lens bodies, not hoods/accessories.
-- Contact sheets should remain local-only.
+For project handoff:
+- AGENTS.md
+- docs/handoff-current-ui-phase.md
 
 ## Workflow rules
 
 When Codex is unavailable:
 - Use GitHub/repo as source of truth.
-- Inspect files before proposing patches when possible.
+- Inspect files before proposing patches.
 - Prefer small copy-pasteable commands.
-- Use python3, not python, on this Mac.
+- Use python3, not python.
 - Check branch/state before PR.
-- If PR says no commits between branches, the patch did not apply or the branch equals main.
+- Keep changes UI-only unless explicitly requested.
+- Prefer one focused commit per UI surface.
 
-Useful commands:
-- npm run dev:sync
-- npm run dev:status
-- npm run dev:check
-
-Manual checks:
+Checks:
 - npm run build
 - npm run db:check
 - npm run test:e2e
 
-Restart local dev:
-- lsof -ti:3000 | xargs kill -9 2>/dev/null || true
-- rm -rf .next
-- npm run dev
-
-## Current handoff point
-
-Current branch is likely add-lens-type-selector.
-
-Before moving to a new chat:
-1. Finish lens type selector.
-2. Run checks.
-3. Commit.
-4. Push.
-5. Create PR.
-6. Merge.
-7. Run npm run dev:sync.
-
-Next likely work:
-- Fine-tune lens type selector UI.
-- Then modernize recommendation cards and warehouse page.
+If Playwright/Chromium fails because of local environment, report the exact error and do not claim E2E passed.
