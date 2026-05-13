@@ -369,8 +369,9 @@ function LensCard({ item, priceDb, linkDb, onDelete }: {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      className="flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-shadow hover:shadow-[0_18px_46px_rgba(15,23,42,0.09)] dark:border-white/10 dark:bg-slate-950/80"
+      className="group rounded-2xl bg-slate-200/80 p-[1px] shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all hover:bg-[linear-gradient(120deg,#2563EB_0%,#7C3AED_56%,#D946EF_100%)] hover:shadow-[0_18px_46px_rgba(79,70,229,0.13)] dark:bg-white/10"
     >
+      <div className="flex h-full flex-col overflow-hidden rounded-[15px] bg-white dark:bg-slate-950/95">
       {/* 画像 */}
       {imageUrl ? (
         <div className="h-32 flex-shrink-0 overflow-hidden border-b border-slate-100 bg-slate-50 dark:border-white/10 dark:bg-white/[0.03]">
@@ -500,6 +501,7 @@ function LensCard({ item, priceDb, linkDb, onDelete }: {
             </div>
           </Collapse>
         )}
+      </div>
       </div>
     </motion.div>
   )
