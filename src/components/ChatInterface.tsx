@@ -633,10 +633,10 @@ function FocalRangeSlider({
         <span className="absolute text-[8px] text-slate-500 dark:text-slate-400 -translate-x-full" style={{ left: '100%' }}>600mm</span>
       </div>
       {/* レンズタイプ */}
-      <div className="mt-3">
-        <div className="mb-1.5 flex items-center justify-between">
+      <div className="mt-4">
+        <div className="flex items-center justify-between mb-1.5">
           <p className="text-[10px] font-medium text-slate-600 dark:text-slate-300">レンズタイプ</p>
-          <span className="text-[9px] text-slate-400 dark:text-slate-500">迷ったらおまかせ</span>
+          <p className="text-[8.5px] text-slate-400 dark:text-slate-500">迷ったらおまかせ</p>
         </div>
         <div className="grid grid-cols-2 gap-1.5">
           {LENS_TYPES.map((type) => {
@@ -646,19 +646,31 @@ function FocalRangeSlider({
                 key={type.id}
                 type="button"
                 onClick={() => onLensTypeChange(type.id)}
-                className={`rounded-lg border px-2.5 py-2 text-left transition-all ${
+                className={`group rounded-xl p-[1px] text-left transition-all duration-150 focus:outline-none ${
                   selected
-                    ? 'border-violet-300 bg-indigo-50 text-violet-800 shadow-sm shadow-violet-500/10 dark:border-violet-400/60 dark:bg-violet-500/15 dark:text-violet-100'
-                    : 'border-slate-200 bg-white text-slate-700 hover:border-violet-300 hover:bg-slate-50 dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-300 dark:hover:border-violet-400/50 dark:hover:bg-slate-800'
+                    ? 'bg-[linear-gradient(120deg,#2563EB_0%,#7C3AED_56%,#D946EF_100%)] shadow-sm shadow-violet-500/15'
+                    : 'bg-slate-200/80 hover:bg-violet-300/70 dark:bg-white/10 dark:hover:bg-violet-400/30'
                 }`}
               >
-                <span className="block text-[11px] font-semibold">{type.label}</span>
-                <span className={`mt-0.5 block text-[9px] leading-snug ${
-                  selected
-                    ? 'text-violet-700/80 dark:text-violet-200/80'
-                    : 'text-slate-500 dark:text-slate-400'
-                }`}>
-                  {type.description}
+                <span
+                  className={`block h-full rounded-[11px] px-2.5 py-2 transition-colors ${
+                    selected
+                      ? 'bg-white text-slate-950 dark:bg-slate-950 dark:text-white'
+                      : 'bg-white/90 text-slate-700 group-hover:bg-slate-50 dark:bg-slate-900/90 dark:text-slate-300 dark:group-hover:bg-slate-800/90'
+                  }`}
+                >
+                  <span
+                    className={`block text-[10px] font-semibold ${
+                      selected
+                        ? 'text-slate-950 dark:text-white'
+                        : 'text-slate-700 dark:text-slate-300'
+                    }`}
+                  >
+                    {type.label}
+                  </span>
+                  <span className="mt-0.5 block text-[8.5px] leading-snug text-slate-500 dark:text-slate-400">
+                    {type.description}
+                  </span>
                 </span>
               </button>
             )
@@ -666,7 +678,6 @@ function FocalRangeSlider({
         </div>
       </div>
 
-      {/* 送信内容プレビュー */}
       {(active || lensType !== 'auto') && (
         <p className="text-[10px] text-[#4F46E5] dark:text-violet-300/80 mt-1.5 leading-snug">
           {[active && getFocalRangePrompt(display), lensType !== 'auto' && getLensTypeOption(lensType).prompt].filter(Boolean).join('・')}
