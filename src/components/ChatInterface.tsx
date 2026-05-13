@@ -762,11 +762,6 @@ export default function ChatInterface() {
   })
   function handleMountChange(mount: MountOption) {
     setSelectedMount(mount)
-    // セットアップ完了フラグ
-    if (mount.id !== 'skip') {
-      setSetupDone(true)
-      try { localStorage.setItem('setupDone', 'true') } catch { /* ignore */ }
-    }
     try { localStorage.setItem('selectedMountId', mount.id) } catch { /* ignore */ }
     if (!bodyInput.trim()) setShowBodyHint(true)
   }
@@ -827,6 +822,18 @@ export default function ChatInterface() {
       if (val.trim()) localStorage.setItem('cameraBody', val.trim())
       else localStorage.removeItem('cameraBody')
     } catch { /* ignore */ }
+  }
+
+  function handleNewChat() {
+    if (!confirm('新しい相談を始めますか？\n※マウント・カメラ・予算などのプロフィール設定は保持されます。')) return
+    try {
+      localStorage.removeItem('chatMessages')
+      localStorage.removeItem('chatConversationId')
+    } catch { /* ignore */ }
+    setMessages([])
+    setConversationId(undefined)
+    setInput('')
+    inputRef.current?.focus()
   }
 
   const [showMobileSettings, setShowMobileSettings] = useState(false)
@@ -1253,14 +1260,7 @@ export default function ChatInterface() {
           {/* 新規会話ボタン */}
           {messages.length > 0 && (
             <button
-              onClick={() => {
-                if (confirm('会話履歴をリセットしますか？')) {
-                  localStorage.removeItem('chatMessages')
-                  localStorage.removeItem('chatConversationId')
-                  setMessages([])
-                  setConversationId(undefined)
-                }
-              }}
+              onClick={handleNewChat}
               className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs text-slate-600 hover:bg-slate-100 hover:text-slate-950 transition-colors text-left dark:text-slate-300 dark:hover:bg-slate-900 dark:hover:text-slate-100"
             >
               <RotateCcw className="h-3.5 w-3.5" />
@@ -1351,15 +1351,98 @@ export default function ChatInterface() {
                       })}
                     </div>
 
-                    <button
-                      onClick={() => {
-                        setSetupDone(true)
-                        try { localStorage.setItem('setupDone', 'true') } catch { /* ignore */ }
-                      }}
-                      className="text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
-                    >
-                      → マウントを選ばずに続ける
-                    </button>
+                    {selectedMount && (
+                      <motion.div
+                        className="mt-4 rounded-2xl border border-slate-200/80 bg-slate-50/70 p-3 dark:border-white/10 dark:bg-white/[0.03]"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="mb-2 flex items-center justify-between gap-3">
+                          <div>
+                            <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">使用カメラを選択</p>
+                            <p className="mt-0.5 text-[11px] text-slate-500 dark:text-slate-400">
+                              {selectedMount.label} / {selectedMount.sub} に合わせて候補を表示しています
+                            </p>
+                          </div>
+                          {bodyInput.trim() && (
+                            <span className="rounded-full border border-violet-200 bg-white px-2 py-0.5 text-[10px] font-medium text-violet-700 dark:border-violet-400/20 dark:bg-slate-950 dark:text-violet-300">
+                              設定済み
+                            </span>
+                          )}
+                        </div>
+
+                        {BODIES_BY_MOUNT[selectedMount.id] ? (
+                          <div className="space-y-2">
+                            <select
+                              value={BODIES_BY_MOUNT[selectedMount.id].includes(bodyInput) ? bodyInput : '__custom__'}
+                              onChange={(e) => { if (e.target.value !== '__custom__') handleBodySave(e.target.value) }}
+                              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm shadow-slate-200/40 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/15 dark:border-white/10 dark:bg-slate-950 dark:text-slate-100 dark:shadow-none dark:focus:border-violet-400/60"
+                            >
+                              <option value="">-- カメラを選択してください --</option>
+                              {BODIES_BY_MOUNT[selectedMount.id].map((b) => (
+                                <option key={b} value={b}>{b}</option>
+                              ))}
+                              <option value="__custom__">その他（直接入力）</option>
+                            </select>
+
+                            {(!BODIES_BY_MOUNT[selectedMount.id].includes(bodyInput) || bodyInput === '') && (
+                              <input
+                                type="text"
+                                value={bodyInput}
+                                onChange={(e) => setBodyInput(e.target.value)}
+                                onBlur={(e) => handleBodySave(e.target.value)}
+                                placeholder="候補にない機種名を入力..."
+                                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm shadow-slate-200/40 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/15 dark:border-white/10 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500 dark:shadow-none dark:focus:border-violet-400/60"
+                              />
+                            )}
+                          </div>
+                        ) : (
+                          <input
+                            type="text"
+                            value={bodyInput}
+                            onChange={(e) => setBodyInput(e.target.value)}
+                            onBlur={(e) => handleBodySave(e.target.value)}
+                            placeholder="使用カメラ名を入力..."
+                            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm shadow-slate-200/40 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/15 dark:border-white/10 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500 dark:shadow-none dark:focus:border-violet-400/60"
+                          />
+                        )}
+
+                        <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+                          <button
+                            onClick={() => {
+                              if (bodyInput.trim()) handleBodySave(bodyInput)
+                              setSetupDone(true)
+                              try { localStorage.setItem('setupDone', 'true') } catch { /* ignore */ }
+                            }}
+                            className="flex-1 rounded-xl bg-slate-950 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200"
+                          >
+                            この設定で相談を始める
+                          </button>
+                          <button
+                            onClick={() => {
+                              setSetupDone(true)
+                              try { localStorage.setItem('setupDone', 'true') } catch { /* ignore */ }
+                            }}
+                            className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-500 transition-colors hover:bg-slate-50 hover:text-slate-800 dark:border-white/10 dark:bg-slate-950 dark:text-slate-400 dark:hover:bg-white/5 dark:hover:text-slate-200"
+                          >
+                            カメラは後で
+                          </button>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {!selectedMount && (
+                      <button
+                        onClick={() => {
+                          setSetupDone(true)
+                          try { localStorage.setItem('setupDone', 'true') } catch { /* ignore */ }
+                        }}
+                        className="text-xs text-slate-400 transition-colors hover:text-slate-600 dark:hover:text-slate-300"
+                      >
+                        → あとで設定する
+                      </button>
+                    )}
                   </motion.div>
                 )}
 
@@ -1608,14 +1691,7 @@ export default function ChatInterface() {
               <div className="flex items-center gap-1.5 flex-shrink-0 ml-2">
                 {messages.length > 0 && (
                   <button
-                    onClick={() => {
-                      if (confirm('会話履歴をリセットしますか？\n※マウント・予算などのプロフィール設定は保持されます。')) {
-                        localStorage.removeItem('chatMessages')
-                        localStorage.removeItem('chatConversationId')
-                        setMessages([])
-                        setConversationId(undefined)
-                      }
-                    }}
+                    onClick={handleNewChat}
                     className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-red-400"
                     title="会話をリセット"
                   >
@@ -1638,6 +1714,30 @@ export default function ChatInterface() {
                   )}
                 </button>
               </div>
+            </div>
+
+            <div className="mb-2 hidden items-center justify-between md:flex">
+              <div className="flex flex-wrap items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400">
+                {selectedMount && (
+                  <span className="inline-flex items-center gap-1 rounded-full border border-violet-200 bg-violet-50 px-2 py-0.5 text-violet-700 dark:border-violet-400/20 dark:bg-violet-400/10 dark:text-violet-300">
+                    <CameraIcon className="h-2.5 w-2.5" />{selectedMount.label}
+                  </span>
+                )}
+                {bodyInput.trim() && (
+                  <span className="rounded-full border border-slate-200 bg-white px-2 py-0.5 text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
+                    {bodyInput.trim()}
+                  </span>
+                )}
+              </div>
+              {messages.length > 0 && (
+                <button
+                  onClick={handleNewChat}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-medium text-slate-500 shadow-sm shadow-slate-200/50 transition-all hover:border-violet-300 hover:text-slate-800 hover:shadow-md hover:shadow-violet-500/10 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-400 dark:shadow-none dark:hover:border-violet-400/40 dark:hover:text-slate-200"
+                >
+                  <RotateCcw className="h-3 w-3" />
+                  新規相談
+                </button>
+              )}
             </div>
 
             <div className="flex gap-3 items-end">
