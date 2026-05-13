@@ -70,43 +70,46 @@ const MOUNT_EXAMPLES: Record<string, string> = {
 // ── マウント別ボディ一覧 ──────────────────────────────────
 const BODIES_BY_MOUNT: Record<string, string[]> = {
   'sony-e-ff': [
+    // α1 / α9シリーズ
+    'α1 II','α1',
+    'α9 III','α9 II','α9',
     // α7シリーズ（現行〜旧世代）
-    'α7 IV','α7 III','α7 II','α7',
+    'α7 V','α7 IV','α7 III','α7 II','α7',
     // α7Rシリーズ
     'α7R V','α7R IV','α7R III','α7R II','α7R',
     // α7Sシリーズ
     'α7S III','α7S II','α7S',
     // α7Cシリーズ
     'α7C II','α7C R','α7C',
-    // α9シリーズ
-    'α9 III','α9 II','α9',
-    // その他
-    'ZV-E1',
+    // 動画・シネマ寄りの代表機
+    'ZV-E1','FX3',
   ],
   'sony-e-apsc': [
     'α6700','α6600','α6500','α6400','α6300','α6100','α6000',
     'ZV-E10 II','ZV-E10',
+    // 動画・シネマ寄りの代表機
+    'FX30',
     'α5100','α5000',
     'NEX-7','NEX-6','NEX-5T','NEX-5R','NEX-3N',
   ],
   'canon-rf': [
     // プロ・ハイエンド
-    'EOS R1','EOS R3','EOS R5 Mark II','EOS R5',
+    'EOS R1','EOS R3','EOS R5 Mark II','EOS R5','EOS R5 C',
     // ミドル
-    'EOS R6 Mark II','EOS R6',
+    'EOS R6 Mark III','EOS R6 Mark II','EOS R6',
     // エントリー
     'EOS R8','EOS RP','EOS R',
     // 特殊
     'EOS Ra',
   ],
   'canon-rf-s': [
-    'EOS R7','EOS R10','EOS R50','EOS R100',
+    'EOS R7','EOS R10','EOS R50 V','EOS R50','EOS R100',
   ],
   'nikon-z-ff': [
     // プロ・ハイエンド
     'Z9','Z8',
     // ミドル
-    'Z7 III','Z7 II','Z7',
+    'Z7 II','Z7',
     'Z6 III','Z6 II','Z6',
     'Z5 II','Z5',
     // クリエイティブ
@@ -118,7 +121,7 @@ const BODIES_BY_MOUNT: Record<string, string[]> = {
   'fuji-x': [
     // X-Tシリーズ
     'X-T5','X-T4','X-T3','X-T2','X-T1',
-    'X-T50','X-T30 II','X-T30','X-T20','X-T10',
+    'X-T50','X-T30 III','X-T30 II','X-T30','X-T20','X-T10',
     // X-Hシリーズ
     'X-H2S','X-H2','X-H1',
     // X-Sシリーズ
@@ -126,7 +129,7 @@ const BODIES_BY_MOUNT: Record<string, string[]> = {
     // X-Proシリーズ
     'X-Pro3','X-Pro2','X-Pro1',
     // X-Eシリーズ
-    'X-E4','X-E3','X-E2S','X-E2',
+    'X-E5','X-E4','X-E3','X-E2S','X-E2',
     // コンパクト（レンズ交換式）
     'X-M5',
   ],
@@ -136,16 +139,17 @@ const BODIES_BY_MOUNT: Record<string, string[]> = {
   ],
   'm43': [
     // OM SYSTEM / Olympus
-    'OM-1 Mark II','OM-1','OM-5',
-    'OM-D E-M1 Mark III','OM-D E-M1 Mark II','OM-D E-M1',
+    'OM-1 Mark II','OM-1','OM-3','OM-5 Mark II','OM-5',
+    'OM-D E-M1X','OM-D E-M1 Mark III','OM-D E-M1 Mark II','OM-D E-M1',
     'OM-D E-M5 Mark III','OM-D E-M5 Mark II','OM-D E-M5',
-    'OM-D E-M10 Mark IV','OM-D E-M10 Mark III',
-    'PEN-F',
+    'OM-D E-M10 Mark IV','OM-D E-M10 Mark III','OM-D E-M10 Mark II','OM-D E-M10',
+    'PEN-F','E-P7','E-PL10','E-PL9',
     // Panasonic LUMIX G
-    'Lumix GH7','Lumix GH6','Lumix GH5 II','Lumix GH5',
+    'Lumix GH7','Lumix GH6','Lumix GH5 II','Lumix GH5S','Lumix GH5','Lumix GH4',
     'Lumix G9 II','Lumix G9',
-    'Lumix G95','Lumix G85','Lumix G7',
-    'Lumix GX9','Lumix GX8',
+    'Lumix G100D','Lumix G100',
+    'Lumix G99D','Lumix G99','Lumix G95','Lumix G85','Lumix G7',
+    'Lumix GX9','Lumix GX8','Lumix GX7 Mark III',
   ],
   'leica-m': [
     'M11-P','M11 Monochrom','M11',
