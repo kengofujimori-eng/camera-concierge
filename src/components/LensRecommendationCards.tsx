@@ -277,6 +277,7 @@ function findLensInDatabase<T extends { name: string; aliases?: string[]; brand?
 type MountFamily =
   | 'sony-e'
   | 'canon-rf'
+  | 'canon-rf-s'
   | 'nikon-z'
   | 'fujifilm-x'
   | 'fujifilm-gfx'
@@ -293,7 +294,8 @@ function normalizeMountFamily(text?: string): MountFamily | null {
   if (/fujifilm\s*gfx|fuji\s*gfx|gfx|富士フイルムgfx/.test(normalized)) return 'fujifilm-gfx'
   if (/fujifilm\s*x|fuji\s*x|xf\b|富士フイルムx/.test(normalized)) return 'fujifilm-x'
   if (/nikon\s*z|z\s*mount|zマウント|ニコンz/.test(normalized)) return 'nikon-z'
-  if (/canon\s*rf|rf-?s|rf\s*mount|rfマウント|キヤノンrf|キャノンrf/.test(normalized)) return 'canon-rf'
+  if (/canon\s*rf-?s|rf-?s|rf-sマウント|rf-s|キヤノンrf-s|キャノンrf-s/.test(normalized)) return 'canon-rf-s'
+  if (/canon\s*rf|rf\s*mount|rfマウント|キヤノンrf|キャノンrf/.test(normalized)) return 'canon-rf'
   if (/sony\s*e|e\s*mount|eマウント|ソニーe|\bfe\b/.test(normalized)) return 'sony-e'
   if (/\bl\s*mount\b|lマウント|ライカl|leica\s*l/.test(normalized)) return 'l-mount'
 
@@ -310,6 +312,34 @@ function getLensMountFamilies(lens?: Pick<LensPriceData, 'mount' | 'supported_mo
   return Array.from(new Set(families))
 }
 
+function getAllowedLensFamiliesForSelectedMount(selectedFamily: MountFamily): MountFamily[] {
+  if (selectedFamily === 'canon-rf-s') return ['canon-rf-s', 'canon-rf']
+  return [selectedFamily]
+}
+
+function hasClearlyIncompatibleMountToken(lensName: string, selectedMountPrompt?: string): boolean {
+  const selectedFamily = normalizeMountFamily(selectedMountPrompt)
+  if (!selectedFamily) return false
+
+  const normalized = lensName.toLowerCase()
+
+  if (selectedFamily === 'canon-rf' || selectedFamily === 'canon-rf-s') {
+    return (
+      /\bxf\b/i.test(lensName)
+      || /fujifilm|fuji\s*x|x-?mount|xマウント|富士フイルムx|富士フイルム.*マウント/i.test(lensName)
+      || /sony\s*e|e-?mount|eマウント|\bfe\b/i.test(lensName)
+      || /nikon\s*z|z-?mount|zマウント|ニコンz/i.test(lensName)
+      || /micro\s*4\/?3|mft|m4\/?3|マイクロフォーサーズ/i.test(lensName)
+      || /leica\s*l|l-?mount|lマウント|ライカl/i.test(lensName)
+      || /Viltrox\s+AF\s+75mm\s+F1\.2/i.test(lensName)
+      || /Viltrox\s+AF\s+85mm\s+F1\.8/i.test(lensName)
+      || /アダプター併用|アダプター前提|adapter/i.test(normalized)
+    )
+  }
+
+  return false
+}
+
 function isClearlyIncompatibleWithSelectedMount(
   lens: Pick<LensPriceData, 'mount' | 'supported_mounts'> | null,
   selectedMountPrompt?: string
@@ -320,7 +350,8 @@ function isClearlyIncompatibleWithSelectedMount(
   const lensFamilies = getLensMountFamilies(lens)
   if (lensFamilies.length === 0) return false
 
-  return !lensFamilies.includes(selectedFamily)
+  const allowedFamilies = getAllowedLensFamiliesForSelectedMount(selectedFamily)
+  return !lensFamilies.some((family) => allowedFamilies.includes(family))
 }
 
 function extractFocal(name: string): { min: number; max: number } | null {
@@ -629,6 +660,7 @@ export default function LensRecommendationCards({
     ? lensEntries.filter((entry) => {
         const priceData = findLensInDatabase(entry.name, lensPriceDb)
         if (priceData?.discontinued === true) return false
+        if (hasClearlyIncompatibleMountToken(entry.name, selectedMountPrompt)) return false
         if (isClearlyIncompatibleWithSelectedMount(priceData, selectedMountPrompt)) return false
         return true
       })

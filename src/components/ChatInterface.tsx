@@ -988,6 +988,7 @@ export default function ChatInterface() {
             ? 'EF-MレンズはCanon RF-Sボディと互換性がないため候補に入れないでください。EF / EF-Sレンズはアダプター前提なので、通常候補では優先せず、必要な場合だけ補足扱いにしてください。'
             : '',
           'Tamron Di III、Sigma DG DN、FE、Sony E、Nikon Z、L mountなどは、Canon RF / RF-S用として明確に対応している製品でない限り、Canon RF / RF-Sの選択肢に入れないでください。',
+          'XF / Fujifilm X / X-mount と書かれたレンズはCanon RF-Sに非対応です。特に Viltrox AF 75mm F1.2 XF / PRO はFujifilm Xマウント品なので、Canon EOS R50 / R10 / R7向けの通常候補に入れないでください。',
           'Canon RF / RF-Sネイティブ対応が確実な候補が1本または2本しかない場合は、3本に増やさず確実な候補だけ提示してください。',
         ].filter(Boolean).join('\n')
       : ''

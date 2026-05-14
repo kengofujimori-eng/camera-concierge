@@ -157,7 +157,17 @@ const cases: RecommendationCase[] = [
       'おすすめ理由：APS-Cでは約80mm相当で、背景を整理した子供撮影に使いやすい軽量単焦点です。',
       '注意点：室内ではやや望遠寄りなので、広さに余裕がある場面向きです。',
     ].join('\n'),
-    forbiddenText: [/EF-M/i, /Sony E/i, /Nikon Z/i, /Fujifilm X/i, /\bFE\b/i],
+    forbiddenText: [
+      /EF-M/i,
+      /Sony E/i,
+      /Nikon Z/i,
+      /Fujifilm X/i,
+      /XF/i,
+      /Xマウント/i,
+      /Viltrox\s+AF\s+75mm\s+F1\.2/i,
+      /Viltrox\s+AF\s+85mm\s+F1\.8/i,
+      /\bFE\b/i,
+    ],
     expectedCardNames: ['RF 24mm F1.8 Macro IS STM', 'RF35mm F1.8 Macro IS STM', 'RF50mm F1.8 STM'],
   },
 ]
