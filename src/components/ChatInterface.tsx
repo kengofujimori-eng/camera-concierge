@@ -979,6 +979,12 @@ export default function ChatInterface() {
             ? 'Canon RF-SボディはAPS-C機ですが、RF-S専用レンズだけでなく、Canon RFフルサイズ用レンズもネイティブ対応として通常候補に含めてください。焦点距離の見え方は約1.6倍相当になるため、必要に応じて例を添えて説明してください。'
             : '',
           selectedMount.id === 'canon-rf-s'
+            ? 'Canon RF-S / APS-Cでは、24mmは約38mm相当、35mmは約56mm相当、50mmは約80mm相当として用途を判断してください。室内の子供撮影では10-18mmのような超広角を主役にしすぎず、24mm〜35mm相当の自然な画角を優先してください。'
+            : '',
+          selectedMount.id === 'canon-rf-s'
+            ? 'RF-S専用レンズは少なめですが、Canon RFフルサイズ用レンズもそのまま使えるため、RF-S専用だけに限定せず、用途に合うRFレンズも積極的に候補に含めてください。'
+            : '',
+          selectedMount.id === 'canon-rf-s'
             ? 'EF-MレンズはCanon RF-Sボディと互換性がないため候補に入れないでください。EF / EF-Sレンズはアダプター前提なので、通常候補では優先せず、必要な場合だけ補足扱いにしてください。'
             : '',
           'Tamron Di III、Sigma DG DN、FE、Sony E、Nikon Z、L mountなどは、Canon RF / RF-S用として明確に対応している製品でない限り、Canon RF / RF-Sの選択肢に入れないでください。',
