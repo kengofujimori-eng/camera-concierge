@@ -1,6 +1,6 @@
 # Camera Concierge handoff: current UI phase
 
-Last updated: 2026-05-13
+Last updated: 2026-05-15
 
 ## Current direction
 
@@ -79,6 +79,32 @@ inner span/div: block h-full rounded-[11px] bg-white dark:bg-slate-950
 - Focal min handle is blue-violet.
 - Focal max handle is magenta.
 - Scene cards use lucide icons, not emoji-heavy design.
+
+## Recent RF-S recommendation quality work
+
+Latest baseline:
+- Latest commit: 536d5d3 test: add RF-S indoor child recommendation smoke case
+- RF-S recommendation quality improvement phase is complete.
+- npm run build passed.
+- npm run db:check passed.
+- npm run test:e2e passed with 7 tests.
+
+RF-S recommendation guardrails now include:
+- Canon RF-S users should see both RF-S dedicated lenses and Canon RF full-frame lenses as normal candidates.
+- Canon APS-C uses 1.6x crop conversion.
+- Treat 24mm as about 38mm equivalent, 35mm as about 56mm equivalent, and 50mm as about 80mm equivalent when judging use cases.
+- For indoor child photography, do not make ultra-wide lenses like RF-S 10-18mm the main recommendation too aggressively.
+- EF-M is not compatible with RF-S bodies.
+- EF / EF-S lenses require an adapter, so they should not be prioritized as normal candidates.
+
+RF-S data / image work completed:
+- RF-S 10-18mm image corrected.
+- RF 24mm F1.8 Macro image corrected.
+- RF-S 55-210mm image corrected.
+- RF-S contact sheets were checked after image updates.
+
+RF-S test coverage added:
+- E2E smoke test for Canon RF-S indoor child photography with APS-C conversion guidance.
 
 ## Latest local UI work
 
