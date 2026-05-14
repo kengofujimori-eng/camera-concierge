@@ -975,9 +975,15 @@ export default function ChatInterface() {
     const canonRfGuard = selectedMount?.id === 'canon-rf' || selectedMount?.id === 'canon-rf-s'
       ? [
           'Canon RF / RF-S相談では、Canon RFまたはCanon RF-Sにネイティブ対応するレンズだけを本文の通常候補にしてください。',
+          selectedMount.id === 'canon-rf-s'
+            ? 'Canon RF-SボディはAPS-C機ですが、RF-S専用レンズだけでなく、Canon RFフルサイズ用レンズもネイティブ対応として通常候補に含めてください。焦点距離の見え方は約1.6倍相当になるため、必要に応じて例を添えて説明してください。'
+            : '',
+          selectedMount.id === 'canon-rf-s'
+            ? 'EF-MレンズはCanon RF-Sボディと互換性がないため候補に入れないでください。EF / EF-Sレンズはアダプター前提なので、通常候補では優先せず、必要な場合だけ補足扱いにしてください。'
+            : '',
           'Tamron Di III、Sigma DG DN、FE、Sony E、Nikon Z、L mountなどは、Canon RF / RF-S用として明確に対応している製品でない限り、Canon RF / RF-Sの選択肢に入れないでください。',
           'Canon RF / RF-Sネイティブ対応が確実な候補が1本または2本しかない場合は、3本に増やさず確実な候補だけ提示してください。',
-        ].join('\n')
+        ].filter(Boolean).join('\n')
       : ''
     const omittedCandidateHint = selectedMount
       ? [
