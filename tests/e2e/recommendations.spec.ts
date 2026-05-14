@@ -135,6 +135,31 @@ const cases: RecommendationCase[] = [
     forbiddenText: [/Canon RF/i, /Nikon Z/i, /Fujifilm X/i, /RF-S/i],
     expectedCardNames: ['FE 35mm F1.4 GM', 'FE 50mm F1.4 GM', 'FE 35mm F1.8'],
   },
+  {
+    name: 'Canon RF-S 室内子供撮影 APS-C換算',
+    mountId: 'canon-rf-s',
+    mountOptionTestId: 'mount-option-canon-rf-s',
+    selectedMountText: 'Canon RF-S',
+    prompt:
+      'EOS R50で室内の子供撮影に使う明るいレンズを探しています。狭い部屋でも使いやすく、AF性能と携帯性を重視します。',
+    answer: [
+      'Canon RF-SボディではAPS-C換算を踏まえて、自然な画角と明るさのバランスで選ぶのがおすすめです。',
+      '',
+      '【選択肢1】RF 24mm F1.8 Macro IS STM',
+      'おすすめ理由：APS-Cでは約38mm相当で、室内の子供撮影でも広すぎず狭すぎない自然な画角です。',
+      '注意点：RF-S専用ではありませんが、RF-Sボディにネイティブ対応します。',
+      '',
+      '【選択肢2】RF35mm F1.8 Macro IS STM',
+      'おすすめ理由：APS-Cでは約56mm相当で、少し寄った子供撮影や日常ポートレートに向きます。',
+      '注意点：狭い部屋では24mmより少し距離が必要です。',
+      '',
+      '【選択肢3】RF50mm F1.8 STM',
+      'おすすめ理由：APS-Cでは約80mm相当で、背景を整理した子供撮影に使いやすい軽量単焦点です。',
+      '注意点：室内ではやや望遠寄りなので、広さに余裕がある場面向きです。',
+    ].join('\n'),
+    forbiddenText: [/EF-M/i, /Sony E/i, /Nikon Z/i, /Fujifilm X/i, /\bFE\b/i],
+    expectedCardNames: ['RF 24mm F1.8 Macro IS STM', 'RF35mm F1.8 Macro IS STM', 'RF50mm F1.8 STM'],
+  },
 ]
 
 async function openChatWithMount(page: Page, testCase: RecommendationCase) {
