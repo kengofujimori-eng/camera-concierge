@@ -192,3 +192,31 @@ Potential audit checks:
 - kakaku_url がない、またはレンズ名と item が一致しているか未確認。
 - price_info がない、または new_price / used_price が両方 null。
 
+
+## Image audit unresolved notes
+
+公開β前画像監査で、Canon RF 系の明らかなフード画像・説明図・迷彩カバー画像は Batch 1 / Batch 2 で修正済み。
+
+Resolved image batches:
+- fix: replace Canon RF hood images
+- fix: replace Canon RF super telephoto images
+- fix: adjust processed lens image crops
+- fix: replace RF24-105 F2.8 Z image
+
+Unresolved / follow-up:
+- RF_500mm_F4_L_IS_USM.png
+  - 現状画像は Canon 100-500 に見える別製品候補。
+  - Canon 公式の確実な RF 500mm F4 L IS USM 商品画像を確認できなかったため未変更。
+  - 正しい根拠が取れるまで自動差し替えしない。
+- XF200mmF2_R_LM_OIS_WR.png
+  - 白い望遠レンズ本体に加えて、テレコン/アクセサリ状のものが一緒に写っている。
+  - 主役はレンズなので公開βブロッカーではないが、単体画像があれば差し替え候補。
+- RF_24-105mm_F2.8_L_IS_USM_Z.png
+  - 説明カード残骸のある画像から一度修正済み。
+  - 最終カード表示でサイズ・位置・印象を確認する。
+
+Image correction rule:
+- 正しいレンズ単体画像の根拠が取れない場合は、無理に差し替えない。
+- フード単体、説明図、装着例、迷彩カバー、別製品疑いは P1。
+- 単体画像ではないが主役レンズが明確なものは P2 として後続対応。
+
