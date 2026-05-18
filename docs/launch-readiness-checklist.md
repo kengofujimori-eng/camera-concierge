@@ -16,6 +16,7 @@ Camera Concierge public beta 前の実用チェックリスト。
 ## Must check before public beta
 
 - main が最新であること。
+- npm run audit:beta の P1 を確認すること。
 - Vercel 本番に最新 main が反映されていること。
 - スマホ表示で初回導線が破綻していないこと。
 - 主要マウントで推薦カード、画像、価格バッジ、倉庫操作が見えること。
@@ -52,6 +53,10 @@ Camera Concierge public beta 前の実用チェックリスト。
 
 ## Image / lens data checks
 
+- npm run audit:beta は自動修正しない検出専用ツール。
+- audit:beta のレポートは標準出力と /tmp 系に出る。
+- audit:beta の P1 は公開β前に確認する。
+- audit:beta の P2 はβ後すぐの改善候補として扱う。
 - 主要候補の画像が正しい製品画像になっていること。
 - フードだけ、キャップだけ、白背景の極小表示、別製品画像になっていないこと。
 - 画像変更時は npm run audit:images を実行する。
@@ -60,6 +65,7 @@ Camera Concierge public beta 前の実用チェックリスト。
 - ただし主要候補の欠損、互換性ミス、画像ミスは優先して直す。
 - 人間レビューによるトリミング修正やカード表示確認を重視する。
 - 正しい公式根拠が取れない画像は、無理に差し替えず unresolved note に残す。
+- 実Dify回答の自然さ、画像の意味的正誤は人間レビューで確認する。
 
 ## UX / first-time user checks
 
@@ -75,7 +81,8 @@ Camera Concierge public beta 前の実用チェックリスト。
 - Vercel の最新 deployment が main を指していること。
 - 本番 URL で主要シナリオを手動確認すること。
 - スマホ幅で初回導線、チャット、推薦カードを確認すること。
-- ローカルでは通常チェックを通すこと:
+- ローカルでは次の順で通常チェックを通すこと:
+  - npm run audit:beta
   - npm run build
   - npm run db:check
   - npm run test:e2e
