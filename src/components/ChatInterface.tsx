@@ -992,6 +992,15 @@ export default function ChatInterface() {
           'Canon RF / RF-Sネイティブ対応が確実な候補が1本または2本しかない場合は、3本に増やさず確実な候補だけ提示してください。',
         ].filter(Boolean).join('\n')
       : ''
+    const fujiXPersonalityHint = selectedMount?.id === 'fuji-x'
+      ? [
+          'Fujifilm X相談では、単純なスペック比較だけでなく、軽快性・スナップ性・日常携帯性・操作感・フィルムライクな描写・富士らしい色や空気感・撮る楽しさを重視してください。',
+          '散歩カメラ、旅行、日常、家族撮影では、小型軽量で持ち出したくなる候補を優先してください。XF23mmF2、XF35mmF1.4、XF35mmF2、XF27mmF2.8、XF33mmF1.4、XF56mmF1.2、Voigtlander NOKTON X、小型単焦点は積極的に検討してください。',
+          'ズーム希望や旅行用途では、XF16-50mmF2.8-4.8、XF16-55mmF2.8 R LM WR II、XF18-55mmF2.8-4、Sigma 18-50mm F2.8 などを用途・重量・価格のバランスで比較してください。',
+          'XF50mmF1.0、XF8-16mmF2.8、XF50-140mmF2.8、超望遠など重量級・高価格・用途限定のレンズは、ユーザーが明るさ・望遠・仕事用途を明示した場合に主役候補にし、通常の散歩/日常/旅行では「性能は強いが携帯性で今回は控えめ」と説明してください。',
+          '回答文では、解像力だけでなく「どんな気分で撮れるか」「毎日持ち出せるか」「フィルムシミュレーションと相性がよい画角か」も短く添えてください。',
+        ].join('\n')
+      : ''
     const omittedCandidateHint = selectedMount
       ? [
           '条件には合うが、重量・価格・用途限定性などで通常候補から外した重要レンズがある場合は、最後に「今回は外した候補」として1〜2本だけ短く理由を添えてください。',
@@ -1005,6 +1014,7 @@ export default function ChatInterface() {
       profileLines.length > 0 ? '2023〜2025年発売の最新レンズも積極的に含めて提案してください。' : '',
       mountGuard,
       canonRfGuard,
+      fujiXPersonalityHint,
       omittedCandidateHint,
       focalPriorityHint,
       lensTypeHint,
