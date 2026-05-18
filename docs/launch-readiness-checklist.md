@@ -5,12 +5,13 @@ Camera Concierge public beta 前の実用チェックリスト。
 
 ## Current readiness
 
-- main 最新: 536d5d3 test: add RF-S indoor child recommendation smoke case
+- main 最新: c781eba fix: correct additional audited lens images
 - RF-S 推薦品質改善フェーズは実施済み。
 - build / db:check / e2e は通過済み。
 - e2e は 7 tests passed。
 - UI 方向性は Precision Console。
 - docs 以外のコード、lens DB、画像、価格、affiliate、localStorage、data-testid はこの pass では触らない。
+- 公開β前の手動レビュー結果は docs/public-beta-manual-review.md に集約する。
 
 ## Must check before public beta
 
@@ -19,6 +20,7 @@ Camera Concierge public beta 前の実用チェックリスト。
 - スマホ表示で初回導線が破綻していないこと。
 - 主要マウントで推薦カード、画像、価格バッジ、倉庫操作が見えること。
 - 変な推薦、画像不備、欠損データを見つけたら小さく分けて直すこと。
+- 公開β前レビュー結果の unresolved note を確認すること。
 
 ## Recommendation quality checks
 
@@ -56,6 +58,8 @@ Camera Concierge public beta 前の実用チェックリスト。
 - audit-output/ は生成物なのでコミットしない。
 - npm run db:check は warnings only の場合がある。
 - ただし主要候補の欠損、互換性ミス、画像ミスは優先して直す。
+- 人間レビューによるトリミング修正やカード表示確認を重視する。
+- 正しい公式根拠が取れない画像は、無理に差し替えず unresolved note に残す。
 
 ## UX / first-time user checks
 
@@ -84,6 +88,7 @@ Camera Concierge public beta 前の実用チェックリスト。
 - 互換性ミスはカメラ本体、マウント、推薦されたレンズ名を記録する。
 - 初見ユーザーが迷った箇所を優先して直す。
 - 大きな設計変更より、小さな修正を積む。
+- Fujifilm X は「軽快性・趣味性・持ち出したくなる感じ」の改善を継続課題として見る。
 
 ## Not in scope for this pass
 
@@ -219,4 +224,3 @@ Image correction rule:
 - 正しいレンズ単体画像の根拠が取れない場合は、無理に差し替えない。
 - フード単体、説明図、装着例、迷彩カバー、別製品疑いは P1。
 - 単体画像ではないが主役レンズが明確なものは P2 として後続対応。
-
