@@ -9302,6 +9302,11 @@
           "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DViltrox%20AF%2035mm%20F1.8%20EVO%20Z"
         }
       },
+      "price_info": {
+        "new_price": 73180,
+        "used_price": null,
+        "fetched_at": "2026-05-19"
+      },
       "image_url": "/lens_images_processed/Viltrox_AF_35mm_F1.8_EVO_Z_ニコンZマウント.png",
       "image_url_external": "https://viltrox.com/cdn/shop/files/AF_35mm_F1.8_II_EVO_Z-_front_view.png?v=1776153240",
       "availability_status": "current",
