@@ -100,3 +100,26 @@ Fujifilm X相談では、解像力や明るさだけでなく、Xシリーズら
 - price data
 - localStorage
 - UI
+
+## Audit triage unresolved notes
+
+`npm run audit:triage` により、P1 auto-fix candidate のうち根拠が取れたものだけを修正した。
+
+Resolved:
+- Viltrox AF 35mm F1.8 EVO Z ニコンZマウント
+  - Viltrox Japan / Viltrox global の公式根拠を確認し、`price_info.new_price` を追加済み。
+
+Unresolved:
+- AF 14mm F2.8 FE/RF
+  - DB上で FE/RF mixed のため、同一製品・同一マウントとして価格を確定できず保留。
+- Viltrox AF 50mm F1.8 Z
+  - 公式/販売ページの同一製品価格を確定できず保留。
+- Samyang AF 50mm F1.8 FE
+  - 公式の商品画像・同一製品ページを確定できず保留。
+  - Samyang 45mm F1.8 FE や Viltrox 50mm F1.8 FE と混線しやすいため、画像追加は行わない。
+
+Policy:
+- 価格・画像は、同一製品・同一マウントの根拠が取れた場合のみ修正する。
+- 曖昧な候補は自動修正せず、manual review / unresolved として残す。
+- 公開βでは、価格・画像の違和感があればフィードバック対象とする。
+
