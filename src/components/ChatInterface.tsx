@@ -1020,6 +1020,9 @@ export default function ChatInterface() {
             : '',
         ].filter(Boolean).join('\n')
       : ''
+    const followUpQuestionHint = selectedMount
+      ? '推薦回答の最後に、さらに絞るための短い聞き込み質問を1文だけ添えてください。例:「この中からさらに絞るなら、軽さ・ボケ・AF・コスパ・写りの個性・動画向きのどれを重視しますか？」。ユーザー条件がすでにかなり具体的な場合は、重複を避けて控えめにしてください。'
+      : ''
     const supplementalLines = [
       profileLines.length > 0 ? '2023〜2025年発売の最新レンズも積極的に含めて提案してください。' : '',
       mountGuard,
@@ -1027,6 +1030,7 @@ export default function ChatInterface() {
       nikonZDxGuard,
       fujiXPersonalityHint,
       omittedCandidateHint,
+      followUpQuestionHint,
       focalPriorityHint,
       lensTypeHint,
     ].filter(Boolean)

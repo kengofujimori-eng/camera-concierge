@@ -32,6 +32,10 @@ const cases: RecommendationCase[] = [
       '注意点：価格と重量はやや大きめです。',
     ].join('\n'),
     forbiddenText: [/Tamron 35-150mm/i, /DG DN/i, /Sony E/i, /Nikon Z/i],
+    expectedRequestText: [
+      /推薦回答の最後に、さらに絞るための短い聞き込み質問を1文だけ添えてください/,
+      /軽さ・ボケ・AF・コスパ・写りの個性・動画向き/,
+    ],
   },
   {
     name: 'Nikon Z 35〜55mm単焦点',
