@@ -9,6 +9,7 @@ type RecommendationCase = {
   answer: string
   forbiddenText: RegExp[]
   expectedCardNames?: string[]
+  expectedRequestText?: RegExp[]
 }
 
 const cases: RecommendationCase[] = [
@@ -49,6 +50,38 @@ const cases: RecommendationCase[] = [
       'おすすめ理由：軽量で室内スナップにも扱いやすい標準域です。',
     ].join('\n'),
     forbiddenText: [/Canon RF/i, /Sony E/i, /\bFE\b/i, /Fujifilm X/i],
+  },
+  {
+    name: 'Nikon Z DX 最初の1本',
+    mountId: 'nikon-z-apsc',
+    mountOptionTestId: 'mount-option-nikon-z-apsc',
+    selectedMountText: 'Nikon Z',
+    prompt:
+      'Nikon Z fcを使っています。最初に買うレンズを1本選びたいです。旅行と日常で使いやすいものがいいです。',
+    answer: [
+      'Nikon Z DXで最初に買うなら、日常と旅行で使いやすい標準域から選ぶのがおすすめです。',
+      '',
+      '【選択肢1】NIKKOR Z DX 16-50mm f/3.5-6.3 PZ VR',
+      'おすすめ理由：軽量で広角から標準域まで使え、最初の1本として扱いやすいです。',
+      '',
+      '【選択肢2】NIKKOR Z DX 24mm f/1.7',
+      'おすすめ理由：小型で明るく、日常スナップや室内でも使いやすい単焦点です。',
+      '',
+      '【選択肢3】NIKKOR Z DX 18-140mm f/3.5-6.3 VR',
+      'おすすめ理由：旅行でレンズ交換を減らしたい場合に便利な高倍率ズームです。',
+      '注意点：望遠重視なら50-250mmは2本目候補として検討できます。',
+    ].join('\n'),
+    forbiddenText: [/Canon RF/i, /Sony E/i, /\bFE\b/i, /Fujifilm X/i, /NIKKOR Z DX 50-250mm.*【選択肢/i],
+    expectedCardNames: [
+      'NIKKOR Z DX 16-50mm f/3.5-6.3 PZ VR',
+      'NIKKOR Z DX 24mm f/1.7',
+      'NIKKOR Z DX 18-140mm f/3.5-6.3 VR',
+    ],
+    expectedRequestText: [
+      /Nikon Z DX \/ Z fc \/ Z50 \/ Z30相談/,
+      /望遠.*明示されていない場合は、NIKKOR Z DX 50-250mm.*主役候補にしない/,
+      /最初の1本では、NIKKOR Z DX 16-50mm、NIKKOR Z DX 24mm f\/1\.7、NIKKOR Z 40mm f\/2、NIKKOR Z DX 18-140mm/,
+    ],
   },
   {
     name: 'Fujifilm X 標準ズーム',
@@ -166,9 +199,15 @@ const cases: RecommendationCase[] = [
       /Xマウント/i,
       /Viltrox\s+AF\s+75mm\s+F1\.2/i,
       /Viltrox\s+AF\s+85mm\s+F1\.8/i,
+      /RF85mm/i,
       /\bFE\b/i,
     ],
     expectedCardNames: ['RF 24mm F1.8 Macro IS STM', 'RF35mm F1.8 Macro IS STM', 'RF50mm F1.8 STM'],
+    expectedRequestText: [
+      /85mm以上の単焦点を通常候補にしない/,
+      /RF85mm F2 Macro IS STM.*約136mm相当/,
+      /室内子供撮影ではRF24mm、RF35mm、RF50mm、RF-S 18-45mm、RF-S 18-150mm/,
+    ],
   },
 ]
 
@@ -237,6 +276,7 @@ test.describe('recommendation smoke tests', () => {
     test(testCase.name, async ({ page }, testInfo) => {
       const consoleErrors: string[] = []
       const pageErrors: string[] = []
+      const requestMessages: string[] = []
 
       page.on('console', (message) => {
         if (message.type() === 'error') consoleErrors.push(message.text())
@@ -246,6 +286,8 @@ test.describe('recommendation smoke tests', () => {
       })
 
       await page.route('**/api/chat', async (route) => {
+        const body = route.request().postDataJSON() as { message?: string } | null
+        requestMessages.push(body?.message ?? '')
         await route.fulfill({
           status: 200,
           contentType: 'application/json',
@@ -267,6 +309,13 @@ test.describe('recommendation smoke tests', () => {
       await expect(answer).toContainText('選択肢1')
 
       const answerText = await answer.innerText()
+      if (testCase.expectedRequestText) {
+        expect(requestMessages).toHaveLength(1)
+        for (const expected of testCase.expectedRequestText) {
+          expect(requestMessages[0]).toMatch(expected)
+        }
+      }
+
       const optionCount = (answerText.match(/選択肢\d+/g) ?? []).length
       expect(optionCount).toBeGreaterThanOrEqual(1)
       expect(optionCount).toBeLessThanOrEqual(3)

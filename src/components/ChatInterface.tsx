@@ -982,6 +982,9 @@ export default function ChatInterface() {
             ? 'Canon RF-S / APS-Cでは、24mmは約38mm相当、35mmは約56mm相当、50mmは約80mm相当として用途を判断してください。室内の子供撮影では10-18mmのような超広角を主役にしすぎず、24mm〜35mm相当の自然な画角を優先してください。'
             : '',
           selectedMount.id === 'canon-rf-s'
+            ? 'Canon RF-S / EOS R50 / R10 / R7の室内子供撮影では、85mm以上の単焦点を通常候補にしないでください。RF85mm F2 Macro IS STMは良いレンズですが、R50では約136mm相当で室内には長いため、望遠・屋外ポートレートなどが明示された場合だけ補足扱いにしてください。室内子供撮影ではRF24mm、RF35mm、RF50mm、RF-S 18-45mm、RF-S 18-150mmなどを優先してください。'
+            : '',
+          selectedMount.id === 'canon-rf-s'
             ? 'RF-S専用レンズは少なめですが、Canon RFフルサイズ用レンズもそのまま使えるため、RF-S専用だけに限定せず、用途に合うRFレンズも積極的に候補に含めてください。'
             : '',
           selectedMount.id === 'canon-rf-s'
@@ -991,6 +994,13 @@ export default function ChatInterface() {
           'XF / Fujifilm X / X-mount と書かれたレンズはCanon RF-Sに非対応です。特に Viltrox AF 75mm F1.2 XF / PRO はFujifilm Xマウント品なので、Canon EOS R50 / R10 / R7向けの通常候補に入れないでください。',
           'Canon RF / RF-Sネイティブ対応が確実な候補が1本または2本しかない場合は、3本に増やさず確実な候補だけ提示してください。',
         ].filter(Boolean).join('\n')
+      : ''
+    const nikonZDxGuard = selectedMount?.id === 'nikon-z-apsc'
+      ? [
+          'Nikon Z DX / Z fc / Z50 / Z30相談で「最初に買うレンズ」「最初の1本」を聞かれ、運動会・望遠・動物・遠くの被写体が明示されていない場合は、NIKKOR Z DX 50-250mm f/4.5-6.3 VRを主役候補にしないでください。',
+          'Nikon Z DXの最初の1本では、NIKKOR Z DX 16-50mm、NIKKOR Z DX 24mm f/1.7、NIKKOR Z 40mm f/2、NIKKOR Z DX 18-140mmなど、日常・旅行・室内で使いやすい標準域や軽量候補を優先してください。',
+          'NIKKOR Z DX 50-250mmは、運動会・望遠・動物などが明示された場合、または2本目候補として扱ってください。',
+        ].join('\n')
       : ''
     const fujiXPersonalityHint = selectedMount?.id === 'fuji-x'
       ? [
@@ -1014,6 +1024,7 @@ export default function ChatInterface() {
       profileLines.length > 0 ? '2023〜2025年発売の最新レンズも積極的に含めて提案してください。' : '',
       mountGuard,
       canonRfGuard,
+      nikonZDxGuard,
       fujiXPersonalityHint,
       omittedCandidateHint,
       focalPriorityHint,
