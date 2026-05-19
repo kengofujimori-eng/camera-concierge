@@ -25,6 +25,7 @@
     "lens:process": "python3 src/components/process_lens_images.py",
     "db:check": "node scripts/check_lens_data.js",
     "audit:beta": "node scripts/audit_public_beta.js",
+    "audit:triage": "node scripts/triage_public_beta_audit.js",
     "audit:images": "python3 scripts/generate_lens_contact_sheets.py",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
