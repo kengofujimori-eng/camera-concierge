@@ -837,6 +837,8 @@ export default function ChatInterface() {
     setMessages([])
     setConversationId(undefined)
     setInput('')
+    shouldAutoScrollRef.current = false
+    scrollChatToTop()
     inputRef.current?.focus()
   }
 
@@ -846,12 +848,23 @@ export default function ChatInterface() {
   const chatAreaRef = useRef<HTMLDivElement>(null)
   const bottomRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
+  const shouldAutoScrollRef = useRef(false)
+
+  function scrollChatToTop() {
+    window.requestAnimationFrame(() => {
+      if (chatAreaRef.current) chatAreaRef.current.scrollTop = 0
+    })
+  }
 
   useEffect(() => {
     if (!showBodyHint) return
     const timer = window.setTimeout(() => setShowBodyHint(false), 9000)
     return () => window.clearTimeout(timer)
   }, [showBodyHint])
+
+  useEffect(() => {
+    scrollChatToTop()
+  }, [])
 
   // メッセージが変わるたびに保存（最新30件）
   useEffect(() => {
@@ -945,6 +958,12 @@ export default function ChatInterface() {
   }, [messages])
 
   useEffect(() => {
+    if (messages.length === 0) {
+      shouldAutoScrollRef.current = false
+      scrollChatToTop()
+      return
+    }
+    if (!shouldAutoScrollRef.current) return
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, loading])
 
@@ -1043,6 +1062,7 @@ export default function ChatInterface() {
     const displayText = trimmed
     const sendText = messagePrefix + trimmed
 
+    shouldAutoScrollRef.current = true
     setMessages((prev) => [
       ...prev,
       { id: crypto.randomUUID(), role: 'user', content: displayText, timestamp: new Date() },
@@ -1328,7 +1348,7 @@ export default function ChatInterface() {
 
       {/* ── メインチャットエリア ── */}
       <div className="flex-1 flex flex-col min-w-0">
-        <div ref={chatAreaRef} className="flex-1 overflow-y-auto px-4 py-6">
+        <div ref={chatAreaRef} data-testid="chat-scroll-area" className="flex-1 overflow-y-auto px-4 py-6">
           <div className="mx-auto max-w-3xl space-y-6">
 
             {messages.length === 0 && (

@@ -276,6 +276,59 @@ async function waitForSendEnabled(page: Page) {
 }
 
 test.describe('recommendation smoke tests', () => {
+  test('chat scroll starts at top for saved and new conversations, then follows new replies', async ({ page }) => {
+    const savedMessages = Array.from({ length: 16 }, (_, index) => ({
+      id: `saved-${index}`,
+      role: index % 2 === 0 ? 'user' : 'assistant',
+      content: `${index + 1}件目の保存済み相談メッセージです。\n`.repeat(8),
+      timestamp: new Date().toISOString(),
+    }))
+
+    await page.addInitScript((messages) => {
+      localStorage.setItem('selectedMountId', 'canon-rf')
+      localStorage.setItem('setupDone', 'true')
+      localStorage.setItem('chatMessages', JSON.stringify(messages))
+    }, savedMessages)
+
+    await page.route('**/api/chat', async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          answer: [
+            '条件に合う候補です。',
+            '',
+            '【選択肢1】RF24-105mm F4L IS USM',
+            'おすすめ理由：旅行と日常で使いやすい標準ズームです。',
+            '注意点：室内では明るい単焦点も比較してください。',
+            '',
+            ...Array.from({ length: 30 }, (_, index) => `補足${index + 1}: 追加の確認文です。`),
+          ].join('\n'),
+          conversationId: 'mock-scroll',
+        }),
+      })
+    })
+
+    await page.goto('/')
+    const scrollArea = page.getByTestId('chat-scroll-area')
+    await expect(scrollArea).toBeVisible()
+    await expect.poll(() => scrollArea.evaluate((element) => element.scrollTop)).toBe(0)
+
+    page.on('dialog', (dialog) => dialog.accept())
+    await scrollArea.evaluate((element) => {
+      element.scrollTop = element.scrollHeight
+    })
+    await page.getByText('新規相談').click()
+    await expect.poll(() => scrollArea.evaluate((element) => element.scrollTop)).toBe(0)
+
+    const sendButton = page.getByTestId('chat-send-button')
+    await enterPrompt(page, '旅行と日常で使う標準ズームを相談したいです。')
+    await waitForSendEnabled(page)
+    await sendButton.click()
+    await expect(page.getByTestId('assistant-answer').last()).toContainText('選択肢1')
+    await expect.poll(() => scrollArea.evaluate((element) => element.scrollTop)).toBeGreaterThan(0)
+  })
+
   for (const testCase of cases) {
     test(testCase.name, async ({ page }, testInfo) => {
       const consoleErrors: string[] = []
