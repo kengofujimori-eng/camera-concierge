@@ -1577,10 +1577,8 @@ export default function ChatInterface() {
                   <div className="flex-1">
                     {msg.role === 'user' ? (
                       <div className="flex justify-end">
-                        <div className="max-w-[85%] rounded-2xl rounded-tr-none bg-[linear-gradient(135deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] p-[1px] shadow-sm shadow-indigo-500/10">
-                          <div className="rounded-[15px] rounded-tr-none bg-white px-4 py-3 text-sm leading-relaxed text-slate-900 shadow-sm shadow-slate-200/50 whitespace-pre-wrap dark:bg-slate-50 dark:text-slate-950 dark:shadow-black/5">
-                            {msg.content}
-                          </div>
+                        <div className="max-w-[85%] rounded-2xl rounded-tr-none border border-violet-400/20 bg-[linear-gradient(135deg,#2563EB_0%,#4F46E5_55%,#8B5CF6_100%)] px-4 py-3 text-sm leading-relaxed text-white shadow-lg shadow-violet-500/15 whitespace-pre-wrap">
+                          {msg.content}
                         </div>
                       </div>
                     ) : (
