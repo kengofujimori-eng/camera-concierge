@@ -235,8 +235,8 @@ function FocalMap({ items }: { items: LensItem[] }) {
       <div className="mb-3 flex items-center justify-between gap-3">
         <h2 className="text-sm font-semibold text-slate-800 dark:text-slate-200">焦点距離カバレッジ</h2>
         <div className="flex items-center gap-3 text-[10px] font-medium text-slate-500 dark:text-slate-400">
-          <span className="inline-flex items-center gap-1.5"><span className="h-1.5 w-4 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#38BDF8_45%,#FB7185_100%)]" />所有</span>
-          <span className="inline-flex items-center gap-1.5"><span className="h-1.5 w-4 rounded-full border border-dashed border-rose-400 bg-rose-50 dark:bg-rose-400/10" />欲しい</span>
+          <span className="inline-flex items-center gap-1.5"><span className="h-1.5 w-4 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)]" />所有</span>
+          <span className="inline-flex items-center gap-1.5"><span className="h-1.5 w-4 rounded-full border border-dashed border-violet-300 bg-violet-50 dark:bg-violet-400/10" />欲しい</span>
         </div>
       </div>
       {/* 目盛り軸 */}
@@ -260,8 +260,8 @@ function FocalMap({ items }: { items: LensItem[] }) {
         </div>
       </div>
       {/* レンズ行 */}
-      {[...owned.map(l => ({ l, color: 'linear-gradient(90deg,#2563EB 0%,#38BDF8 45%,#FB7185 100%)', dashed: false })),
-        ...wishlist.map(l => ({ l, color: 'linear-gradient(90deg,rgba(56,189,248,0.12) 0%,rgba(251,113,133,0.18) 100%)', dashed: true }))].map(({ l, color, dashed }) => {
+      {[...owned.map(l => ({ l, color: 'linear-gradient(90deg,#2563EB 0%,#6366F1 55%,#A78BFA 100%)', dashed: false })),
+        ...wishlist.map(l => ({ l, color: 'linear-gradient(90deg,rgba(99,102,241,0.12) 0%,rgba(167,139,250,0.18) 100%)', dashed: true }))].map(({ l, color, dashed }) => {
         const left = focalToPercent(l.focalMin!)
         const right = focalToPercent(l.focalMax ?? l.focalMin!)
         const width = Math.max(right - left, 1.5)
@@ -369,7 +369,7 @@ function LensCard({ item, priceDb, linkDb, onDelete }: {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      className="group rounded-2xl bg-slate-200/80 p-[1px] shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all hover:bg-[linear-gradient(135deg,#2563EB_0%,#38BDF8_45%,#FB7185_100%)] hover:shadow-[0_18px_46px_rgba(56,189,248,0.13)] dark:bg-white/10"
+      className="group rounded-2xl bg-slate-200/80 p-[1px] shadow-[0_14px_34px_rgba(15,23,42,0.06)] transition-all hover:bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] hover:shadow-[0_18px_46px_rgba(99,102,241,0.13)] dark:bg-white/10"
     >
       <div className="flex h-full flex-col overflow-hidden rounded-[15px] bg-white dark:bg-slate-950/95">
       {/* 画像 */}
@@ -533,7 +533,7 @@ function AddForm({ onAdd }: { onAdd: (name: string, type: 'owned' | 'wishlist') 
           <div className="flex gap-2 mb-3">
             {(['owned', 'wishlist'] as const).map(t => (
               <button key={t} onClick={() => setType(t)}
-                className={`flex-1 rounded-xl p-[1px] text-xs font-medium transition-all ${type === t ? 'bg-[linear-gradient(135deg,#2563EB_0%,#38BDF8_45%,#FB7185_100%)] shadow-[0_10px_24px_rgba(56,189,248,0.12)]' : 'bg-slate-200/80 hover:bg-sky-300/70 dark:bg-white/10 dark:hover:bg-sky-400/30'}`}>
+                className={`flex-1 rounded-xl p-[1px] text-xs font-medium transition-all ${type === t ? 'bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] shadow-[0_10px_24px_rgba(99,102,241,0.12)]' : 'bg-slate-200/80 hover:bg-indigo-300/70 dark:bg-white/10 dark:hover:bg-indigo-400/30'}`}>
                 <span className={`block rounded-[11px] px-3 py-1.5 ${type === t ? 'bg-white text-slate-950 dark:bg-slate-950 dark:text-white' : 'bg-white text-slate-500 dark:bg-slate-900 dark:text-slate-400'}`}>
                   {t === 'owned' ? '所有済み' : '欲しいリスト'}
                 </span>
@@ -625,7 +625,7 @@ export default function WarehousePage() {
       {/* ヘッダー */}
       <div className="mb-6 rounded-2xl border border-slate-200/80 bg-white px-5 py-5 shadow-[0_18px_50px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-slate-950/80">
         <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-medium text-slate-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400">
-          <span className="h-1.5 w-1.5 rounded-full bg-[linear-gradient(135deg,#2563EB_0%,#38BDF8_45%,#FB7185_100%)]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)]" />
           Lens warehouse
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
@@ -643,7 +643,7 @@ export default function WarehousePage() {
       <div className="mb-4 flex gap-2 rounded-2xl border border-slate-200/80 bg-white p-1 shadow-sm dark:border-white/10 dark:bg-slate-950/80">
         {(['owned', 'wishlist'] as const).map(t => (
           <button key={t} onClick={() => setTab(t)}
-            className={`group flex-1 rounded-xl p-[1px] text-sm font-medium transition-all ${tab === t ? 'bg-[linear-gradient(135deg,#2563EB_0%,#38BDF8_45%,#FB7185_100%)] shadow-[0_10px_24px_rgba(56,189,248,0.14)]' : 'bg-transparent hover:bg-slate-200/80 dark:hover:bg-white/10'}`}>
+            className={`group flex-1 rounded-xl p-[1px] text-sm font-medium transition-all ${tab === t ? 'bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] shadow-[0_10px_24px_rgba(99,102,241,0.14)]' : 'bg-transparent hover:bg-slate-200/80 dark:hover:bg-white/10'}`}>
             <span className={`block rounded-[11px] px-4 py-2 transition-colors ${tab === t ? 'bg-white text-slate-950 dark:bg-slate-950 dark:text-white' : 'text-slate-500 group-hover:text-slate-800 dark:text-slate-400 dark:group-hover:text-slate-200'}`}>
               {t === 'owned' ? `所有レンズ (${owned.length})` : `欲しいレンズ (${wishlist.length})`}
             </span>

@@ -449,7 +449,7 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: index * 0.1, ease: 'easeOut' }}
-      className="group rounded-2xl bg-slate-200/90 p-[1.5px] shadow-lg shadow-slate-200/70 transition-all hover:bg-[linear-gradient(135deg,#2563EB_0%,#38BDF8_45%,#FB7185_100%)] hover:shadow-xl hover:shadow-slate-300/60 dark:bg-white/10 dark:shadow-black/20 dark:hover:bg-[linear-gradient(135deg,#2563EB_0%,#38BDF8_45%,#FB7185_100%)]"
+      className="group rounded-2xl bg-slate-200/90 p-[1.5px] shadow-lg shadow-slate-200/70 transition-all hover:bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] hover:shadow-xl hover:shadow-slate-300/60 dark:bg-white/10 dark:shadow-black/20 dark:hover:bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)]"
     >
       <div className="flex overflow-hidden rounded-[14.5px] bg-white dark:bg-slate-900">
         {/* 左: レンズ画像 */}
