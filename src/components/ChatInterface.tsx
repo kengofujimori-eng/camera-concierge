@@ -1566,7 +1566,7 @@ export default function ChatInterface() {
                   className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
                 >
                   <div className={`flex-shrink-0 h-8 w-8 rounded-full flex items-center justify-center ${
-                    msg.role === 'user' ? 'bg-[linear-gradient(135deg,#2563EB_0%,#4F46E5_55%,#8B5CF6_100%)] shadow-sm shadow-violet-500/15' : 'bg-white/90 ring-1 ring-slate-200/90 backdrop-blur dark:bg-white/[0.08] dark:ring-white/15'
+                    msg.role === 'user' ? 'bg-[linear-gradient(220.55deg,#FF3F3F_0%,#063CFF_100%)] shadow-sm shadow-blue-500/15' : 'bg-white/90 ring-1 ring-slate-200/90 backdrop-blur dark:bg-white/[0.08] dark:ring-white/15'
                   }`}>
                     {msg.role === 'user'
                       ? <User className="h-4 w-4 text-white" />
@@ -1577,7 +1577,7 @@ export default function ChatInterface() {
                   <div className="flex-1">
                     {msg.role === 'user' ? (
                       <div className="flex justify-end">
-                        <div className="max-w-[85%] rounded-2xl rounded-tr-none border border-violet-400/20 bg-[linear-gradient(135deg,#2563EB_0%,#4F46E5_55%,#8B5CF6_100%)] px-4 py-3 text-sm leading-relaxed text-white shadow-lg shadow-violet-500/15 whitespace-pre-wrap">
+                        <div className="max-w-[85%] rounded-2xl rounded-tr-none border border-violet-400/20 bg-[linear-gradient(220.55deg,#FF3F3F_0%,#063CFF_100%)] px-4 py-3 text-sm leading-relaxed text-white shadow-lg shadow-blue-500/15 whitespace-pre-wrap">
                           {msg.content}
                         </div>
                       </div>
@@ -1713,7 +1713,7 @@ export default function ChatInterface() {
                   )}
                   <button
                     onClick={() => setShowMobileSettings(false)}
-                    className="w-full rounded-xl bg-[linear-gradient(135deg,#2563EB_0%,#4F46E5_55%,#8B5CF6_100%)] py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/15"
+                    className="w-full rounded-xl bg-[linear-gradient(220.55deg,#FF3F3F_0%,#063CFF_100%)] py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/15"
                   >
                     設定を保存して閉じる
                   </button>
@@ -1828,7 +1828,7 @@ export default function ChatInterface() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.15 }}
-                className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#2563EB_0%,#4F46E5_55%,#8B5CF6_100%)] text-white shadow-lg shadow-violet-500/15 transition-all hover:brightness-105 disabled:opacity-30 disabled:cursor-not-allowed disabled:shadow-none"
+                className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(220.55deg,#FF3F3F_0%,#063CFF_100%)] text-white shadow-lg shadow-blue-500/15 transition-all hover:brightness-105 disabled:opacity-30 disabled:cursor-not-allowed disabled:shadow-none"
               >
                 <Send className="h-4 w-4" />
               </motion.button>
