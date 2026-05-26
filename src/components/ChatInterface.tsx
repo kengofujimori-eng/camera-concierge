@@ -296,9 +296,9 @@ function ChoiceButtons({ text, onSelect }: { text: string; onSelect: (t: string)
             onClick={() => onSelect(c.sendText)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
-            className="flex items-center gap-2 rounded-xl border border-[#418CB7]/30 bg-white/70 px-3 py-2 text-xs font-medium text-[#418CB7] shadow-sm shadow-blue-500/10 backdrop-blur transition-colors hover:border-[#418CB7]/70 hover:bg-[#418CB7]/10 dark:border-[#418CB7]/30 dark:bg-[#418CB7]/10 dark:text-[#8BBBD0] dark:hover:bg-[#418CB7]/15"
+            className="flex items-center gap-2 rounded-xl border border-indigo-200/70 bg-white/70 px-3 py-2 text-xs font-medium text-violet-700 shadow-sm shadow-fuchsia-500/5 backdrop-blur transition-colors hover:border-violet-400/70 hover:bg-indigo-50 dark:border-indigo-400/20 dark:bg-indigo-400/10 dark:text-indigo-200 dark:hover:bg-indigo-400/15"
           >
-            <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#418CB7]/15 text-[10px] font-bold text-[#418CB7] dark:text-[#8BBBD0]">
+            <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-indigo-400/15 text-[10px] font-bold text-violet-700 dark:text-indigo-200">
               {c.number}
             </span>
             {c.label}
@@ -346,11 +346,11 @@ function MountSelector({
       <button
         data-testid="selected-mount-display"
         onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-left shadow-sm shadow-slate-200/50 transition-all hover:border-[#418CB7]/40 hover:bg-slate-50 group dark:border-white/10 dark:bg-slate-900/80 dark:shadow-black/20 dark:hover:border-[#418CB7]/40 dark:hover:bg-slate-800"
+        className="w-full flex items-center justify-between gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-left shadow-sm shadow-slate-200/50 transition-all hover:border-slate-300 hover:bg-slate-50 group dark:border-white/10 dark:bg-slate-900/80 dark:shadow-black/20 dark:hover:border-violet-400/40 dark:hover:bg-slate-800"
       >
         <div className="flex items-center gap-2 min-w-0">
           <div className="h-6 w-6 rounded-md bg-slate-100 flex items-center justify-center flex-shrink-0 ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-white/10">
-            <CameraIcon className="h-3.5 w-3.5 text-[#418CB7] dark:text-[#8BBBD0]" />
+            <CameraIcon className="h-3.5 w-3.5 text-violet-700 dark:text-violet-300" />
           </div>
           {selected ? (
             <div className="min-w-0">
@@ -403,7 +403,7 @@ function MountSelector({
 }
 
 // ── 予算スライダー ────────────────────────────────────────
-const BUDGET_DOT_COLORS = ['#418CB7', '#5D98AC', '#8AA69C', '#D19683', '#FF8570']
+const BUDGET_DOT_COLORS = ['#2563EB', '#3B63EC', '#6366F1', '#818CF8', '#A78BFA']
 
 function BudgetSlider({
   selected,
@@ -433,7 +433,7 @@ function BudgetSlider({
           <span
             key={b.id}
             className={`text-[9px] font-medium transition-colors ${
-              i === idx ? 'text-[#418CB7] dark:text-[#8BBBD0]' : 'text-slate-500 dark:text-slate-400'
+              i === idx ? 'text-[#4F46E5] dark:text-violet-300' : 'text-slate-500 dark:text-slate-400'
             }`}
           >
             {b.label}
@@ -447,7 +447,7 @@ function BudgetSlider({
         {/* アクティブ部分 */}
         {idx >= 0 && (
           <div
-            className="absolute left-1 h-0.5 rounded-full bg-[linear-gradient(90deg,#418CB7_0%,#FF8570_100%)] transition-all duration-200"
+            className="absolute left-1 h-0.5 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] transition-all duration-200"
             style={{ width: `${(idx / (BUDGETS.length - 1)) * (100)}%` }}
           />
         )}
@@ -458,11 +458,11 @@ function BudgetSlider({
               key={b.id}
               title={b.prompt}
               onClick={() => onChange(idx === i ? null : b)}
-              style={i <= idx ? { backgroundColor: BUDGET_DOT_COLORS[i] ?? '#418CB7' } : undefined}
+              style={i <= idx ? { backgroundColor: BUDGET_DOT_COLORS[i] ?? '#6366F1' } : undefined}
               className={`h-3.5 w-3.5 rounded-full border-2 transition-all duration-150 hover:scale-125 focus:outline-none ${
                 i <= idx
-                  ? 'border-white shadow-sm shadow-blue-500/10'
-                  : 'bg-white border-slate-300 hover:border-[#418CB7]/80 dark:bg-slate-800/80 dark:border-slate-600 dark:hover:border-[#418CB7]/70'
+                  ? 'border-white shadow-sm shadow-indigo-500/20'
+                  : 'bg-white border-slate-300 hover:border-indigo-400/80 dark:bg-slate-800/80 dark:border-slate-600 dark:hover:border-indigo-400/60'
               }`}
             />
           ))}
@@ -590,12 +590,12 @@ function FocalRangeSlider({
         </div>
         {/* 選択範囲ハイライト */}
         <div className="absolute h-2 rounded-full"
-          style={{ left: `${minPct}%`, width: `${maxPct - minPct}%`, background: active ? 'linear-gradient(90deg, #418CB7 0%, #FF8570 100%)' : 'transparent' }}
+          style={{ left: `${minPct}%`, width: `${maxPct - minPct}%`, background: active ? 'linear-gradient(90deg, #2563EB 0%, #6366F1 55%, #A78BFA 100%)' : 'transparent' }}
         />
         {/* Min ハンドル */}
         <div
           className={`absolute w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing shadow-md z-10 transition-colors ${
-            active ? 'bg-[#418CB7] border-white shadow-[0_0_0_4px_rgba(65,140,183,0.18)] dark:bg-[#418CB7] dark:border-white/90 dark:shadow-[0_0_0_4px_rgba(65,140,183,0.24)]' : 'bg-white border-slate-300 hover:border-slate-400 dark:bg-slate-700 dark:border-slate-500 dark:hover:border-slate-400'
+            active ? 'bg-[#2563EB] border-white shadow-[0_0_0_4px_rgba(99,102,241,0.20)] dark:bg-[#2563EB] dark:border-white/90 dark:shadow-[0_0_0_4px_rgba(99,102,241,0.26)]' : 'bg-white border-slate-300 hover:border-slate-400 dark:bg-slate-700 dark:border-slate-500 dark:hover:border-slate-400'
           }`}
           style={{ left: `${minPct}%`, top: '50%', transform: 'translate(-50%,-50%)' }}
           onMouseDown={startDrag('min')}
@@ -604,7 +604,7 @@ function FocalRangeSlider({
         {/* Max ハンドル */}
         <div
           className={`absolute w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing shadow-md z-10 transition-colors ${
-            active ? 'bg-[#FF8570] border-white shadow-[0_0_0_4px_rgba(255,133,112,0.16)] dark:bg-[#FF8570] dark:border-white/90 dark:shadow-[0_0_0_4px_rgba(255,133,112,0.22)]' : 'bg-white border-slate-300 hover:border-slate-400 dark:bg-slate-700 dark:border-slate-500 dark:hover:border-slate-400'
+            active ? 'bg-[#A78BFA] border-white shadow-[0_0_0_4px_rgba(167,139,250,0.20)] dark:bg-[#A78BFA] dark:border-white/90 dark:shadow-[0_0_0_4px_rgba(167,139,250,0.26)]' : 'bg-white border-slate-300 hover:border-slate-400 dark:bg-slate-700 dark:border-slate-500 dark:hover:border-slate-400'
           }`}
           style={{ left: `${maxPct}%`, top: '50%', transform: 'translate(-50%,-50%)' }}
           onMouseDown={startDrag('max')}
@@ -616,13 +616,13 @@ function FocalRangeSlider({
       <div className="relative h-4 mt-0.5">
         {maxPct - minPct > 14 ? (
           <>
-            <span className={`absolute text-[10px] font-mono font-semibold -translate-x-1/2 ${active ? 'text-[#418CB7] dark:text-[#8BBBD0]' : 'text-slate-500 dark:text-slate-400'}`}
+            <span className={`absolute text-[10px] font-mono font-semibold -translate-x-1/2 ${active ? 'text-[#2563EB] dark:text-indigo-300' : 'text-slate-500 dark:text-slate-400'}`}
               style={{ left: `${minPct}%` }}>{display.minMm}</span>
-            <span className={`absolute text-[10px] font-mono font-semibold -translate-x-1/2 ${active ? 'text-[#C77267] dark:text-[#FFB0A2]' : 'text-slate-500 dark:text-slate-400'}`}
+            <span className={`absolute text-[10px] font-mono font-semibold -translate-x-1/2 ${active ? 'text-[#8B5CF6] dark:text-violet-300' : 'text-slate-500 dark:text-slate-400'}`}
               style={{ left: `${maxPct}%` }}>{display.maxMm}</span>
           </>
         ) : (
-          <span className={`absolute text-[10px] font-mono font-semibold -translate-x-1/2 ${active ? 'text-[#418CB7] dark:text-[#8BBBD0]' : 'text-slate-500 dark:text-slate-400'}`}
+          <span className={`absolute text-[10px] font-mono font-semibold -translate-x-1/2 ${active ? 'text-indigo-700 dark:text-violet-300' : 'text-slate-500 dark:text-slate-400'}`}
             style={{ left: `${(minPct + maxPct) / 2}%` }}>{display.minMm}–{display.maxMm}</span>
         )}
       </div>
@@ -652,8 +652,8 @@ function FocalRangeSlider({
                 onClick={() => onLensTypeChange(type.id)}
                 className={`group rounded-xl p-[1px] text-left transition-all duration-150 focus:outline-none ${
                   selected
-                    ? 'bg-[linear-gradient(90deg,#418CB7_0%,#FF8570_100%)] shadow-sm shadow-blue-500/10'
-                    : 'bg-slate-200/80 hover:bg-[#418CB7]/20 dark:bg-white/10 dark:hover:bg-[#418CB7]/20'
+                    ? 'bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] shadow-sm shadow-indigo-500/15'
+                    : 'bg-slate-200/80 hover:bg-indigo-300/70 dark:bg-white/10 dark:hover:bg-indigo-400/30'
                 }`}
               >
                 <span
@@ -683,7 +683,7 @@ function FocalRangeSlider({
       </div>
 
       {(active || lensType !== 'auto') && (
-        <p className="text-[10px] text-[#418CB7] dark:text-[#8BBBD0] mt-1.5 leading-snug">
+        <p className="text-[10px] text-[#4F46E5] dark:text-violet-300/80 mt-1.5 leading-snug">
           {[active && getFocalRangePrompt(display), lensType !== 'auto' && getLensTypeOption(lensType).prompt].filter(Boolean).join('・')}
         </p>
       )}
@@ -1289,7 +1289,7 @@ export default function ChatInterface() {
 
           {/* 設定済みバッジ */}
           {(selectedMount || bodyInput || selectedBudget || selectedFocal || lensType !== 'auto') && (
-            <p className="px-1 text-[10px] text-[#418CB7] dark:text-[#8BBBD0]">
+            <p className="px-1 text-[10px] text-[#4F46E5] dark:text-violet-300/80">
               ✓ 質問に自動付与されます
             </p>
           )}
@@ -1311,7 +1311,7 @@ export default function ChatInterface() {
                 whileTap={{ scale: 0.97 }}
                 className="group w-full flex items-center gap-2 rounded-lg px-3 py-2.5 text-left text-[13px] text-slate-700 transition-all hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-900 dark:hover:text-slate-100"
               >
-                <ChevronRight className="h-3.5 w-3.5 flex-shrink-0 text-slate-400 transition-colors group-hover:text-[#418CB7] dark:text-slate-400 dark:group-hover:text-[#8BBBD0]" />
+                <ChevronRight className="h-3.5 w-3.5 flex-shrink-0 text-slate-400 group-hover:text-violet-700 transition-colors dark:text-slate-400 dark:group-hover:text-indigo-300" />
                 <span className="leading-snug">{q}</span>
               </motion.button>
             ))}
@@ -1334,11 +1334,11 @@ export default function ChatInterface() {
             className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950 group dark:text-slate-300 dark:hover:bg-slate-900 dark:hover:text-slate-100"
           >
             <div className="flex items-center gap-2">
-              <Warehouse className="h-4 w-4 text-slate-500 transition-colors group-hover:text-[#418CB7] dark:group-hover:text-[#8BBBD0]" />
+              <Warehouse className="h-4 w-4 text-slate-500 group-hover:text-violet-700 transition-colors dark:group-hover:text-indigo-300" />
               <span>デジタル倉庫</span>
             </div>
             {warehouseCount > 0 && (
-              <span className="rounded-full bg-[#418CB7]/10 px-2 py-0.5 text-xs text-[#418CB7] ring-1 ring-[#418CB7]/25 font-semibold tabular-nums dark:bg-[#418CB7]/15 dark:text-[#8BBBD0] dark:ring-[#418CB7]/30">
+              <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-xs text-violet-700 ring-1 ring-indigo-200 font-semibold tabular-nums dark:bg-violet-600/20 dark:text-indigo-200 dark:ring-indigo-300/20">
                 {warehouseCount}
               </span>
             )}
@@ -1361,14 +1361,14 @@ export default function ChatInterface() {
                 {/* ── セットアップガイダンス（初回のみ・設定済みなら非表示） ── */}
                 {!setupDone && (
                   <motion.div
-                    className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 max-w-2xl mx-auto shadow-lg shadow-slate-200/70 dark:border-white/15 dark:bg-slate-950/70 dark:shadow-slate-900/10"
+                    className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 max-w-2xl mx-auto shadow-lg shadow-slate-200/70 dark:border-white/15 dark:bg-slate-950/70 dark:shadow-indigo-950/20"
                     initial={{ opacity: 0, scale: 0.97 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.35 }}
                   >
                     <div className="flex items-center gap-2.5 mb-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 ring-1 ring-slate-200 flex-shrink-0 dark:bg-[#418CB7]/10 dark:ring-[#418CB7]/30">
-                        <CameraIcon className="h-5 w-5 text-[#418CB7] dark:text-[#8BBBD0]" />
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 ring-1 ring-slate-200 flex-shrink-0 dark:bg-gradient-to-br dark:from-indigo-500/15 dark:to-violet-500/15 dark:ring-indigo-300/30">
+                        <CameraIcon className="h-5 w-5 text-violet-600 dark:text-violet-300" />
                       </div>
                       <div>
                         <p className="text-sm font-bold text-slate-800 dark:text-white">カメラを選ぶと、提案がもっと正確になります</p>
@@ -1387,8 +1387,8 @@ export default function ChatInterface() {
                             onClick={() => handleMountChange(m)}
                             className={`group rounded-xl p-[1.5px] text-left transition-all duration-150 focus:outline-none ${
                               isSelected
-                                ? 'bg-[linear-gradient(135deg,#418CB7_0%,#FF8570_100%)] shadow-md shadow-blue-500/10'
-                                : 'bg-slate-200/80 hover:bg-[linear-gradient(135deg,#418CB7_0%,#FF8570_100%)] hover:shadow-md hover:shadow-blue-500/10 dark:bg-white/10 dark:hover:bg-[linear-gradient(135deg,#418CB7_0%,#FF8570_100%)]'
+                                ? 'bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] shadow-md shadow-indigo-500/20'
+                                : 'bg-slate-200/80 hover:bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] hover:shadow-md hover:shadow-indigo-500/10 dark:bg-white/10 dark:hover:bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)]'
                             }`}
                           >
                             <span
@@ -1428,7 +1428,7 @@ export default function ChatInterface() {
                             </p>
                           </div>
                           {bodyInput.trim() && (
-                            <span className="rounded-full border border-[#418CB7]/25 bg-white px-2 py-0.5 text-[10px] font-medium text-[#418CB7] dark:border-[#418CB7]/30 dark:bg-slate-950 dark:text-[#8BBBD0]">
+                            <span className="rounded-full border border-violet-200 bg-white px-2 py-0.5 text-[10px] font-medium text-violet-700 dark:border-violet-400/20 dark:bg-slate-950 dark:text-violet-300">
                               設定済み
                             </span>
                           )}
@@ -1511,10 +1511,10 @@ export default function ChatInterface() {
                 {/* ── 通常の空状態 ── */}
                 <div className="text-center">
                   <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white ring-1 ring-slate-200 mb-3 shadow-lg shadow-slate-200/70 dark:bg-white/[0.08] dark:ring-white/15 dark:shadow-black/20">
-                    <CameraIcon className="h-7 w-7 text-[#418CB7] dark:text-[#8BBBD0]" />
+                    <CameraIcon className="h-7 w-7 text-violet-600 dark:text-violet-300" />
                   </div>
                   {selectedMount && (
-                    <div className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full border border-[#418CB7]/25 bg-[#418CB7]/10 px-3 py-1 text-xs font-medium text-[#418CB7] shadow-sm shadow-blue-500/10 dark:border-[#418CB7]/30 dark:bg-[#418CB7]/15 dark:text-[#8BBBD0]">
+                    <div className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-medium text-violet-700 shadow-sm shadow-fuchsia-500/5 dark:border-violet-400/20 dark:bg-indigo-400/10 dark:text-indigo-200">
                       <Check className="h-3.5 w-3.5" />
                       現在の設定: {selectedMount.label} / {selectedMount.sub}
                     </div>
@@ -1537,10 +1537,10 @@ export default function ChatInterface() {
                           transition={{ duration: 0.3, delay: i * 0.05, ease: 'easeOut' }}
                           whileHover={{ y: -2 }}
                           whileTap={{ scale: 0.98 }}
-                          className="group rounded-2xl bg-slate-200/80 p-[1px] text-left shadow-sm shadow-slate-200/60 transition-all hover:bg-[linear-gradient(135deg,#418CB7_0%,#FF8570_100%)] hover:shadow-lg hover:shadow-blue-500/10 focus:outline-none dark:bg-white/10 dark:shadow-none dark:hover:bg-[linear-gradient(135deg,#418CB7_0%,#FF8570_100%)]"
+                          className="group rounded-2xl bg-slate-200/80 p-[1px] text-left shadow-sm shadow-slate-200/60 transition-all hover:bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] hover:shadow-lg hover:shadow-indigo-500/10 focus:outline-none dark:bg-white/10 dark:shadow-none dark:hover:bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)]"
                         >
                           <span className="flex min-h-[104px] flex-col items-start justify-between rounded-[15px] bg-white px-3 py-3.5 text-slate-800 transition-colors group-hover:bg-slate-50 dark:bg-slate-900/90 dark:text-slate-100 dark:group-hover:bg-slate-900">
-                            <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-colors group-hover:border-[#418CB7]/35 group-hover:bg-white group-hover:text-[#418CB7] dark:border-white/10 dark:bg-slate-950 dark:text-slate-300 dark:group-hover:border-[#418CB7]/40 dark:group-hover:bg-slate-950 dark:group-hover:text-[#8BBBD0]">
+                            <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-colors group-hover:border-indigo-200 group-hover:bg-white group-hover:text-violet-700 dark:border-white/10 dark:bg-slate-950 dark:text-slate-300 dark:group-hover:border-violet-400/40 dark:group-hover:bg-slate-950 dark:group-hover:text-indigo-200">
                               <Icon className="h-4 w-4" />
                             </span>
                             <span>
@@ -1577,7 +1577,7 @@ export default function ChatInterface() {
                   <div className="flex-1">
                     {msg.role === 'user' ? (
                       <div className="flex justify-end">
-                        <div className="max-w-[85%] rounded-2xl rounded-tr-none border border-[#418CB7]/20 bg-[linear-gradient(220.55deg,#FF8570_0%,#418CB7_100%)] px-4 py-3 text-sm leading-relaxed text-white shadow-lg shadow-blue-500/10 whitespace-pre-wrap">
+                        <div className="max-w-[85%] rounded-2xl rounded-tr-none border border-violet-400/20 bg-[linear-gradient(220.55deg,#FF8570_0%,#418CB7_100%)] px-4 py-3 text-sm leading-relaxed text-white shadow-lg shadow-blue-500/10 whitespace-pre-wrap">
                           {msg.content}
                         </div>
                       </div>
@@ -1709,7 +1709,7 @@ export default function ChatInterface() {
                   <BudgetSlider selected={selectedBudget} onChange={handleBudgetChange} />
                   <FocalRangeSlider range={selectedFocal} onChange={handleFocalChange} lensType={lensType} onLensTypeChange={handleLensTypeChange} />
                   {(selectedMount || bodyInput || selectedBudget || selectedFocal || lensType !== 'auto') && (
-                    <p className="px-1 text-[11px] text-[#418CB7] dark:text-[#8BBBD0]">✓ 質問に自動付与されます</p>
+                    <p className="px-1 text-[11px] text-[#4F46E5] dark:text-violet-300/80">✓ 質問に自動付与されます</p>
                   )}
                   <button
                     onClick={() => setShowMobileSettings(false)}
@@ -1731,7 +1731,7 @@ export default function ChatInterface() {
               {/* 設定バッジ */}
               <div className="flex flex-wrap items-center gap-1.5 flex-1 min-w-0">
                 {selectedMount && (
-                  <span className="inline-flex items-center gap-1 rounded-full border border-[#418CB7]/25 bg-[#418CB7]/10 px-2 py-0.5 text-[11px] text-[#418CB7] dark:text-[#8BBBD0]">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-violet-600/10 border border-indigo-500/20 px-2 py-0.5 text-[11px] text-violet-700 dark:text-violet-300">
                     <CameraIcon className="h-2.5 w-2.5" />{selectedMount.label}
                   </span>
                 )}
@@ -1764,15 +1764,15 @@ export default function ChatInterface() {
                   onClick={() => setShowMobileSettings(true)}
                   className={`relative flex h-8 w-8 items-center justify-center rounded-lg transition-colors ${
                     !selectedMount
-                      ? 'bg-[#418CB7]/15 text-[#418CB7] ring-1 ring-[#418CB7]/30 dark:text-[#8BBBD0]'
-                      : 'bg-white/70 dark:bg-white/[0.06] text-slate-500 hover:text-[#418CB7] dark:hover:text-[#8BBBD0]'
+                      ? 'bg-violet-600/15 text-indigo-500 ring-1 ring-violet-500/30 dark:text-indigo-300'
+                      : 'bg-white/70 dark:bg-white/[0.06] text-slate-500 hover:text-indigo-500 dark:hover:text-indigo-300'
                   }`}
                   title="設定"
                 >
                   <Settings className="h-3.5 w-3.5" />
                   {/* 未設定バッジ */}
                   {!selectedMount && (
-                    <span className="absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full bg-[#418CB7] ring-2 ring-white dark:ring-slate-900" />
+                    <span className="absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full bg-violet-600 ring-2 ring-white dark:ring-slate-900" />
                   )}
                 </button>
               </div>
@@ -1781,7 +1781,7 @@ export default function ChatInterface() {
             <div className="mb-2 hidden items-center justify-between md:flex">
               <div className="flex flex-wrap items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400">
                 {selectedMount && (
-                  <span className="inline-flex items-center gap-1 rounded-full border border-[#418CB7]/25 bg-[#418CB7]/10 px-2 py-0.5 text-[#418CB7] dark:border-[#418CB7]/30 dark:bg-[#418CB7]/15 dark:text-[#8BBBD0]">
+                  <span className="inline-flex items-center gap-1 rounded-full border border-violet-200 bg-violet-50 px-2 py-0.5 text-violet-700 dark:border-violet-400/20 dark:bg-violet-400/10 dark:text-violet-300">
                     <CameraIcon className="h-2.5 w-2.5" />{selectedMount.label}
                   </span>
                 )}
@@ -1794,7 +1794,7 @@ export default function ChatInterface() {
               {messages.length > 0 && (
                 <button
                   onClick={handleNewChat}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-medium text-slate-500 shadow-sm shadow-slate-200/50 transition-all hover:border-[#418CB7]/40 hover:text-slate-800 hover:shadow-md hover:shadow-blue-500/10 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-400 dark:shadow-none dark:hover:border-[#418CB7]/40 dark:hover:text-slate-200"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-medium text-slate-500 shadow-sm shadow-slate-200/50 transition-all hover:border-violet-300 hover:text-slate-800 hover:shadow-md hover:shadow-violet-500/10 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-400 dark:shadow-none dark:hover:border-violet-400/40 dark:hover:text-slate-200"
                 >
                   <RotateCcw className="h-3 w-3" />
                   新規相談
