@@ -296,7 +296,7 @@ function ChoiceButtons({ text, onSelect }: { text: string; onSelect: (t: string)
             onClick={() => onSelect(c.sendText)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
-            className="flex items-center gap-2 rounded-xl border border-indigo-200/70 bg-white/70 px-3 py-2 text-xs font-medium text-violet-700 shadow-sm shadow-fuchsia-500/5 backdrop-blur transition-colors hover:border-violet-400/70 hover:bg-indigo-50 dark:border-indigo-400/20 dark:bg-indigo-400/10 dark:text-indigo-200 dark:hover:bg-indigo-400/15"
+            className="flex items-center gap-2 rounded-xl border border-indigo-200/70 bg-white/70 px-3 py-2 text-xs font-medium text-violet-700 shadow-sm shadow-blue-500/10 backdrop-blur transition-colors hover:border-violet-400/70 hover:bg-indigo-50 dark:border-indigo-400/20 dark:bg-indigo-400/10 dark:text-indigo-200 dark:hover:bg-indigo-400/15"
           >
             <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-indigo-400/15 text-[10px] font-bold text-violet-700 dark:text-indigo-200">
               {c.number}
@@ -403,7 +403,7 @@ function MountSelector({
 }
 
 // ── 予算スライダー ────────────────────────────────────────
-const BUDGET_DOT_COLORS = ['#2563EB', '#3B63EC', '#6366F1', '#818CF8', '#A78BFA']
+const BUDGET_DOT_COLORS = ['#2563EB', '#4F46E5', '#7C3AED', '#A855F7', '#D946EF']
 
 function BudgetSlider({
   selected,
@@ -447,7 +447,7 @@ function BudgetSlider({
         {/* アクティブ部分 */}
         {idx >= 0 && (
           <div
-            className="absolute left-1 h-0.5 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] transition-all duration-200"
+            className="absolute left-1 h-0.5 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] transition-all duration-200"
             style={{ width: `${(idx / (BUDGETS.length - 1)) * (100)}%` }}
           />
         )}
@@ -458,11 +458,11 @@ function BudgetSlider({
               key={b.id}
               title={b.prompt}
               onClick={() => onChange(idx === i ? null : b)}
-              style={i <= idx ? { backgroundColor: BUDGET_DOT_COLORS[i] ?? '#6366F1' } : undefined}
+              style={i <= idx ? { backgroundColor: BUDGET_DOT_COLORS[i] ?? '#7C3AED' } : undefined}
               className={`h-3.5 w-3.5 rounded-full border-2 transition-all duration-150 hover:scale-125 focus:outline-none ${
                 i <= idx
-                  ? 'border-white shadow-sm shadow-indigo-500/20'
-                  : 'bg-white border-slate-300 hover:border-indigo-400/80 dark:bg-slate-800/80 dark:border-slate-600 dark:hover:border-indigo-400/60'
+                  ? 'border-white shadow-sm shadow-[0_8px_22px_rgba(124,58,237,0.08)]'
+                  : 'bg-white border-slate-300 hover:border-violet-400/70 dark:bg-slate-800/80 dark:border-slate-600 dark:hover:border-violet-400/60'
               }`}
             />
           ))}
@@ -590,12 +590,12 @@ function FocalRangeSlider({
         </div>
         {/* 選択範囲ハイライト */}
         <div className="absolute h-2 rounded-full"
-          style={{ left: `${minPct}%`, width: `${maxPct - minPct}%`, background: active ? 'linear-gradient(90deg, #2563EB 0%, #6366F1 55%, #A78BFA 100%)' : 'transparent' }}
+          style={{ left: `${minPct}%`, width: `${maxPct - minPct}%`, background: active ? 'linear-gradient(90deg, #2563EB 0%, #7C3AED 52%, #D946EF 100%)' : 'transparent' }}
         />
         {/* Min ハンドル */}
         <div
           className={`absolute w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing shadow-md z-10 transition-colors ${
-            active ? 'bg-[#2563EB] border-white shadow-[0_0_0_4px_rgba(99,102,241,0.20)] dark:bg-[#2563EB] dark:border-white/90 dark:shadow-[0_0_0_4px_rgba(99,102,241,0.26)]' : 'bg-white border-slate-300 hover:border-slate-400 dark:bg-slate-700 dark:border-slate-500 dark:hover:border-slate-400'
+            active ? 'bg-white border-[#2563EB] shadow-[0_0_0_4px_rgba(124,58,237,0.12)] dark:bg-slate-900 dark:border-[#7C3AED] dark:shadow-[0_0_0_4px_rgba(124,58,237,0.16)]' : 'bg-white border-slate-300 hover:border-slate-400 dark:bg-slate-700 dark:border-slate-500 dark:hover:border-slate-400'
           }`}
           style={{ left: `${minPct}%`, top: '50%', transform: 'translate(-50%,-50%)' }}
           onMouseDown={startDrag('min')}
@@ -604,7 +604,7 @@ function FocalRangeSlider({
         {/* Max ハンドル */}
         <div
           className={`absolute w-5 h-5 rounded-full border-2 cursor-grab active:cursor-grabbing shadow-md z-10 transition-colors ${
-            active ? 'bg-[#A78BFA] border-white shadow-[0_0_0_4px_rgba(167,139,250,0.20)] dark:bg-[#A78BFA] dark:border-white/90 dark:shadow-[0_0_0_4px_rgba(167,139,250,0.26)]' : 'bg-white border-slate-300 hover:border-slate-400 dark:bg-slate-700 dark:border-slate-500 dark:hover:border-slate-400'
+            active ? 'bg-white border-[#D946EF] shadow-[0_0_0_4px_rgba(217,70,239,0.10)] dark:bg-slate-900 dark:border-[#D946EF] dark:shadow-[0_0_0_4px_rgba(217,70,239,0.14)]' : 'bg-white border-slate-300 hover:border-slate-400 dark:bg-slate-700 dark:border-slate-500 dark:hover:border-slate-400'
           }`}
           style={{ left: `${maxPct}%`, top: '50%', transform: 'translate(-50%,-50%)' }}
           onMouseDown={startDrag('max')}
@@ -652,8 +652,8 @@ function FocalRangeSlider({
                 onClick={() => onLensTypeChange(type.id)}
                 className={`group rounded-xl p-[1px] text-left transition-all duration-150 focus:outline-none ${
                   selected
-                    ? 'bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] shadow-sm shadow-indigo-500/15'
-                    : 'bg-slate-200/80 hover:bg-indigo-300/70 dark:bg-white/10 dark:hover:bg-indigo-400/30'
+                    ? 'bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] shadow-[0_8px_22px_rgba(124,58,237,0.08)]'
+                    : 'bg-slate-200/80 hover:bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] dark:bg-white/10 dark:hover:bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)]'
                 }`}
               >
                 <span
@@ -1195,8 +1195,10 @@ export default function ChatInterface() {
       <aside className="hidden md:flex flex-col w-[280px] flex-shrink-0 overflow-visible border-r border-slate-200 bg-white shadow-xl shadow-slate-900/5 dark:border-white/10 dark:bg-slate-950 dark:text-slate-100 dark:shadow-black/30">
         <div className="p-5 border-b border-slate-200 dark:border-white/10">
           <div className="flex items-center gap-2.5 mb-0.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-white/10">
-              <CameraIcon className="h-4 w-4 text-violet-700 dark:text-indigo-200" />
+            <div className="rounded-lg bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] p-[1px] shadow-[0_8px_22px_rgba(124,58,237,0.08)]">
+              <div className="flex h-8 w-8 items-center justify-center rounded-[7px] bg-slate-100 dark:bg-slate-900">
+                <CameraIcon className="h-4 w-4 text-violet-700 dark:text-indigo-200" />
+              </div>
             </div>
             <span className="font-bold text-slate-950 text-sm tracking-wide dark:text-white">Camera Concierge</span>
           </div>
@@ -1205,9 +1207,12 @@ export default function ChatInterface() {
 
         {/* プロフィール設定 */}
         <div className="px-3 py-3 border-b border-slate-200 relative z-10 space-y-3 dark:border-white/10">
-          <p className="text-[10px] font-semibold text-slate-600 uppercase tracking-widest px-1 dark:text-slate-400">
-            マイプロフィール
-          </p>
+          <div className="flex items-center gap-2 px-1">
+            <p className="text-[10px] font-semibold text-slate-600 uppercase tracking-widest dark:text-slate-400">
+              マイプロフィール
+            </p>
+            <span className="h-px w-8 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] opacity-70" />
+          </div>
 
           {/* マウント */}
           <MountSelector selected={selectedMount} onChange={handleMountChange} />
@@ -1223,7 +1228,7 @@ export default function ChatInterface() {
                   onChange={(e) => {
                     if (e.target.value !== '__custom__') handleBodySave(e.target.value)
                   }}
-                  className={`w-full rounded-lg bg-white border border-slate-200 px-2.5 py-1.5 text-xs text-slate-900 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:shadow-none dark:focus:border-violet-400/60 ${
+                  className={`w-full rounded-lg bg-white border border-slate-200 px-2.5 py-1.5 text-xs text-slate-900 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-violet-500/80 focus:ring-2 focus:ring-violet-500/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:shadow-none dark:focus:border-violet-400/60 ${
                     showBodyHint && !bodyInput.trim() ? 'ring-2 ring-sky-400/20 shadow-sky-500/10 dark:ring-sky-300/20' : ''
                   }`}
                 >
@@ -1244,7 +1249,7 @@ export default function ChatInterface() {
                     }}
                     onBlur={(e) => handleBodySave(e.target.value)}
                     placeholder="機種名を直接入力..."
-                    className={`w-full rounded-lg bg-white border border-slate-200 px-2.5 py-1.5 text-xs text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:placeholder-slate-400 dark:shadow-none dark:focus:border-violet-400/60 ${
+                    className={`w-full rounded-lg bg-white border border-slate-200 px-2.5 py-1.5 text-xs text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-violet-500/80 focus:ring-2 focus:ring-violet-500/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:placeholder-slate-400 dark:shadow-none dark:focus:border-violet-400/60 ${
                       showBodyHint && !bodyInput.trim() ? 'ring-2 ring-sky-400/20 shadow-sky-500/10 dark:ring-sky-300/20' : ''
                     }`}
                   />
@@ -1261,7 +1266,7 @@ export default function ChatInterface() {
                 }}
                 onBlur={(e) => handleBodySave(e.target.value)}
                 placeholder="マウントを先に選択すると候補が出ます"
-                className="w-full rounded-lg bg-white border border-slate-200 px-2.5 py-1.5 text-xs text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:placeholder-slate-400 dark:shadow-none dark:focus:border-violet-400/60"
+                className="w-full rounded-lg bg-white border border-slate-200 px-2.5 py-1.5 text-xs text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-violet-500/80 focus:ring-2 focus:ring-violet-500/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:placeholder-slate-400 dark:shadow-none dark:focus:border-violet-400/60"
               />
             )}
             {showBodyHint && selectedMount && !bodyInput.trim() && (
@@ -1296,9 +1301,12 @@ export default function ChatInterface() {
         </div>
 
         <div className="flex-1 overflow-y-auto p-4">
-          <p className="text-[10px] font-semibold text-slate-600 uppercase tracking-widest mb-3 px-1 dark:text-slate-400">
-            クイック質問
-          </p>
+          <div className="mb-3 flex items-center gap-2 px-1">
+            <p className="text-[10px] font-semibold text-slate-600 uppercase tracking-widest dark:text-slate-400">
+              クイック質問
+            </p>
+            <span className="h-px w-8 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] opacity-70" />
+          </div>
           <div className="space-y-1">
             {QUICK_QUESTIONS.map((q, i) => (
               <motion.button
@@ -1367,8 +1375,10 @@ export default function ChatInterface() {
                     transition={{ duration: 0.35 }}
                   >
                     <div className="flex items-center gap-2.5 mb-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 ring-1 ring-slate-200 flex-shrink-0 dark:bg-gradient-to-br dark:from-indigo-500/15 dark:to-violet-500/15 dark:ring-indigo-300/30">
-                        <CameraIcon className="h-5 w-5 text-violet-600 dark:text-violet-300" />
+                      <div className="flex-shrink-0 rounded-xl bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] p-[1px] shadow-[0_8px_22px_rgba(124,58,237,0.08)]">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-[11px] bg-slate-100 dark:bg-slate-950">
+                          <CameraIcon className="h-5 w-5 text-violet-600 dark:text-violet-300" />
+                        </div>
                       </div>
                       <div>
                         <p className="text-sm font-bold text-slate-800 dark:text-white">カメラを選ぶと、提案がもっと正確になります</p>
@@ -1387,8 +1397,8 @@ export default function ChatInterface() {
                             onClick={() => handleMountChange(m)}
                             className={`group rounded-xl p-[1.5px] text-left transition-all duration-150 focus:outline-none ${
                               isSelected
-                                ? 'bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] shadow-md shadow-indigo-500/20'
-                                : 'bg-slate-200/80 hover:bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] hover:shadow-md hover:shadow-indigo-500/10 dark:bg-white/10 dark:hover:bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)]'
+                                ? 'bg-[linear-gradient(135deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] shadow-[0_10px_28px_rgba(124,58,237,0.10)]'
+                                : 'bg-slate-200/80 hover:bg-[linear-gradient(135deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] hover:shadow-[0_8px_22px_rgba(124,58,237,0.08)] dark:bg-white/10 dark:hover:bg-[linear-gradient(135deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)]'
                             }`}
                           >
                             <span
@@ -1439,7 +1449,7 @@ export default function ChatInterface() {
                             <select
                               value={BODIES_BY_MOUNT[selectedMount.id].includes(bodyInput) ? bodyInput : '__custom__'}
                               onChange={(e) => { if (e.target.value !== '__custom__') handleBodySave(e.target.value) }}
-                              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm shadow-slate-200/40 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/15 dark:border-white/10 dark:bg-slate-950 dark:text-slate-100 dark:shadow-none dark:focus:border-violet-400/60"
+                              className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm shadow-slate-200/40 focus:border-violet-500/80 focus:outline-none focus:ring-2 focus:ring-violet-500/15 dark:border-white/10 dark:bg-slate-950 dark:text-slate-100 dark:shadow-none dark:focus:border-violet-400/60"
                             >
                               <option value="">-- カメラを選択してください --</option>
                               {BODIES_BY_MOUNT[selectedMount.id].map((b) => (
@@ -1455,7 +1465,7 @@ export default function ChatInterface() {
                                 onChange={(e) => setBodyInput(e.target.value)}
                                 onBlur={(e) => handleBodySave(e.target.value)}
                                 placeholder="候補にない機種名を入力..."
-                                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm shadow-slate-200/40 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/15 dark:border-white/10 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500 dark:shadow-none dark:focus:border-violet-400/60"
+                                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm shadow-slate-200/40 focus:border-violet-500/80 focus:outline-none focus:ring-2 focus:ring-violet-500/15 dark:border-white/10 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500 dark:shadow-none dark:focus:border-violet-400/60"
                               />
                             )}
                           </div>
@@ -1466,7 +1476,7 @@ export default function ChatInterface() {
                             onChange={(e) => setBodyInput(e.target.value)}
                             onBlur={(e) => handleBodySave(e.target.value)}
                             placeholder="使用カメラ名を入力..."
-                            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm shadow-slate-200/40 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/15 dark:border-white/10 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500 dark:shadow-none dark:focus:border-violet-400/60"
+                            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 shadow-sm shadow-slate-200/40 focus:border-violet-500/80 focus:outline-none focus:ring-2 focus:ring-violet-500/15 dark:border-white/10 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500 dark:shadow-none dark:focus:border-violet-400/60"
                           />
                         )}
 
@@ -1510,8 +1520,10 @@ export default function ChatInterface() {
 
                 {/* ── 通常の空状態 ── */}
                 <div className="text-center">
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white ring-1 ring-slate-200 mb-3 shadow-lg shadow-slate-200/70 dark:bg-white/[0.08] dark:ring-white/15 dark:shadow-black/20">
-                    <CameraIcon className="h-7 w-7 text-violet-600 dark:text-violet-300" />
+                  <div className="mb-3 inline-flex rounded-2xl bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] p-[1px] shadow-[0_8px_22px_rgba(124,58,237,0.08)]">
+                    <div className="inline-flex h-14 w-14 items-center justify-center rounded-[15px] bg-white dark:bg-slate-950">
+                      <CameraIcon className="h-7 w-7 text-violet-600 dark:text-violet-300" />
+                    </div>
                   </div>
                   {selectedMount && (
                     <div className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-medium text-violet-700 shadow-sm shadow-fuchsia-500/5 dark:border-violet-400/20 dark:bg-indigo-400/10 dark:text-indigo-200">
@@ -1537,7 +1549,7 @@ export default function ChatInterface() {
                           transition={{ duration: 0.3, delay: i * 0.05, ease: 'easeOut' }}
                           whileHover={{ y: -2 }}
                           whileTap={{ scale: 0.98 }}
-                          className="group rounded-2xl bg-slate-200/80 p-[1px] text-left shadow-sm shadow-slate-200/60 transition-all hover:bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)] hover:shadow-lg hover:shadow-indigo-500/10 focus:outline-none dark:bg-white/10 dark:shadow-none dark:hover:bg-[linear-gradient(90deg,#2563EB_0%,#6366F1_55%,#A78BFA_100%)]"
+                          className="group rounded-2xl bg-slate-200/80 p-[1px] text-left shadow-sm shadow-slate-200/60 transition-all hover:bg-[linear-gradient(135deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] hover:shadow-[0_8px_22px_rgba(124,58,237,0.08)] focus:outline-none dark:bg-white/10 dark:shadow-none dark:hover:bg-[linear-gradient(135deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)]"
                         >
                           <span className="flex min-h-[104px] flex-col items-start justify-between rounded-[15px] bg-white px-3 py-3.5 text-slate-800 transition-colors group-hover:bg-slate-50 dark:bg-slate-900/90 dark:text-slate-100 dark:group-hover:bg-slate-900">
                             <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-colors group-hover:border-indigo-200 group-hover:bg-white group-hover:text-violet-700 dark:border-white/10 dark:bg-slate-950 dark:text-slate-300 dark:group-hover:border-violet-400/40 dark:group-hover:bg-slate-950 dark:group-hover:text-indigo-200">
@@ -1577,8 +1589,10 @@ export default function ChatInterface() {
                   <div className="flex-1">
                     {msg.role === 'user' ? (
                       <div className="flex justify-end">
-                        <div className="max-w-[85%] rounded-2xl rounded-tr-none border border-violet-400/20 bg-[linear-gradient(135deg,#2563EB_0%,#4F46E5_55%,#8B5CF6_100%)] px-4 py-3 text-sm leading-relaxed text-white shadow-lg shadow-violet-500/15 whitespace-pre-wrap">
-                          {msg.content}
+                        <div className="max-w-[85%] rounded-2xl rounded-tr-none bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] p-[2px] shadow-[0_10px_30px_rgba(124,58,237,0.12)]">
+                          <div className="rounded-[14px] rounded-tr-none bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.96)_100%)] px-4 py-3 text-sm leading-relaxed text-slate-900 shadow-sm shadow-white/60 whitespace-pre-wrap">
+                            {msg.content}
+                          </div>
                         </div>
                       </div>
                     ) : (
@@ -1660,7 +1674,7 @@ export default function ChatInterface() {
                         <select
                           value={BODIES_BY_MOUNT[selectedMount.id].includes(bodyInput) ? bodyInput : '__custom__'}
                           onChange={(e) => { if (e.target.value !== '__custom__') handleBodySave(e.target.value) }}
-                          className={`w-full rounded-lg bg-white border border-slate-200 px-2.5 py-2 text-sm text-slate-900 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:shadow-none dark:focus:border-violet-400/60 ${
+                          className={`w-full rounded-lg bg-white border border-slate-200 px-2.5 py-2 text-sm text-slate-900 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-violet-500/80 focus:ring-2 focus:ring-violet-500/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:shadow-none dark:focus:border-violet-400/60 ${
                             showBodyHint && !bodyInput.trim() ? 'ring-2 ring-sky-400/20 shadow-sky-500/10 dark:ring-sky-300/20' : ''
                           }`}
                         >
@@ -1678,7 +1692,7 @@ export default function ChatInterface() {
                             }}
                             onBlur={(e) => handleBodySave(e.target.value)}
                             placeholder="機種名を直接入力..."
-                            className={`w-full rounded-lg bg-white border border-slate-200 px-2.5 py-2 text-sm text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:placeholder-slate-400 dark:shadow-none dark:focus:border-violet-400/60 ${
+                            className={`w-full rounded-lg bg-white border border-slate-200 px-2.5 py-2 text-sm text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-violet-500/80 focus:ring-2 focus:ring-violet-500/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:placeholder-slate-400 dark:shadow-none dark:focus:border-violet-400/60 ${
                               showBodyHint && !bodyInput.trim() ? 'ring-2 ring-sky-400/20 shadow-sky-500/10 dark:ring-sky-300/20' : ''
                             }`}
                           />
@@ -1692,7 +1706,7 @@ export default function ChatInterface() {
                         }}
                         onBlur={(e) => handleBodySave(e.target.value)}
                         placeholder="マウントを先に選択すると候補が出ます"
-                        className="w-full rounded-lg bg-white border border-slate-200 px-2.5 py-2 text-sm text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:placeholder-slate-400 dark:shadow-none dark:focus:border-violet-400/60"
+                        className="w-full rounded-lg bg-white border border-slate-200 px-2.5 py-2 text-sm text-slate-900 placeholder-slate-500 shadow-sm shadow-slate-200/40 focus:outline-none focus:border-violet-500/80 focus:ring-2 focus:ring-violet-500/15 dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-100 dark:placeholder-slate-400 dark:shadow-none dark:focus:border-violet-400/60"
                       />
                     )}
                     {showBodyHint && selectedMount && !bodyInput.trim() && (
@@ -1794,7 +1808,7 @@ export default function ChatInterface() {
               {messages.length > 0 && (
                 <button
                   onClick={handleNewChat}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-medium text-slate-500 shadow-sm shadow-slate-200/50 transition-all hover:border-violet-300 hover:text-slate-800 hover:shadow-md hover:shadow-violet-500/10 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-400 dark:shadow-none dark:hover:border-violet-400/40 dark:hover:text-slate-200"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-medium text-slate-500 shadow-sm shadow-slate-200/50 transition-all hover:border-violet-400/50 hover:text-slate-800 hover:shadow-[0_8px_22px_rgba(124,58,237,0.08)] dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-400 dark:shadow-none dark:hover:border-violet-400/40 dark:hover:text-slate-200"
                 >
                   <RotateCcw className="h-3 w-3" />
                   新規相談
@@ -1813,7 +1827,7 @@ export default function ChatInterface() {
                 onCompositionEnd={() => { isComposingRef.current = false }}
                 placeholder="例：運動会で動く子供を撮りたい..."
                 rows={1}
-                className="flex-1 resize-none rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-3 text-sm text-slate-950 shadow-sm shadow-slate-200/70 backdrop-blur-xl placeholder-slate-500 focus:border-violet-400/90 focus:outline-none focus:ring-4 focus:ring-indigo-400/20 max-h-32 overflow-y-auto dark:border-white/15 dark:bg-white/[0.08] dark:text-white dark:placeholder-slate-400 dark:shadow-none dark:focus:border-violet-400/60"
+                className="flex-1 resize-none rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-3 text-sm text-slate-950 shadow-sm shadow-slate-200/70 backdrop-blur-xl placeholder-slate-500 focus:border-violet-500/80 focus:outline-none focus:ring-4 focus:ring-violet-500/15 max-h-32 overflow-y-auto dark:border-white/15 dark:bg-white/[0.08] dark:text-white dark:placeholder-slate-400 dark:shadow-none dark:focus:border-violet-400/60"
                 style={{ height: 'auto' }}
                 onInput={(e) => {
                   const el = e.currentTarget
