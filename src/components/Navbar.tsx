@@ -25,8 +25,9 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/85 shadow-sm shadow-slate-900/5 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/80 dark:shadow-black/20">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-2.5">
+    <nav className="sticky top-0 z-50 overflow-hidden border-b border-slate-200/80 bg-white/85 shadow-sm shadow-slate-900/5 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/80 dark:shadow-black/20">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-[radial-gradient(60%_120%_at_50%_100%,rgba(124,58,237,0.08)_0%,rgba(217,70,239,0.04)_38%,transparent_72%)]" />
+      <div className="relative mx-auto flex max-w-5xl items-center justify-between px-4 py-2.5">
         {/* Mobile brand. Desktop brand lives in the sidebar. */}
         <Link href="/" className="flex items-center gap-2 font-semibold text-slate-950 md:hidden dark:text-white">
           <span className="rounded-xl bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] p-[1px] shadow-[0_8px_22px_rgba(124,58,237,0.08)]">
@@ -36,11 +37,13 @@ export default function Navbar() {
           </span>
           <span className="text-sm tracking-tight">Camera Concierge</span>
         </Link>
-        <div className="hidden md:block" aria-hidden="true" />
+        <div className="hidden items-center gap-2 md:flex" aria-hidden="true">
+          <span className="h-px w-16 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] opacity-45" />
+        </div>
 
         {/* Screen nav + Dark mode */}
-        <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1 rounded-2xl border border-slate-200/80 bg-white/80 p-1 shadow-sm shadow-slate-200/60 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none">
+        <div className="flex items-center gap-1 rounded-2xl border border-slate-200/80 bg-white/75 p-1 shadow-sm shadow-slate-200/60 backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none">
+          <div className="flex items-center gap-1">
           <Link
             href="/"
             className={`flex items-center gap-1.5 rounded-xl p-[1px] text-sm font-medium transition-all ${
