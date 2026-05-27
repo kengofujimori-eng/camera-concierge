@@ -29,13 +29,16 @@ export default function Navbar() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-[radial-gradient(60%_120%_at_50%_100%,rgba(124,58,237,0.08)_0%,rgba(217,70,239,0.04)_38%,transparent_72%)]" />
       <div className="relative mx-auto flex max-w-5xl items-center justify-between px-4 py-2.5">
         {/* Brand */}
-        <Link href="/" className="flex items-center gap-2.5 font-bold text-slate-950 dark:text-white">
-          <span className="rounded-2xl bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] p-[1px] shadow-[0_8px_22px_rgba(124,58,237,0.08)]">
-            <span className="flex h-10 w-10 items-center justify-center rounded-[15px] bg-white dark:bg-slate-950">
-              <Camera className="h-5 w-5 text-violet-700 dark:text-violet-300" />
+        <Link href="/" className="flex items-center gap-2.5 font-semibold text-slate-950 dark:text-white">
+          <span className="rounded-xl bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] p-[1px] shadow-[0_8px_22px_rgba(124,58,237,0.08)]">
+            <span className="flex h-9 w-9 items-center justify-center rounded-[11px] bg-white dark:bg-slate-950">
+              <Camera className="h-[18px] w-[18px] text-violet-700 dark:text-violet-300" />
             </span>
           </span>
-          <span className="text-base tracking-tight md:text-[17px]">Camera Concierge</span>
+          <span className="flex flex-col leading-tight">
+            <span className="text-sm tracking-tight md:text-[15px]">Camera Concierge</span>
+            <span className="hidden text-[11px] font-medium text-slate-500 md:block dark:text-slate-400">AI カメラ・レンズ相談</span>
+          </span>
         </Link>
 
         {/* Screen nav + Dark mode */}
