@@ -1193,20 +1193,8 @@ export default function ChatInterface() {
 
       {/* ── サイドバー（デスクトップのみ） ── */}
       <aside className="hidden md:flex flex-col w-[280px] flex-shrink-0 overflow-visible border-r border-slate-200 bg-white shadow-xl shadow-slate-900/5 dark:border-white/10 dark:bg-slate-950 dark:text-slate-100 dark:shadow-black/30">
-        <div className="p-5 border-b border-slate-200 dark:border-white/10">
-          <div className="flex items-center gap-2.5 mb-0.5">
-            <div className="rounded-xl bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] p-[1px] shadow-[0_8px_22px_rgba(124,58,237,0.08)]">
-              <div className="flex h-8 w-8 items-center justify-center rounded-[11px] bg-white dark:bg-slate-950">
-                <CameraIcon className="h-4 w-4 text-violet-700 dark:text-violet-300" />
-              </div>
-            </div>
-            <span className="font-bold text-slate-950 text-sm tracking-wide dark:text-white">Camera Concierge</span>
-          </div>
-          <p className="text-[11px] text-slate-600 ml-[42px] dark:text-slate-400">AI カメラ・レンズ相談</p>
-        </div>
-
         {/* プロフィール設定 */}
-        <div className="px-3 py-3 border-b border-slate-200 relative z-10 space-y-3 dark:border-white/10">
+        <div className="px-3 py-4 border-b border-slate-200 relative z-10 space-y-3 dark:border-white/10">
           <div className="flex items-center gap-2 px-1">
             <p className="text-[10px] font-semibold text-slate-600 uppercase tracking-widest dark:text-slate-400">
               マイプロフィール
