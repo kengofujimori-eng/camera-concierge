@@ -631,7 +631,7 @@ export default function WarehousePage() {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h1 className="text-2xl font-semibold tracking-tight text-slate-950 dark:text-white">デジタルレンズ倉庫</h1>
-            <div className="mt-2 h-px w-16 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] opacity-70" />
+            <div className="mt-2 h-px w-14 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] opacity-60" />
             <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">保存したレンズを、所有と欲しいリストで整理します。</p>
           </div>
           <p className="text-sm font-medium text-slate-500 dark:text-slate-400">所有 {owned.length}本 ／ 欲しい {wishlist.length}本</p>

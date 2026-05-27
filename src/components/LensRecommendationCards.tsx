@@ -490,8 +490,8 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
 
         {/* AI分析 */}
         {(aiReason || aiCaution) && (
-          <details className="mt-3 overflow-hidden rounded-xl border border-indigo-200/80 bg-indigo-50/40 text-xs text-slate-700 shadow-sm shadow-indigo-500/5 dark:border-indigo-400/25 dark:bg-indigo-400/10 dark:text-slate-300">
-            <summary className="cursor-pointer select-none px-3 py-2.5 font-semibold text-violet-700 transition-colors hover:text-violet-900 dark:text-indigo-200 dark:hover:text-white">
+          <details className="mt-3 overflow-hidden rounded-xl border border-violet-200/70 bg-white/70 text-xs text-slate-700 shadow-[0_8px_22px_rgba(124,58,237,0.06)] dark:border-violet-400/25 dark:bg-slate-950/30 dark:text-slate-300">
+            <summary className="cursor-pointer select-none px-3 py-2.5 font-semibold text-violet-700 transition-colors hover:text-violet-900 dark:text-violet-200 dark:hover:text-white">
               <span className="inline-flex items-center gap-1.5">
                 <Sparkles className="h-3.5 w-3.5" />
                 AIが選んだ理由を見る
@@ -500,7 +500,7 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
                 推薦理由・注意点
               </span>
             </summary>
-            <div className="border-t border-indigo-100/80 bg-white/70 px-3 py-2.5 dark:border-indigo-400/20 dark:bg-slate-950/30">
+            <div className="border-t border-violet-100/80 bg-white/70 px-3 py-2.5 dark:border-violet-400/20 dark:bg-slate-950/30">
               {aiReason && (
                 <p className="mb-1.5 leading-relaxed">
                   <span className="font-semibold text-slate-800 dark:text-slate-100">おすすめ理由：</span>{aiReason}

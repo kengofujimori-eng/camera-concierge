@@ -1195,9 +1195,9 @@ export default function ChatInterface() {
       <aside className="hidden md:flex flex-col w-[280px] flex-shrink-0 overflow-visible border-r border-slate-200 bg-white shadow-xl shadow-slate-900/5 dark:border-white/10 dark:bg-slate-950 dark:text-slate-100 dark:shadow-black/30">
         <div className="p-5 border-b border-slate-200 dark:border-white/10">
           <div className="flex items-center gap-2.5 mb-0.5">
-            <div className="rounded-lg bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] p-[1px] shadow-[0_8px_22px_rgba(124,58,237,0.08)]">
-              <div className="flex h-8 w-8 items-center justify-center rounded-[7px] bg-slate-100 dark:bg-slate-900">
-                <CameraIcon className="h-4 w-4 text-violet-700 dark:text-indigo-200" />
+            <div className="rounded-xl bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] p-[1px] shadow-[0_8px_22px_rgba(124,58,237,0.08)]">
+              <div className="flex h-8 w-8 items-center justify-center rounded-[11px] bg-white dark:bg-slate-950">
+                <CameraIcon className="h-4 w-4 text-violet-700 dark:text-violet-300" />
               </div>
             </div>
             <span className="font-bold text-slate-950 text-sm tracking-wide dark:text-white">Camera Concierge</span>
@@ -1211,7 +1211,7 @@ export default function ChatInterface() {
             <p className="text-[10px] font-semibold text-slate-600 uppercase tracking-widest dark:text-slate-400">
               マイプロフィール
             </p>
-            <span className="h-px w-8 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] opacity-70" />
+            <span className="h-px w-8 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] opacity-60" />
           </div>
 
           {/* マウント */}
@@ -1305,7 +1305,7 @@ export default function ChatInterface() {
             <p className="text-[10px] font-semibold text-slate-600 uppercase tracking-widest dark:text-slate-400">
               クイック質問
             </p>
-            <span className="h-px w-8 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] opacity-70" />
+            <span className="h-px w-8 rounded-full bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] opacity-60" />
           </div>
           <div className="space-y-1">
             {QUICK_QUESTIONS.map((q, i) => (
@@ -1369,14 +1369,14 @@ export default function ChatInterface() {
                 {/* ── セットアップガイダンス（初回のみ・設定済みなら非表示） ── */}
                 {!setupDone && (
                   <motion.div
-                    className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 max-w-2xl mx-auto shadow-lg shadow-slate-200/70 dark:border-white/15 dark:bg-slate-950/70 dark:shadow-indigo-950/20"
+                    className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 max-w-2xl mx-auto shadow-lg shadow-slate-200/70 dark:border-white/15 dark:bg-slate-950/70 dark:shadow-slate-900/10"
                     initial={{ opacity: 0, scale: 0.97 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.35 }}
                   >
                     <div className="flex items-center gap-2.5 mb-3">
                       <div className="flex-shrink-0 rounded-xl bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] p-[1px] shadow-[0_8px_22px_rgba(124,58,237,0.08)]">
-                        <div className="flex h-9 w-9 items-center justify-center rounded-[11px] bg-slate-100 dark:bg-slate-950">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-[11px] bg-white dark:bg-slate-950">
                           <CameraIcon className="h-5 w-5 text-violet-600 dark:text-violet-300" />
                         </div>
                       </div>
@@ -1526,7 +1526,7 @@ export default function ChatInterface() {
                     </div>
                   </div>
                   {selectedMount && (
-                    <div className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-medium text-violet-700 shadow-sm shadow-fuchsia-500/5 dark:border-violet-400/20 dark:bg-indigo-400/10 dark:text-indigo-200">
+                    <div className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full border border-violet-200/80 bg-white px-3 py-1 text-xs font-medium text-violet-700 shadow-[0_8px_22px_rgba(124,58,237,0.08)] dark:border-violet-400/25 dark:bg-slate-950 dark:text-violet-300">
                       <Check className="h-3.5 w-3.5" />
                       現在の設定: {selectedMount.label} / {selectedMount.sub}
                     </div>
