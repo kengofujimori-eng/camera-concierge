@@ -318,7 +318,7 @@ function WarehouseCard({ item, onDelete, onUpdateMemo, isDeleting, lensLinkDb, l
 
         {/* 新品購入リンク */}
         <div className="px-4 py-2.5">
-          <Collapse label={`🛒 新品で買う${priceInfo?.new_price ? `（${formatPrice(priceInfo.new_price)}〜）` : ''}`}>
+          <Collapse label={`🛒 新品で買う${priceInfo?.new_price ? `（${formatPrice(priceInfo.new_price)}〜）` : ''} / PR`}>
             <div className="flex flex-wrap gap-x-3 gap-y-1.5">
               {(newLinks.length > 0 ? newLinks : fallbackNew).map(l => (
                 <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer"
@@ -332,7 +332,7 @@ function WarehouseCard({ item, onDelete, onUpdateMemo, isDeleting, lensLinkDb, l
 
         {/* 中古購入リンク */}
         <div className="px-4 py-2.5">
-          <Collapse label={`♻️ 中古で買う${priceInfo?.used_price ? `（${formatPrice(priceInfo.used_price)}〜）` : ''}`}>
+          <Collapse label={`♻️ 中古で買う${priceInfo?.used_price ? `（${formatPrice(priceInfo.used_price)}〜）` : ''} / PR`}>
             <div className="flex flex-wrap gap-x-3 gap-y-1.5">
               {(usedLinks.length > 0 ? usedLinks : fallbackUsed).map(l => (
                 <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer"

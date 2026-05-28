@@ -451,7 +451,7 @@ function LensCard({ item, priceDb, linkDb, onDelete }: {
       {/* 折りたたみセクション */}
       <div className="flex flex-col mt-1">
         {/* 新品で買う */}
-        <Collapse label={`🛒 新品で買う${priceInfo?.new_price ? `（${formatPrice(priceInfo.new_price)}〜）` : ''}`}>
+        <Collapse label={`🛒 新品で買う${priceInfo?.new_price ? `（${formatPrice(priceInfo.new_price)}〜）` : ''} / PR`}>
           <div className="flex flex-wrap gap-x-4 gap-y-1.5">
             {(newLinks.length > 0 ? newLinks : fallbackNew).map(l => (
               <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer"
@@ -463,7 +463,7 @@ function LensCard({ item, priceDb, linkDb, onDelete }: {
         </Collapse>
 
         {/* 中古で買う */}
-        <Collapse label={`♻️ 中古で買う${priceInfo?.used_price ? `（${formatPrice(priceInfo.used_price)}〜）` : ''}`}>
+        <Collapse label={`♻️ 中古で買う${priceInfo?.used_price ? `（${formatPrice(priceInfo.used_price)}〜）` : ''} / PR`}>
           <div className="flex flex-wrap gap-x-4 gap-y-1.5">
             {(usedLinks.length > 0 ? usedLinks : fallbackUsed).map(l => (
               <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer"

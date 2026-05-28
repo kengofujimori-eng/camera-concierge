@@ -542,7 +542,10 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
 
         {/* 購入リンク */}
         <div className="mt-3 border-t border-slate-100 pt-2.5 dark:border-slate-700/60">
-          <p className="mb-1.5 text-[11px] font-semibold text-slate-500 dark:text-slate-400">購入先</p>
+          <div className="mb-1.5 flex items-center gap-2">
+            <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">購入先</p>
+            <span className="text-[10px] font-medium text-slate-400 dark:text-slate-500">PR</span>
+          </div>
           <div className="space-y-2 rounded-lg border border-slate-100 bg-slate-50/70 p-2.5 dark:border-slate-700/60 dark:bg-slate-900/25">
             <div className="flex flex-col gap-1.5 sm:flex-row sm:items-start">
               <p className="shrink-0 text-[11px] font-semibold text-slate-500 dark:text-slate-400 sm:w-24">

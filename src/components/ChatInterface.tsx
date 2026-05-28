@@ -29,6 +29,7 @@ import { ChatMessage } from '@/types'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 import LensRecommendationCards from './LensRecommendationCards'
+import AffiliateDisclosure from './AffiliateDisclosure'
 import { generateAmazonSearchUrl } from '@/lib/affiliateLinks'
 
 marked.setOptions({ breaks: true })
@@ -1339,6 +1340,7 @@ export default function ChatInterface() {
               </span>
             )}
           </Link>
+          <AffiliateDisclosure className="border-t border-slate-100 px-1 pt-3 dark:border-white/10" compact />
         </div>
       </aside>
 
@@ -1835,9 +1837,12 @@ export default function ChatInterface() {
                 <Send className="h-4 w-4" />
               </motion.button>
             </div>
-            <p className="mt-2 text-center text-xs text-slate-400 dark:text-slate-600 hidden md:block">
-              Shift+Enter で送信 / Enter で改行
-            </p>
+            <div className="mt-2 hidden items-center justify-center gap-3 md:flex">
+              <p className="text-xs text-slate-400 dark:text-slate-600">
+                Shift+Enter で送信 / Enter で改行
+              </p>
+              <AffiliateDisclosure compact />
+            </div>
           </div>
         </div>
       </div>

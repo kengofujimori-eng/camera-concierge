@@ -106,6 +106,7 @@ export default function ProductCard({ product }: Props) {
           {saved ? '保存済' : '倉庫へ'}
         </button>
       </div>
+      <p className="mt-1.5 text-[10px] text-slate-400 dark:text-slate-500">PR / アフィリエイト広告を含みます</p>
 
       {/* Feedback message */}
       {message && (
