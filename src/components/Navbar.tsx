@@ -1,8 +1,9 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Camera, MessageCircle, Warehouse, Moon, Sun } from 'lucide-react'
+import { MessageCircle, Warehouse, Moon, Sun } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 export default function Navbar() {
@@ -31,8 +32,15 @@ export default function Navbar() {
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2.5 font-semibold text-slate-950 dark:text-white">
           <span className="rounded-xl bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] p-[1px] shadow-[0_8px_22px_rgba(124,58,237,0.08)]">
-            <span className="flex h-9 w-9 items-center justify-center rounded-[11px] bg-white dark:bg-slate-950">
-              <Camera className="h-[18px] w-[18px] text-violet-700 dark:text-violet-300" />
+            <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-[11px] bg-white dark:bg-slate-950">
+              <Image
+                src="/brand/lens-navi-icon.png"
+                alt="Lens Navi"
+                width={30}
+                height={30}
+                className="h-[30px] w-[30px] rounded-[9px] object-cover"
+                priority
+              />
             </span>
           </span>
           <span className="flex flex-col leading-tight">

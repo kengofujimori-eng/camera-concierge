@@ -25,6 +25,7 @@ import {
 } from 'lucide-react'
 import { motion, AnimatePresence, type Variants } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ChatMessage } from '@/types'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
@@ -1354,6 +1355,22 @@ export default function ChatInterface() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
               >
+                <motion.div
+                  className="mx-auto mb-6 hidden max-w-xl overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-lg shadow-slate-900/5 sm:block dark:border-white/10 dark:bg-slate-950"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, ease: 'easeOut' }}
+                >
+                  <Image
+                    src="/brand/lens-navi-og.png"
+                    alt="Lens Navi - レンズ選びのAIナビ"
+                    width={1731}
+                    height={909}
+                    className="h-auto w-full object-contain"
+                    priority
+                  />
+                </motion.div>
+
                 {/* ── セットアップガイダンス（初回のみ・設定済みなら非表示） ── */}
                 {!setupDone && (
                   <motion.div
