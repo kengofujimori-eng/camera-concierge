@@ -1,6 +1,6 @@
 # Launch readiness checklist
 
-Camera Concierge public beta 前の実用チェックリスト。
+Lens Navi public beta 前の実用チェックリスト。
 次チャットや将来の Codex が迷わないよう、短く確認観点を残す。
 
 ## Current readiness

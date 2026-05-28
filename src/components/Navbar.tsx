@@ -36,8 +36,8 @@ export default function Navbar() {
             </span>
           </span>
           <span className="flex flex-col leading-tight">
-            <span className="text-sm tracking-tight md:text-[15px]">Camera Concierge</span>
-            <span className="hidden text-[11px] font-medium text-slate-500 md:block dark:text-slate-400">AI カメラ・レンズ相談</span>
+            <span className="text-sm tracking-tight md:text-[15px]">Lens Navi</span>
+            <span className="hidden text-[11px] font-medium text-slate-500 md:block dark:text-slate-400">レンズ選びのAIナビ</span>
           </span>
         </Link>
 

@@ -1,6 +1,6 @@
 # Public beta manual review
 
-Camera Concierge 公開β前の手動レビュー結果メモ。
+Lens Navi 公開β前の手動レビュー結果メモ。
 DB / API / 推薦ロジック / 価格 / localStorage はこの記録では変更しない。
 
 ## Current status
@@ -122,4 +122,3 @@ Policy:
 - 価格・画像は、同一製品・同一マウントの根拠が取れた場合のみ修正する。
 - 曖昧な候補は自動修正せず、manual review / unresolved として残す。
 - 公開βでは、価格・画像の違和感があればフィードバック対象とする。
-

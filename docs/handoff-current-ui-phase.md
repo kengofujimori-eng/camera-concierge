@@ -1,10 +1,10 @@
-# Camera Concierge handoff: current UI phase
+# Lens Navi handoff: current UI phase
 
 Last updated: 2026-05-15
 
 ## Current direction
 
-Camera Concierge is moving toward a modern product UI.
+Lens Navi, formerly Camera Concierge, is moving toward a modern product UI.
 
 Design direction:
 - White / slate base
