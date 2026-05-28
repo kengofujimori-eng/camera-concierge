@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Trash2, PackageOpen, Pencil, Check, X, ChevronDown, ChevronUp } from 'lucide-react'
 import { motion, AnimatePresence, type Variants } from 'framer-motion'
+import { generateAmazonSearchUrl, withAmazonTag } from '@/lib/affiliateLinks'
 
 // localStorage に保存されるアイテム
 interface StoredItem {
@@ -146,7 +147,7 @@ function WarehouseCard({ item, onDelete, onUpdateMemo, isDeleting, lensLinkDb, l
   const purchaseLinks = priceData?.purchase_links
 
   const newLinks = [
-    purchaseLinks?.new.amazon  && { label: '🛒 Amazon', url: purchaseLinks.new.amazon },
+    purchaseLinks?.new.amazon  && { label: '🛒 Amazon', url: withAmazonTag(purchaseLinks.new.amazon) },
     purchaseLinks?.new.rakuten && { label: '🔴 楽天',   url: purchaseLinks.new.rakuten },
     purchaseLinks?.new.yahoo   && { label: '🟡 Yahoo',  url: purchaseLinks.new.yahoo },
   ].filter(Boolean) as { label: string; url: string }[]
@@ -158,7 +159,7 @@ function WarehouseCard({ item, onDelete, onUpdateMemo, isDeleting, lensLinkDb, l
 
   // フォールバック
   const fallbackNew = [
-    { label: '🛒 Amazon', url: `https://www.amazon.co.jp/s?k=${encodeURIComponent(cleanName)}&tag=techddd-22` },
+    { label: '🛒 Amazon', url: generateAmazonSearchUrl(cleanName) },
     { label: '🔴 楽天',   url: `https://search.rakuten.co.jp/search/mall/${encodeURIComponent(cleanName)}/` },
     { label: '🟡 Yahoo',  url: `https://shopping.yahoo.co.jp/search?p=${encodeURIComponent(cleanName)}` },
   ]

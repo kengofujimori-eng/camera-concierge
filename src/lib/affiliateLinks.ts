@@ -9,6 +9,9 @@
 
 /** Amazon アソシエイトタグ */
 const AMAZON_TAG = 'techddd-22'
+const AMAZON_JP_HOST = 'www.amazon.co.jp'
+const AMAZON_RETAIL_HOST_RE = /(^|\.)amazon\.(co\.jp|com)$/i
+const AMAZON_ASIN_PATH_RE = /\/(?:dp|gp\/product|product)\/([A-Z0-9]{10})(?:[/?]|$)/i
 
 /**
  * 楽天アフィリエイト ID パス
@@ -34,26 +37,38 @@ const KITAMURA_A8_MAT = '4B1N9L+CONHRM+2O9U+BW8O2'
 // ─── URL 生成関数 ───────────────────────────────────────────────────────────────
 
 /**
- * Amazon URL にアフィリエイトタグを付与する
- * - amazon.co.jp の URL であれば tag パラメータを上書き/追加
+ * Amazon URL に日本向けアフィリエイトタグを付与する
+ * - amazon.com は amazon.co.jp に正規化
+ * - ASIN が取れる商品 URL は /dp/{ASIN}/ref=nosim?tag=... 形式に統一
  * - 検索クエリから URL を生成する場合は generateAmazonSearchUrl を使用
  */
 export function withAmazonTag(url: string): string {
   try {
     const u = new URL(url)
-    if (u.hostname.includes('amazon.co.jp') || u.hostname.includes('amazon.com')) {
-      u.searchParams.set('tag', AMAZON_TAG)
-      return u.toString()
-    }
+    if (!AMAZON_RETAIL_HOST_RE.test(u.hostname)) return url
+
+    const asin = u.pathname.match(AMAZON_ASIN_PATH_RE)?.[1]
+    if (asin) return generateAmazonProductUrl(asin)
+
+    u.protocol = 'https:'
+    u.hostname = AMAZON_JP_HOST
+    u.port = ''
+    u.searchParams.set('tag', AMAZON_TAG)
+    return u.toString()
   } catch {
     // URL パース失敗時はそのまま返す
   }
   return url
 }
 
+/** Amazon 商品URL を生成（日本向けアフィリエイトタグ付き） */
+export function generateAmazonProductUrl(asin: string): string {
+  return `https://${AMAZON_JP_HOST}/dp/${asin.toUpperCase()}/ref=nosim?tag=${AMAZON_TAG}`
+}
+
 /** Amazon 検索URL を生成（アフィリエイトタグ付き） */
 export function generateAmazonSearchUrl(query: string): string {
-  return `https://www.amazon.co.jp/s?k=${encodeURIComponent(query)}&tag=${AMAZON_TAG}`
+  return `https://${AMAZON_JP_HOST}/s?k=${encodeURIComponent(query)}&tag=${AMAZON_TAG}`
 }
 
 /**

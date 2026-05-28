@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { ShoppingCart, Plus, Check, Camera, Aperture } from 'lucide-react'
 import { Product } from '@/types'
+import { withAmazonTag } from '@/lib/affiliateLinks'
 
 interface Props {
   product: Product
@@ -84,7 +85,7 @@ export default function ProductCard({ product }: Props) {
       {/* Actions */}
       <div className="flex gap-2">
         <a
-          href={product.amazonUrl}
+          href={withAmazonTag(product.amazonUrl)}
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-amber-400 px-3 py-2 text-sm font-medium text-slate-900 transition-colors hover:bg-amber-500"
