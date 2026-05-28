@@ -1807,6 +1807,15 @@ export default function ChatInterface() {
             </div>
 
             <div className="flex gap-3 items-end">
+              <button
+                type="button"
+                onClick={handleNewChat}
+                aria-label="新規会話を開始"
+                title="新規会話を開始"
+                className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-500 shadow-sm shadow-slate-200/60 transition-all hover:border-violet-200 hover:bg-violet-50/60 hover:text-violet-600 hover:shadow-[0_8px_22px_rgba(124,58,237,0.08)] dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-400 dark:shadow-none dark:hover:border-violet-400/30 dark:hover:bg-white/10 dark:hover:text-violet-300"
+              >
+                <RotateCcw className="h-4 w-4" />
+              </button>
               <textarea
                 data-testid="chat-input"
                 ref={inputRef}
