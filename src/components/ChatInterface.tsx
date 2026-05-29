@@ -1128,6 +1128,17 @@ export default function ChatInterface() {
       .replace(/'/g, '&#39;')
   }
 
+  const choiceLineRe = /^\s*(?:[-*•]\s*)?(?:(?:✨|⭐️?)\s*)?(?:\*\*)?\s*(?:【|\[)?\s*選択肢\s*([1-3])\s*(?:】|\])?\s*(?:\*\*)?\s*[:：]?\s*(.+?)\s*$/i
+
+  function matchChoiceLine(line: string): { label: string; lensName: string } | null {
+    const match = line.match(choiceLineRe)
+    if (!match) return null
+    return {
+      label: `選択肢${match[1]}`,
+      lensName: match[2].trim(),
+    }
+  }
+
   function formatAnswerForDisplay(text: string): string {
     const lines = text
       .split(/\r?\n/)
@@ -1140,17 +1151,17 @@ export default function ChatInterface() {
       const line = lines[i]
       const next = lines[i + 1] ?? ''
 
-      const optionMatch = line.match(/^\s*✨\s*【(選択肢\d+)】\s*(.+?)\s*$/)
+      const optionMatch = matchChoiceLine(line)
 
       if (optionMatch) {
-        const optionLabel = escapeHtmlForDisplay(optionMatch[1])
-        const lensName = escapeHtmlForDisplay(optionMatch[2])
+        const optionLabel = escapeHtmlForDisplay(optionMatch.label)
+        const lensName = escapeHtmlForDisplay(optionMatch.lensName)
         let roleLabel = ''
 
         if (/^\s*表示用ラベル\s*[：:]/.test(next)) {
           roleLabel = next.replace(/^\s*表示用ラベル\s*[：:]\s*/, '').trim()
           i += 1
-        } else if (next.trim() && !/^\s*✨\s*【選択肢\d+】/.test(next)) {
+        } else if (next.trim() && !matchChoiceLine(next)) {
           roleLabel = next.trim()
           i += 1
         }

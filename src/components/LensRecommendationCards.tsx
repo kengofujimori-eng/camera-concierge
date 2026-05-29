@@ -82,15 +82,36 @@ interface LensEntry {
 
 // レンズ名として有効かを判定（mm / F数字 / 既知キーワードを含む）
 const LENS_NAME_RE = /(?:\d+(?:[.\-]\d+)?mm|[Ff]\d+(?:\.\d+)?|GM|Art|Contemporary|DG\s*DN|Di\s*III|OSS|IS\b|VC\b|STF|PF\b|APO|HSM)/i
+const OPTION_LINE_RE = /^\s*(?:[-*•]\s*)?(?:(?:✨|⭐️?)\s*)?(?:\*\*)?\s*(?:【|\[)?\s*選択肢\s*([1-3])\s*(?:】|\])?\s*(?:\*\*)?\s*[:：]?\s*(.+?)\s*$/i
 
 function escapeRegExp(str: string): string {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function matchOptionLine(line: string): { tag: string; name: string } | null {
+  const match = line.match(OPTION_LINE_RE)
+  if (!match) return null
+  const name = match[2]
+    .replace(/（.*?）/g, '')
+    .replace(/\(.*?\)/g, '')
+    .replace(/\s+[-–—]\s+.*$/, '')
+    .replace(/[\s、。：:・]+$/, '')
+    .trim()
+  return { tag: `選択肢${match[1]}`, name }
 }
 
 function extractLensEntries(text: string): LensEntry[] {
   // ** などマークダウン装飾を除去してからマッチング
   const cleaned = text.replace(/\*{1,3}/g, '')
   const entries: LensEntry[] = []
+
+  // ── 選択肢行: 表記ゆれを許容して抽出 ─────────────────────
+  for (const line of cleaned.split(/\r?\n/)) {
+    const option = matchOptionLine(line)
+    if (option && option.name.length >= 5 && LENS_NAME_RE.test(option.name) && !entries.some(e => e.name === option.name)) {
+      entries.push(option)
+    }
+  }
 
   // ── メインパターン: 【タグ】レンズ名 ──────────────────────
   // レンズ名は英字・数字で始まり、改行／括弧／説明ダッシュの直前で終わる
@@ -119,19 +140,24 @@ function extractLensEntries(text: string): LensEntry[] {
   }
 
   // ── 各候補ブロックから「おすすめ理由」「注意点」を抽出 ──
-  const optionBlocks = cleaned
-    .split(/\n\s*✨?\s*(?=【選択肢\d+】)/)
-    .filter(block => /【選択肢\d+】/.test(block))
+  const optionBlocks: string[] = []
+  let currentBlock: string[] = []
+  for (const line of cleaned.split(/\r?\n/)) {
+    if (matchOptionLine(line)) {
+      if (currentBlock.length > 0) optionBlocks.push(currentBlock.join('\n'))
+      currentBlock = [line]
+    } else if (currentBlock.length > 0) {
+      currentBlock.push(line)
+    }
+  }
+  if (currentBlock.length > 0) optionBlocks.push(currentBlock.join('\n'))
 
   for (const block of optionBlocks) {
-    const optionMatch = block.match(/【(選択肢\d+)】\s*([^\n]+)/)
+    const optionMatch = matchOptionLine(block.split(/\r?\n/)[0] ?? '')
     if (!optionMatch) continue
 
-    const tag = optionMatch[1]
-    const rawName = optionMatch[2]
-      .replace(/（.*?）/g, '')
-      .replace(/\(.*?\)/g, '')
-      .trim()
+    const tag = optionMatch.tag
+    const rawName = optionMatch.name
 
     const entry = entries.find(item => item.tag === tag)
       ?? entries.find(item => rawName.includes(item.name) || item.name.includes(rawName))
