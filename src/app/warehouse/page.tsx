@@ -135,6 +135,30 @@ function stripMd(text: string): string {
     .trim()
 }
 
+const ANALYSIS_FALLBACK_TEXT = 'このレンズは、相談内容に対する候補として保存されています。深掘りレビューでは、使いどころや注意点を確認できます。'
+const TRAILING_FOLLOW_UP_PATTERNS = [
+  /(?:\n+\s*)?(?:この中から)?さらに絞るなら、?[\s\S]{0,180}(?:どれ|何)を(?:特に)?重視しますか[？?]\s*$/,
+  /(?:\n+\s*)?(?:どれ|何)を(?:特に)?重視しますか[？?]\s*$/,
+]
+
+function removeTrailingFollowUpQuestion(text: string): string {
+  let cleaned = text.trim()
+  for (let i = 0; i < 2; i++) {
+    const before = cleaned
+    for (const pattern of TRAILING_FOLLOW_UP_PATTERNS) {
+      cleaned = cleaned.replace(pattern, '').trim()
+    }
+    if (cleaned === before) break
+  }
+  return cleaned
+}
+
+function formatWarehouseAnalysisText(text?: string): string | undefined {
+  if (!text) return undefined
+  const cleaned = removeTrailingFollowUpQuestion(stripMd(text))
+  return cleaned || undefined
+}
+
 // ── AIレンズ分析ブロック（長所・短所・アドバイス・結論）────
 interface AnalysisBlockProps {
   pros?: string; cons?: string; advice?: string; aiComment?: string
@@ -164,14 +188,22 @@ function AnalysisBlock({ pros, cons, advice, aiComment, defaultOpen = false, ite
     )
   }
 
+  const cleanedPros = formatWarehouseAnalysisText(pros)
+  const cleanedCons = formatWarehouseAnalysisText(cons)
+  const cleanedAdvice = formatWarehouseAnalysisText(advice)
+  const cleanedAiComment = formatWarehouseAnalysisText(aiComment)
   const sections = [
-    pros     && { icon: '✅', label: '長所',                  text: stripMd(pros),     color: 'text-green-700 dark:text-green-400' },
-    cons     && { icon: '⚠️', label: '短所',                  text: stripMd(cons),     color: 'text-amber-700 dark:text-amber-400' },
-    advice   && { icon: '💡', label: 'マスターのアドバイス',  text: stripMd(advice),   color: 'text-blue-700 dark:text-blue-400'   },
-    aiComment && { icon: '🎯', label: '私の結論',              text: stripMd(aiComment),color: 'text-slate-600 dark:text-slate-300'  },
+    cleanedPros      && { icon: '✅', label: '長所',                  text: cleanedPros,      color: 'text-green-700 dark:text-green-400' },
+    cleanedCons      && { icon: '⚠️', label: '短所',                  text: cleanedCons,      color: 'text-amber-700 dark:text-amber-400' },
+    cleanedAdvice    && { icon: '💡', label: 'マスターのアドバイス',  text: cleanedAdvice,    color: 'text-blue-700 dark:text-blue-400'   },
+    cleanedAiComment && { icon: '🎯', label: '私の結論',              text: cleanedAiComment, color: 'text-slate-600 dark:text-slate-300'  },
   ].filter(Boolean) as { icon: string; label: string; text: string; color: string }[]
 
-  const preview = stripMd(pros ?? aiComment ?? '').slice(0, 60) + '…'
+  if (sections.length === 0) {
+    sections.push({ icon: '🎯', label: '保存メモ', text: ANALYSIS_FALLBACK_TEXT, color: 'text-slate-600 dark:text-slate-300' })
+  }
+
+  const preview = (cleanedPros ?? cleanedAiComment ?? ANALYSIS_FALLBACK_TEXT).slice(0, 60) + '…'
 
   return (
     <div className="mt-2 rounded-lg bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-600/50 overflow-hidden">
