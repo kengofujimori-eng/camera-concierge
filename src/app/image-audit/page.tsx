@@ -133,6 +133,22 @@ function LinkOrEmpty({ href, label }: { href?: string; label: string }) {
 }
 
 export default function ImageAuditPage() {
+  if (process.env.NODE_ENV === 'production') {
+    return (
+      <main className="min-h-screen bg-slate-50 px-4 py-16 text-slate-900 dark:bg-slate-950 dark:text-white">
+        <div className="mx-auto max-w-xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+            Internal tool
+          </p>
+          <h1 className="mt-3 text-xl font-bold">Image audit is not available in production.</h1>
+          <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            This page is for local Lens Navi image review only.
+          </p>
+        </div>
+      </main>
+    )
+  }
+
   const [reviews, setReviews] = useState<Record<string, StoredReview>>({})
   const [search, setSearch] = useState('')
   const [mountFilter, setMountFilter] = useState('all')
