@@ -137,8 +137,9 @@ function stripMd(text: string): string {
 
 const ANALYSIS_FALLBACK_TEXT = 'このレンズは、相談内容に対する候補として保存されています。深掘りレビューでは、使いどころや注意点を確認できます。'
 const TRAILING_FOLLOW_UP_PATTERNS = [
-  /(?:\n+\s*)?(?:この中から)?さらに絞るなら、?[\s\S]{0,180}(?:どれ|何)を(?:特に)?重視しますか[？?]\s*$/,
-  /(?:\n+\s*)?(?:どれ|何)を(?:特に)?重視しますか[？?]\s*$/,
+  /(?:\n+\s*)?(?:この中から)?さらに絞るなら、?[\s\S]{0,220}(?:この)?(?:どれ|何)を(?:最も|特に)?重視しますか[？?]\s*$/,
+  /(?:\n+\s*)?(?:軽さ|ボケ量|AF性能|価格|写りの個性)[\s\S]{0,220}(?:この)?(?:どれ|何)を(?:最も|特に)?重視しますか[？?]\s*$/,
+  /(?:\n+\s*)?(?:この)?(?:どれ|何)を(?:最も|特に)?重視しますか[？?]\s*$/,
 ]
 
 function removeTrailingFollowUpQuestion(text: string): string {
@@ -334,7 +335,7 @@ function FocalMap({ items }: { items: LensItem[] }) {
         </div>
       </div>
       {/* 目盛り軸 */}
-      <div className="flex items-start mb-1">
+      <div className="hidden items-start mb-1 sm:flex">
         <div className="w-32 flex-shrink-0" />
         <div className="flex-1 relative h-5">
           {ZONE_LABELS.map((label, i) => {
@@ -362,11 +363,11 @@ function FocalMap({ items }: { items: LensItem[] }) {
         const label = l.focalMin === l.focalMax ? `${l.focalMin}mm` : `${l.focalMin}–${l.focalMax}mm`
         const clean = l.name.replace(/<[^>]*>/g, '').trim()
         return (
-          <div key={l.id} className="flex items-center gap-2 py-0.5">
-            <div className="w-32 flex-shrink-0 text-right">
-              <span className="text-[10px] text-slate-500 dark:text-slate-400 truncate block">{clean}</span>
+          <div key={l.id} className="space-y-1 py-1 sm:flex sm:items-center sm:gap-2 sm:space-y-0 sm:py-0.5">
+            <div className="sm:w-32 sm:flex-shrink-0 sm:text-right">
+              <span className="block truncate text-[10px] text-slate-500 dark:text-slate-400">{clean}</span>
             </div>
-            <div className="flex-1 relative h-5 rounded-lg border border-slate-200/70 bg-slate-50/70 dark:border-white/10 dark:bg-white/[0.03]">
+            <div className="relative h-5 rounded-lg border border-slate-200/70 bg-slate-50/70 dark:border-white/10 dark:bg-white/[0.03] sm:flex-1">
               {ZONE_RANGES.slice(1).map(([lo], i) => (
                 <div key={i} className="absolute top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-700"
                   style={{ left: `${focalToPercent(lo)}%` }} />
