@@ -1,10 +1,16 @@
 # Lens Navi handoff: current UI phase
 
-Last updated: 2026-05-15
+Last updated: 2026-05-29
 
 ## Current direction
 
 Lens Navi, formerly Camera Concierge, is moving toward a modern product UI.
+
+Public brand state:
+- Public name is Lens Navi.
+- Production domain is https://lensnavi.app.
+- Public UI / metadata / OGP / app icon use Lens Navi.
+- Keep internal repo names and API contracts unchanged unless explicitly requested.
 
 Design direction:
 - White / slate base
@@ -108,15 +114,13 @@ RF-S test coverage added:
 
 ## Latest local UI work
 
-The sidebar lens type selector was refined locally toward:
-- thin gradient outline
-- white/slate inner surface
-- less purple fill
-- calmer text color
-
-User feedback: this looked better and should become the shared selected-state language.
-
-Before continuing, confirm whether this local lens type outline change has been committed and pushed.
+- Header now owns the Lens Navi brand block.
+- Sidebar duplicate brand block was removed.
+- Selected / hover states use thin gradient outline and subtle glow.
+- Main home does not show the large OGP image; favicon / OGP / left logo still use brand assets.
+- Input reset button is restored on the left side of the chat input.
+- Affiliate disclosure and disclaimer are present in subtle UI locations.
+- Lens warehouse has a deep review mock panel with fallback UI and no API call.
 
 ## Next UI phase
 
