@@ -178,6 +178,20 @@ export function extractLensNames(text: string): string[] {
   return extractLensEntries(text).map(e => e.name)
 }
 
+function stripWarehouseFollowUpQuestion(text?: string): string | undefined {
+  if (!text) return undefined
+
+  const original = text.trim()
+  if (!original) return undefined
+
+  const cleaned = original
+    .replace(/(?:\n\s*)*(?:この中からさらに絞るなら|さらに絞るなら)[\s\S]*$/, '')
+    .replace(/(?:^|[。！？!?\n]\s*)[^。！？!?\n]*(?:どれ|何|どこ|どちら|どの|優先|重視)[^。！？!?\n]*[？?]\s*$/, '')
+    .trim()
+
+  return cleaned || undefined
+}
+
 function normalize(str: string): string {
   return str.toLowerCase().replace(/[^\w]/g, '')
 }
@@ -732,11 +746,13 @@ export default function LensRecommendationCards({
     }
 
     const lensSection = extractLensSection(responseText, tag)
-    const pros    = extractBullet(lensSection, '長所')
-    const cons    = extractBullet(lensSection, '短所')
-    const advice  = extractBullet(lensSection, 'マスターのアドバイス')
-      ?? extractBullet(lensSection, 'アドバイス')
-    const aiComment = extractConclusion(responseText)
+    const pros = stripWarehouseFollowUpQuestion(extractBullet(lensSection, '長所'))
+    const cons = stripWarehouseFollowUpQuestion(extractBullet(lensSection, '短所'))
+    const advice = stripWarehouseFollowUpQuestion(
+      extractBullet(lensSection, 'マスターのアドバイス')
+        ?? extractBullet(lensSection, 'アドバイス')
+    )
+    const aiComment = stripWarehouseFollowUpQuestion(extractConclusion(responseText))
     try {
       const existing = JSON.parse(localStorage.getItem('warehouse') ?? '[]') as WarehouseItem[]
       const existingIndex = existing.findIndex((item) => item.name === lensName)
