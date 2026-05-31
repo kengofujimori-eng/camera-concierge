@@ -491,9 +491,9 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
       transition={{ duration: 0.35, delay: index * 0.1, ease: 'easeOut' }}
       className="group rounded-2xl bg-slate-200/90 p-[1.5px] shadow-lg shadow-slate-200/70 transition-all hover:bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] hover:shadow-[0_8px_22px_rgba(124,58,237,0.08)] dark:bg-white/10 dark:shadow-black/20 dark:hover:bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)]"
     >
-      <div className="flex overflow-hidden rounded-[14.5px] bg-white dark:bg-slate-900">
+      <div className="flex flex-col overflow-hidden rounded-[14.5px] bg-white dark:bg-slate-900 sm:flex-row">
         {/* 左: レンズ画像 */}
-      <div className="w-24 sm:w-28 flex-shrink-0 bg-white dark:bg-slate-950 flex items-center justify-center overflow-hidden border-r border-slate-200/80 dark:border-white/10">
+      <div className="flex h-44 w-full flex-shrink-0 items-center justify-center overflow-hidden border-b border-slate-200/80 bg-white dark:border-white/10 dark:bg-slate-950 sm:h-auto sm:w-28 sm:border-b-0 sm:border-r">
         {cardImageUrl ? (
           <img
             data-testid="lens-card-image"
