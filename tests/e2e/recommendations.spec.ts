@@ -318,7 +318,7 @@ test.describe('recommendation smoke tests', () => {
     await scrollArea.evaluate((element) => {
       element.scrollTop = element.scrollHeight
     })
-    await page.getByText('新規相談').click()
+    await page.getByLabel('新規会話を開始').click()
     await expect.poll(() => scrollArea.evaluate((element) => element.scrollTop)).toBe(0)
 
     const sendButton = page.getByTestId('chat-send-button')
