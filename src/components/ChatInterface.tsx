@@ -289,9 +289,9 @@ function getChoiceTone(number: string): { badge: string; buttonClass: string; ba
     return {
       badge: '✨ AIおすすめ',
       buttonClass:
-        'border-violet-300/80 bg-[linear-gradient(135deg,rgba(37,99,235,0.08)_0%,rgba(124,58,237,0.08)_52%,rgba(217,70,239,0.08)_100%)] text-violet-900 shadow-md shadow-violet-500/15 hover:border-violet-400/80 hover:bg-[linear-gradient(135deg,rgba(37,99,235,0.11)_0%,rgba(124,58,237,0.11)_52%,rgba(217,70,239,0.11)_100%)] dark:border-violet-300/35 dark:bg-[linear-gradient(135deg,rgba(37,99,235,0.15)_0%,rgba(124,58,237,0.15)_52%,rgba(217,70,239,0.15)_100%)] dark:text-indigo-50 dark:hover:border-violet-200/50',
+        'border-violet-300/80 bg-white/90 text-slate-900 shadow-md shadow-violet-500/10 hover:border-violet-400/80 hover:bg-white dark:border-violet-300/35 dark:bg-white/[0.07] dark:text-slate-50 dark:hover:border-violet-200/50 dark:hover:bg-white/[0.09]',
       badgeClass:
-        'border-violet-300/50 bg-[linear-gradient(135deg,rgba(37,99,235,0.16)_0%,rgba(124,58,237,0.16)_52%,rgba(217,70,239,0.16)_100%)] text-violet-800 dark:border-violet-300/35 dark:text-indigo-50',
+        'border-violet-300/50 bg-violet-50/80 text-violet-800 dark:border-violet-300/35 dark:bg-violet-400/10 dark:text-violet-100',
     }
   }
 
@@ -1183,9 +1183,9 @@ export default function ChatInterface() {
       return {
         label: '✨ AIおすすめ',
         cardClass:
-          'border-violet-300/80 bg-[linear-gradient(135deg,rgba(37,99,235,0.08)_0%,rgba(124,58,237,0.08)_52%,rgba(217,70,239,0.08)_100%)] shadow-md shadow-violet-500/15 dark:border-violet-300/35 dark:bg-[linear-gradient(135deg,rgba(37,99,235,0.15)_0%,rgba(124,58,237,0.15)_52%,rgba(217,70,239,0.15)_100%)] dark:shadow-black/20',
+          'border-violet-300/80 bg-white/95 shadow-md shadow-violet-500/10 dark:border-violet-300/35 dark:bg-slate-900/80 dark:shadow-black/20',
         badgeClass:
-          'border-violet-300/50 bg-[linear-gradient(135deg,rgba(37,99,235,0.16)_0%,rgba(124,58,237,0.16)_52%,rgba(217,70,239,0.16)_100%)] text-violet-800 dark:border-violet-300/35 dark:text-indigo-50',
+          'border-violet-300/50 bg-violet-50/80 text-violet-800 dark:border-violet-300/35 dark:bg-violet-400/10 dark:text-violet-100',
         lineClass: 'opacity-100',
       }
     }
