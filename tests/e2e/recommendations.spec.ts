@@ -325,7 +325,7 @@ test.describe('recommendation smoke tests', () => {
     await enterPrompt(page, '旅行と日常で使う標準ズームを相談したいです。')
     await waitForSendEnabled(page)
     await sendButton.click()
-    await expect(page.getByTestId('assistant-answer').last()).toContainText('選択肢1')
+    await expect(page.getByTestId('assistant-answer').last()).toContainText('✨ AIおすすめ')
     await expect.poll(() => scrollArea.evaluate((element) => element.scrollTop)).toBeGreaterThan(0)
   })
 
@@ -363,7 +363,7 @@ test.describe('recommendation smoke tests', () => {
       await sendButton.click()
 
       const answer = page.getByTestId('assistant-answer').last()
-      await expect(answer).toContainText('選択肢1')
+      await expect(answer).toContainText('✨ AIおすすめ')
 
       const answerText = await answer.innerText()
       if (testCase.expectedRequestText) {
@@ -373,7 +373,7 @@ test.describe('recommendation smoke tests', () => {
         }
       }
 
-      const optionCount = (answerText.match(/選択肢\d+/g) ?? []).length
+      const optionCount = (answerText.match(/(?:✨ AIおすすめ|⚖️ バランス型|💰 コスパ重視)/g) ?? []).length
       expect(optionCount).toBeGreaterThanOrEqual(1)
       expect(optionCount).toBeLessThanOrEqual(3)
       for (const forbidden of testCase.forbiddenText) {

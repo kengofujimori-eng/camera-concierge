@@ -1163,12 +1163,51 @@ export default function ChatInterface() {
 
   const choiceLineRe = /^\s*(?:[-*•]\s*)?(?:(?:✨|⭐️?)\s*)?(?:\*\*)?\s*(?:【|\[)?\s*選択肢\s*([1-3])\s*(?:】|\])?\s*(?:\*\*)?\s*[:：]?\s*(.+?)\s*$/i
 
-  function matchChoiceLine(line: string): { label: string; lensName: string } | null {
+  function matchChoiceLine(line: string): { number: string; label: string; lensName: string } | null {
     const match = line.match(choiceLineRe)
     if (!match) return null
     return {
+      number: match[1],
       label: `選択肢${match[1]}`,
       lensName: match[2].trim(),
+    }
+  }
+
+  function getRenderedChoiceTone(number: string): {
+    label: string
+    cardClass: string
+    badgeClass: string
+    lineClass: string
+  } {
+    if (number === '1') {
+      return {
+        label: '✨ AIおすすめ',
+        cardClass:
+          'border-violet-300/80 bg-[linear-gradient(135deg,rgba(37,99,235,0.08)_0%,rgba(124,58,237,0.08)_52%,rgba(217,70,239,0.08)_100%)] shadow-md shadow-violet-500/15 dark:border-violet-300/35 dark:bg-[linear-gradient(135deg,rgba(37,99,235,0.15)_0%,rgba(124,58,237,0.15)_52%,rgba(217,70,239,0.15)_100%)] dark:shadow-black/20',
+        badgeClass:
+          'border-violet-300/50 bg-[linear-gradient(135deg,rgba(37,99,235,0.16)_0%,rgba(124,58,237,0.16)_52%,rgba(217,70,239,0.16)_100%)] text-violet-800 dark:border-violet-300/35 dark:text-indigo-50',
+        lineClass: 'opacity-100',
+      }
+    }
+
+    if (number === '3') {
+      return {
+        label: '💰 コスパ重視',
+        cardClass:
+          'border-slate-200/90 bg-white/95 shadow-sm shadow-slate-200/60 dark:border-white/15 dark:bg-slate-900/80 dark:shadow-black/20',
+        badgeClass:
+          'border-violet-200/50 bg-violet-50/70 text-violet-700 dark:border-violet-300/25 dark:bg-violet-400/10 dark:text-violet-100',
+        lineClass: 'opacity-70',
+      }
+    }
+
+    return {
+      label: '⚖️ バランス型',
+      cardClass:
+        'border-slate-200/90 bg-white/95 shadow-sm shadow-slate-200/60 dark:border-white/15 dark:bg-slate-900/80 dark:shadow-black/20',
+      badgeClass:
+        'border-slate-200 bg-slate-50 text-slate-600 dark:border-white/15 dark:bg-white/[0.06] dark:text-slate-200',
+      lineClass: 'opacity-60',
     }
   }
 
@@ -1187,7 +1226,8 @@ export default function ChatInterface() {
       const optionMatch = matchChoiceLine(line)
 
       if (optionMatch) {
-        const optionLabel = escapeHtmlForDisplay(optionMatch.label)
+        const tone = getRenderedChoiceTone(optionMatch.number)
+        const optionLabel = escapeHtmlForDisplay(tone.label)
         const lensName = escapeHtmlForDisplay(optionMatch.lensName)
         let roleLabel = ''
 
@@ -1202,12 +1242,13 @@ export default function ChatInterface() {
         const safeRoleLabel = escapeHtmlForDisplay(roleLabel)
 
         formatted.push(`
-<div class="my-3 rounded-xl border border-slate-200/90 bg-white/95 px-4 py-3 shadow-sm shadow-slate-200/60 backdrop-blur dark:border-white/15 dark:bg-slate-900/80 dark:shadow-black/20">
-  <div class="flex flex-wrap items-center gap-2">
-    <span class="rounded-full bg-violet-600/10 px-2.5 py-1 text-xs font-bold text-indigo-800 dark:bg-indigo-400/20 dark:text-indigo-100">${optionLabel}</span>
+<div class="relative my-3 overflow-hidden rounded-xl border px-4 py-3 backdrop-blur ${tone.cardClass}">
+  <div class="absolute inset-y-3 left-0 w-[3px] rounded-r-full bg-[linear-gradient(180deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] ${tone.lineClass}"></div>
+  <div class="relative flex flex-wrap items-center gap-2">
+    <span class="rounded-full border px-2.5 py-1 text-xs font-bold ${tone.badgeClass}">${optionLabel}</span>
     <strong class="text-slate-900 dark:text-slate-100">${lensName}</strong>
   </div>
-  ${safeRoleLabel ? `<div class="mt-2 text-sm font-medium text-slate-600 dark:text-slate-300">${safeRoleLabel}</div>` : ''}
+  ${safeRoleLabel ? `<div class="relative mt-2 text-sm font-medium text-slate-600 dark:text-slate-300">${safeRoleLabel}</div>` : ''}
 </div>
 `.trim())
 
