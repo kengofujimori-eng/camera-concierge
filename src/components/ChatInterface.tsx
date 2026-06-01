@@ -284,6 +284,36 @@ function parseChoices(text: string): Choice[] {
 }
 
 // ── 選択肢ボタン ──────────────────────────────────────────
+function getChoiceTone(number: string): { badge: string; buttonClass: string; badgeClass: string } {
+  if (number === '1') {
+    return {
+      badge: '✨ AIおすすめ',
+      buttonClass:
+        'border-violet-300/80 bg-[linear-gradient(135deg,rgba(37,99,235,0.08)_0%,rgba(124,58,237,0.08)_52%,rgba(217,70,239,0.08)_100%)] text-violet-900 shadow-md shadow-violet-500/15 hover:border-violet-400/80 hover:bg-[linear-gradient(135deg,rgba(37,99,235,0.11)_0%,rgba(124,58,237,0.11)_52%,rgba(217,70,239,0.11)_100%)] dark:border-violet-300/35 dark:bg-[linear-gradient(135deg,rgba(37,99,235,0.15)_0%,rgba(124,58,237,0.15)_52%,rgba(217,70,239,0.15)_100%)] dark:text-indigo-50 dark:hover:border-violet-200/50',
+      badgeClass:
+        'border-violet-300/50 bg-[linear-gradient(135deg,rgba(37,99,235,0.16)_0%,rgba(124,58,237,0.16)_52%,rgba(217,70,239,0.16)_100%)] text-violet-800 dark:border-violet-300/35 dark:text-indigo-50',
+    }
+  }
+
+  if (number === '3') {
+    return {
+      badge: '💰 コスパ重視',
+      buttonClass:
+        'border-slate-200/80 bg-white/80 text-slate-800 shadow-sm shadow-slate-200/60 hover:border-violet-300/70 hover:bg-[linear-gradient(135deg,rgba(37,99,235,0.04)_0%,rgba(124,58,237,0.04)_52%,rgba(217,70,239,0.04)_100%)] dark:border-white/15 dark:bg-white/[0.06] dark:text-slate-100 dark:shadow-none dark:hover:border-violet-300/35',
+      badgeClass:
+        'border-violet-200/50 bg-violet-50/70 text-violet-700 dark:border-violet-300/25 dark:bg-violet-400/10 dark:text-violet-100',
+    }
+  }
+
+  return {
+    badge: '⚖️ バランス型',
+    buttonClass:
+      'border-slate-200/80 bg-white/80 text-slate-800 shadow-sm shadow-slate-200/60 hover:border-violet-300/70 hover:bg-slate-50 dark:border-white/15 dark:bg-white/[0.06] dark:text-slate-100 dark:shadow-none dark:hover:border-violet-300/35 dark:hover:bg-white/[0.08]',
+    badgeClass:
+      'border-slate-200 bg-slate-50 text-slate-600 dark:border-white/15 dark:bg-white/[0.06] dark:text-slate-200',
+  }
+}
+
 function ChoiceButtons({ text, onSelect }: { text: string; onSelect: (t: string) => void }) {
   const choices = parseChoices(text)
   if (choices.length === 0) return null
@@ -291,20 +321,23 @@ function ChoiceButtons({ text, onSelect }: { text: string; onSelect: (t: string)
     <div className="mt-3 flex flex-col gap-2">
       <p className="text-[11px] text-slate-500 dark:text-slate-400 px-0.5">👆 選択して続ける</p>
       <div className="flex flex-wrap gap-2">
-        {choices.map((c) => (
-          <motion.button
-            key={c.number}
-            onClick={() => onSelect(c.sendText)}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
-            className="flex items-center gap-2 rounded-xl border border-violet-200/70 bg-[linear-gradient(135deg,rgba(37,99,235,0.06)_0%,rgba(124,58,237,0.06)_52%,rgba(217,70,239,0.06)_100%)] px-3 py-2 text-xs font-medium text-violet-800 shadow-sm shadow-violet-500/10 backdrop-blur transition-colors hover:border-violet-400/70 hover:bg-[linear-gradient(135deg,rgba(37,99,235,0.09)_0%,rgba(124,58,237,0.09)_52%,rgba(217,70,239,0.09)_100%)] dark:border-violet-400/25 dark:bg-[linear-gradient(135deg,rgba(37,99,235,0.12)_0%,rgba(124,58,237,0.12)_52%,rgba(217,70,239,0.12)_100%)] dark:text-indigo-100 dark:hover:border-violet-300/40"
-          >
-            <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-violet-300/40 bg-[linear-gradient(135deg,rgba(37,99,235,0.14)_0%,rgba(124,58,237,0.14)_52%,rgba(217,70,239,0.14)_100%)] text-[10px] font-bold text-violet-700 dark:border-violet-300/30 dark:text-indigo-100">
-              {c.number}
-            </span>
-            {c.label}
-          </motion.button>
-        ))}
+        {choices.map((c) => {
+          const tone = getChoiceTone(c.number)
+          return (
+            <motion.button
+              key={c.number}
+              onClick={() => onSelect(c.sendText)}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
+              className={`relative flex items-center gap-2 overflow-hidden rounded-xl border px-3 py-2 text-xs font-medium backdrop-blur transition-colors before:absolute before:inset-y-2 before:left-0 before:w-[3px] before:rounded-r-full before:bg-[linear-gradient(180deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] ${tone.buttonClass}`}
+            >
+              <span className={`relative flex min-h-5 flex-shrink-0 items-center justify-center rounded-full border px-2 text-[10px] font-bold ${tone.badgeClass}`}>
+                {tone.badge}
+              </span>
+              <span className="relative">{c.label}</span>
+            </motion.button>
+          )
+        })}
       </div>
     </div>
   )
