@@ -310,7 +310,7 @@ function getChoiceTone(number: string): { badge: string; buttonClass: string; ba
     buttonClass:
       'border-slate-200/80 bg-white/80 text-slate-800 shadow-sm shadow-slate-200/60 hover:border-violet-300/70 hover:bg-slate-50 dark:border-white/15 dark:bg-white/[0.06] dark:text-slate-100 dark:shadow-none dark:hover:border-violet-300/35 dark:hover:bg-white/[0.08]',
     badgeClass:
-      'border-slate-200 bg-slate-50 text-slate-600 dark:border-white/15 dark:bg-white/[0.06] dark:text-slate-200',
+      'border-violet-200/45 bg-violet-50/55 text-violet-700 dark:border-violet-300/20 dark:bg-violet-400/10 dark:text-violet-100',
   }
 }
 
@@ -1206,7 +1206,7 @@ export default function ChatInterface() {
       cardClass:
         'border-slate-200/90 bg-white/95 shadow-sm shadow-slate-200/60 dark:border-white/15 dark:bg-slate-900/80 dark:shadow-black/20',
       badgeClass:
-        'border-slate-200 bg-slate-50 text-slate-600 dark:border-white/15 dark:bg-white/[0.06] dark:text-slate-200',
+        'border-violet-200/45 bg-violet-50/55 text-violet-700 dark:border-violet-300/20 dark:bg-violet-400/10 dark:text-violet-100',
       lineClass: 'opacity-60',
     }
   }
