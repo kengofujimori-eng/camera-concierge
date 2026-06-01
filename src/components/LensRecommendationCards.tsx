@@ -59,6 +59,11 @@ interface LensPriceData {
 }
 interface LensPriceDatabase { lenses: LensPriceData[] }
 
+interface WarehouseAnalysisSource {
+  aiReason?: string
+  aiCaution?: string
+}
+
 function mergeShoppingLinks(primary: ShoppingLinks, fallback: ShoppingLinks): ShoppingLinks {
   return {
     new: primary.new.length > 0 ? primary.new : fallback.new,
@@ -436,7 +441,7 @@ interface LensCardProps {
   lensTag: string
   index: number
   addedType: 'owned' | 'wishlist' | null
-  onAdd: (name: string, type: 'owned' | 'wishlist', tag: string) => void
+  onAdd: (name: string, type: 'owned' | 'wishlist', tag: string, analysis?: WarehouseAnalysisSource) => void
   lensLinkDb: LensLinkData[] | null
   lensPriceDb: LensPriceData[] | null
   aiReason?: string
@@ -626,7 +631,7 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
               </div>
               <div className="flex flex-wrap gap-x-3 gap-y-1">
                 <button
-                  onClick={() => onAdd(cleanName, addedType === 'owned' ? 'wishlist' : 'owned', lensTag)}
+                  onClick={() => onAdd(cleanName, addedType === 'owned' ? 'wishlist' : 'owned', lensTag, { aiReason, aiCaution })}
                   className="text-xs font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 underline underline-offset-2 decoration-slate-300 transition-colors py-0.5">
                   {addedType === 'owned' ? '→ 欲しいリストに変更' : '→ 所有済みに変更'}
                 </button>
@@ -641,13 +646,13 @@ function LensCard({ lensName, lensTag, index, addedType, onAdd, lensLinkDb, lens
           ) : (
             <div className="grid grid-cols-2 gap-2">
               <button
-                onClick={() => onAdd(cleanName, 'owned', lensTag)}
+                onClick={() => onAdd(cleanName, 'owned', lensTag, { aiReason, aiCaution })}
                 className="flex min-h-9 items-center justify-center gap-1.5 rounded-lg px-2.5 py-2 text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100 hover:bg-blue-100 dark:bg-blue-500/15 dark:text-blue-300 dark:border-blue-500/25 dark:hover:bg-blue-500/25 transition-colors">
                 <Package className="h-3 w-3" />
                 所有済み
               </button>
               <button
-                onClick={() => onAdd(cleanName, 'wishlist', lensTag)}
+                onClick={() => onAdd(cleanName, 'wishlist', lensTag, { aiReason, aiCaution })}
                 className="flex min-h-9 items-center justify-center gap-1.5 rounded-lg px-2.5 py-2 text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-100 hover:bg-amber-100 dark:bg-amber-500/15 dark:text-amber-300 dark:border-amber-500/25 dark:hover:bg-amber-500/25 transition-colors">
                 <Star className="h-3 w-3" />
                 欲しいリスト
@@ -709,7 +714,7 @@ export default function LensRecommendationCards({
       })
     : []
 
-  function addToWarehouse(lensName: string, type: 'owned' | 'wishlist', tag: string) {
+  function addToWarehouse(lensName: string, type: 'owned' | 'wishlist', tag: string, analysis?: WarehouseAnalysisSource) {
     // ── このレンズの【タグ】セクション内テキストを抽出 ──
     function extractLensSection(text: string, lensTag: string): string {
       const esc = lensTag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -746,8 +751,10 @@ export default function LensRecommendationCards({
     }
 
     const lensSection = extractLensSection(responseText, tag)
-    const pros = stripWarehouseFollowUpQuestion(extractBullet(lensSection, '長所'))
-    const cons = stripWarehouseFollowUpQuestion(extractBullet(lensSection, '短所'))
+    const pros = stripWarehouseFollowUpQuestion(analysis?.aiReason)
+      ?? stripWarehouseFollowUpQuestion(extractBullet(lensSection, '長所'))
+    const cons = stripWarehouseFollowUpQuestion(analysis?.aiCaution)
+      ?? stripWarehouseFollowUpQuestion(extractBullet(lensSection, '短所'))
     const advice = stripWarehouseFollowUpQuestion(
       extractBullet(lensSection, 'マスターのアドバイス')
         ?? extractBullet(lensSection, 'アドバイス')
