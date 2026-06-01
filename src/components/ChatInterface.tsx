@@ -297,9 +297,9 @@ function ChoiceButtons({ text, onSelect }: { text: string; onSelect: (t: string)
             onClick={() => onSelect(c.sendText)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
-            className="flex items-center gap-2 rounded-xl border border-indigo-200/70 bg-white/70 px-3 py-2 text-xs font-medium text-violet-700 shadow-sm shadow-blue-500/10 backdrop-blur transition-colors hover:border-violet-400/70 hover:bg-indigo-50 dark:border-indigo-400/20 dark:bg-indigo-400/10 dark:text-indigo-200 dark:hover:bg-indigo-400/15"
+            className="flex items-center gap-2 rounded-xl border border-violet-200/70 bg-[linear-gradient(135deg,rgba(37,99,235,0.06)_0%,rgba(124,58,237,0.06)_52%,rgba(217,70,239,0.06)_100%)] px-3 py-2 text-xs font-medium text-violet-800 shadow-sm shadow-violet-500/10 backdrop-blur transition-colors hover:border-violet-400/70 hover:bg-[linear-gradient(135deg,rgba(37,99,235,0.09)_0%,rgba(124,58,237,0.09)_52%,rgba(217,70,239,0.09)_100%)] dark:border-violet-400/25 dark:bg-[linear-gradient(135deg,rgba(37,99,235,0.12)_0%,rgba(124,58,237,0.12)_52%,rgba(217,70,239,0.12)_100%)] dark:text-indigo-100 dark:hover:border-violet-300/40"
           >
-            <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-indigo-400/15 text-[10px] font-bold text-violet-700 dark:text-indigo-200">
+            <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-violet-300/40 bg-[linear-gradient(135deg,rgba(37,99,235,0.14)_0%,rgba(124,58,237,0.14)_52%,rgba(217,70,239,0.14)_100%)] text-[10px] font-bold text-violet-700 dark:border-violet-300/30 dark:text-indigo-100">
               {c.number}
             </span>
             {c.label}
