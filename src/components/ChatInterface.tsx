@@ -1731,6 +1731,10 @@ export default function ChatInterface() {
         {/* 入力エリア */}
         <div className="border-t border-slate-200/80 bg-white/90 px-4 py-3 shadow-[0_-18px_50px_rgba(15,23,42,0.08)] backdrop-blur-2xl dark:border-white/15 dark:bg-slate-950/75 dark:shadow-black/25">
           <div className="mx-auto max-w-3xl">
+            <div className="mb-3 flex justify-center md:hidden" aria-hidden="true">
+              <span className="h-1 w-11 rounded-full bg-slate-300/80 dark:bg-slate-700" />
+            </div>
+
             {/* モバイル用ツールバー */}
             <div className="md:hidden flex items-center justify-between mb-2">
               {/* 設定バッジ */}
