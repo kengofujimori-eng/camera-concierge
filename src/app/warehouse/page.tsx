@@ -294,32 +294,32 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
     ? [
         {
           title: '解像とF値',
-          label: '強み',
+          label: '◎ 強み',
           labelClass: 'border-violet-100 bg-violet-50 text-violet-700 dark:border-violet-400/20 dark:bg-violet-400/10 dark:text-violet-200',
           text: sonyFe50mmF14GmSample.resolution,
           points: sonyFe50mmF14GmSample.sweetSpot,
         },
         {
           title: 'ボケ',
-          label: '良好',
+          label: '○ 良好',
           labelClass: 'border-slate-200 bg-slate-50 text-slate-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-300',
           text: sonyFe50mmF14GmSample.bokeh,
         },
         {
           title: '収差',
-          label: '良好',
+          label: '○ 良好',
           labelClass: 'border-slate-200 bg-slate-50 text-slate-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-300',
           text: sonyFe50mmF14GmSample.rendering,
         },
         {
           title: '周辺減光・逆光',
-          label: '注意',
+          label: '△ 注意',
           labelClass: 'border-amber-100 bg-amber-50 text-amber-700 dark:border-amber-400/20 dark:bg-amber-400/10 dark:text-amber-200',
           text: sonyFe50mmF14GmSample.vignettingBacklight,
         },
         {
           title: '比較で見る',
-          label: '比較',
+          label: '↔ 比較',
           labelClass: 'border-blue-100 bg-blue-50 text-blue-700 dark:border-blue-400/20 dark:bg-blue-400/10 dark:text-blue-200',
           text: sonyFe50mmF14GmSample.comparison,
         },
@@ -385,8 +385,11 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
 
             <div className="space-y-2">
               {sonyReviewBlocks.map(block => (
-                <details key={block.title} className="group rounded-lg border border-slate-200/70 bg-white dark:border-white/10 dark:bg-slate-950/60">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-2.5 py-2">
+                <details
+                  key={block.title}
+                  className="group rounded-lg border border-slate-200/70 bg-white transition group-open:border-transparent group-open:bg-[linear-gradient(135deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] group-open:p-[1px] dark:border-white/10 dark:bg-slate-950/60"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 rounded-lg bg-white px-2.5 py-2 group-open:rounded-b-none dark:bg-slate-950">
                     <span className="flex items-center gap-2">
                       <span className={`inline-flex rounded-full border px-2 py-0.5 text-[10px] font-semibold ${block.labelClass}`}>
                         {block.label}
@@ -395,7 +398,7 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
                     </span>
                     <span className="text-[10px] font-semibold text-slate-400 transition group-open:rotate-180 dark:text-slate-500">⌄</span>
                   </summary>
-                  <div className="border-t border-slate-100 px-2.5 py-2 dark:border-white/10">
+                  <div className="relative border-t border-slate-100 bg-white px-2.5 py-2 before:absolute before:inset-y-2 before:left-0 before:w-[2px] before:rounded-full before:bg-[linear-gradient(180deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] dark:border-white/10 dark:bg-slate-950">
                     {'points' in block && block.points ? (
                       <div className="mb-2 space-y-1.5">
                         {block.points.map(([aperture, note]) => (
@@ -406,7 +409,7 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
                         ))}
                       </div>
                     ) : null}
-                    <p className="text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">{block.text}</p>
+                    <p className="pl-2 text-xs leading-relaxed text-slate-600 sm:text-[11px] dark:text-slate-400">{block.text}</p>
                   </div>
                 </details>
               ))}
