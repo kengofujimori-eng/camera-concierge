@@ -268,7 +268,7 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
     <div className="mx-4 mb-3 rounded-2xl border border-violet-200/70 bg-white p-3 shadow-[0_8px_22px_rgba(124,58,237,0.08)] dark:border-violet-400/20 dark:bg-slate-950/80">
       <div className="mb-3 flex items-start justify-between gap-3">
         <div>
-          <p className="text-sm font-bold text-slate-900 dark:text-white">深掘りレビュー</p>
+          <p className="text-sm font-bold text-slate-900 dark:text-white">使いこなしレビュー</p>
           <p className="mt-1 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
             {lensName} の使いどころや注意点を、今後ここに整理します。
           </p>
@@ -279,9 +279,9 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
       </div>
 
       <div className="rounded-xl border border-slate-200/80 bg-slate-50/70 p-3 dark:border-white/10 dark:bg-white/[0.03]">
-        <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">詳細レビューは準備中です</p>
+        <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">使いこなしレビューは準備中です</p>
         <p className="mt-1.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-          今後、このレンズの使いどころ、注意点、開放・絞り運用、描写傾向、代替候補を整理します。
+          今後、このレンズの美味しい使い方、シーン別おすすめ設定、解像・ボケ・収差の扱い方、比較候補を整理します。
         </p>
         <button
           type="button"
@@ -289,7 +289,7 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
           className="mt-3 inline-flex cursor-not-allowed items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-slate-400 dark:border-white/10 dark:bg-slate-950 dark:text-slate-500"
         >
           <Sparkles className="h-3 w-3" />
-          AIで深掘り（準備中）
+          使いこなしレビューを作成（準備中）
         </button>
       </div>
 
@@ -560,7 +560,7 @@ function LensCard({ item, priceDb, linkDb, onDelete }: {
           }`}>
             <span className="inline-flex items-center gap-1.5">
               <Sparkles className="h-3.5 w-3.5 text-violet-600 dark:text-violet-300" />
-              深掘り
+              使いこなし
             </span>
             {deepReviewOpen ? <ChevronUp className="h-3.5 w-3.5 text-slate-400" /> : <ChevronDown className="h-3.5 w-3.5 text-slate-400" />}
           </span>
