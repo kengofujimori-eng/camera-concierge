@@ -286,6 +286,8 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
           '明確な注意点は、開放の周辺減光と、太陽を画面内に入れた時のフレア / ゴースト。ポートレートでは周辺減光を雰囲気として使えるが、商品撮影や均一背景では補正前提。逆光耐性を最優先する用途では作例確認したい。',
         comparison:
           'Sigma 50mm F1.4 DG DN Artは価格面の比較候補。ただしF1.4開放の解像ではSony GMが強い。FE 50mm F1.2 GMは解像ピークではなく、F1.2の表現力とボケ量を買う別軸。FE 50mm F1.8は軽さと価格優先だが、開放性能・AF・操作感は別物として考えたい。',
+        sizeWeight:
+          '516g、67mmフィルター。F1.2 GMほど重くなく、50mm F1.4としては高性能と携帯性のバランス型。ただし軽量単焦点として常時持ち歩くならFE 50mm F1.8や小型単焦点も比較対象。',
         sources:
           'Sony公式仕様、Lenstip測定、比較用のSigma 50mm F1.4 DG DN Art / FE 50mm F1.2 GMレビューを根拠候補として整理。外部レビュー本文はコピーせず、測定値とレビュー傾向を撮影判断へ翻訳する。',
       }
@@ -293,38 +295,44 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
   const sonyReviewBlocks = sonyFe50mmF14GmSample
     ? [
         {
-          title: '解像とF値',
+          title: '🔍 解像とF値',
           label: '◎ 強み',
           labelClass: 'border-violet-100 bg-violet-50 text-violet-700 dark:border-violet-400/20 dark:bg-violet-400/10 dark:text-violet-200',
           text: sonyFe50mmF14GmSample.resolution,
           points: sonyFe50mmF14GmSample.sweetSpot,
         },
         {
-          title: 'ボケ',
+          title: '🫧 ボケ',
           label: '○ 良好',
-          labelClass: 'border-slate-200 bg-slate-50 text-slate-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-300',
+          labelClass: 'border-sky-100 bg-sky-50 text-sky-700 dark:border-sky-400/20 dark:bg-sky-400/10 dark:text-sky-200',
           text: sonyFe50mmF14GmSample.bokeh,
         },
         {
-          title: '収差',
+          title: '🔬 収差',
           label: '○ 良好',
-          labelClass: 'border-slate-200 bg-slate-50 text-slate-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-300',
+          labelClass: 'border-emerald-100 bg-emerald-50 text-emerald-700 dark:border-emerald-400/20 dark:bg-emerald-400/10 dark:text-emerald-200',
           text: sonyFe50mmF14GmSample.rendering,
         },
         {
-          title: '周辺減光・逆光',
+          title: '🔆 周辺減光・逆光',
           label: '△ 注意',
           labelClass: 'border-amber-100 bg-amber-50 text-amber-700 dark:border-amber-400/20 dark:bg-amber-400/10 dark:text-amber-200',
           text: sonyFe50mmF14GmSample.vignettingBacklight,
         },
         {
-          title: '比較で見る',
+          title: '⚖️ 比較',
           label: '↔ 比較',
           labelClass: 'border-blue-100 bg-blue-50 text-blue-700 dark:border-blue-400/20 dark:bg-blue-400/10 dark:text-blue-200',
           text: sonyFe50mmF14GmSample.comparison,
         },
         {
-          title: 'Sources',
+          title: '📏 サイズ・重量',
+          label: 'サイズ',
+          labelClass: 'border-slate-200 bg-slate-50 text-slate-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-300',
+          text: sonyFe50mmF14GmSample.sizeWeight,
+        },
+        {
+          title: '📚 根拠',
           label: '根拠',
           labelClass: 'border-slate-200 bg-slate-50 text-slate-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-300',
           text: sonyFe50mmF14GmSample.sources,
@@ -362,7 +370,7 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
               <div className="rounded-lg border border-violet-100 bg-white px-2.5 py-2 dark:border-violet-400/20 dark:bg-slate-950/60">
                 <div className="mb-1 flex items-center gap-2">
                   <span className="inline-flex rounded-full border border-violet-100 bg-violet-50 px-2 py-0.5 text-[10px] font-semibold text-violet-700 dark:border-violet-400/20 dark:bg-violet-400/10 dark:text-violet-200">
-                    強み
+                    ✨ 強み
                   </span>
                   <p className="text-[11px] font-semibold text-slate-800 dark:text-slate-200">要点</p>
                 </div>
@@ -373,7 +381,7 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
               <div className="rounded-lg border border-amber-100 bg-white px-2.5 py-2 dark:border-amber-400/20 dark:bg-slate-950/60">
                 <div className="mb-1 flex items-center gap-2">
                   <span className="inline-flex rounded-full border border-amber-100 bg-amber-50 px-2 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-400/20 dark:bg-amber-400/10 dark:text-amber-200">
-                    注意
+                    ⚠️ 注意
                   </span>
                   <p className="text-[11px] font-semibold text-slate-800 dark:text-slate-200">要点</p>
                 </div>
