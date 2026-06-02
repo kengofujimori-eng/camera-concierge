@@ -252,16 +252,17 @@ function Collapse({ label, children, defaultOpen = false }: {
 // ── 深掘りレビュー UI モック ───────────────────────────────
 function LensDeepReviewPanel({ lensName }: { lensName: string }) {
   const sections = [
-    'Lens Navi総評',
-    'Like / Average / Don’t Like',
-    '基本スペック',
-    'このレンズの使いどころ',
-    '気をつけるポイント',
-    '開放・絞り運用',
-    '描写傾向',
-    'シーン別適性',
-    '代替候補',
-    '購入判断メモ',
+    '一言でいうと',
+    '得意な用途',
+    '美味しい使い方',
+    'シーン別おすすめ設定',
+    '解像の使いどころ',
+    'ボケの使いどころ',
+    '収差・癖の扱い方',
+    '苦手な条件と回避策',
+    '比較候補',
+    '買うべき人 / 待つべき人',
+    'Sources',
   ]
 
   return (
