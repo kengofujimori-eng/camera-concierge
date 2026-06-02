@@ -268,6 +268,8 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
   const sonyFe50mmF14GmSample = lensName === 'Sony FE 50mm F1.4 GM'
     ? {
         verdict: 'F1.4開放から中央解像が非常に高く、ボケ量と実用解像を両立しやすい50mm GM。F1.4を雰囲気用ではなく本気の撮影F値として使いたい人向け。',
+        strengthSummary: 'F1.4から実用域。F2.8で90.9 lpmm付近のピーク。F5.6〜F8で画面全体を整えやすい。',
+        cautionSummary: '主な注意点は開放周辺減光と、太陽を画面内に入れた時のフレア / ゴースト。',
         sweetSpot: [
           ['F1.4', '中央は開放から高水準。人物の目元や質感を本気で狙える。'],
           ['F2〜F2.8', '中央ピーク域。LenstipではF2.8で90.9 lpmm付近。'],
@@ -284,13 +286,19 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
           '明確な注意点は、開放の周辺減光と、太陽を画面内に入れた時のフレア / ゴースト。ポートレートでは周辺減光を雰囲気として使えるが、商品撮影や均一背景では補正前提。逆光耐性を最優先する用途では作例確認したい。',
         comparison:
           'Sigma 50mm F1.4 DG DN Artは価格面の比較候補。ただしF1.4開放の解像ではSony GMが強い。FE 50mm F1.2 GMは解像ピークではなく、F1.2の表現力とボケ量を買う別軸。FE 50mm F1.8は軽さと価格優先だが、開放性能・AF・操作感は別物として考えたい。',
+        sources:
+          'Sony公式仕様、Lenstip測定、比較用のSigma 50mm F1.4 DG DN Art / FE 50mm F1.2 GMレビューを根拠候補として整理。外部レビュー本文はコピーせず、測定値とレビュー傾向を撮影判断へ翻訳する。',
       }
     : null
-  const reviewSections = sonyFe50mmF14GmSample
-    ? ['解像とF値', 'ボケ', '収差', '周辺減光・逆光', '比較', 'Sources']
-    : sections
   const sonyReviewBlocks = sonyFe50mmF14GmSample
     ? [
+        {
+          title: '解像とF値',
+          label: '強み',
+          labelClass: 'border-violet-100 bg-violet-50 text-violet-700 dark:border-violet-400/20 dark:bg-violet-400/10 dark:text-violet-200',
+          text: sonyFe50mmF14GmSample.resolution,
+          points: sonyFe50mmF14GmSample.sweetSpot,
+        },
         {
           title: 'ボケ',
           label: '良好',
@@ -315,6 +323,12 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
           labelClass: 'border-blue-100 bg-blue-50 text-blue-700 dark:border-blue-400/20 dark:bg-blue-400/10 dark:text-blue-200',
           text: sonyFe50mmF14GmSample.comparison,
         },
+        {
+          title: 'Sources',
+          label: '根拠',
+          labelClass: 'border-slate-200 bg-slate-50 text-slate-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-300',
+          text: sonyFe50mmF14GmSample.sources,
+        },
       ]
     : []
 
@@ -328,7 +342,7 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
           </p>
         </div>
         <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[10px] font-medium text-slate-500 dark:border-white/10 dark:bg-white/5 dark:text-slate-400">
-          mock
+          検証中
         </span>
       </div>
 
@@ -344,37 +358,57 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
               </p>
             </section>
 
-            <section>
-              <div className="flex items-center gap-2">
-                <span className="inline-flex rounded-full border border-violet-100 bg-violet-50 px-2 py-0.5 text-[10px] font-semibold text-violet-700 dark:border-violet-400/20 dark:bg-violet-400/10 dark:text-violet-200">
-                  強み
-                </span>
-                <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">解像とF値</p>
+            <div className="grid gap-2 sm:grid-cols-2">
+              <div className="rounded-lg border border-violet-100 bg-white px-2.5 py-2 dark:border-violet-400/20 dark:bg-slate-950/60">
+                <div className="mb-1 flex items-center gap-2">
+                  <span className="inline-flex rounded-full border border-violet-100 bg-violet-50 px-2 py-0.5 text-[10px] font-semibold text-violet-700 dark:border-violet-400/20 dark:bg-violet-400/10 dark:text-violet-200">
+                    強み
+                  </span>
+                  <p className="text-[11px] font-semibold text-slate-800 dark:text-slate-200">要点</p>
+                </div>
+                <p className="text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">
+                  {sonyFe50mmF14GmSample.strengthSummary}
+                </p>
               </div>
-              <div className="mt-2 space-y-1.5">
-                {sonyFe50mmF14GmSample.sweetSpot.map(([aperture, note]) => (
-                  <div key={aperture} className="rounded-lg border border-slate-200/70 bg-white px-2.5 py-2 dark:border-white/10 dark:bg-slate-950/60">
-                    <p className="text-[11px] font-bold text-violet-700 dark:text-violet-300">{aperture}</p>
-                    <p className="mt-0.5 text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">{note}</p>
-                  </div>
-                ))}
+              <div className="rounded-lg border border-amber-100 bg-white px-2.5 py-2 dark:border-amber-400/20 dark:bg-slate-950/60">
+                <div className="mb-1 flex items-center gap-2">
+                  <span className="inline-flex rounded-full border border-amber-100 bg-amber-50 px-2 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-400/20 dark:bg-amber-400/10 dark:text-amber-200">
+                    注意
+                  </span>
+                  <p className="text-[11px] font-semibold text-slate-800 dark:text-slate-200">要点</p>
+                </div>
+                <p className="text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">
+                  {sonyFe50mmF14GmSample.cautionSummary}
+                </p>
               </div>
-              <p className="mt-2 text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">
-                {sonyFe50mmF14GmSample.resolution}
-              </p>
-            </section>
+            </div>
 
             <div className="space-y-2">
               {sonyReviewBlocks.map(block => (
-                <section key={block.title} className="rounded-lg border border-slate-200/70 bg-white px-2.5 py-2 dark:border-white/10 dark:bg-slate-950/60">
-                  <div className="flex items-center gap-2">
-                    <span className={`inline-flex rounded-full border px-2 py-0.5 text-[10px] font-semibold ${block.labelClass}`}>
-                      {block.label}
+                <details key={block.title} className="group rounded-lg border border-slate-200/70 bg-white dark:border-white/10 dark:bg-slate-950/60">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-2.5 py-2">
+                    <span className="flex items-center gap-2">
+                      <span className={`inline-flex rounded-full border px-2 py-0.5 text-[10px] font-semibold ${block.labelClass}`}>
+                        {block.label}
+                      </span>
+                      <span className="text-[11px] font-semibold text-slate-800 dark:text-slate-200">{block.title}</span>
                     </span>
-                    <p className="text-[11px] font-semibold text-slate-800 dark:text-slate-200">{block.title}</p>
+                    <span className="text-[10px] font-semibold text-slate-400 transition group-open:rotate-180 dark:text-slate-500">⌄</span>
+                  </summary>
+                  <div className="border-t border-slate-100 px-2.5 py-2 dark:border-white/10">
+                    {'points' in block && block.points ? (
+                      <div className="mb-2 space-y-1.5">
+                        {block.points.map(([aperture, note]) => (
+                          <div key={aperture} className="rounded-lg border border-slate-200/70 bg-slate-50/70 px-2.5 py-2 dark:border-white/10 dark:bg-white/[0.03]">
+                            <p className="text-[11px] font-bold text-violet-700 dark:text-violet-300">{aperture}</p>
+                            <p className="mt-0.5 text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">{note}</p>
+                          </div>
+                        ))}
+                      </div>
+                    ) : null}
+                    <p className="text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">{block.text}</p>
                   </div>
-                  <p className="mt-1.5 text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">{block.text}</p>
-                </section>
+                </details>
               ))}
             </div>
           </div>
@@ -396,16 +430,18 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
         )}
       </div>
 
-      <div className="mt-3 grid grid-cols-2 gap-1.5">
-        {reviewSections.map(section => (
-          <div
-            key={section}
-            className="rounded-lg border border-slate-200/70 bg-white px-2.5 py-2 text-[11px] font-medium text-slate-600 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300"
-          >
-            {section}
-          </div>
-        ))}
-      </div>
+      {!sonyFe50mmF14GmSample ? (
+        <div className="mt-3 grid grid-cols-2 gap-1.5">
+          {sections.map(section => (
+            <div
+              key={section}
+              className="rounded-lg border border-slate-200/70 bg-white px-2.5 py-2 text-[11px] font-medium text-slate-600 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300"
+            >
+              {section}
+            </div>
+          ))}
+        </div>
+      ) : null}
 
       <p className="mt-3 text-[10px] leading-relaxed text-slate-400 dark:text-slate-500">
         レビュー傾向は参考情報です。購入前に販売店・メーカー情報をご確認ください。
