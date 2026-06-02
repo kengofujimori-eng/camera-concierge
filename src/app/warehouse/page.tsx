@@ -264,6 +264,42 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
     '買うべき人 / 待つべき人',
     'Sources',
   ]
+  // UI検証用の固定サンプル。本実装では lens data / API から任意レンズのレビューを差し込む想定。
+  const sonyFe50mmF14GmSample = lensName === 'Sony FE 50mm F1.4 GM'
+    ? {
+        verdict: 'F1.4開放から使いやすい、日常・家族・ポートレート向けの50mm本命候補。',
+        sweetSpot: [
+          ['F1.4', '背景を大きく整理したい時。1人ポートレートや夜の街歩き向き。'],
+          ['F1.8〜F2.8', '子供・家族で歩留まりを上げたい時。明るさと被写界深度のバランスが良い。'],
+          ['F5.6〜F8', '風景・旅行記録で画面全体を安定させたい時。'],
+        ],
+        sceneSettings: [
+          ['室内の子供', 'F1.8〜F2.8'],
+          ['1人ポートレート', 'F1.4〜F2'],
+          ['家族・複数人', 'F2.8〜F4'],
+          ['日常スナップ', 'F2〜F4'],
+          ['風景', 'F5.6〜F8'],
+          ['夜景', 'F2〜F5.6'],
+        ],
+        resolution:
+          '開放F1.4から中央の主役をしっかり見せやすいタイプ。人物の目元や質感を開放から狙える一方、風景や建築で画面全体を揃えたい場合はF5.6〜F8を基準にしたい。F11以降は深度や光芒が必要な時に使い、解像だけを目的にむやみに絞りすぎない。',
+        bokeh:
+          'F1.4では背景を大きく整理しやすい。近距離では被写界深度が浅くなるため、子供や家族ではF1.8〜F2.8も積極的に使う。背景が枝・草・格子など細かい場合は、絞りよりも背景との距離を取る方が効きやすい。',
+        rendering:
+          '白い服、金属、水面、逆光の髪など高コントラストな条件では、開放付近の色づきを確認したい。気になる場合はF2前後まで少し絞る。周辺減光はポートレートでは雰囲気として使えるが、商品撮影や均一背景では補正前提にする。',
+        buyIf: [
+          '50mmを主力画角として使いたい人',
+          'F1.4のボケと解像感を日常的に使いたい人',
+          '家族、子供、ポートレート、日常スナップを1本で高い水準にまとめたい人',
+        ],
+        waitIf: [
+          '50mmの画角が自分に合うか分からない人',
+          '室内や日常で35mmの方が合う可能性がある人',
+          '価格重視でSigma 50mm F1.4 DG DN Artも比較したい人',
+          'F1.2の大きなボケ量や表現力を最優先したい人',
+        ],
+      }
+    : null
 
   return (
     <div className="mx-4 mb-3 rounded-2xl border border-violet-200/70 bg-white p-3 shadow-[0_8px_22px_rgba(124,58,237,0.08)] dark:border-violet-400/20 dark:bg-slate-950/80">
@@ -280,18 +316,88 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
       </div>
 
       <div className="rounded-xl border border-slate-200/80 bg-slate-50/70 p-3 dark:border-white/10 dark:bg-white/[0.03]">
-        <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">使いこなしレビューは準備中です</p>
-        <p className="mt-1.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-          今後、このレンズの美味しい使い方、シーン別おすすめ設定、解像・ボケ・収差の扱い方、比較候補を整理します。
-        </p>
-        <button
-          type="button"
-          disabled
-          className="mt-3 inline-flex cursor-not-allowed items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-slate-400 dark:border-white/10 dark:bg-slate-950 dark:text-slate-500"
-        >
-          <Sparkles className="h-3 w-3" />
-          使いこなしレビューを作成（準備中）
-        </button>
+        {sonyFe50mmF14GmSample ? (
+          <div className="space-y-3">
+            <section>
+              <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-violet-600 dark:text-violet-300">
+                一言でいうと
+              </p>
+              <p className="mt-1 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+                {sonyFe50mmF14GmSample.verdict}
+              </p>
+            </section>
+
+            <section>
+              <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">美味しいF値</p>
+              <div className="mt-2 space-y-1.5">
+                {sonyFe50mmF14GmSample.sweetSpot.map(([aperture, note]) => (
+                  <div key={aperture} className="rounded-lg border border-slate-200/70 bg-white px-2.5 py-2 dark:border-white/10 dark:bg-slate-950/60">
+                    <p className="text-[11px] font-bold text-violet-700 dark:text-violet-300">{aperture}</p>
+                    <p className="mt-0.5 text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">{note}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section>
+              <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">シーン別おすすめ設定</p>
+              <div className="mt-2 grid grid-cols-2 gap-1.5">
+                {sonyFe50mmF14GmSample.sceneSettings.map(([scene, aperture]) => (
+                  <div key={scene} className="rounded-lg border border-slate-200/70 bg-white px-2.5 py-2 dark:border-white/10 dark:bg-slate-950/60">
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400">{scene}</p>
+                    <p className="mt-0.5 text-[11px] font-semibold text-slate-800 dark:text-slate-200">{aperture}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <div className="space-y-2">
+              {[
+                ['解像の使いどころ', sonyFe50mmF14GmSample.resolution],
+                ['ボケの使いどころ', sonyFe50mmF14GmSample.bokeh],
+                ['収差・癖の扱い方', sonyFe50mmF14GmSample.rendering],
+              ].map(([title, text]) => (
+                <section key={title} className="rounded-lg border border-slate-200/70 bg-white px-2.5 py-2 dark:border-white/10 dark:bg-slate-950/60">
+                  <p className="text-[11px] font-semibold text-slate-800 dark:text-slate-200">{title}</p>
+                  <p className="mt-1 text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">{text}</p>
+                </section>
+              ))}
+            </div>
+
+            <section>
+              <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">買うべき人 / 待つべき人</p>
+              <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                <div className="rounded-lg border border-slate-200/70 bg-white px-2.5 py-2 dark:border-white/10 dark:bg-slate-950/60">
+                  <p className="text-[11px] font-semibold text-slate-800 dark:text-slate-200">買うべき人</p>
+                  <ul className="mt-1 space-y-1 text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">
+                    {sonyFe50mmF14GmSample.buyIf.map(item => <li key={item}>・{item}</li>)}
+                  </ul>
+                </div>
+                <div className="rounded-lg border border-slate-200/70 bg-white px-2.5 py-2 dark:border-white/10 dark:bg-slate-950/60">
+                  <p className="text-[11px] font-semibold text-slate-800 dark:text-slate-200">待つべき人</p>
+                  <ul className="mt-1 space-y-1 text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">
+                    {sonyFe50mmF14GmSample.waitIf.map(item => <li key={item}>・{item}</li>)}
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </div>
+        ) : (
+          <>
+            <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">使いこなしレビューは準備中です</p>
+            <p className="mt-1.5 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+              今後、このレンズの美味しい使い方、シーン別おすすめ設定、解像・ボケ・収差の扱い方、比較候補を整理します。
+            </p>
+            <button
+              type="button"
+              disabled
+              className="mt-3 inline-flex cursor-not-allowed items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-slate-400 dark:border-white/10 dark:bg-slate-950 dark:text-slate-500"
+            >
+              <Sparkles className="h-3 w-3" />
+              使いこなしレビューを作成（準備中）
+            </button>
+          </>
+        )}
       </div>
 
       <div className="mt-3 grid grid-cols-2 gap-1.5">
