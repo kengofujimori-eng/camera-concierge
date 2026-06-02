@@ -269,39 +269,37 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
     ? {
         verdict: 'F1.4開放から中央解像が非常に高く、ボケ量と実用解像を両立しやすい50mm GM。F1.4を雰囲気用ではなく本気の撮影F値として使いたい人向け。',
         sweetSpot: [
-          ['F1.4', '中央の主役を開放から強く見せたい時。1人ポートレートや夜の街歩き向き。'],
-          ['F2〜F2.8', '解像と歩留まりのバランス域。F2.8では中央ピーク付近まで伸びる。'],
-          ['F5.6〜F8', '風景・旅行記録で画面全体の安定を狙う時。'],
-          ['F11以降', '深度や光芒が必要な時だけ。解像目的でむやみに絞りすぎない。'],
-        ],
-        sceneSettings: [
-          ['1人ポートレート', 'F1.4〜F2'],
-          ['子供・家族', 'F1.8〜F2.8'],
-          ['商品・質感重視', 'F2.8〜F4'],
-          ['風景・建築', 'F5.6〜F8'],
-          ['夜景スナップ', 'F1.4〜F2.8'],
-          ['光芒・深度優先', 'F8〜F11'],
+          ['F1.4', '中央は開放から高水準。人物の目元や質感を本気で狙える。'],
+          ['F2〜F2.8', '中央ピーク域。LenstipではF2.8で90.9 lpmm付近。'],
+          ['F5.6〜F8', '周辺・画面全体を揃えたい時の基準。'],
+          ['F11以降', '深度や光芒目的。解像目的で常用するF値ではない。'],
         ],
         resolution:
-          'Lenstip測定では、中央解像はF1.4から非常に高く、F2.8で90.9 lpmm付近のピークに達する。開放は雰囲気用ではなく、人物の目元や質感を本気で狙える実用域。F2〜F2.8ではさらに安定し、商品撮影や高解像ポートレートにも向く。風景や建築で画面全体を揃えるならF5.6〜F8を基準にしたい。',
+          'Lenstip測定では中央解像がF1.4から非常に高く、F2.8で90.9 lpmm付近のピークに達する。F1.4は雰囲気用ではなく実用域。画面全体を揃えるならF5.6〜F8、F11以降は深度や光芒が必要な時に使う。',
         bokeh:
-          'このレンズの強みは、F1.4のボケ量を使いながら中央の解像感も大きく崩れにくいこと。F1.2 GMほど極端な分離感ではないが、F1.4開放を実用画質として使いやすい。近距離の子供・家族では被写界深度が浅くなりすぎるため、F1.8〜F2.8も積極的に使う。',
+          'F1.2 GMほど極端な分離感ではないが、F1.4のボケ量と開放解像を両立しやすいのが強み。背景を大きく離せる場面では素直に整理しやすい。一方で、前ボケや細かい枝・格子背景では作例確認が必要。',
         rendering:
-          '色収差はこのレンズの大きな弱点として扱わなくてよい。Lenstip測定では軸上・倍率ともかなり抑えられており、F1.4から実用的。高輝度境界でゼロではないが、大口径50mmとしては良好な部類。むしろ注意点は、フルサイズ開放での周辺減光と、太陽を画面内に入れた時のフレア / ゴースト。ポートレートでは周辺減光を雰囲気として使えるが、商品撮影や均一背景では補正前提にしたい。',
+          '色収差は大きな弱点として扱わなくてよい。Lenstip測定では軸上・倍率とも低く、大口径50mmとして良好。高輝度境界で完全ゼロではないが、F1.4から実用的。',
+        vignettingBacklight:
+          '明確な注意点は、開放の周辺減光と、太陽を画面内に入れた時のフレア / ゴースト。ポートレートでは周辺減光を雰囲気として使えるが、商品撮影や均一背景では補正前提。逆光耐性を最優先する用途では作例確認したい。',
+        comparison:
+          'Sigma 50mm F1.4 DG DN Artは価格面の比較候補。ただしF1.4開放の解像ではSony GMが強い。FE 50mm F1.2 GMは解像ピークではなく、F1.2の表現力とボケ量を買う別軸。',
         buyIf: [
           'F1.4を開放から実用画質として使いたい人',
           '50mmでボケ量と解像感を両立したい人',
           'Sigmaより価格は上がっても、開放性能・純正AF・携帯性を重視したい人',
-          'F1.2 GMほどの重さや価格は避けつつ、高性能な50mmを主力にしたい人',
         ],
         waitIf: [
-          '価格優先で、絞って使う前提ならSigma 50mm F1.4 DG DN Artも比較したい人',
-          'F1.2のボケ量や表現力を最優先する人',
-          '50mmの画角が生活に合うかまだ分からない人',
-          '強い逆光や太陽入り構図を多用し、フレア耐性を最優先する人',
+          '価格優先でSigmaも比較したい人',
+          'F1.2のボケ量を最優先したい人',
+          '50mmの画角が生活に合うか分からない人',
+          '太陽入り構図の逆光耐性を最優先する人',
         ],
       }
     : null
+  const reviewSections = sonyFe50mmF14GmSample
+    ? ['解像とF値', 'ボケ', '収差', '周辺減光・逆光', '比較', 'Sources']
+    : sections
 
   return (
     <div className="mx-4 mb-3 rounded-2xl border border-violet-200/70 bg-white p-3 shadow-[0_8px_22px_rgba(124,58,237,0.08)] dark:border-violet-400/20 dark:bg-slate-950/80">
@@ -330,7 +328,7 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
             </section>
 
             <section>
-              <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">美味しいF値</p>
+              <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">解像とF値</p>
               <div className="mt-2 space-y-1.5">
                 {sonyFe50mmF14GmSample.sweetSpot.map(([aperture, note]) => (
                   <div key={aperture} className="rounded-lg border border-slate-200/70 bg-white px-2.5 py-2 dark:border-white/10 dark:bg-slate-950/60">
@@ -339,25 +337,17 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
                   </div>
                 ))}
               </div>
-            </section>
-
-            <section>
-              <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">シーン別おすすめ設定</p>
-              <div className="mt-2 grid grid-cols-2 gap-1.5">
-                {sonyFe50mmF14GmSample.sceneSettings.map(([scene, aperture]) => (
-                  <div key={scene} className="rounded-lg border border-slate-200/70 bg-white px-2.5 py-2 dark:border-white/10 dark:bg-slate-950/60">
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400">{scene}</p>
-                    <p className="mt-0.5 text-[11px] font-semibold text-slate-800 dark:text-slate-200">{aperture}</p>
-                  </div>
-                ))}
-              </div>
+              <p className="mt-2 text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">
+                {sonyFe50mmF14GmSample.resolution}
+              </p>
             </section>
 
             <div className="space-y-2">
               {[
-                ['解像の使いどころ', sonyFe50mmF14GmSample.resolution],
-                ['ボケの使いどころ', sonyFe50mmF14GmSample.bokeh],
-                ['収差・癖の扱い方', sonyFe50mmF14GmSample.rendering],
+                ['ボケ', sonyFe50mmF14GmSample.bokeh],
+                ['収差', sonyFe50mmF14GmSample.rendering],
+                ['周辺減光・逆光', sonyFe50mmF14GmSample.vignettingBacklight],
+                ['比較と買い方', sonyFe50mmF14GmSample.comparison],
               ].map(([title, text]) => (
                 <section key={title} className="rounded-lg border border-slate-200/70 bg-white px-2.5 py-2 dark:border-white/10 dark:bg-slate-950/60">
                   <p className="text-[11px] font-semibold text-slate-800 dark:text-slate-200">{title}</p>
@@ -403,7 +393,7 @@ function LensDeepReviewPanel({ lensName }: { lensName: string }) {
       </div>
 
       <div className="mt-3 grid grid-cols-2 gap-1.5">
-        {sections.map(section => (
+        {reviewSections.map(section => (
           <div
             key={section}
             className="rounded-lg border border-slate-200/70 bg-white px-2.5 py-2 text-[11px] font-medium text-slate-600 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300"
