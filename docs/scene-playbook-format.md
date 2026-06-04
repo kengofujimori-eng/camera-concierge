@@ -94,9 +94,21 @@ Scene Playbook はスペック比較ではない。
 - 撮影距離
 - 被写体の動き
 - 場所の広さ
+- 撮影者が動けるか
+- 距離が読めるか
+- 会場や場所の明るさ
+- レンズ交換できるか
 - 複数人か1人か
 - 背景を消したいのか、状況も残したいのか
 - レンズ交換やズームの必要性
+
+家族写真と発表会では、同じ「人物撮影」でも制約が大きく違う。
+
+家族写真では、被写体との距離が近く、子供が近づいてきて、撮影者が動けることが多い。ここでは「狭い場所で撮れるか」「近距離で構図が崩れないか」「複数人を失敗しにくく撮れるか」が重要になる。
+
+発表会では、座席から動けず、被写体まで距離があり、会場が暗く、撮影距離を調整できないことが多い。ここでは「焦点距離が足りるか」「構図変更できるか」「被写体ブレを避けられるか」が重要になる。
+
+Scene Playbook は、最初にこの制約差を整理してから、焦点距離やF値へ進む。
 
 測定値やスペックは使ってよい。
 
@@ -108,6 +120,8 @@ Scene Playbook はスペック比較ではない。
 - `85mmは背景整理が強い` → 「屋外で1人を切り出しやすいが、室内や近距離では長く感じやすい」
 - `135mmは圧縮効果が強い` → 「公園やイベントで遠くの自然な表情を拾いやすいが、日常の会話距離では使いにくい」
 - `軽量化されたGM II` → 「持ち出しやすくなったが、家族写真の主力になるかは焦点距離と距離感で判断する」
+- `F1.4で明るい` → 「シャッター速度を稼ぎやすいが、動きや複数人ではピント面が浅くなる」
+- `70-200mmでズームできる` → 「明るさや重さの負担はあるが、席や距離が読めない場面で構図変更しやすい」
 
 ## Recommended structure
 
@@ -143,6 +157,28 @@ Scene Playbook は以下の構成を基本にする。
 撮影シーン全体の判断を短く書く。
 
 レンズの優劣ではなく、使いやすい条件を先に示す。
+
+### Scene constraints / 撮影制約
+
+そのシーンの制約を、レンズ名より先に整理する。
+
+家族写真と発表会の差分から、最低限以下を見る。
+
+- 撮影者が動ける / 動けない
+- 被写体が近い / 遠い
+- 距離が読める / 読めない
+- 室内 / 屋外
+- 明るい / 暗い
+- レンズ交換できる / できない
+- 被写体が近づく / 離れる / 固定位置にいる
+- 背景を整理したい / 状況を残したい
+
+書き方:
+
+- 家族写真: 撮影者が動けることが多い。被写体は近く、子供は近づいてくる。室内外が混在する。
+- 発表会: 座席から動けない。被写体まで距離があり、会場は暗いことが多い。距離が読めないこともある。
+
+この制約整理によって、同じ85mmでも「屋外で子供を切り出す追加レンズ」なのか、「前方席・小会場で発表会を撮るレンズ」なのかが変わる。
 
 ### このシーンで失敗しやすいこと
 
@@ -194,6 +230,25 @@ F値を「明るい / ボケる」だけで終わらせない。
 - F2.8〜F4: 複数人、動き、失敗回避
 - F5.6〜F8: 旅行記録、風景込み、背景も残す
 
+### Motion and shutter / 動きとシャッター速度
+
+動きがあるシーンでは、F値だけでなくシャッター速度とISOも扱う。
+
+基本方針:
+
+- 手ブレと被写体ブレを分けて考える。
+- 明るいレンズはシャッター速度を稼ぎやすい。
+- ただし開放にするほどピント面は浅くなる。
+- 動く子供、踊り、演奏、スポーツでは被写体ブレ対策が重要。
+- F値、シャッター速度、ISOのトレードオフを撮影判断として扱う。
+- 数値は断定しすぎず、目安として扱う。
+
+例:
+
+- 家族写真: 子供が近づいてくる時は、F1.4固定よりF1.8〜F2.8で歩留まりを上げる。
+- 発表会: 手ブレ補正だけでは出演者の動きは止まらない。踊りや手振りではシャッター速度を上げたい。
+- 運動会: 焦点距離だけでなく、動きの速さとシャッター速度を先に考える。
+
 ### 撮影距離の攻略
 
 焦点距離と場所の広さをセットで扱う。
@@ -204,6 +259,32 @@ F値を「明るい / ボケる」だけで終わらせない。
 - 会話しながら: 50mm〜85mm
 - 少し離れた自然な表情: 85mm〜135mm
 - 遠くのイベント: 135mm以上、または望遠ズーム
+
+### Prime vs zoom / 単焦点とズームの役割
+
+単焦点とズームは優劣ではなく、撮影条件で役割を分ける。
+
+単焦点が強い条件:
+
+- 明るさが必要
+- 描写や背景整理を重視する
+- 距離が読める
+- 撮影意図が明確
+- 1人を印象的に撮りたい
+
+ズームが強い条件:
+
+- 構図変更が必要
+- 被写体との距離が変わる
+- 席や撮影位置が読めない
+- 全体を安全に記録したい
+- レンズ交換しにくい
+
+例:
+
+- 家族写真: 50mmや85mmの単焦点は距離感と描写を作りやすいが、室内や複数人では35mmや標準ズームも比較対象になる。
+- 発表会: 85mmや135mmの単焦点は距離が読める時に強い。席が読めない場合や全身も表情も撮りたい場合は70-200mm系が安全。
+- 旅行: 単焦点は意図が明確な時に強いが、旅程や場所が読めない場合はズームの安心感が大きい。
 
 ### レンズ候補の役割
 
@@ -232,6 +313,26 @@ F値を「明るい / ボケる」だけで終わらせない。
 - 旅行も兼ねる
 - 動画も撮る
 
+### Video considerations / 動画時の追加判断
+
+写真で強いレンズが、動画でもそのまま扱いやすいとは限らない。
+
+動画も対象にする Scene Playbook では、以下を追加で見る。
+
+- AF追従
+- フォーカスブリージング
+- 手持ち負荷
+- ジンバル適性
+- 画角固定のリスク
+- 操作音
+- 被写体との距離
+
+例:
+
+- 85mm: 写真では屋外人物に強い。動画ではAF、ブリージング補正、被写体との距離、手持ち負荷を見る。
+- 135mm: 写真では圧縮と切り出しが強い。動画では手ブレ、画角固定、フォーカス移動時の画角変化が問題になりやすい。
+- 70-200mm: 構図変更には強いが、手持ち負荷、ズーム操作、ジンバル適性、会場での取り回しを確認する。
+
 ### Lens Navi結論
 
 最後はランキングではなく、判断のまとめにする。
@@ -252,6 +353,8 @@ F値を「明るい / ボケる」だけで終わらせない。
 type ScenePlaybook = {
   slug: string
   title: string
+  sceneName: string
+  positioning: string
   status: 'manual-scene-playbook-draft' | 'verified' | 'ai-assisted' | 'not-ready'
 
   sceneGoal: string
@@ -270,19 +373,40 @@ type ScenePlaybook = {
 
   oneLineSummary: string[]
 
+  sceneConstraints: {
+    photographerMobility?: string
+    subjectDistance?: string
+    distancePredictability?: string
+    locationType?: string
+    lightLevel?: string
+    lensChange?: string
+    subjectMovement?: string
+    backgroundControl?: string
+  }
+
   failureRisks: {
     label: string
+    reason?: string
+    avoidBy?: string
     note: string
   }[]
 
   firstDecisions: {
     question: string
     whyItMatters: string
+    options?: {
+      label: string
+      chooseIf: string
+    }[]
   }[]
 
   focalLengthGuide: {
     focalLength: string
+    focalRange?: string
+    role?: string
     usefulFor: string[]
+    goodFor?: string[]
+    caution?: string[]
     failureRisk?: string
     note: string
   }[]
@@ -290,30 +414,65 @@ type ScenePlaybook = {
   apertureGuide: {
     aperture: string
     usefulFor: string[]
+    bestFor?: string
+    caution?: string
     failureRisk?: string
     note: string
   }[]
 
+  motionAndShutter?: {
+    subjectMotion: string
+    shutterGuidance: string
+    stabilizationNote?: string
+    isoTradeoff?: string
+  }
+
   workingDistanceGuide: {
     distance: string
     lensRange: string
+    suitableLens?: string[]
     note: string
   }[]
 
+  primeVsZoom?: {
+    primeStrengths: string[]
+    zoomStrengths: string[]
+    choosePrimeIf: string[]
+    chooseZoomIf: string[]
+  }
+
   lensRoles: {
-    lensName: string
-    role: 'main' | 'secondary' | 'conditional' | 'compare' | 'lower-priority'
+    lensName?: string
+    lensNameOrType?: string
+    role: string
+    roleKind?: 'main' | 'secondary' | 'conditional' | 'compare' | 'lower-priority'
     usefulConditions: string[]
     failureConditions: string[]
+    bestUse?: string[]
+    notBestFor?: string[]
+    sweetSpot?: string
     fieldUse: string
   }[]
 
   recommendedSetups: {
     label: string
+    patternName?: string
     primaryChoice: string
+    lensSet?: string[]
     supportChoice?: string
+    chooseIf?: string
     note: string
   }[]
+
+  videoConsiderations?: {
+    autofocus?: string
+    focusBreathing?: string
+    handheldLoad?: string
+    gimbalUse?: string
+    framingRisk?: string
+    operationNoise?: string
+    subjectDistance?: string
+  }
 
   lensNaviConclusion: string[]
 
