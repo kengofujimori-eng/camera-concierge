@@ -1,7 +1,16 @@
+"use client";
+
+import { useState } from "react";
 import { ScenePlaybookCard } from "@/components/ScenePlaybookCard";
 import { scenePlaybooks } from "@/data/scenePlaybooks";
 
 export default function ScenePlaybooksPage() {
+  const [openGuideId, setOpenGuideId] = useState<string | null>(null);
+
+  function handleOpenGuide(id: string) {
+    setOpenGuideId((currentId) => (currentId === id ? null : id));
+  }
+
   return (
     <main
       data-testid="scene-playbook-page"
@@ -79,7 +88,12 @@ export default function ScenePlaybooksPage() {
           aria-label="Scene Playbook list"
         >
           {scenePlaybooks.map((playbook) => (
-            <ScenePlaybookCard key={playbook.id} playbook={playbook} />
+            <ScenePlaybookCard
+              key={playbook.id}
+              playbook={playbook}
+              isOpen={openGuideId === playbook.id}
+              onOpen={handleOpenGuide}
+            />
           ))}
         </section>
 

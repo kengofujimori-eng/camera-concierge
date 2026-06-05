@@ -2,6 +2,8 @@ import type { ScenePlaybookCard as ScenePlaybookCardType } from "@/data/scenePla
 
 type ScenePlaybookCardProps = {
   playbook: ScenePlaybookCardType;
+  isOpen?: boolean;
+  onOpen?: (id: string) => void;
 };
 
 function Chip({ children }: { children: string }) {
@@ -12,7 +14,12 @@ function Chip({ children }: { children: string }) {
   );
 }
 
-export function ScenePlaybookCard({ playbook }: ScenePlaybookCardProps) {
+export function ScenePlaybookCard({
+  playbook,
+  isOpen = false,
+  onOpen,
+}: ScenePlaybookCardProps) {
+  const hasDetail = Boolean(playbook.detail);
   const keyDecisions = playbook.keyDecisions.slice(0, 3);
   const focalRanges = playbook.representativeFocalRanges.slice(0, 4);
   const lensRoles = playbook.mainLensRoles.slice(0, 3);
@@ -96,14 +103,134 @@ export function ScenePlaybookCard({ playbook }: ScenePlaybookCardProps) {
         </div>
 
         <div className="mt-auto pt-5">
-          <span
+          <button
+            type="button"
             data-testid={`scene-playbook-open-${playbook.id}`}
-            className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors group-hover:border-violet-200 group-hover:text-violet-700 dark:border-white/10 dark:bg-slate-950 dark:text-slate-200 dark:group-hover:border-violet-400/30 dark:group-hover:text-violet-200"
+            onClick={() => {
+              if (hasDetail) {
+                onOpen?.(playbook.id);
+              }
+            }}
+            disabled={!hasDetail}
+            aria-expanded={hasDetail ? isOpen : undefined}
+            className={`inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
+              hasDetail
+                ? "border-slate-200 bg-white text-slate-700 group-hover:border-violet-200 group-hover:text-violet-700 dark:border-white/10 dark:bg-slate-950 dark:text-slate-200 dark:group-hover:border-violet-400/30 dark:group-hover:text-violet-200"
+                : "cursor-not-allowed border-slate-200 bg-slate-50 text-slate-400 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-500"
+            }`}
           >
-            撮影判断を見る
-          </span>
+            {hasDetail ? (isOpen ? "撮影判断を閉じる" : "撮影判断を見る") : "詳細準備中"}
+          </button>
         </div>
+
+        {isOpen && playbook.detail ? (
+          <div
+            data-testid={`scene-guide-detail-${playbook.id}`}
+            className="mt-5 space-y-5 rounded-3xl border border-slate-200 bg-slate-50/80 p-4 text-sm text-slate-700 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300"
+          >
+            <section className="space-y-2">
+              <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
+                一言でいうと
+              </p>
+              <p className="leading-6 text-slate-700 dark:text-slate-200">
+                {playbook.detail.oneLineVerdict}
+              </p>
+            </section>
+
+            <DetailList title="失敗しやすいこと" items={playbook.detail.commonFailures} />
+            <DetailList title="まず考えるべき判断" items={playbook.detail.firstQuestions} />
+
+            <section className="space-y-2">
+              <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+                焦点距離の考え方
+              </p>
+              <div className="grid gap-2">
+                {playbook.detail.focalLengthGuide.map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-2xl border border-slate-200 bg-white px-3 py-2 dark:border-white/10 dark:bg-slate-950/60"
+                  >
+                    <p className="text-xs font-semibold text-slate-950 dark:text-white">
+                      {item.label}
+                    </p>
+                    <p className="mt-0.5 text-xs leading-5 text-slate-600 dark:text-slate-400">
+                      {item.guidance}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="space-y-2">
+              <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+                レンズの役割
+              </p>
+              <div className="grid gap-2">
+                {playbook.detail.lensRoles.map((role) => (
+                  <div
+                    key={role.label}
+                    className="rounded-2xl border border-slate-200 bg-white px-3 py-2 dark:border-white/10 dark:bg-slate-950/60"
+                  >
+                    <p className="text-xs font-semibold text-slate-950 dark:text-white">
+                      {role.label}
+                    </p>
+                    <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-slate-400">
+                      <span className="font-semibold text-slate-700 dark:text-slate-300">
+                        使いやすい条件:
+                      </span>{" "}
+                      {role.bestFor}
+                    </p>
+                    <p className="mt-0.5 text-xs leading-5 text-slate-600 dark:text-slate-400">
+                      <span className="font-semibold text-slate-700 dark:text-slate-300">
+                        注意:
+                      </span>{" "}
+                      {role.caution}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className="rounded-2xl border border-violet-200 bg-white px-3 py-3 dark:border-violet-400/20 dark:bg-slate-950/60">
+              <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
+                Lens Navi 結論
+              </p>
+              <p className="mt-1 text-xs leading-5 text-slate-700 dark:text-slate-300">
+                {playbook.detail.lensNaviConclusion}
+              </p>
+            </section>
+
+            <button
+              type="button"
+              data-testid={`scene-guide-detail-close-${playbook.id}`}
+              onClick={() => onOpen?.(playbook.id)}
+              className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900 dark:border-white/10 dark:bg-slate-950 dark:text-slate-300 dark:hover:border-white/20 dark:hover:text-white"
+            >
+              閉じる
+            </button>
+          </div>
+        ) : null}
       </div>
     </article>
+  );
+}
+
+function DetailList({ title, items }: { title: string; items: string[] }) {
+  return (
+    <section className="space-y-2">
+      <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+        {title}
+      </p>
+      <ul className="grid gap-2">
+        {items.map((item) => (
+          <li
+            key={item}
+            className="rounded-2xl border border-slate-200 bg-white px-3 py-2 text-xs leading-5 text-slate-600 dark:border-white/10 dark:bg-slate-950/60 dark:text-slate-400"
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

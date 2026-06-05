@@ -12,6 +12,22 @@ export type ScenePlaybookStatus =
   | "ai-assisted"
   | "not-ready";
 
+export type ScenePlaybookDetail = {
+  oneLineVerdict: string;
+  commonFailures: string[];
+  firstQuestions: string[];
+  focalLengthGuide: {
+    label: string;
+    guidance: string;
+  }[];
+  lensRoles: {
+    label: string;
+    bestFor: string;
+    caution: string;
+  }[];
+  lensNaviConclusion: string;
+};
+
 export type ScenePlaybookCard = {
   id: string;
   title: string;
@@ -28,6 +44,7 @@ export type ScenePlaybookCard = {
   primaryCaution: string;
   relatedLensIds: string[];
   status: ScenePlaybookStatus;
+  detail?: ScenePlaybookDetail;
 };
 
 export const scenePlaybooks: ScenePlaybookCard[] = [
@@ -55,6 +72,58 @@ export const scenePlaybooks: ScenePlaybookCard[] = [
     primaryCaution: "ボケ量より、距離感と歩留まりを優先する。",
     relatedLensIds: [],
     status: "manual-draft",
+    detail: {
+      oneLineVerdict:
+        "家族写真では、最高のボケよりも、距離感・複数人・子どもの動きに対応できることが重要。",
+      commonFailures: [
+        "室内で距離が足りない",
+        "F値を開けすぎて複数人のピントが浅い",
+        "子どもが近づいて構図が崩れる",
+        "背景を消しすぎて、その日の状況が残らない",
+      ],
+      firstQuestions: [
+        "室内中心か屋外中心か",
+        "1人をきれいに撮るのか、家族の記録を残すのか",
+        "子どもが動くか、止まってくれるか",
+        "複数人を撮る頻度が高いか",
+      ],
+      focalLengthGuide: [
+        { label: "35mm", guidance: "室内、複数人、生活感を残す撮影に向く" },
+        {
+          label: "50mm",
+          guidance: "家族写真の中心。日常と人物のバランスが取りやすい",
+        },
+        { label: "85mm", guidance: "屋外で子どもをきれいに切り出しやすい" },
+        {
+          label: "135mm",
+          guidance: "広い場所やイベントで遠くの自然な表情を拾いやすい",
+        },
+      ],
+      lensRoles: [
+        {
+          label: "35mm系",
+          bestFor: "室内・複数人・食事や部屋の雰囲気",
+          caution: "背景整理や大きなボケは控えめ",
+        },
+        {
+          label: "50mm",
+          bestFor: "日常の家族写真の主力",
+          caution: "狭い室内では少し長く感じることがある",
+        },
+        {
+          label: "85mm",
+          bestFor: "屋外で1人をきれいに撮る",
+          caution: "室内や近距離では長すぎることがある",
+        },
+        {
+          label: "135mm",
+          bestFor: "公園やイベントで遠くの表情を切り出す",
+          caution: "日常の会話距離では使いにくい",
+        },
+      ],
+      lensNaviConclusion:
+        "家族写真の最初の本命は50mm。室内や複数人が多いなら35mm系、屋外で子どもをきれいに切り出したいなら85mm、広い場所やイベントでは135mmを追加候補にする。",
+    },
   },
   {
     id: "recital-stage",
