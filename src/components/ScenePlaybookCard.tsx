@@ -119,26 +119,32 @@ export function ScenePlaybookCard({
                 : "cursor-not-allowed border-slate-200 bg-slate-50 text-slate-400 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-500"
             }`}
           >
-            {hasDetail ? (isOpen ? "撮影判断を閉じる" : "撮影判断を見る") : "詳細準備中"}
+            {hasDetail ? (isOpen ? "撮影判断を閉じる" : "撮影判断を見る") : "今は要点のみ"}
           </button>
         </div>
 
         {isOpen && playbook.detail ? (
           <div
             data-testid={`scene-guide-detail-${playbook.id}`}
-            className="mt-5 space-y-5 rounded-3xl border border-slate-200 bg-slate-50/80 p-4 text-sm text-slate-700 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300"
+            className="mt-4 space-y-4 rounded-3xl border border-slate-200 bg-slate-50/80 p-3.5 text-sm text-slate-700 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300 sm:p-4"
           >
-            <section className="space-y-2">
+            <section className="rounded-2xl border border-violet-200 bg-white px-3 py-2.5 dark:border-violet-400/20 dark:bg-slate-950/60">
               <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
                 一言でいうと
               </p>
-              <p className="leading-6 text-slate-700 dark:text-slate-200">
+              <p className="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-200">
                 {playbook.detail.oneLineVerdict}
               </p>
             </section>
 
-            <DetailList title="失敗しやすいこと" items={playbook.detail.commonFailures} />
-            <DetailList title="まず考えるべき判断" items={playbook.detail.firstQuestions} />
+            <DetailList
+              title="失敗しやすいこと"
+              items={playbook.detail.commonFailures}
+            />
+            <DetailList
+              title="まず考えるべき判断"
+              items={playbook.detail.firstQuestions}
+            />
 
             <section className="space-y-2">
               <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
