@@ -27,7 +27,7 @@ export function ScenePlaybookCard({ playbook }: ScenePlaybookCardProps) {
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="mb-4 flex items-center justify-between gap-3">
           <span className="inline-flex items-center rounded-full border border-blue-100 bg-blue-50 px-2.5 py-1 text-[11px] font-semibold text-blue-700 dark:border-blue-400/20 dark:bg-blue-400/10 dark:text-blue-200">
-            撮影攻略
+            撮影ガイド
           </span>
           <span className="text-xs font-medium text-slate-400 dark:text-slate-500">
             {playbook.shortTitle}

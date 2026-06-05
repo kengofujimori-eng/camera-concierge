@@ -14,7 +14,7 @@ export default function ScenePlaybooksPage() {
           </div>
           <div className="space-y-3">
             <h1 className="text-3xl font-semibold tracking-normal text-slate-950 sm:text-4xl dark:text-white">
-              撮影シーン攻略
+              撮影シーンガイド
             </h1>
             <p className="text-base leading-7 text-slate-600 dark:text-slate-300">
               レンズ単体の評価ではなく、家族写真・発表会・運動会などの撮影条件から、焦点距離・F値・距離感を整理するためのガイドです。

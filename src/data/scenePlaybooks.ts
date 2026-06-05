@@ -33,7 +33,7 @@ export type ScenePlaybookCard = {
 export const scenePlaybooks: ScenePlaybookCard[] = [
   {
     id: "family-photography",
-    title: "家族写真攻略",
+    title: "家族写真ガイド",
     shortTitle: "家族写真",
     sceneType: "family",
     headline:
@@ -58,7 +58,7 @@ export const scenePlaybooks: ScenePlaybookCard[] = [
   },
   {
     id: "recital-stage",
-    title: "発表会攻略",
+    title: "発表会ガイド",
     shortTitle: "発表会",
     sceneType: "recital",
     headline:
@@ -78,7 +78,7 @@ export const scenePlaybooks: ScenePlaybookCard[] = [
   },
   {
     id: "sports-day",
-    title: "運動会攻略",
+    title: "運動会ガイド",
     shortTitle: "運動会",
     sceneType: "sports-day",
     headline:
