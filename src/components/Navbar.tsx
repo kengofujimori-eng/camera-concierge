@@ -77,13 +77,14 @@ export default function Navbar() {
                 : 'bg-transparent hover:bg-slate-200/80 dark:hover:bg-white/10'
             }`}
           >
-            <span className={`flex items-center gap-1.5 rounded-[11px] px-3 py-1.5 transition-colors ${
+            <span className={`flex items-center gap-1.5 whitespace-nowrap rounded-[11px] px-3 py-1.5 transition-colors ${
               pathname === '/scene-playbooks'
                 ? 'bg-white text-slate-950 dark:bg-slate-950 dark:text-white'
                 : 'text-slate-600 dark:text-slate-300'
             }`}>
               <BookOpenText className="h-4 w-4" />
-              シーンガイド
+              <span className="hidden sm:inline">シーンガイド</span>
+              <span className="sm:hidden">シーン</span>
             </span>
           </Link>
           <Link
