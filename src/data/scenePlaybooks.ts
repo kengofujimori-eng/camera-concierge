@@ -97,6 +97,32 @@ export const scenePlaybooks: ScenePlaybookCard[] = [
     relatedLensIds: [],
     status: "manual-draft",
   },
+  {
+    id: "travel-outing",
+    title: "旅行・おでかけガイド",
+    shortTitle: "旅行",
+    sceneType: "travel",
+    headline:
+      "旅行では最高画質より、持ち出せること・交換しなくて済むこと・夜も撮れることを優先する。",
+    primaryUse: ["旅行", "街歩き", "おでかけ", "家族記録"],
+    keyDecisions: [
+      "荷物を減らすか",
+      "夜も撮るか",
+      "人物も風景も撮るか",
+      "レンズ交換できるか",
+    ],
+    representativeFocalRanges: ["24-70mm", "20-70mm", "35mm", "50mm"],
+    mainLensRoles: [
+      { label: "標準ズーム", role: "人物も風景も1本で拾いやすい" },
+      { label: "軽量標準ズーム", role: "長時間の街歩きや家族旅行で持ち出しやすい" },
+      { label: "35mm", role: "街歩き、食事、室内を自然に残しやすい" },
+      { label: "50mm", role: "荷物を軽くしつつ人物を印象的に撮りやすい" },
+    ],
+    primaryCaution:
+      "旅行では、持って行ける重さと交換しなくてよい安心感を画質より先に見る。",
+    relatedLensIds: [],
+    status: "manual-draft",
+  },
 ];
 
 export function getScenePlaybookById(id: string) {
