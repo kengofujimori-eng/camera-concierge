@@ -1,37 +1,37 @@
-# Add travel scene guide card
+# Add scene guide chooser intro
 
 ## Background
 
-Scene Guide は `/scene-playbooks` で card-only の初期 UI として表示されている。
+`/scene-playbooks` は、Scene Guide の card-only 初期 UI として表示されている。
 
-現在のカードは、家族写真、発表会、運動会の3件。次のシーンとして、日常ユーザーが使いやすい `旅行・おでかけガイド` を追加する。
+現在は `家族写真ガイド`、`発表会ガイド`、`運動会ガイド`、`旅行・おでかけガイド` の4枚カードが並んでいる。
 
 ## Problem
 
-旅行やおでかけでは、単純な最高画質や明るさだけでは失敗しにくい判断にならない。
+カード一覧だけだと、ユーザーが最初にどのガイドを読めばよいか少し判断しにくい。
 
-荷物を減らすか、夜も撮るか、人物も風景も撮るか、レンズ交換できるかによって、使いやすいレンズ構成が変わる。
+Lens Navi はレンズ名より先に撮影条件を見る「撮影判断ナビ」を目指しているため、カード一覧の前に、撮りたい場面から近いガイドを選ぶ小さな導入があると自然になる。
 
 ## Direction
 
-`src/data/scenePlaybooks.ts` に `travel` タイプの card-only データを1件追加する。
+`/scene-playbooks` の header と card grid の間に、chooser intro セクションを追加する。
 
-旅行ガイドでは、最高画質よりも以下を優先する。
+見せたいこと:
 
-- 持ち出せること
-- 交換しなくて済むこと
-- 夜も撮れること
-- 人物と風景の両方を無理なく撮れること
+- どのガイドを見るべきかを短く案内する。
+- 4つの既存ガイドを、撮影条件の言葉から選べるようにする。
+- 既存カード表示は壊さない。
+- 詳細ページや動的ルートは作らない。
 
 ## Allowed files
 
 - `docs/active-mission.md`
 - `docs/current-task.md`
-- `src/data/scenePlaybooks.ts`
+- `src/app/scene-playbooks/page.tsx`
 
 ## Do not touch
 
-- `src/app/scene-playbooks/page.tsx`
+- `src/data/scenePlaybooks.ts`
 - `src/components/ScenePlaybookCard.tsx`
 - `src/components/Navbar.tsx`
 - `src/app/warehouse/page.tsx`
@@ -39,47 +39,56 @@ Scene Guide は `/scene-playbooks` で card-only の初期 UI として表示さ
 - `src/components/LensRecommendationCards.tsx`
 - `src/components/WarehouseList.tsx`
 - `public/lens_data.json`
-- warehouse / Deep Review
-- localStorage 関連処理
 - API / Dify
+- localStorage
 - 推薦ロジック
 
 ## Do
 
-- `scenePlaybooks` に4件目として `travel` タイプのカードを追加する。
-- `title` は `旅行・おでかけガイド` にする。
-- `shortTitle` は `旅行` にする。
-- `relatedLensIds` は stable_id 未導入のため `[]` にする。
-- 代表焦点距離は `24-70mm` / `20-70mm` / `35mm` / `50mm` を使う。
-- レンズの役割は、標準ズーム、軽量標準ズーム、35mm、50mmを短く整理する。
-- 既存3件の `id`、型、構造、helper を壊さない。
+- `/scene-playbooks` のカード一覧前に chooser intro を追加する。
+- `data-testid="scene-guide-chooser"` を追加する。
+- 既存の `data-testid="scene-playbook-page"` と `data-testid="scene-playbook-grid"` は変更しない。
+- UI は白 / slate ベース、薄い border、控えめな shadow、局所的な blue-violet to magenta accent にする。
+- モバイルでは縦に自然に並ぶ構成にする。
+- 既存の初期モック注意文は残す。
 
 ## Do not
 
 - `ScenePlaybookCard.tsx` を変更しない。
+- `scenePlaybooks.ts` に新しいカードを追加しない。
 - `Navbar.tsx` を変更しない。
-- `/scene-playbooks` ページを変更しない。
-- `public/lens_data.json` に stable_id を追加しない。
-- `relatedLensIds` に仮IDを入れない。
-- warehouse / Deep Review / chat / API / Dify / localStorage / 推薦ロジックへ接続しない。
+- warehouse / Deep Review / chat / API / Dify / localStorage へ接続しない。
+- `public/lens_data.json` を変更しない。
+- 詳細ページや dynamic route は作らない。
+- スコア、ランキング、点数表現は入れない。
+- 大きなグラデーション塗り、派手な glow、noisy neon は使わない。
 
-## Data draft
+## Copy
 
-追加するカードの方向性:
+見出し:
 
-- headline: 旅行では最高画質より、持ち出せること・交換しなくて済むこと・夜も撮れることを優先する。
-- primaryUse: `旅行`、`街歩き`、`おでかけ`、`家族記録`
-- keyDecisions:
-  - 荷物を減らすか
-  - 夜も撮るか
-  - 人物も風景も撮るか
-  - レンズ交換できるか
-- representativeFocalRanges:
-  - `24-70mm`
-  - `20-70mm`
-  - `35mm`
-  - `50mm`
-- primaryCaution: 旅行では「持って行ける重さ」と「交換しなくてよい安心感」を画質より先に見る。
+```txt
+どのガイドを見るべき？
+```
+
+説明:
+
+```txt
+撮りたい場面に近いものから選ぶと、レンズ名より先に見るべき判断軸が分かります。
+```
+
+項目:
+
+- 日常・子ども・家族の記録 → 家族写真ガイド
+- ホール・体育館・暗い会場 → 発表会ガイド
+- 屋外イベント・動く子ども → 運動会ガイド
+- 旅行・街歩き・荷物を減らしたい → 旅行・おでかけガイド
+
+CTA風の文言:
+
+```txt
+まずは撮影条件を選ぶ
+```
 
 ## Checks
 
@@ -87,15 +96,19 @@ Scene Guide は `/scene-playbooks` で card-only の初期 UI として表示さ
 
 - `git status`
 - `git diff`
+- `npm run lint`
+  - ESLint 未設定で対話式セットアップになる場合は、その旨を報告する。
 - `npm run build`
-- 可能なら `/scene-playbooks` で4枚表示を確認する。
-- `relatedLensIds` が空配列であることを確認する。
-- 許可された3ファイル以外を変更していないことを確認する。
+- 可能なら `/scene-playbooks` をブラウザ確認する。
+  - chooser intro が表示されること
+  - 4枚のカードがそのまま表示されること
+  - モバイル幅で破綻しないこと
+  - ナビは `相談 / シーンガイド / 倉庫` のままであること
 
 ## Commit
 
 推奨コミットメッセージ:
 
 ```txt
-feat: add travel scene guide card
+feat: add scene guide chooser intro
 ```

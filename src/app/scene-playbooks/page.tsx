@@ -27,6 +27,53 @@ export default function ScenePlaybooksPage() {
         </div>
 
         <section
+          data-testid="scene-guide-chooser"
+          className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-white/[0.04]"
+          aria-labelledby="scene-guide-chooser-title"
+        >
+          <div className="h-1 bg-gradient-to-r from-blue-600 via-violet-600 to-fuchsia-500" />
+          <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] lg:items-start">
+            <div className="space-y-3">
+              <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
+                まずは撮影条件を選ぶ
+              </p>
+              <div className="space-y-2">
+                <h2
+                  id="scene-guide-chooser-title"
+                  className="text-xl font-semibold tracking-normal text-slate-950 dark:text-white"
+                >
+                  どのガイドを見るべき？
+                </h2>
+                <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">
+                  撮りたい場面に近いものから選ぶと、レンズ名より先に見るべき判断軸が分かります。
+                </p>
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                ["日常・子ども・家族の記録", "家族写真ガイド"],
+                ["ホール・体育館・暗い会場", "発表会ガイド"],
+                ["屋外イベント・動く子ども", "運動会ガイド"],
+                ["旅行・街歩き・荷物を減らしたい", "旅行・おでかけガイド"],
+              ].map(([condition, guide]) => (
+                <div
+                  key={guide}
+                  className="rounded-2xl border border-slate-200 bg-slate-50/70 px-4 py-3 dark:border-white/10 dark:bg-white/[0.03]"
+                >
+                  <p className="text-xs font-medium leading-5 text-slate-500 dark:text-slate-400">
+                    {condition}
+                  </p>
+                  <p className="mt-1 text-sm font-semibold leading-5 text-slate-900 dark:text-slate-100">
+                    {guide}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
           data-testid="scene-playbook-grid"
           className="grid gap-4 md:grid-cols-2 xl:grid-cols-3"
           aria-label="Scene Playbook list"
