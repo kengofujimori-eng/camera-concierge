@@ -1,4 +1,4 @@
-# Review family scene guide detail UI
+# Add recital scene guide detail
 
 ## Background
 
@@ -11,35 +11,28 @@
 - 運動会ガイド
 - 旅行・おでかけガイド
 
-`family-photography` だけが `detail` data を持ち、他3件は card-only のまま。
+`family-photography` だけが `detail` data を持ち、`recital-stage`、`sports-day`、`travel-outing` は card-only のまま。
 
 ## Problem
 
-家族写真 detail は機能としては開けるが、公開β前には以下を確認する必要がある。
-
-- detail が長すぎてカードが重く見えないか。
-- 見出し、リスト、余白が撮影判断の要点として読みやすいか。
-- モバイルで横はみ出しや過剰な余白がないか。
-- 他3件の未実装状態が強すぎないか。
+Scene Guide detail の挙動は家族写真ガイドで確認できた。次は、発表会のように座席固定、暗所、距離不足、構図変更が問題になるシーンでも、同じ最小 detail 型で撮影判断を表現できるかを確認したい。
 
 ## Direction
 
-今回は大きな再設計はしない。
+今回は `recital-stage` にだけ optional detail data を追加する。
 
-必要な場合のみ、`ScenePlaybookCard.tsx` の detail 表示と状態表示を軽く整える。データ本文は意味を変えず、`relatedLensIds` は全件 `[]` のままにする。
+既存の `ScenePlaybookDetail` 型と inline detail UI をそのまま使う。UI component、page、Navbar、lens data、warehouse、chat、API / Dify、localStorage は触らない。
 
 ## Allowed files
 
 - `docs/active-mission.md`
 - `docs/current-task.md`
-- `src/components/ScenePlaybookCard.tsx`
-- `src/app/scene-playbooks/page.tsx`
 - `src/data/scenePlaybooks.ts`
-
-`src/data/scenePlaybooks.ts` は文言の微修正が必要な場合のみ触る。
 
 ## Do not touch
 
+- `src/components/ScenePlaybookCard.tsx`
+- `src/app/scene-playbooks/page.tsx`
 - `src/components/Navbar.tsx`
 - `src/app/warehouse/page.tsx`
 - `src/components/ChatInterface.tsx`
@@ -52,16 +45,18 @@
 
 ## Do
 
-- 家族写真 detail の読みやすさを確認する。
-- chooser intro と4枚カードが残っていることを確認する。
-- 家族写真ガイドだけ detail を開閉できることを確認する。
-- 他3件は未実装状態として自然に見えるようにする。
-- 必要なら detail section の余白、見出し、未実装ラベルを軽く調整する。
-- 既存 data-testid は変更しない。
+- `recital-stage` に `detail` data を追加する。
+- 既存の `ScenePlaybookDetail` 型を使う。
+- 家族写真 detail は変更しない。
+- 運動会 / 旅行は card-only のままにする。
+- `relatedLensIds` は全件 `[]` のままにする。
+- スコアやランキングではなく、座席距離、会場サイズ、焦点距離、構図変更、被写体ブレの判断として書く。
 
 ## Do not
 
-- 発表会 / 運動会 / 旅行に detail を追加しない。
+- `ScenePlaybookCard.tsx` を変更しない。
+- `page.tsx` を変更しない。
+- 4件すべてに detail を追加しない。
 - `/scene-playbooks/[id]` は作らない。
 - modal / drawer は作らない。
 - warehouse / Deep Review / chat / API / Dify / localStorage に接続しない。
@@ -69,16 +64,6 @@
 - `Navbar.tsx` を変更しない。
 - `relatedLensIds` に仮IDを入れない。
 - スコア、ランキング、点数表現を入れない。
-
-## Review notes
-
-確認した結果、家族写真 detail の情報構成は目的に沿っている。
-
-軽微な調整方針:
-
-- detail 内の余白を少し詰め、カード全体の重さを抑える。
-- 未実装カードの CTA 表示を `詳細準備中` から `今は要点のみ` にして、未完成感を弱める。
-- detail 内の「一言でいうと」は小さな要約ボックスとして読み始めやすくする。
 
 ## Checks
 
@@ -92,8 +77,10 @@
 - 可能なら `/scene-playbooks` をブラウザ確認する。
   - chooser intro が残っている。
   - 4枚カードが表示される。
-  - 家族写真ガイドだけ detail を開閉できる。
-  - 他3件は未実装状態として自然に見える。
+  - 家族写真ガイドが detail 展開できる。
+  - 発表会ガイドが detail 展開できる。
+  - 家族写真と発表会の detail は同時に開かず、1つだけ開く。
+  - 運動会 / 旅行は `今は要点のみ` のまま。
   - モバイル幅で横はみ出しや大きな崩れがない。
   - ナビは PC で `相談 / シーンガイド / 倉庫`、モバイルで `相談 / シーン / 倉庫` のまま。
 
@@ -102,5 +89,5 @@
 推奨コミットメッセージ:
 
 ```txt
-refactor: polish family scene guide detail UI
+feat: add recital scene guide detail
 ```
