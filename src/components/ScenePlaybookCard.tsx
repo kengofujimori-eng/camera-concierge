@@ -119,7 +119,11 @@ export function ScenePlaybookCard({
                 : "cursor-not-allowed border-slate-200 bg-slate-50 text-slate-400 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-500"
             }`}
           >
-            {hasDetail ? (isOpen ? "撮影判断を閉じる" : "撮影判断を見る") : "今は要点のみ"}
+            {hasDetail
+              ? isOpen
+                ? "撮影判断を閉じる"
+                : "撮影判断を見る"
+              : "要点のみ表示中"}
           </button>
         </div>
 

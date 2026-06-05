@@ -32,7 +32,7 @@ export default function ScenePlaybooksPage() {
         </header>
 
         <div className="rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-slate-600 shadow-sm dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300">
-          現在は初期モックです。レンズ倉庫・チャット推薦・Deep Review とはまだ接続していません。
+          まずは撮影シーンごとの判断ガイドとして公開しています。レンズ倉庫・チャット推薦との連携は今後追加予定です。
         </div>
 
         <section
