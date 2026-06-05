@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { MessageCircle, Warehouse, Moon, Sun } from 'lucide-react'
+import { BookOpenText, MessageCircle, Warehouse, Moon, Sun } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 export default function Navbar() {
@@ -67,6 +67,23 @@ export default function Navbar() {
             }`}>
               <MessageCircle className="h-4 w-4" />
               相談
+            </span>
+          </Link>
+          <Link
+            href="/scene-playbooks"
+            className={`rounded-xl p-[1px] text-sm font-medium transition-all ${
+              pathname === '/scene-playbooks'
+                ? 'bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] shadow-[0_8px_22px_rgba(124,58,237,0.08)]'
+                : 'bg-transparent hover:bg-slate-200/80 dark:hover:bg-white/10'
+            }`}
+          >
+            <span className={`flex items-center gap-1.5 rounded-[11px] px-3 py-1.5 transition-colors ${
+              pathname === '/scene-playbooks'
+                ? 'bg-white text-slate-950 dark:bg-slate-950 dark:text-white'
+                : 'text-slate-600 dark:text-slate-300'
+            }`}>
+              <BookOpenText className="h-4 w-4" />
+              シーンガイド
             </span>
           </Link>
           <Link
