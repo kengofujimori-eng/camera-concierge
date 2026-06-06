@@ -16,6 +16,8 @@ export type ScenePlaybookDecisionFlow = {
   premise: string;
   branches: {
     condition: string;
+    summary?: string;
+    caution?: string;
     cases: {
       situation: string;
       recommendation: string;
@@ -144,6 +146,10 @@ export const scenePlaybooks: ScenePlaybookCard[] = [
         branches: [
           {
             condition: "室内で撮る",
+            summary:
+              "室内の家族写真では、35〜50mmが中心。子どもがすぐ近づいてくるなら35mm、少し距離が取れるなら50mmが扱いやすい。",
+            caution:
+              "F値を開けすぎると、複数人や動く子どもではピントが浅くなります。",
             cases: [
               {
                 situation: "引きが取りにくい / 子どもが近づいてくる",
@@ -160,6 +166,10 @@ export const scenePlaybooks: ScenePlaybookCard[] = [
           },
           {
             condition: "屋外で撮る",
+            summary:
+              "屋外では距離が取れるため、85mmで背景を整理しながら子どもを切り出しやすい。広い場所では135mmも候補。",
+            caution:
+              "距離が取れない場所では85mm以上は長く感じやすいので、50mmも残しておくと安心です。",
             cases: [
               {
                 situation: "1人をきれいに切り出したい",

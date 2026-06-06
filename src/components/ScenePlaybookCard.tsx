@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import type {
   ScenePlaybookCard as ScenePlaybookCardType,
   ScenePlaybookDecisionFlow,
@@ -163,6 +166,13 @@ export function ScenePlaybookCard({
 }
 
 function DecisionFlow({ flow }: { flow: ScenePlaybookDecisionFlow }) {
+  const [selectedCondition, setSelectedCondition] = useState(
+    flow.branches[0]?.condition,
+  );
+  const selectedBranch =
+    flow.branches.find((branch) => branch.condition === selectedCondition) ??
+    flow.branches[0];
+
   return (
     <>
       <section className="rounded-2xl border border-violet-200 bg-white px-3 py-3 dark:border-violet-400/20 dark:bg-slate-950/60">
@@ -176,62 +186,73 @@ function DecisionFlow({ flow }: { flow: ScenePlaybookDecisionFlow }) {
 
       <section className="space-y-2.5">
         <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-          撮影条件から候補を選ぶ
+          撮影条件を選ぶ
         </p>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {flow.branches.map((branch) => (
-            <div
+        <div className="grid gap-2 sm:grid-cols-2">
+          {flow.branches.map((branch, branchIndex) => (
+            <button
+              type="button"
               key={branch.condition}
-              className="rounded-2xl border border-slate-200 bg-white p-3 dark:border-white/10 dark:bg-slate-950/60"
+              data-testid={`scene-guide-decision-${branchIndex}`}
+              aria-pressed={selectedCondition === branch.condition}
+              onClick={() => setSelectedCondition(branch.condition)}
+              className={`rounded-2xl border px-3 py-2.5 text-left text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-50 dark:focus-visible:ring-offset-slate-950 ${
+                selectedCondition === branch.condition
+                  ? "border-violet-300 bg-violet-50 text-violet-900 shadow-sm dark:border-violet-400/40 dark:bg-violet-400/10 dark:text-violet-100"
+                  : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:text-slate-950 dark:border-white/10 dark:bg-slate-950/60 dark:text-slate-300 dark:hover:border-white/20 dark:hover:text-white"
+              }`}
             >
-              <p className="text-sm font-semibold text-slate-950 dark:text-white">
-                {branch.condition}
-              </p>
-              <div className="mt-2.5 space-y-2">
-                {branch.cases.map((item) => (
-                  <div
-                    key={`${branch.condition}-${item.recommendation}`}
-                    className="rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2.5 dark:border-white/10 dark:bg-white/[0.03]"
-                  >
-                    <p className="text-xs leading-5 text-slate-500 dark:text-slate-400">
-                      {item.situation}
-                    </p>
-                    <div className="mt-1.5 flex items-center gap-2">
-                      <span className="inline-flex shrink-0 items-center rounded-full border border-violet-200 bg-violet-50 px-2.5 py-1 text-xs font-semibold text-violet-800 dark:border-violet-400/30 dark:bg-violet-400/10 dark:text-violet-100">
-                        {item.recommendation}
-                      </span>
-                      <span className="text-xs font-medium text-slate-700 dark:text-slate-300">
-                        が候補
-                      </span>
-                    </div>
-                    <p className="mt-1.5 text-xs leading-5 text-slate-600 dark:text-slate-400">
-                      {item.reason}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+              {branch.condition}
+            </button>
           ))}
         </div>
       </section>
 
-      <section className="rounded-2xl border border-slate-200 bg-white px-3 py-3 dark:border-white/10 dark:bg-slate-950/60">
-        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-          総評
-        </p>
-        <p className="mt-1 text-xs leading-5 text-slate-700 dark:text-slate-300">
-          {flow.summary}
-        </p>
-      </section>
+      {selectedBranch ? (
+        <>
+          <section className="space-y-2.5">
+            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+              おすすめ候補
+            </p>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {selectedBranch.cases.map((item) => (
+                <div
+                  key={`${selectedBranch.condition}-${item.recommendation}`}
+                  className="rounded-2xl border border-slate-200 bg-white px-3 py-3 dark:border-white/10 dark:bg-slate-950/60"
+                >
+                  <span className="inline-flex items-center rounded-full border border-violet-200 bg-violet-50 px-2.5 py-1 text-sm font-semibold text-violet-800 dark:border-violet-400/30 dark:bg-violet-400/10 dark:text-violet-100">
+                    {item.recommendation}
+                  </span>
+                  <p className="mt-2 text-xs font-medium leading-5 text-slate-700 dark:text-slate-300">
+                    {item.situation}
+                  </p>
+                  <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">
+                    {item.reason}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
 
-      <section className="rounded-2xl border border-amber-200 bg-amber-50 px-3 py-3 dark:border-amber-400/20 dark:bg-amber-400/10">
-        <p className="text-xs font-semibold text-amber-800 dark:text-amber-200">
-          注意
-        </p>
-        <p className="mt-1 text-xs leading-5 text-amber-800 dark:text-amber-200">
-          {flow.caution}
-        </p>
-      </section>
+          <section className="rounded-2xl border border-slate-200 bg-white px-3 py-3 dark:border-white/10 dark:bg-slate-950/60">
+            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+              総評
+            </p>
+            <p className="mt-1 text-xs leading-5 text-slate-700 dark:text-slate-300">
+              {selectedBranch.summary ?? flow.summary}
+            </p>
+          </section>
+
+          <section className="rounded-2xl border border-amber-200 bg-amber-50 px-3 py-3 dark:border-amber-400/20 dark:bg-amber-400/10">
+            <p className="text-xs font-semibold text-amber-800 dark:text-amber-200">
+              注意
+            </p>
+            <p className="mt-1 text-xs leading-5 text-amber-800 dark:text-amber-200">
+              {selectedBranch.caution ?? flow.caution}
+            </p>
+          </section>
+        </>
+      ) : null}
     </>
   );
 }
