@@ -1,4 +1,4 @@
-# Make scene guide chooser interactive
+# Make scene guide chooser filter cards
 
 ## Background
 
@@ -21,15 +21,17 @@
 
 ## Problem
 
-上部の「どのガイドを見るべき？」は選択 UI に見えるが、現在は静的表示である。
+上部の「どのガイドを見るべき？」は button 化済みだが、現在は4枚カードが常時表示される。
 
-ユーザーが撮りたい場面に近い項目を押したとき、対応するガイドへ進めるようにしたい。主要3シーンは detail を開き、旅行・おでかけは card-only のままカードへ誘導する。
+detail を展開すると情報量が増えやすいため、公開β前の体験としては、ユーザーが chooser で選んだガイドだけを表示し、必要最低限の情報から読み進める形式にしたい。
 
 ## Direction
 
-chooser intro の4項目を button として機能させる。
+chooser intro の4項目を、選択したカードだけを表示するフィルター入口として機能させる。
 
-フィルターで他カードを非表示にはしない。4枚カード一覧は維持し、選択中のカードを控えめに強調する。warehouse / Deep Review / chat / API / Dify / localStorage とは接続しない。
+初期状態では4枚カードを表示する。chooser で主要3シーンを選んだ場合は該当カードだけを表示し、detail を自動で開く。旅行・おでかけを選んだ場合は旅行カードだけを表示し、detail は開かず card-only の状態を保つ。
+
+「すべてのガイドを見る」で4枚一覧に戻す。
 
 ## Allowed files
 
@@ -54,12 +56,14 @@ chooser intro の4項目を button として機能させる。
 ## Do
 
 - chooser intro の4項目をクリック可能にする。
-- 家族写真 / 発表会 / 運動会はクリックで detail を開く。
-- 旅行・おでかけは detail を開かず、card-only のまま自然に誘導する。
-- 既存4枚カード表示を維持する。
+- 初期状態では4枚カードを表示する。
+- chooser 選択時は選択したカードだけ表示する。
+- 家族写真 / 発表会 / 運動会は chooser 選択時に detail を自動で開く。
+- 旅行・おでかけは card-only のまま選択表示する。
+- `すべてのガイドを見る` または `一覧に戻る` 導線を追加する。
+- カード本体の `撮影判断を見る` による開閉挙動を維持する。
 - 既存 detail open の1つだけ開く挙動を維持する。
-- 選択中のカードが分かるように控えめに強調する。
-- 既存の `data-testid` を維持し、chooser button 用の `data-testid` は追加のみとする。
+- 既存の `data-testid` を維持し、必要な `data-testid` は追加のみとする。
 - build を通す。
 
 ## Do not
@@ -88,13 +92,14 @@ chooser intro の4項目を button として機能させる。
 - `npm run test:e2e`
   - Playwright Chromium 未インストールで失敗する既知状態なら、その旨を報告する。
 - 可能なら `/scene-playbooks` をブラウザ確認する。
+  - 初期状態で4枚カードが表示される。
   - chooser の4項目がクリック可能に見える。
-  - 家族写真を押すと家族写真 detail が開く。
-  - 発表会を押すと発表会 detail が開く。
-  - 運動会を押すと運動会 detail が開く。
-  - 旅行を押しても破綻せず、旅行カードが card-only として自然に見える。
-  - detail は同時に複数開かず、1つだけ開く。
-  - 4枚カード一覧は維持される。
+  - 家族写真を押すと家族写真カードだけになり detail が開く。
+  - 発表会を押すと発表会カードだけになり detail が開く。
+  - 運動会を押すと運動会カードだけになり detail が開く。
+  - 旅行を押すと旅行カードだけになり `要点のみ表示中` のままである。
+  - `すべてのガイドを見る` で4枚一覧に戻る。
+  - カード本体の開閉挙動が壊れていない。
   - モバイル幅で横はみ出しや大きな崩れがない。
   - ナビは PC で `相談 / シーンガイド / 倉庫`、モバイルで `相談 / シーン / 倉庫` のまま。
 
@@ -103,5 +108,5 @@ chooser intro の4項目を button として機能させる。
 推奨コミットメッセージ:
 
 ```txt
-feat: make scene guide chooser interactive
+feat: make scene guide chooser filter cards
 ```

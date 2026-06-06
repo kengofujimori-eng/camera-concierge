@@ -29,17 +29,20 @@ const sceneGuideChoices = [
 
 export default function ScenePlaybooksPage() {
   const [openGuideId, setOpenGuideId] = useState<string | null>(null);
-  const [selectedGuideId, setSelectedGuideId] = useState<string | null>(null);
-  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const [filteredGuideId, setFilteredGuideId] = useState<string | null>(null);
+  const gridRef = useRef<HTMLElement | null>(null);
+
+  const visiblePlaybooks = filteredGuideId
+    ? scenePlaybooks.filter((playbook) => playbook.id === filteredGuideId)
+    : scenePlaybooks;
 
   function handleOpenGuide(id: string) {
-    setSelectedGuideId(id);
     setOpenGuideId((currentId) => (currentId === id ? null : id));
   }
 
-  function scrollToGuide(id: string) {
+  function scrollToGrid() {
     window.setTimeout(() => {
-      cardRefs.current[id]?.scrollIntoView({
+      gridRef.current?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -51,9 +54,15 @@ export default function ScenePlaybooksPage() {
       (playbook) => playbook.id === id,
     );
 
-    setSelectedGuideId(id);
+    setFilteredGuideId(id);
     setOpenGuideId(selectedPlaybook?.detail ? id : null);
-    scrollToGuide(id);
+    scrollToGrid();
+  }
+
+  function handleShowAllGuides() {
+    setFilteredGuideId(null);
+    setOpenGuideId(null);
+    scrollToGrid();
   }
 
   return (
@@ -106,7 +115,7 @@ export default function ScenePlaybooksPage() {
 
             <div className="grid gap-3 sm:grid-cols-2">
               {sceneGuideChoices.map((choice) => {
-                const isSelected = selectedGuideId === choice.id;
+                const isSelected = filteredGuideId === choice.id;
 
                 return (
                   <button
@@ -137,26 +146,34 @@ export default function ScenePlaybooksPage() {
                 );
               })}
             </div>
+
+            {filteredGuideId ? (
+              <div className="mt-4 flex justify-start">
+                <button
+                  type="button"
+                  data-testid="scene-guide-show-all"
+                  onClick={handleShowAllGuides}
+                  className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 transition-colors hover:border-slate-300 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:border-white/20 dark:hover:text-white dark:focus-visible:ring-offset-slate-950"
+                >
+                  すべてのガイドを見る
+                </button>
+              </div>
+            ) : null}
           </div>
         </section>
 
         <section
+          ref={gridRef}
           data-testid="scene-playbook-grid"
           className="grid gap-4 md:grid-cols-2 xl:grid-cols-3"
           aria-label="Scene Playbook list"
         >
-          {scenePlaybooks.map((playbook) => (
-            <div
-              key={playbook.id}
-              ref={(element) => {
-                cardRefs.current[playbook.id] = element;
-              }}
-              className="h-full scroll-mt-24"
-            >
+          {visiblePlaybooks.map((playbook) => (
+            <div key={playbook.id} className="h-full scroll-mt-24">
               <ScenePlaybookCard
                 playbook={playbook}
                 isOpen={openGuideId === playbook.id}
-                isSelected={selectedGuideId === playbook.id}
+                isSelected={filteredGuideId === playbook.id}
                 onOpen={handleOpenGuide}
               />
             </div>
