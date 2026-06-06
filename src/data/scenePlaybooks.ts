@@ -12,6 +12,20 @@ export type ScenePlaybookStatus =
   | "ai-assisted"
   | "not-ready";
 
+export type ScenePlaybookDecisionFlow = {
+  premise: string;
+  branches: {
+    condition: string;
+    cases: {
+      situation: string;
+      recommendation: string;
+      reason: string;
+    }[];
+  }[];
+  summary: string;
+  caution: string;
+};
+
 export type ScenePlaybookDetail = {
   oneLineVerdict: string;
   commonFailures: string[];
@@ -26,6 +40,7 @@ export type ScenePlaybookDetail = {
     caution: string;
   }[];
   lensNaviConclusion: string;
+  decisionFlow?: ScenePlaybookDecisionFlow;
 };
 
 export type ScenePlaybookCard = {
@@ -123,6 +138,47 @@ export const scenePlaybooks: ScenePlaybookCard[] = [
       ],
       lensNaviConclusion:
         "家族写真の最初の本命は50mm。室内や複数人が多いなら35mm系、屋外で子どもをきれいに切り出したいなら85mm、広い場所やイベントでは135mmを追加候補にする。",
+      decisionFlow: {
+        premise:
+          "家族写真では、最高のボケよりも、距離感・複数人・子どもの動きに対応できることが重要です。まずは「室内か屋外か」と「子どもが近づいてくるか」で候補を絞ります。",
+        branches: [
+          {
+            condition: "室内で撮る",
+            cases: [
+              {
+                situation: "引きが取りにくい / 子どもが近づいてくる",
+                recommendation: "35mm",
+                reason: "近距離でも家族や部屋の状況を残しやすい",
+              },
+              {
+                situation: "少し距離が取れる / 1〜2人中心",
+                recommendation: "50mm",
+                reason:
+                  "日常の記録と人物らしい見え方のバランスを取りやすい",
+              },
+            ],
+          },
+          {
+            condition: "屋外で撮る",
+            cases: [
+              {
+                situation: "1人をきれいに切り出したい",
+                recommendation: "85mm",
+                reason: "少し離れて、背景を整理しながら表情を残しやすい",
+              },
+              {
+                situation: "広い公園やイベントで遠くの表情を拾いたい",
+                recommendation: "135mm",
+                reason: "距離を保ちながら自然な瞬間を切り出しやすい",
+              },
+            ],
+          },
+        ],
+        summary:
+          "家族写真を室内で撮るなら、引きが取れない場面が多いため35〜50mmが中心。子どもがすぐ近づいてくるなら35mm、少し距離が取れるなら50mmが扱いやすい。屋外で1人をきれいに撮るなら85mm、広い場所では135mmも候補。",
+        caution:
+          "F値を開けすぎると、複数人や動く子どもではピントが浅くなります。家族写真では、背景をぼかすことよりも、表情と状況が残ることを優先した方が失敗しにくいです。",
+      },
     },
   },
   {

@@ -169,7 +169,12 @@ export default function ScenePlaybooksPage() {
           aria-label="Scene Playbook list"
         >
           {visiblePlaybooks.map((playbook) => (
-            <div key={playbook.id} className="h-full scroll-mt-24">
+            <div
+              key={playbook.id}
+              className={`h-full scroll-mt-24 ${
+                filteredGuideId ? "md:col-span-2 xl:col-span-3" : ""
+              }`}
+            >
               <ScenePlaybookCard
                 playbook={playbook}
                 isOpen={openGuideId === playbook.id}

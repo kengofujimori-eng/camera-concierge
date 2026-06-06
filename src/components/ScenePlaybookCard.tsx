@@ -1,4 +1,7 @@
-import type { ScenePlaybookCard as ScenePlaybookCardType } from "@/data/scenePlaybooks";
+import type {
+  ScenePlaybookCard as ScenePlaybookCardType,
+  ScenePlaybookDecisionFlow,
+} from "@/data/scenePlaybooks";
 
 type ScenePlaybookCardProps = {
   playbook: ScenePlaybookCardType;
@@ -138,83 +141,11 @@ export function ScenePlaybookCard({
             data-testid={`scene-guide-detail-${playbook.id}`}
             className="mt-4 space-y-4 rounded-3xl border border-slate-200 bg-slate-50/80 p-3.5 text-sm text-slate-700 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300 sm:p-4"
           >
-            <section className="rounded-2xl border border-violet-200 bg-white px-3 py-2.5 dark:border-violet-400/20 dark:bg-slate-950/60">
-              <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
-                一言でいうと
-              </p>
-              <p className="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-200">
-                {playbook.detail.oneLineVerdict}
-              </p>
-            </section>
-
-            <DetailList
-              title="失敗しやすいこと"
-              items={playbook.detail.commonFailures}
-            />
-            <DetailList
-              title="まず考えるべき判断"
-              items={playbook.detail.firstQuestions}
-            />
-
-            <section className="space-y-2">
-              <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-                焦点距離の考え方
-              </p>
-              <div className="grid gap-2">
-                {playbook.detail.focalLengthGuide.map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-2xl border border-slate-200 bg-white px-3 py-2 dark:border-white/10 dark:bg-slate-950/60"
-                  >
-                    <p className="text-xs font-semibold text-slate-950 dark:text-white">
-                      {item.label}
-                    </p>
-                    <p className="mt-0.5 text-xs leading-5 text-slate-600 dark:text-slate-400">
-                      {item.guidance}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="space-y-2">
-              <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-                レンズの役割
-              </p>
-              <div className="grid gap-2">
-                {playbook.detail.lensRoles.map((role) => (
-                  <div
-                    key={role.label}
-                    className="rounded-2xl border border-slate-200 bg-white px-3 py-2 dark:border-white/10 dark:bg-slate-950/60"
-                  >
-                    <p className="text-xs font-semibold text-slate-950 dark:text-white">
-                      {role.label}
-                    </p>
-                    <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-slate-400">
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">
-                        使いやすい条件:
-                      </span>{" "}
-                      {role.bestFor}
-                    </p>
-                    <p className="mt-0.5 text-xs leading-5 text-slate-600 dark:text-slate-400">
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">
-                        注意:
-                      </span>{" "}
-                      {role.caution}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section className="rounded-2xl border border-violet-200 bg-white px-3 py-3 dark:border-violet-400/20 dark:bg-slate-950/60">
-              <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
-                Lens Navi 結論
-              </p>
-              <p className="mt-1 text-xs leading-5 text-slate-700 dark:text-slate-300">
-                {playbook.detail.lensNaviConclusion}
-              </p>
-            </section>
+            {playbook.detail.decisionFlow ? (
+              <DecisionFlow flow={playbook.detail.decisionFlow} />
+            ) : (
+              <StandardDetail detail={playbook.detail} />
+            )}
 
             <button
               type="button"
@@ -228,6 +159,162 @@ export function ScenePlaybookCard({
         ) : null}
       </div>
     </article>
+  );
+}
+
+function DecisionFlow({ flow }: { flow: ScenePlaybookDecisionFlow }) {
+  return (
+    <>
+      <section className="rounded-2xl border border-violet-200 bg-white px-3 py-3 dark:border-violet-400/20 dark:bg-slate-950/60">
+        <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
+          家族写真でまず見ること
+        </p>
+        <p className="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-200">
+          {flow.premise}
+        </p>
+      </section>
+
+      <section className="space-y-2.5">
+        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+          撮影条件から候補を選ぶ
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {flow.branches.map((branch) => (
+            <div
+              key={branch.condition}
+              className="rounded-2xl border border-slate-200 bg-white p-3 dark:border-white/10 dark:bg-slate-950/60"
+            >
+              <p className="text-sm font-semibold text-slate-950 dark:text-white">
+                {branch.condition}
+              </p>
+              <div className="mt-2.5 space-y-2">
+                {branch.cases.map((item) => (
+                  <div
+                    key={`${branch.condition}-${item.recommendation}`}
+                    className="rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-2.5 dark:border-white/10 dark:bg-white/[0.03]"
+                  >
+                    <p className="text-xs leading-5 text-slate-500 dark:text-slate-400">
+                      {item.situation}
+                    </p>
+                    <div className="mt-1.5 flex items-center gap-2">
+                      <span className="inline-flex shrink-0 items-center rounded-full border border-violet-200 bg-violet-50 px-2.5 py-1 text-xs font-semibold text-violet-800 dark:border-violet-400/30 dark:bg-violet-400/10 dark:text-violet-100">
+                        {item.recommendation}
+                      </span>
+                      <span className="text-xs font-medium text-slate-700 dark:text-slate-300">
+                        が候補
+                      </span>
+                    </div>
+                    <p className="mt-1.5 text-xs leading-5 text-slate-600 dark:text-slate-400">
+                      {item.reason}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-slate-200 bg-white px-3 py-3 dark:border-white/10 dark:bg-slate-950/60">
+        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+          総評
+        </p>
+        <p className="mt-1 text-xs leading-5 text-slate-700 dark:text-slate-300">
+          {flow.summary}
+        </p>
+      </section>
+
+      <section className="rounded-2xl border border-amber-200 bg-amber-50 px-3 py-3 dark:border-amber-400/20 dark:bg-amber-400/10">
+        <p className="text-xs font-semibold text-amber-800 dark:text-amber-200">
+          注意
+        </p>
+        <p className="mt-1 text-xs leading-5 text-amber-800 dark:text-amber-200">
+          {flow.caution}
+        </p>
+      </section>
+    </>
+  );
+}
+
+function StandardDetail({
+  detail,
+}: {
+  detail: NonNullable<ScenePlaybookCardType["detail"]>;
+}) {
+  return (
+    <>
+      <section className="rounded-2xl border border-violet-200 bg-white px-3 py-2.5 dark:border-violet-400/20 dark:bg-slate-950/60">
+        <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
+          一言でいうと
+        </p>
+        <p className="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-200">
+          {detail.oneLineVerdict}
+        </p>
+      </section>
+
+      <DetailList title="失敗しやすいこと" items={detail.commonFailures} />
+      <DetailList title="まず考えるべき判断" items={detail.firstQuestions} />
+
+      <section className="space-y-2">
+        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+          焦点距離の考え方
+        </p>
+        <div className="grid gap-2">
+          {detail.focalLengthGuide.map((item) => (
+            <div
+              key={item.label}
+              className="rounded-2xl border border-slate-200 bg-white px-3 py-2 dark:border-white/10 dark:bg-slate-950/60"
+            >
+              <p className="text-xs font-semibold text-slate-950 dark:text-white">
+                {item.label}
+              </p>
+              <p className="mt-0.5 text-xs leading-5 text-slate-600 dark:text-slate-400">
+                {item.guidance}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-2">
+        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+          レンズの役割
+        </p>
+        <div className="grid gap-2">
+          {detail.lensRoles.map((role) => (
+            <div
+              key={role.label}
+              className="rounded-2xl border border-slate-200 bg-white px-3 py-2 dark:border-white/10 dark:bg-slate-950/60"
+            >
+              <p className="text-xs font-semibold text-slate-950 dark:text-white">
+                {role.label}
+              </p>
+              <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-slate-400">
+                <span className="font-semibold text-slate-700 dark:text-slate-300">
+                  使いやすい条件:
+                </span>{" "}
+                {role.bestFor}
+              </p>
+              <p className="mt-0.5 text-xs leading-5 text-slate-600 dark:text-slate-400">
+                <span className="font-semibold text-slate-700 dark:text-slate-300">
+                  注意:
+                </span>{" "}
+                {role.caution}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-violet-200 bg-white px-3 py-3 dark:border-violet-400/20 dark:bg-slate-950/60">
+        <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
+          Lens Navi 結論
+        </p>
+        <p className="mt-1 text-xs leading-5 text-slate-700 dark:text-slate-300">
+          {detail.lensNaviConclusion}
+        </p>
+      </section>
+    </>
   );
 }
 
