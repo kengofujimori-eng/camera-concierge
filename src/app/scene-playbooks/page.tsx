@@ -1,14 +1,59 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ScenePlaybookCard } from "@/components/ScenePlaybookCard";
 import { scenePlaybooks } from "@/data/scenePlaybooks";
 
+const sceneGuideChoices = [
+  {
+    id: "family-photography",
+    condition: "日常・子ども・家族の記録",
+    guide: "家族写真ガイド",
+  },
+  {
+    id: "recital-stage",
+    condition: "ホール・体育館・暗い会場",
+    guide: "発表会ガイド",
+  },
+  {
+    id: "sports-day",
+    condition: "屋外イベント・動く子ども",
+    guide: "運動会ガイド",
+  },
+  {
+    id: "travel-outing",
+    condition: "旅行・街歩き・荷物を減らしたい",
+    guide: "旅行・おでかけガイド",
+  },
+];
+
 export default function ScenePlaybooksPage() {
   const [openGuideId, setOpenGuideId] = useState<string | null>(null);
+  const [selectedGuideId, setSelectedGuideId] = useState<string | null>(null);
+  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   function handleOpenGuide(id: string) {
+    setSelectedGuideId(id);
     setOpenGuideId((currentId) => (currentId === id ? null : id));
+  }
+
+  function scrollToGuide(id: string) {
+    window.setTimeout(() => {
+      cardRefs.current[id]?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 0);
+  }
+
+  function handleChooseGuide(id: string) {
+    const selectedPlaybook = scenePlaybooks.find(
+      (playbook) => playbook.id === id,
+    );
+
+    setSelectedGuideId(id);
+    setOpenGuideId(selectedPlaybook?.detail ? id : null);
+    scrollToGuide(id);
   }
 
   return (
@@ -60,24 +105,37 @@ export default function ScenePlaybooksPage() {
             </div>
 
             <div className="grid gap-3 sm:grid-cols-2">
-              {[
-                ["日常・子ども・家族の記録", "家族写真ガイド"],
-                ["ホール・体育館・暗い会場", "発表会ガイド"],
-                ["屋外イベント・動く子ども", "運動会ガイド"],
-                ["旅行・街歩き・荷物を減らしたい", "旅行・おでかけガイド"],
-              ].map(([condition, guide]) => (
-                <div
-                  key={guide}
-                  className="rounded-2xl border border-slate-200 bg-slate-50/70 px-4 py-3 dark:border-white/10 dark:bg-white/[0.03]"
-                >
-                  <p className="text-xs font-medium leading-5 text-slate-500 dark:text-slate-400">
-                    {condition}
-                  </p>
-                  <p className="mt-1 text-sm font-semibold leading-5 text-slate-900 dark:text-slate-100">
-                    {guide}
-                  </p>
-                </div>
-              ))}
+              {sceneGuideChoices.map((choice) => {
+                const isSelected = selectedGuideId === choice.id;
+
+                return (
+                  <button
+                    key={choice.id}
+                    type="button"
+                    data-testid={`scene-guide-chooser-button-${choice.id}`}
+                    aria-pressed={isSelected}
+                    onClick={() => handleChooseGuide(choice.id)}
+                    className={`rounded-2xl border px-4 py-3 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
+                      isSelected
+                        ? "border-violet-200 bg-violet-50/70 shadow-sm dark:border-violet-400/30 dark:bg-violet-400/10"
+                        : "border-slate-200 bg-slate-50/70 hover:border-slate-300 hover:bg-white hover:shadow-sm dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-white/20 dark:hover:bg-white/[0.06]"
+                    }`}
+                  >
+                    <p className="text-xs font-medium leading-5 text-slate-500 dark:text-slate-400">
+                      {choice.condition}
+                    </p>
+                    <p
+                      className={`mt-1 text-sm font-semibold leading-5 ${
+                        isSelected
+                          ? "text-violet-800 dark:text-violet-100"
+                          : "text-slate-900 dark:text-slate-100"
+                      }`}
+                    >
+                      {choice.guide}
+                    </p>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -88,12 +146,20 @@ export default function ScenePlaybooksPage() {
           aria-label="Scene Playbook list"
         >
           {scenePlaybooks.map((playbook) => (
-            <ScenePlaybookCard
+            <div
               key={playbook.id}
-              playbook={playbook}
-              isOpen={openGuideId === playbook.id}
-              onOpen={handleOpenGuide}
-            />
+              ref={(element) => {
+                cardRefs.current[playbook.id] = element;
+              }}
+              className="h-full scroll-mt-24"
+            >
+              <ScenePlaybookCard
+                playbook={playbook}
+                isOpen={openGuideId === playbook.id}
+                isSelected={selectedGuideId === playbook.id}
+                onOpen={handleOpenGuide}
+              />
+            </div>
           ))}
         </section>
 

@@ -3,6 +3,7 @@ import type { ScenePlaybookCard as ScenePlaybookCardType } from "@/data/scenePla
 type ScenePlaybookCardProps = {
   playbook: ScenePlaybookCardType;
   isOpen?: boolean;
+  isSelected?: boolean;
   onOpen?: (id: string) => void;
 };
 
@@ -17,6 +18,7 @@ function Chip({ children }: { children: string }) {
 export function ScenePlaybookCard({
   playbook,
   isOpen = false,
+  isSelected = false,
   onOpen,
 }: ScenePlaybookCardProps) {
   const hasDetail = Boolean(playbook.detail);
@@ -27,7 +29,11 @@ export function ScenePlaybookCard({
   return (
     <article
       data-testid={`scene-playbook-card-${playbook.id}`}
-      className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-200 hover:border-slate-300 hover:shadow-md dark:border-white/10 dark:bg-slate-950 dark:hover:border-white/20"
+      className={`group flex h-full flex-col overflow-hidden rounded-3xl border bg-white shadow-sm transition-all duration-200 hover:border-slate-300 hover:shadow-md dark:bg-slate-950 dark:hover:border-white/20 ${
+        isSelected
+          ? "border-violet-200 ring-2 ring-violet-200/70 dark:border-violet-400/30 dark:ring-violet-400/20"
+          : "border-slate-200 dark:border-white/10"
+      }`}
     >
       <div className="h-1 bg-gradient-to-r from-blue-600 via-violet-600 to-fuchsia-500" />
 
