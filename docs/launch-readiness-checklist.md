@@ -35,6 +35,8 @@ Lens Navi public beta 前の実用チェックリスト。
 - 入力欄左に新規会話ボタンを復活済み。
 - メイン画面に大きな OGP 画像は出さず、初期導線を軽く維持。
 - 選択カード / スライダー / hover outline の統一感を改善済み。
+- `相談 / シーンガイド / 倉庫` の主要3導線を localhost の PC 1280px / mobile 390px で手動確認済み。
+- Scene Guide は4件を表示し、主要3シーンの detail と家族写真の interactive decision flow を確認済み。
 
 ### Affiliate / purchase links
 
@@ -121,6 +123,15 @@ Lens Navi public beta 前の実用チェックリスト。
 注意:
 - RF-S / APS-C でフルサイズレンズに偏りすぎないか見る。
 - 実Dify回答の自然さ、画像の意味的正誤は人間レビューで確認する。
+- Sony E / 運動会相談は localhost で推薦カード、購入リンク、倉庫保存まで確認済み。
+- AI回答末尾に不要なフォローアップ質問が残るケースは、公開β後も回答品質課題として確認する。
+
+### Three-route final checks
+
+- localhost の `相談 → 推薦 → 倉庫保存 → 倉庫確認 → シーンガイド` は確認済み。
+- 本番ドメインで `相談 / シーンガイド / 倉庫` を再確認する。
+- Safari と実機 mobile でナビ、Scene Guide detail、倉庫カードを確認する。
+- 旅行・おでかけガイドは card-only のため、`要点のみ表示中` が自然に見えることを継続確認する。
 
 ## Image / lens data checks
 

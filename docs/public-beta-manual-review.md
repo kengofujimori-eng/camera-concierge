@@ -147,3 +147,103 @@ Policy:
 - 価格・画像は、同一製品・同一マウントの根拠が取れた場合のみ修正する。
 - 曖昧な候補は自動修正せず、manual review / unresolved として残す。
 - 公開βでは、価格・画像の違和感があればフィードバック対象とする。
+
+## Public beta three-route manual review
+
+Date: 2026-06-06
+Commit: `04220ec`
+
+### Summary
+
+- 相談: localhost の実 Dify 応答で Sony E / 運動会相談を完走し、3件の推薦カード、画像、価格、購入リンク、倉庫保存を確認した。
+- シーンガイド: chooser、4件一覧、主要3シーンの detail、家族写真の interactive decision flow、旅行・おでかけの card-only 表示を確認した。
+- 倉庫: 相談ルートから保存した欲しいレンズを確認し、価格、画像、AI分析、使いこなし準備中表示、購入導線を確認した。
+- 共通ナビ: PC では `相談 / シーンガイド / 倉庫`、390px mobile では `相談 / シーン / 倉庫`。3ルートの active state と遷移を確認した。
+
+### Checks
+
+#### Common navigation
+
+- PC 1280px で、Lens Navi ロゴ、`相談 / シーンガイド / 倉庫`、ダークモード切替を確認した。
+- 3ルートそれぞれで、現在ページだけに active gradient outline が表示された。
+- ダークモードは on / off / 元の状態への復帰を確認した。
+- mobile 390px で `相談 / シーン / 倉庫` が表示され、相談・シーンガイド・倉庫の各ルートで横はみ出しはなかった。
+
+#### Consultation route
+
+- 初回表示、カメラ選択カード、クイック質問、新規会話ボタン、入力欄を確認した。
+- `chat-input` と `chat-send-button` が存在することを確認した。
+- Sony E フルサイズを選択し、次の相談例で実回答を確認した。
+
+```txt
+子供の運動会を撮りたいです。Sony Eマウントでおすすめを教えてください。
+```
+
+- 推薦カードは3件表示され、`assistant-answer`、`lens-card` 3件、`lens-card-image` 3件、`price-badge` 6件を確認した。placeholder は表示されなかった。
+- 推薦カードの画像、価格、新品 / 中古購入導線、所有済み / 欲しいリストの保存ボタンは自然に表示された。
+- 確認した Amazon リンクは `amazon.co.jp` で、`tag=techddd-22` が付いていた。
+- PR 表記は購入先の近くに表示されていた。
+- 欲しいリストへの保存後、倉庫で保存レンズを確認できた。
+- AI回答末尾に「この中からさらに絞るなら...」のフォローアップ質問が残るケースを確認した。表示崩れや推薦停止ではないが、公開β後も回答トーンの確認対象とする。
+
+#### Scene guide route
+
+- 見出し `撮影シーンガイド`、chooser intro、4件の chooser button、4枚カード一覧を確認した。
+- `初期モック` 表現は残っていなかった。
+- chooser 選択時は対象カード1枚だけになり、`すべてのガイドを見る` で4枚一覧へ戻れた。
+- 家族写真:
+  - chooser 選択で detail が自動表示された。
+  - 室内では 35mm / 50mm、屋外では 85mm / 135mm が中心に表示された。
+  - 条件、候補、総評、注意の順で読み進められ、撮影条件で候補を絞る体験になっていた。
+- 発表会:
+  - detail が表示され、座席、暗所、距離不足、70-200mm の安全性を読み取れた。
+- 運動会:
+  - detail が表示され、校庭、動体、届くこと、望遠ズーム、一日持ち歩けることを読み取れた。
+- 旅行・おでかけ:
+  - card-only で表示され、`要点のみ表示中` は強い未完成感なく表示された。
+- mobile 390px で、4枚一覧と家族写真 detail 展開時の横はみ出しはなかった。
+- `scene-playbook-page`、`scene-playbook-grid`、`scene-guide-chooser`、カード / detail 系の既存 data-testid がコード上維持されていることを確認した。
+
+#### Warehouse route
+
+- 相談ルートから保存した欲しいレンズを倉庫で確認した。
+- 保存レンズの画像、価格、焦点距離カバレッジ、AI分析、購入導線、レビュー導線を確認した。
+- `使いこなし` を開き、Deep Review 未実装レンズの「使いこなしレビューは準備中です」表示を確認した。
+- Scene Guide は倉庫に未接続だが、現状の倉庫単体 UI として不自然な欠落には見えなかった。
+- 保存と表示が既存 localStorage 形式で動作した。形式変更は行っていない。
+- `lens-card`、`lens-card-image`、`lens-card-placeholder`、`price-badge` は推薦カード側で維持されていることを確認した。倉庫カード自体には同じ data-testid は付いていないため、倉庫内の selector 確認対象ではない。
+- mobile 390px で横はみ出しはなかった。
+
+#### Cross-route flow
+
+次の流れを localhost で確認した。
+
+```txt
+相談
+↓
+Sony E / 運動会のレンズ推薦
+↓
+欲しいリストへ保存
+↓
+倉庫で保存済みレンズと使いこなし準備中表示を確認
+↓
+シーンガイドへ移動
+↓
+運動会ガイドと家族写真の判断フローを確認
+```
+
+本番環境、Safari、実機 mobile、外部購入リンクの最終遷移先は今回の localhost レビュー対象外。
+
+### Known issues
+
+- `npm run lint` は ESLint 未設定のため Next.js の対話式セットアップで停止した。今回も設定変更は行っていない。
+- `npm run test:e2e` は9件すべて、Playwright Chromium executable 未インストールのためテスト実行前に失敗した。Scene Guide 実装起因ではない。
+- `npm run db:check` は exit code 0 で成功し、500 lenses に対する既存 398 warnings を報告した。
+- AI回答末尾に不要なフォローアップ質問が残るケースがある。
+- 本番ドメイン、Safari、実機 mobile、OGP、外部購入リンクの最終遷移は別途確認が必要。
+
+### Public beta judgment
+
+- Blocker: localhost の主要3導線レビューでは、公開を止める表示崩れ・遷移不能・保存不能は確認されなかった。
+- Non-blocking known issues: AI回答末尾のフォローアップ質問、ESLint 未設定、Playwright Chromium 未インストール、DB warning、本番 / 実機 / Safari の最終確認。
+- Next recommended task: 本番ドメインと実機 mobile / Safari で3導線を再確認し、AI回答末尾のフォローアップ質問を回答品質課題として切り分ける。
