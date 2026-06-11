@@ -367,6 +367,15 @@ function ConditionDecisionFlow({
             </p>
           </section>
 
+          <LensConditionCard
+            condition={resolveLensCondition({
+              sceneId,
+              primary: result.primary,
+              safe: result.safe,
+              selectedConditions,
+            })}
+          />
+
           {onConsult ? (
             <ConsultationHandoffButton
               onClick={() =>
@@ -496,6 +505,171 @@ function getSafeMeaning(value: string) {
     return "距離不足を避ける";
   }
   return "焦点距離に余裕";
+}
+
+type LensCondition = {
+  focalRangeLabel: string;
+  lensTypeLabel: string;
+  priorities: string[];
+  caution: string;
+};
+
+function formatFocalRangeLabel(primary: string) {
+  const labels: Record<string, string> = {
+    "35mm": "35mm前後",
+    "50mm": "50mm前後",
+    "85mm": "85mm前後",
+    "135mm": "135mm前後",
+    "85-135mm": "85〜135mm",
+    "70-200mm": "70〜200mm",
+    "100-400mm": "100〜400mm",
+    "200mm以上": "200mm以上",
+    "20-70mm": "20〜70mm",
+    "24-70mm": "24〜70mm",
+    便利ズーム: "高倍率ズーム",
+  };
+
+  return labels[primary] ?? primary;
+}
+
+function resolveLensCondition({
+  sceneId,
+  primary,
+  safe,
+  selectedConditions,
+}: {
+  sceneId: string;
+  primary: string;
+  safe?: string;
+  selectedConditions: SceneGuideHandoff["selectedConditions"];
+}): LensCondition {
+  const conditionValue = (key: string) =>
+    selectedConditions.find((condition) => condition.key === key)?.value ?? "";
+
+  if (sceneId === "family-photography") {
+    const isIndoor = conditionValue("location") === "室内で撮る";
+
+    return {
+      focalRangeLabel: formatFocalRangeLabel(primary),
+      lensTypeLabel:
+        primary === "35mm" || primary === "50mm"
+          ? "明るい標準単焦点"
+          : "中望遠単焦点",
+      priorities: isIndoor
+        ? ["近距離", "複数人", "軽さ"]
+        : ["背景整理", "自然な距離", "表情"],
+      caution: isIndoor
+        ? "開放では複数人のピントに注意"
+        : "距離が近い場所では長さに注意",
+    };
+  }
+
+  if (sceneId === "recital-stage") {
+    return {
+      focalRangeLabel: formatFocalRangeLabel(primary),
+      lensTypeLabel:
+        primary === "70-200mm" ? "望遠ズーム" : "明るい望遠単焦点",
+      priorities: [
+        "距離",
+        "暗所",
+        "表情",
+        ...(safe === "70-200mm" ? ["構図変更"] : []),
+      ],
+      caution:
+        safe === "70-200mm"
+          ? "席が読めないならズームも比較"
+          : "暗所ではシャッター速度にも注意",
+    };
+  }
+
+  if (sceneId === "sports-day") {
+    const needsReach =
+      primary === "100-400mm" || primary === "200mm以上";
+
+    return {
+      focalRangeLabel: formatFocalRangeLabel(primary),
+      lensTypeLabel:
+        primary === "85-135mm"
+          ? "中望遠単焦点"
+          : primary === "70-200mm"
+            ? "望遠ズーム"
+            : "超望遠ズーム",
+      priorities: [
+        "距離",
+        "AF追従",
+        "持ち歩き",
+        ...(needsReach ? ["望遠到達"] : []),
+      ],
+      caution:
+        primary === "85-135mm"
+          ? "遠い競技では焦点距離不足に注意"
+          : "重量と取り回しも確認",
+    };
+  }
+
+  const subject = conditionValue("subject");
+  const isPrime = ["35mm", "50mm", "85mm"].includes(primary);
+
+  return {
+    focalRangeLabel: formatFocalRangeLabel(primary),
+    lensTypeLabel:
+      primary === "便利ズーム"
+        ? "高倍率ズーム"
+        : isPrime
+          ? "単焦点"
+          : "標準ズーム",
+    priorities: [
+      "軽さ",
+      "撮り逃し",
+      "交換頻度",
+      ...(subject === "子ども・人物"
+        ? ["表現力"]
+        : subject === "風景・建物"
+          ? ["広角"]
+          : []),
+    ],
+    caution: isPrime
+      ? "単焦点は画角制限に注意"
+      : "持ち出せる重さも確認",
+  };
+}
+
+function LensConditionCard({ condition }: { condition: LensCondition }) {
+  return (
+    <section
+      aria-label="レンズ条件"
+      data-testid="scene-guide-lens-condition"
+      className="rounded-2xl border border-slate-200 bg-white/80 px-3 py-3 dark:border-white/10 dark:bg-slate-950/50"
+    >
+      <p className="text-[10px] font-semibold text-violet-700 dark:text-violet-200">
+        レンズ条件
+      </p>
+      <div className="mt-1 flex flex-wrap items-baseline gap-x-2 gap-y-1">
+        <p className="text-sm font-semibold text-slate-950 dark:text-white">
+          {condition.focalRangeLabel}
+        </p>
+        <span className="text-xs text-slate-500 dark:text-slate-400">
+          / {condition.lensTypeLabel}
+        </span>
+      </div>
+      <div className="mt-2 flex flex-wrap gap-1.5">
+        {condition.priorities.map((priority) => (
+          <span
+            key={priority}
+            className="rounded-full border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] font-semibold text-slate-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300"
+          >
+            {priority}
+          </span>
+        ))}
+      </div>
+      <p className="mt-2 text-[11px] leading-5 text-slate-500 dark:text-slate-400">
+        <span className="mr-1 font-semibold text-slate-600 dark:text-slate-300">
+          注意:
+        </span>
+        {condition.caution}
+      </p>
+    </section>
+  );
 }
 
 function FocalRecommendation({
@@ -643,6 +817,20 @@ function DecisionFlow({
               {selectedBranch.caution ?? flow.caution}
             </p>
           </section>
+
+          <LensConditionCard
+            condition={resolveLensCondition({
+              sceneId,
+              primary: selectedBranch.cases[0]?.recommendation ?? "",
+              selectedConditions: [
+                {
+                  key: "location",
+                  label: "撮影条件",
+                  value: selectedBranch.condition,
+                },
+              ],
+            })}
+          />
 
           <ConsultationHandoffButton
             onClick={() =>
