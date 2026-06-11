@@ -1,11 +1,38 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import type {
   ScenePlaybookCard as ScenePlaybookCardType,
   ScenePlaybookConditionDecisionFlow,
   ScenePlaybookDecisionFlow,
 } from "@/data/scenePlaybooks";
+
+const SCENE_GUIDE_HANDOFF_KEY = "lensNaviSceneGuideHandoff";
+
+type SceneGuideHandoff = {
+  source: "scene-guide";
+  sceneId: string;
+  sceneLabel: string;
+  selectedConditions: {
+    key: string;
+    label: string;
+    value: string;
+  }[];
+  derivedLensConditions: {
+    focalRangeLabel: string;
+    lensTypeLabel: string;
+    priorities: string[];
+    cautions: string[];
+  };
+  candidateRoles: {
+    role: "main" | "secondary" | "safe" | "conditional";
+    label: string;
+    reason: string;
+  }[];
+  generatedPrompt: string;
+  createdAt: string;
+};
 
 type ScenePlaybookCardProps = {
   playbook: ScenePlaybookCardType;
@@ -28,10 +55,20 @@ export function ScenePlaybookCard({
   isSelected = false,
   onOpen,
 }: ScenePlaybookCardProps) {
+  const router = useRouter();
   const hasDetail = Boolean(playbook.detail);
   const keyDecisions = playbook.keyDecisions.slice(0, 3);
   const focalRanges = playbook.representativeFocalRanges.slice(0, 4);
   const lensRoles = playbook.mainLensRoles.slice(0, 3);
+
+  function handoffToConsultation(handoff: SceneGuideHandoff) {
+    try {
+      sessionStorage.setItem(SCENE_GUIDE_HANDOFF_KEY, JSON.stringify(handoff));
+    } catch {
+      // The consultation handoff is optional; keep the Scene Guide usable.
+    }
+    router.push("/");
+  }
 
   return (
     <article
@@ -148,9 +185,17 @@ export function ScenePlaybookCard({
             {playbook.detail.conditionDecisionFlow ? (
               <ConditionDecisionFlow
                 flow={playbook.detail.conditionDecisionFlow}
+                sceneId={playbook.id}
+                sceneLabel={playbook.title}
+                onConsult={handoffToConsultation}
               />
             ) : playbook.detail.decisionFlow ? (
-              <DecisionFlow flow={playbook.detail.decisionFlow} />
+              <DecisionFlow
+                flow={playbook.detail.decisionFlow}
+                sceneId={playbook.id}
+                sceneLabel={playbook.title}
+                onConsult={handoffToConsultation}
+              />
             ) : (
               <StandardDetail detail={playbook.detail} />
             )}
@@ -172,8 +217,14 @@ export function ScenePlaybookCard({
 
 function ConditionDecisionFlow({
   flow,
+  sceneId,
+  sceneLabel,
+  onConsult,
 }: {
   flow: ScenePlaybookConditionDecisionFlow;
+  sceneId: string;
+  sceneLabel: string;
+  onConsult: (handoff: SceneGuideHandoff) => void;
 }) {
   const [selectedValues, setSelectedValues] = useState<Record<string, string>>(
     () =>
@@ -185,6 +236,16 @@ function ConditionDecisionFlow({
     .map((control) => selectedValues[control.key])
     .join("|");
   const result = flow.results[resultKey];
+  const selectedConditions = flow.controls.map((control) => {
+    const value = selectedValues[control.key];
+    const option = control.options.find((item) => item.value === value);
+
+    return {
+      key: control.key,
+      label: control.label,
+      value: option?.label ?? value,
+    };
+  });
 
   return (
     <>
@@ -277,6 +338,19 @@ function ConditionDecisionFlow({
               {result.caution}
             </p>
           </section>
+
+          <ConsultationHandoffButton
+            onClick={() =>
+              onConsult(
+                createRecitalHandoff(
+                  sceneId,
+                  sceneLabel,
+                  selectedConditions,
+                  result,
+                ),
+              )
+            }
+          />
         </>
       ) : null}
     </>
@@ -316,7 +390,17 @@ function CandidateRoleCard({
   );
 }
 
-function DecisionFlow({ flow }: { flow: ScenePlaybookDecisionFlow }) {
+function DecisionFlow({
+  flow,
+  sceneId,
+  sceneLabel,
+  onConsult,
+}: {
+  flow: ScenePlaybookDecisionFlow;
+  sceneId: string;
+  sceneLabel: string;
+  onConsult: (handoff: SceneGuideHandoff) => void;
+}) {
   const [selectedCondition, setSelectedCondition] = useState(
     flow.branches[0]?.condition,
   );
@@ -402,10 +486,114 @@ function DecisionFlow({ flow }: { flow: ScenePlaybookDecisionFlow }) {
               {selectedBranch.caution ?? flow.caution}
             </p>
           </section>
+
+          <ConsultationHandoffButton
+            onClick={() =>
+              onConsult(
+                createFamilyHandoff(sceneId, sceneLabel, selectedBranch),
+              )
+            }
+          />
         </>
       ) : null}
     </>
   );
+}
+
+function ConsultationHandoffButton({ onClick }: { onClick: () => void }) {
+  return (
+    <section className="rounded-2xl border border-violet-200 bg-white px-3 py-3 dark:border-violet-400/20 dark:bg-slate-950/60">
+      <p className="text-xs leading-5 text-slate-600 dark:text-slate-300">
+        選んだ撮影条件をもとに、具体的なレンズ候補をAIに相談します。
+      </p>
+      <button
+        type="button"
+        data-testid="scene-guide-consult"
+        onClick={onClick}
+        className="mt-2 inline-flex w-full items-center justify-center rounded-xl border border-violet-200 bg-violet-50 px-3 py-2 text-xs font-semibold text-violet-800 transition-colors hover:border-violet-300 hover:bg-violet-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-violet-400/30 dark:bg-violet-400/10 dark:text-violet-100 dark:hover:border-violet-400/50 dark:hover:bg-violet-400/15 dark:focus-visible:ring-offset-slate-950 sm:w-auto"
+      >
+        この条件で相談する
+      </button>
+    </section>
+  );
+}
+
+function createFamilyHandoff(
+  sceneId: string,
+  sceneLabel: string,
+  branch: ScenePlaybookDecisionFlow["branches"][number],
+): SceneGuideHandoff {
+  const isIndoor = branch.condition === "室内で撮る";
+  const focalRangeLabel = isIndoor ? "35〜50mm前後" : "85〜135mm前後";
+  const generatedPrompt = isIndoor
+    ? "室内の家族写真で、子どもが近づいてくる場面や複数人を撮る場面を想定しています。35〜50mm前後の明るいレンズを中心に、室内で使いやすく、失敗しにくい候補を教えてください。"
+    : "屋外の家族写真で、背景を少しぼかしながら自然な距離で撮る場面を想定しています。85〜135mm前後のレンズを中心に、子どもや家族写真に向く候補を教えてください。";
+
+  return {
+    source: "scene-guide",
+    sceneId,
+    sceneLabel,
+    selectedConditions: [
+      { key: "location", label: "撮影条件", value: branch.condition },
+    ],
+    derivedLensConditions: {
+      focalRangeLabel,
+      lensTypeLabel: isIndoor ? "明るい標準域" : "中望遠・望遠域",
+      priorities: isIndoor
+        ? ["近距離", "複数人", "室内での扱いやすさ"]
+        : ["自然な距離", "背景整理", "子どもの表情"],
+      cautions: [branch.caution ?? ""].filter(Boolean),
+    },
+    candidateRoles: branch.cases.map((item, index) => ({
+      role: index === 0 ? "main" : "secondary",
+      label: item.recommendation,
+      reason: item.reason,
+    })),
+    generatedPrompt,
+    createdAt: new Date().toISOString(),
+  };
+}
+
+function createRecitalHandoff(
+  sceneId: string,
+  sceneLabel: string,
+  selectedConditions: SceneGuideHandoff["selectedConditions"],
+  result: ScenePlaybookConditionDecisionFlow["results"][string],
+): SceneGuideHandoff {
+  const conditionValue = (key: string) =>
+    selectedConditions.find((condition) => condition.key === key)?.value ?? "";
+  const seat = conditionValue("seat");
+  const venue = conditionValue("venue");
+  const goal = conditionValue("goal");
+  const goalPhrase =
+    goal === "全身も残したい"
+      ? "子どもの全身も残しながら撮りたいです"
+      : "子どもの表情を切り出したいです";
+  const comparisonLabels = Array.from(
+    new Set([result.secondary, result.safe]),
+  ).join("や");
+
+  return {
+    source: "scene-guide",
+    sceneId,
+    sceneLabel,
+    selectedConditions,
+    derivedLensConditions: {
+      focalRangeLabel: `${result.primary}中心`,
+      lensTypeLabel: result.primary.includes("-")
+        ? "望遠ズーム"
+        : "望遠域のレンズ",
+      priorities: ["距離不足を避ける", "構図変更", "暗所での歩留まり"],
+      cautions: [result.caution],
+    },
+    candidateRoles: [
+      { role: "main", label: result.primary, reason: result.reason },
+      { role: "secondary", label: result.secondary, reason: "次点候補として比較" },
+      { role: "safe", label: result.safe, reason: "撮影条件が読めない場合の安全策" },
+    ],
+    generatedPrompt: `発表会で${seat}・${venue}から、${goalPhrase}。${result.primary}を中心に、${comparisonLabels}も含めて、距離不足を避けやすい候補を比較してください。`,
+    createdAt: new Date().toISOString(),
+  };
 }
 
 function StandardDetail({

@@ -34,6 +34,26 @@ import { generateAmazonSearchUrl } from '@/lib/affiliateLinks'
 
 marked.setOptions({ breaks: true })
 
+const SCENE_GUIDE_HANDOFF_KEY = 'lensNaviSceneGuideHandoff'
+
+type SceneGuideHandoff = {
+  source: 'scene-guide'
+  sceneId: string
+  sceneLabel: string
+  selectedConditions: {
+    key: string
+    label: string
+    value: string
+  }[]
+  derivedLensConditions: {
+    focalRangeLabel: string
+    lensTypeLabel: string
+    priorities: string[]
+    cautions: string[]
+  }
+  generatedPrompt: string
+}
+
 // ── マウント定義 ───────────────────────────────────────────
 interface MountOption {
   id: string
@@ -781,6 +801,7 @@ export default function ChatInterface() {
     return saved.map((m) => ({ ...m, timestamp: new Date(m.timestamp) }))
   })
   const [input, setInput] = useState('')
+  const [sceneGuideHandoff, setSceneGuideHandoff] = useState<SceneGuideHandoff | null>(null)
   const [loading, setLoading] = useState(false)
   const [conversationId, setConversationId] = useState<string | undefined>(() =>
     loadFromStorage<string | null>('chatConversationId', null) ?? undefined
@@ -900,6 +921,29 @@ export default function ChatInterface() {
     scrollChatToTop()
   }, [])
 
+  useEffect(() => {
+    try {
+      const raw = sessionStorage.getItem(SCENE_GUIDE_HANDOFF_KEY)
+      if (!raw) return
+
+      const parsed = JSON.parse(raw) as Partial<SceneGuideHandoff>
+      if (
+        parsed.source === 'scene-guide' &&
+        typeof parsed.sceneId === 'string' &&
+        typeof parsed.sceneLabel === 'string' &&
+        typeof parsed.generatedPrompt === 'string' &&
+        Array.isArray(parsed.selectedConditions) &&
+        parsed.derivedLensConditions
+      ) {
+        setSceneGuideHandoff(parsed as SceneGuideHandoff)
+      } else {
+        sessionStorage.removeItem(SCENE_GUIDE_HANDOFF_KEY)
+      }
+    } catch {
+      sessionStorage.removeItem(SCENE_GUIDE_HANDOFF_KEY)
+    }
+  }, [])
+
   // メッセージが変わるたびに保存（最新30件）
   useEffect(() => {
     try {
@@ -1004,6 +1048,8 @@ export default function ChatInterface() {
   async function sendMessage(text: string) {
     const trimmed = text.trim()
     if (!trimmed || loading) return
+
+    clearSceneGuideHandoff()
 
     // プロフィール情報をプレフィックスとして自動付与（ユーザー画面には表示しない）
     const profileLines: string[] = []
@@ -1150,6 +1196,20 @@ export default function ChatInterface() {
       e.preventDefault()
       sendMessage(input)
     }
+  }
+
+  function clearSceneGuideHandoff() {
+    try {
+      sessionStorage.removeItem(SCENE_GUIDE_HANDOFF_KEY)
+    } catch { /* ignore */ }
+    setSceneGuideHandoff(null)
+  }
+
+  function applySceneGuideHandoff() {
+    if (!sceneGuideHandoff) return
+    setInput(sceneGuideHandoff.generatedPrompt)
+    clearSceneGuideHandoff()
+    window.requestAnimationFrame(() => inputRef.current?.focus())
   }
 
   function escapeHtmlForDisplay(value: string): string {
@@ -1808,6 +1868,48 @@ export default function ChatInterface() {
             <div className="mb-3 flex justify-center md:hidden" aria-hidden="true">
               <span className="h-1 w-11 rounded-full bg-slate-300/80 dark:bg-slate-700" />
             </div>
+
+            {sceneGuideHandoff ? (
+              <section
+                data-testid="scene-guide-handoff-card"
+                className="mb-3 rounded-2xl border border-violet-200 bg-white px-3 py-3 shadow-sm dark:border-violet-400/25 dark:bg-slate-900/90"
+                aria-label="シーンガイドからの引き継ぎ"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl border border-violet-200 bg-violet-50 text-violet-700 dark:border-violet-400/25 dark:bg-violet-400/10 dark:text-violet-200">
+                    <Map className="h-4 w-4" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
+                      シーンガイドから引き継ぎました
+                    </p>
+                    <p className="mt-1 text-xs leading-5 text-slate-700 dark:text-slate-300">
+                      {[sceneGuideHandoff.sceneLabel, ...sceneGuideHandoff.selectedConditions.map((condition) => condition.value)].join(' / ')}
+                    </p>
+                    <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">
+                      候補条件: {sceneGuideHandoff.derivedLensConditions.focalRangeLabel} / {sceneGuideHandoff.derivedLensConditions.lensTypeLabel}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    data-testid="scene-guide-handoff-dismiss"
+                    onClick={clearSceneGuideHandoff}
+                    aria-label="シーンガイドからの引き継ぎを閉じる"
+                    className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-white/10 dark:hover:text-slate-200"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                </div>
+                <button
+                  type="button"
+                  data-testid="scene-guide-handoff-apply"
+                  onClick={applySceneGuideHandoff}
+                  className="mt-3 inline-flex w-full items-center justify-center rounded-xl border border-violet-200 bg-violet-50 px-3 py-2 text-xs font-semibold text-violet-800 transition-colors hover:border-violet-300 hover:bg-violet-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-violet-400/30 dark:bg-violet-400/10 dark:text-violet-100 dark:hover:border-violet-400/50 dark:hover:bg-violet-400/15 dark:focus-visible:ring-offset-slate-950 sm:w-auto"
+                >
+                  この内容で相談する
+                </button>
+              </section>
+            ) : null}
 
             {/* モバイル用ツールバー */}
             <div className="md:hidden flex items-center justify-between mb-2">
