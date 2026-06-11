@@ -1,5 +1,7 @@
 # Scene Guide public beta review
 
+> 現在の主要4シーン interactive / handoff / Lens Condition Resolver / comparison hooks の統合レビューは `docs/scene-guide-resolver-comparison-review.md` を参照。
+
 ## Purpose
 
 Scene Guide の現時点の公開β確認結果を記録する。
