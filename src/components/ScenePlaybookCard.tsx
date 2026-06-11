@@ -32,6 +32,14 @@ const FOCAL_LENGTH_RAILS: Record<
     { value: "100-400mm", meaning: "遠距離" },
     { value: "200mm+", meaning: "望遠側" },
   ],
+  "travel-outing": [
+    { value: "20-70mm", meaning: "広く残す" },
+    { value: "24-70mm", meaning: "万能標準" },
+    { value: "35mm", meaning: "街歩き" },
+    { value: "50mm", meaning: "人物自然" },
+    { value: "85mm", meaning: "きれいに切り出す" },
+    { value: "便利ズーム", meaning: "撮り逃し防止" },
+  ],
 };
 
 type SceneGuideHandoff = {
@@ -213,7 +221,8 @@ export function ScenePlaybookCard({
                 sceneLabel={playbook.title}
                 onConsult={
                   playbook.id === "recital-stage" ||
-                  playbook.id === "sports-day"
+                  playbook.id === "sports-day" ||
+                  playbook.id === "travel-outing"
                     ? handoffToConsultation
                     : undefined
                 }
@@ -362,19 +371,12 @@ function ConditionDecisionFlow({
             <ConsultationHandoffButton
               onClick={() =>
                 onConsult(
-                  sceneId === "sports-day"
-                    ? createSportsDayHandoff(
-                        sceneId,
-                        sceneLabel,
-                        selectedConditions,
-                        result,
-                      )
-                    : createRecitalHandoff(
-                        sceneId,
-                        sceneLabel,
-                        selectedConditions,
-                        result,
-                      ),
+                  createConditionHandoff(
+                    sceneId,
+                    sceneLabel,
+                    selectedConditions,
+                    result,
+                  ),
                 )
               }
             />
@@ -416,8 +418,16 @@ function FocalLengthRail({
       <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
         焦点距離の目安
       </p>
-      <div className="relative grid grid-cols-4 gap-1.5">
-        <div className="absolute left-3 right-3 top-3 h-px bg-slate-200 dark:bg-white/10" />
+      <div
+        className={`relative grid gap-1.5 ${
+          rail.length > 4 ? "grid-cols-3 sm:grid-cols-6" : "grid-cols-4"
+        }`}
+      >
+        <div
+          className={`absolute left-3 right-3 top-3 h-px bg-slate-200 dark:bg-white/10 ${
+            rail.length > 4 ? "hidden sm:block" : ""
+          }`}
+        />
         {rail.map((item) => {
           const isPrimary = item.value === normalizedPrimary;
           const isSecondary = item.value === normalizedSecondary;
@@ -476,6 +486,9 @@ function getFocalMeaning(sceneId: string, value: string) {
 }
 
 function getSafeMeaning(value: string) {
+  if (value === "便利ズーム") {
+    return "撮り逃し防止";
+  }
   if (value.includes("70-200")) {
     return "構図変更に強い";
   }
@@ -740,6 +753,38 @@ function createRecitalHandoff(
   };
 }
 
+function createConditionHandoff(
+  sceneId: string,
+  sceneLabel: string,
+  selectedConditions: SceneGuideHandoff["selectedConditions"],
+  result: ScenePlaybookConditionDecisionFlow["results"][string],
+) {
+  if (sceneId === "sports-day") {
+    return createSportsDayHandoff(
+      sceneId,
+      sceneLabel,
+      selectedConditions,
+      result,
+    );
+  }
+
+  if (sceneId === "travel-outing") {
+    return createTravelHandoff(
+      sceneId,
+      sceneLabel,
+      selectedConditions,
+      result,
+    );
+  }
+
+  return createRecitalHandoff(
+    sceneId,
+    sceneLabel,
+    selectedConditions,
+    result,
+  );
+}
+
 function createSportsDayHandoff(
   sceneId: string,
   sceneLabel: string,
@@ -803,6 +848,72 @@ function createSportsDayHandoff(
       { role: "safe", label: result.safe, reason: "距離や動きが読めない場合の安全策" },
     ],
     generatedPrompt: `運動会で${venuePhrase}から、${distancePhrase}で${motionPhrase}子どもを撮りたいです。${result.primary}を中心に、${comparisonPhrase}距離・AF追従・シャッター速度・重さ・一日持ち歩きやすさも含めて候補を教えてください。`,
+    createdAt: new Date().toISOString(),
+  };
+}
+
+function createTravelHandoff(
+  sceneId: string,
+  sceneLabel: string,
+  selectedConditions: SceneGuideHandoff["selectedConditions"],
+  result: ScenePlaybookConditionDecisionFlow["results"][string],
+): SceneGuideHandoff {
+  const conditionValue = (key: string) =>
+    selectedConditions.find((condition) => condition.key === key)?.value ?? "";
+  const load = conditionValue("load");
+  const subject = conditionValue("subject");
+  const exchange = conditionValue("exchange");
+  const subjectPhrase =
+    subject === "風景・建物"
+      ? "風景や建物"
+      : subject === "子ども・人物"
+        ? "子どもや人物"
+        : "街歩きや家族";
+  const loadPhrase =
+    load === "軽さ優先"
+      ? "荷物を軽くしながら"
+      : load === "画質優先"
+        ? "画質を優先しながら"
+        : "持ち歩きやすさと画質のバランスを取りながら";
+  const exchangePhrase =
+    exchange === "できるだけ少なく"
+      ? "レンズ交換をできるだけ減らして"
+      : exchange === "交換してもよい"
+        ? "必要に応じてレンズを交換して"
+        : "多少のレンズ交換も許容して";
+  const comparisonLabels = Array.from(
+    new Set([result.secondary, result.safe]),
+  )
+    .filter((label) => label !== result.primary)
+    .join("や");
+  const comparisonPhrase = comparisonLabels
+    ? `${comparisonLabels}も含めて、`
+    : "";
+
+  return {
+    source: "scene-guide",
+    sceneId,
+    sceneLabel,
+    selectedConditions,
+    derivedLensConditions: {
+      focalRangeLabel: `${result.primary}中心`,
+      lensTypeLabel: result.primary.includes("mm")
+        ? "旅行向け標準域"
+        : "撮り逃しを減らすズーム",
+      priorities: [
+        "持ち歩きやすさ",
+        "撮り逃しにくさ",
+        "レンズ交換の少なさ",
+        "旅行先での使いやすさ",
+      ],
+      cautions: [result.caution],
+    },
+    candidateRoles: [
+      { role: "main", label: result.primary, reason: result.reason },
+      { role: "secondary", label: result.secondary, reason: "次点候補として比較" },
+      { role: "safe", label: result.safe, reason: "撮り逃しを減らす安全策" },
+    ],
+    generatedPrompt: `旅行で${subjectPhrase}を、${loadPhrase}${exchangePhrase}撮りたいです。${result.primary}を中心に、${comparisonPhrase}軽さ・使いやすさ・画質・撮り逃しにくさを含めて候補を教えてください。`,
     createdAt: new Date().toISOString(),
   };
 }
