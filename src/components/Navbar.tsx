@@ -50,17 +50,17 @@ export default function Navbar() {
         </Link>
 
         {/* Screen nav + Dark mode */}
-        <div className="flex items-center gap-1 rounded-2xl border border-slate-200/80 bg-white/75 p-1 shadow-sm shadow-slate-200/60 backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none">
+        <div className="flex shrink-0 items-center gap-1 rounded-2xl border border-slate-200/80 bg-white/75 p-1 shadow-sm shadow-slate-200/60 backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none">
           <div className="flex items-center gap-1">
           <Link
             href="/"
-            className={`rounded-xl p-[1px] text-xs font-medium transition-all sm:text-sm ${
+            className={`shrink-0 whitespace-nowrap rounded-xl p-[1px] text-xs font-medium transition-all md:text-sm ${
               pathname === '/'
                 ? 'bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] shadow-[0_8px_22px_rgba(124,58,237,0.08)]'
                 : 'bg-transparent hover:bg-slate-200/80 dark:hover:bg-white/10'
             }`}
           >
-            <span className={`flex flex-col items-center gap-0.5 whitespace-nowrap rounded-[11px] px-2 py-1.5 leading-none transition-colors sm:flex-row sm:gap-1.5 sm:px-3 sm:leading-normal ${
+            <span className={`flex flex-col items-center gap-0.5 whitespace-nowrap rounded-[11px] px-2 py-1.5 leading-none transition-colors md:flex-row md:gap-1.5 md:px-3 md:leading-normal ${
               pathname === '/'
                 ? 'bg-white text-slate-950 dark:bg-slate-950 dark:text-white'
                 : 'text-slate-600 dark:text-slate-300'
@@ -71,31 +71,31 @@ export default function Navbar() {
           </Link>
           <Link
             href="/scene-playbooks"
-            className={`rounded-xl p-[1px] text-xs font-medium transition-all sm:text-sm ${
+            className={`shrink-0 whitespace-nowrap rounded-xl p-[1px] text-xs font-medium transition-all md:text-sm ${
               pathname === '/scene-playbooks'
                 ? 'bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] shadow-[0_8px_22px_rgba(124,58,237,0.08)]'
                 : 'bg-transparent hover:bg-slate-200/80 dark:hover:bg-white/10'
             }`}
           >
-            <span className={`flex flex-col items-center gap-0.5 whitespace-nowrap rounded-[11px] px-2 py-1.5 leading-none transition-colors sm:flex-row sm:gap-1.5 sm:px-3 sm:leading-normal ${
+            <span className={`flex flex-col items-center gap-0.5 whitespace-nowrap rounded-[11px] px-2 py-1.5 leading-none transition-colors md:flex-row md:gap-1.5 md:px-3 md:leading-normal ${
               pathname === '/scene-playbooks'
                 ? 'bg-white text-slate-950 dark:bg-slate-950 dark:text-white'
                 : 'text-slate-600 dark:text-slate-300'
             }`}>
               <BookOpenText className="h-4 w-4" />
-              <span className="hidden sm:inline">シーンガイド</span>
-              <span className="sm:hidden">シーン</span>
+              <span className="hidden whitespace-nowrap md:inline">シーンガイド</span>
+              <span className="whitespace-nowrap md:hidden">シーン</span>
             </span>
           </Link>
           <Link
             href="/warehouse"
-            className={`rounded-xl p-[1px] text-xs font-medium transition-all sm:text-sm ${
+            className={`shrink-0 whitespace-nowrap rounded-xl p-[1px] text-xs font-medium transition-all md:text-sm ${
               pathname === '/warehouse'
                 ? 'bg-[linear-gradient(90deg,#2563EB_0%,#7C3AED_52%,#D946EF_100%)] shadow-[0_8px_22px_rgba(124,58,237,0.08)]'
                 : 'bg-transparent hover:bg-slate-200/80 dark:hover:bg-white/10'
             }`}
           >
-            <span className={`flex flex-col items-center gap-0.5 whitespace-nowrap rounded-[11px] px-2 py-1.5 leading-none transition-colors sm:flex-row sm:gap-1.5 sm:px-3 sm:leading-normal ${
+            <span className={`flex flex-col items-center gap-0.5 whitespace-nowrap rounded-[11px] px-2 py-1.5 leading-none transition-colors md:flex-row md:gap-1.5 md:px-3 md:leading-normal ${
               pathname === '/warehouse'
                 ? 'bg-white text-slate-950 dark:bg-slate-950 dark:text-white'
                 : 'text-slate-600 dark:text-slate-300'
@@ -107,7 +107,7 @@ export default function Navbar() {
           </div>
           <button
             onClick={toggleDarkMode}
-            className="rounded-xl border border-transparent p-2 text-slate-500 transition-colors hover:border-violet-300/50 hover:bg-white dark:text-slate-400 dark:hover:border-violet-400/30 dark:hover:bg-white/10"
+            className="shrink-0 rounded-xl border border-transparent p-2 text-slate-500 transition-colors hover:border-violet-300/50 hover:bg-white dark:text-slate-400 dark:hover:border-violet-400/30 dark:hover:bg-white/10"
             aria-label="ダークモード切替"
           >
             {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
