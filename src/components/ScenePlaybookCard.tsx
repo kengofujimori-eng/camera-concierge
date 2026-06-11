@@ -187,7 +187,11 @@ export function ScenePlaybookCard({
                 flow={playbook.detail.conditionDecisionFlow}
                 sceneId={playbook.id}
                 sceneLabel={playbook.title}
-                onConsult={handoffToConsultation}
+                onConsult={
+                  playbook.id === "recital-stage"
+                    ? handoffToConsultation
+                    : undefined
+                }
               />
             ) : playbook.detail.decisionFlow ? (
               <DecisionFlow
@@ -224,7 +228,7 @@ function ConditionDecisionFlow({
   flow: ScenePlaybookConditionDecisionFlow;
   sceneId: string;
   sceneLabel: string;
-  onConsult: (handoff: SceneGuideHandoff) => void;
+  onConsult?: (handoff: SceneGuideHandoff) => void;
 }) {
   const [selectedValues, setSelectedValues] = useState<Record<string, string>>(
     () =>
@@ -251,7 +255,7 @@ function ConditionDecisionFlow({
     <>
       <section className="rounded-2xl border border-violet-200 bg-white px-3 py-3 dark:border-violet-400/20 dark:bg-slate-950/60">
         <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
-          発表会でまず見ること
+          {flow.heading ?? "撮影シーンでまず見ること"}
         </p>
         <p className="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-200">
           {flow.premise}
@@ -339,18 +343,20 @@ function ConditionDecisionFlow({
             </p>
           </section>
 
-          <ConsultationHandoffButton
-            onClick={() =>
-              onConsult(
-                createRecitalHandoff(
-                  sceneId,
-                  sceneLabel,
-                  selectedConditions,
-                  result,
-                ),
-              )
-            }
-          />
+          {onConsult ? (
+            <ConsultationHandoffButton
+              onClick={() =>
+                onConsult(
+                  createRecitalHandoff(
+                    sceneId,
+                    sceneLabel,
+                    selectedConditions,
+                    result,
+                  ),
+                )
+              }
+            />
+          ) : null}
         </>
       ) : null}
     </>

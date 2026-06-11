@@ -1,87 +1,88 @@
-# Implement scene guide to consultation handoff
+# Implement sports-day scene guide interactive v1
 
 ## Background
 
-Scene Guide は、家族写真と発表会で条件を選び、必要な焦点距離や候補役割を絞れる状態になった。
+Scene Guide は、家族写真と発表会で撮影条件を選び、候補焦点距離を絞れる状態になった。家族写真と発表会には、選択した条件を相談画面へ引き継ぐ導線もある。
 
-次の段階では、Scene Guide 内で整理した撮影条件を、具体的なレンズ候補を尋ねる相談画面へ自然に引き継ぐ。
+運動会ガイドは detail 対応済みだが、現在は読み物型であり、会場の広さや距離、動きに応じた候補の変化を体感しにくい。
 
 ## Problem
 
-- Scene Guide で条件を絞っても、相談画面で同じ条件を入力し直す必要がある。
-- 選択した条件と候補役割を、相談文へ変換する接続がない。
-- 自動送信は避けつつ、ユーザーが確認して相談を開始できる導線が必要。
+- 運動会で重要な「届く・追える・一日持てる」の判断が、長い説明の中に埋もれやすい。
+- 会場、距離、動きの組み合わせによって、70-200mm と 100-400mm の役割が変わることを選択操作で確認できない。
+- 家族写真 / 発表会と比べ、Scene Guide の撮影判断ナビらしさが弱い。
 
 ## Direction
 
-家族写真と発表会の interactive result に `この条件で相談する` 導線を追加する。
+運動会ガイドに interactive decision flow v1 を追加する。
 
-- 選択条件、候補役割、相談文を構造化した handoff として `sessionStorage` に保存する。
-- 相談画面へ移動後、入力欄の近くに引き継ぎカードを表示する。
-- ユーザーが `この内容で相談する` を押したときだけ入力へ反映する。
-- 自動送信はしない。反映または dismiss 後は handoff を削除する。
+- 会場の広さ: `園庭・小さめ` / `校庭・標準` / `広いグラウンド`
+- 子どもまでの距離: `近い` / `中くらい` / `遠い`
+- 動きの速さ: `ゆっくり` / `ふつう` / `速い`
+- 選択条件に応じて、主候補 / 次点候補 / 安全策 / 理由 / 注意点を即時に切り替える。
+- 初期値は `校庭・標準 / 中くらい / ふつう` とする。
+
+既存の汎用 condition decision flow UI を使い、運動会では相談 handoff CTA を表示しない。
 
 ## Allowed files
 
 - `docs/active-mission.md`
 - `docs/current-task.md`
 - `src/components/ScenePlaybookCard.tsx`
-- `src/components/ChatInterface.tsx`
+- `src/data/scenePlaybooks.ts`
 - 必要な場合のみ `src/app/scene-playbooks/page.tsx`
-- 必要な場合のみ `src/data/scenePlaybooks.ts`
 
 ## Do not touch
 
 - `src/components/Navbar.tsx`
+- `src/components/ChatInterface.tsx`
 - `src/app/warehouse/page.tsx`
 - `src/components/LensRecommendationCards.tsx`
 - `src/components/WarehouseList.tsx`
 - `public/lens_data.json`
 - API / Dify
-- warehouse localStorage 形式
 - 推薦ロジック
+- warehouse localStorage 形式
 
 ## Do
 
-- 家族写真と発表会に `この条件で相談する` CTA を追加する。
-- 選択状態を反映した構造化 handoff と相談文を `sessionStorage` に保存する。
-- 相談画面に引き継ぎカードを表示し、確認操作で入力へ反映する。
-- 自動送信せず、通常相談フローを維持する。
-- 運動会 detail と旅行 card-only を維持する。
-- build を通す。
+- 運動会ガイドを interactive v1 化する。
+- 3条件の組み合わせで候補と説明を切り替える。
+- 家族写真 / 発表会の interactive behavior と相談 handoff を維持する。
+- 旅行・おでかけは card-only のまま維持する。
+- `relatedLensIds` は全件空配列のまま維持する。
+- `npm run build` を通す。
 
 ## Do not
 
+- 運動会に相談 handoff CTA を追加しない。
 - Lens Condition Resolver、Deep Review connection を実装しない。
-- 運動会 / 旅行の handoff を実装しない。
-- API / Dify payload、warehouse localStorage 形式、`public/lens_data.json` を変更しない。
-- 自動送信しない。
+- travel detail や新しい Scene Guide card を追加しない。
+- dedicated route、modal、drawer を追加しない。
+- warehouse / chat API / Dify / localStorage に新しい接続を追加しない。
 - スコア、ランキング、点数表現を入れない。
+- commit / push / e2e を実行しない。
 
 ## Checks
 
 実装後に確認すること:
 
 - `git status`
-- `git diff`
-- `npm run lint`
-  - ESLint 未設定で対話式セットアップになる場合は、その旨を報告する。
+- `git diff --stat`
 - `npm run build`
-- `npm run db:check`
-- `npm run test:e2e`
-  - Playwright Chromium 未インストールで失敗する場合は、正確なエラーを報告する。
-- ブラウザ確認する。
-  - 家族写真 / 発表会の現在条件から相談 CTA を使える。
-  - 相談画面に条件を要約した引き継ぎカードが表示される。
-  - `この内容で相談する` で入力へ反映され、自動送信されない。
-  - dismiss / 反映後に `sessionStorage` が削除される。
-  - 運動会、旅行、通常相談が壊れていない。
+- 可能ならブラウザで `/scene-playbooks` を確認する。
+  - 運動会の3条件を切り替えられる。
+  - 初期値が `校庭・標準 / 中くらい / ふつう` である。
+  - 条件変更で主候補 / 次点候補 / 安全策が変わる。
+  - 運動会には相談 handoff CTA が表示されない。
+  - 家族写真 / 発表会の interactive behavior と handoff が壊れていない。
+  - 旅行・おでかけは card-only のままである。
   - mobile 幅で横はみ出しがない。
 
 ## Commit
 
-推奨コミットメッセージ:
+今回は commit / push を行わない。手動 commit 時の推奨メッセージ:
 
 ```txt
-feat: add scene guide consultation handoff
+feat: add sports-day scene guide interactive flow
 ```

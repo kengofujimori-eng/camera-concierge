@@ -29,6 +29,7 @@ export type ScenePlaybookDecisionFlow = {
 };
 
 export type ScenePlaybookConditionDecisionFlow = {
+  heading?: string;
   premise: string;
   controls: {
     key: string;
@@ -295,6 +296,7 @@ export const scenePlaybooks: ScenePlaybookCard[] = [
       lensNaviConclusion:
         "発表会では、席が読めないなら70-200mmが最も安全。前方席や小会場なら85mm、少し距離があるなら135mmも候補。後方席や大きな会場では200mm以上を考え、明るさだけでなく届くことと構図変更を優先する。",
       conditionDecisionFlow: {
+        heading: "発表会でまず見ること",
         premise:
           "発表会では、明るさだけでなく、座席から届くことと構図変更できることが重要です。座席位置・会場サイズ・残したい構図から目安を絞ります。",
         controls: [
@@ -576,6 +578,288 @@ export const scenePlaybooks: ScenePlaybookCard[] = [
       ],
       lensNaviConclusion:
         "運動会の主力は、まず70-200mmや100-400mmのような望遠ズームで考える。85mmや135mmは、近い競技や待機中の表情をきれいに切り出す追加表現レンズとして使うと失敗しにくい。ボケ量より、届くこと・追えること・ブレないこと・一日持てることを優先する。",
+      conditionDecisionFlow: {
+        heading: "運動会でまず見ること",
+        premise:
+          "運動会では、ボケ量よりも、会場の広さ・子どもまでの距離・動きの速さに合わせて、届いて追いやすい焦点距離を選ぶことが重要です。",
+        controls: [
+          {
+            key: "venue",
+            label: "会場の広さ",
+            defaultValue: "standard",
+            options: [
+              { value: "small", label: "園庭・小さめ" },
+              { value: "standard", label: "校庭・標準" },
+              { value: "large", label: "広いグラウンド" },
+            ],
+          },
+          {
+            key: "distance",
+            label: "子どもまでの距離",
+            defaultValue: "medium",
+            options: [
+              { value: "near", label: "近い" },
+              { value: "medium", label: "中くらい" },
+              { value: "far", label: "遠い" },
+            ],
+          },
+          {
+            key: "motion",
+            label: "動きの速さ",
+            defaultValue: "normal",
+            options: [
+              { value: "slow", label: "ゆっくり" },
+              { value: "normal", label: "ふつう" },
+              { value: "fast", label: "速い" },
+            ],
+          },
+        ],
+        results: {
+          "small|near|slow": {
+            primary: "85-135mm",
+            secondary: "70-200mm",
+            safe: "70-200mm",
+            reason:
+              "近い距離の園庭なら、85-135mmでも待機中の表情や親子競技を自然に撮れます。",
+            caution:
+              "競技中に距離が変わる場合は、70-200mmの方が構図を調整しやすいです。",
+          },
+          "small|near|normal": {
+            primary: "70-200mm",
+            secondary: "85-135mm",
+            safe: "70-200mm",
+            reason:
+              "近い園庭でも動きがある場合は、70-200mmで全身と表情を切り替えやすくなります。",
+            caution:
+              "近距離では望遠端が長すぎることがあるため、70mm側へ戻せる余裕が重要です。",
+          },
+          "small|near|fast": {
+            primary: "70-200mm",
+            secondary: "100-400mm",
+            safe: "70-200mm",
+            reason:
+              "近い園庭で速い動きを追うなら、70-200mmの構図変更と取り回しが使いやすいです。",
+            caution:
+              "速い動きでは焦点距離だけでなく、AF追従とシャッター速度も重要です。",
+          },
+          "small|medium|slow": {
+            primary: "70-200mm",
+            secondary: "85-135mm",
+            safe: "70-200mm",
+            reason:
+              "園庭の中距離なら、70-200mmが競技と表情の両方へ対応しやすいです。",
+            caution:
+              "待機中の表情だけを狙う場合は、85-135mmも軽い選択肢になります。",
+          },
+          "small|medium|normal": {
+            primary: "70-200mm",
+            secondary: "100-400mm",
+            safe: "70-200mm",
+            reason:
+              "園庭の中距離で動きがある競技なら、70-200mmが扱いやすい安全圏になります。",
+            caution:
+              "撮影位置が後ろへ下がる場合は、200mmで届くか事前に確認したい条件です。",
+          },
+          "small|medium|fast": {
+            primary: "100-400mm",
+            secondary: "70-200mm",
+            safe: "100-400mm",
+            reason:
+              "中距離で速く動く子どもを追う場合は、100-400mmの到達距離が効きます。",
+            caution:
+              "近くへ来た瞬間は長すぎることがあるため、構図変化を見越して使います。",
+          },
+          "small|far|slow": {
+            primary: "100-400mm",
+            secondary: "70-200mm",
+            safe: "100-400mm",
+            reason:
+              "小さめの会場でも子どもまで遠い場合は、100-400mmが距離不足を補いやすいです。",
+            caution:
+              "一日持ち歩く場合は、重量と取り回しも候補選びに含めてください。",
+          },
+          "small|far|normal": {
+            primary: "100-400mm",
+            secondary: "200mm以上",
+            safe: "100-400mm",
+            reason:
+              "遠い競技では、100-400mmで動きに合わせて画角を変えられる安心感があります。",
+            caution:
+              "暗い条件では、望遠側のF値とシャッター速度にも注意が必要です。",
+          },
+          "small|far|fast": {
+            primary: "100-400mm",
+            secondary: "200mm以上",
+            safe: "100-400mm",
+            reason:
+              "遠くで速く動く競技では、100-400mmの到達距離とズーム幅が有効です。",
+            caution:
+              "望遠で速い動きを追うため、AF追従と構え方の安定も重要です。",
+          },
+          "standard|near|slow": {
+            primary: "70-200mm",
+            secondary: "85-135mm",
+            safe: "70-200mm",
+            reason:
+              "標準的な校庭で近い距離なら、70-200mmが競技と表情を自然に切り替えやすいです。",
+            caution:
+              "待機中や親子ショット中心なら、85-135mmでも対応できます。",
+          },
+          "standard|near|normal": {
+            primary: "70-200mm",
+            secondary: "100-400mm",
+            safe: "70-200mm",
+            reason:
+              "標準的な校庭で動きがある競技なら、70-200mmが扱いやすい安全圏になります。",
+            caution:
+              "子どもが遠い側へ移動する競技では、200mmで届かない場合があります。",
+          },
+          "standard|near|fast": {
+            primary: "100-400mm",
+            secondary: "70-200mm",
+            safe: "100-400mm",
+            reason:
+              "近い位置からでも速い競技を長く追う場合は、100-400mmの到達距離が効きます。",
+            caution:
+              "近くへ来る瞬間は100mmでも長いことがあるため、撮影位置を確認してください。",
+          },
+          "standard|medium|slow": {
+            primary: "70-200mm",
+            secondary: "100-400mm",
+            safe: "70-200mm",
+            reason:
+              "標準的な校庭の中距離でゆっくりした動きなら、70-200mmが扱いやすい基準になります。",
+            caution:
+              "競技位置が遠い側へ移る場合は、100-400mmも比較対象になります。",
+          },
+          "standard|medium|normal": {
+            primary: "100-400mm",
+            secondary: "70-200mm",
+            safe: "100-400mm",
+            reason:
+              "標準的な校庭の中距離では、100-400mmが距離変化と動きに対応しやすいです。",
+            caution:
+              "一日持ち歩ける重さか、事前に確認しておくと安心です。",
+          },
+          "standard|medium|fast": {
+            primary: "100-400mm",
+            secondary: "200mm以上",
+            safe: "100-400mm",
+            reason:
+              "中距離で速く動く競技では、100-400mmで距離不足を避けながら追いやすくなります。",
+            caution:
+              "速い動きでは、AF追従・シャッター速度・連写設定も重要です。",
+          },
+          "standard|far|slow": {
+            primary: "100-400mm",
+            secondary: "200mm以上",
+            safe: "100-400mm",
+            reason:
+              "標準的な校庭でも遠い位置を狙うなら、100-400mmが安定しやすいです。",
+            caution:
+              "長時間の手持ちでは重量負担が増えるため、休める運用も考えます。",
+          },
+          "standard|far|normal": {
+            primary: "100-400mm",
+            secondary: "200mm以上",
+            safe: "100-400mm",
+            reason:
+              "遠い競技を追う場合は、100-400mmの到達距離と画角変更が役立ちます。",
+            caution:
+              "広い範囲を走る競技では、被写体を見失わない追い方も必要です。",
+          },
+          "standard|far|fast": {
+            primary: "100-400mm",
+            secondary: "200mm以上",
+            safe: "100-400mm",
+            reason:
+              "遠くで速く動く子どもには、100-400mmの届き方とズーム幅が安全です。",
+            caution:
+              "焦点距離だけでなく、AF追従と速いシャッター速度を優先してください。",
+          },
+          "large|near|slow": {
+            primary: "70-200mm",
+            secondary: "100-400mm",
+            safe: "70-200mm",
+            reason:
+              "広いグラウンドでも近い位置でゆっくりした動きなら、70-200mmが構図を作りやすいです。",
+            caution:
+              "競技が遠い側へ移る場合に備え、200mmで足りるか確認してください。",
+          },
+          "large|near|normal": {
+            primary: "100-400mm",
+            secondary: "70-200mm",
+            safe: "100-400mm",
+            reason:
+              "広いグラウンドでは近い撮影位置でも距離変化が大きく、100-400mmが対応しやすいです。",
+            caution:
+              "近くへ来た瞬間は長すぎる場合があるため、ズーム操作に余裕が必要です。",
+          },
+          "large|near|fast": {
+            primary: "100-400mm",
+            secondary: "200mm以上",
+            safe: "100-400mm",
+            reason:
+              "広い会場で速い競技を追うなら、100-400mmの到達距離が安定しやすいです。",
+            caution:
+              "一日持ち歩く重量と、速い動きを追うAF性能も判断に含めてください。",
+          },
+          "large|medium|slow": {
+            primary: "100-400mm",
+            secondary: "70-200mm",
+            safe: "100-400mm",
+            reason:
+              "広いグラウンドの中距離では、100-400mmが距離不足を避けやすいです。",
+            caution:
+              "近い競技も撮る場合は、70-200mmの取り回しが合うことがあります。",
+          },
+          "large|medium|normal": {
+            primary: "100-400mm",
+            secondary: "200mm以上",
+            safe: "100-400mm",
+            reason:
+              "広いグラウンドでは、200mmでは不足する場面があり、100-400mmが安定しやすいです。",
+            caution:
+              "望遠側では手ブレと被写体ブレの両方を意識してください。",
+          },
+          "large|medium|fast": {
+            primary: "100-400mm",
+            secondary: "200mm以上",
+            safe: "100-400mm",
+            reason:
+              "広い会場の中距離で速い動きを追うには、100-400mmのズーム幅が有効です。",
+            caution:
+              "AF追従とシャッター速度を優先し、重量負担も確認してください。",
+          },
+          "large|far|slow": {
+            primary: "100-400mm",
+            secondary: "200mm以上",
+            safe: "100-400mm",
+            reason:
+              "広いグラウンドの遠距離では、100-400mmを基準に考えると距離不足を避けやすいです。",
+            caution:
+              "一日持ち歩く場合は、重量と取り回しも候補選びに含めてください。",
+          },
+          "large|far|normal": {
+            primary: "100-400mm",
+            secondary: "200mm以上",
+            safe: "100-400mm",
+            reason:
+              "広い会場の遠い競技では、100-400mmの到達距離が安定しやすいです。",
+            caution:
+              "被写体を見失わない追い方と、十分なシャッター速度が必要です。",
+          },
+          "large|far|fast": {
+            primary: "100-400mm",
+            secondary: "200mm以上",
+            safe: "100-400mm",
+            reason:
+              "広いグラウンドで遠くを速く動く子どもには、100-400mmの届き方が重要です。",
+            caution:
+              "AF追従・シャッター速度・重量の負担を含めて、無理なく扱える構成を選んでください。",
+          },
+        },
+      },
     },
   },
   {
