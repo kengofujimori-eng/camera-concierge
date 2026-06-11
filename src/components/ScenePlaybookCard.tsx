@@ -10,6 +10,12 @@ import type {
 
 const SCENE_GUIDE_HANDOFF_KEY = "lensNaviSceneGuideHandoff";
 
+const FOCAL_LENGTH_RAILS: Record<string, string[]> = {
+  "family-photography": ["35mm", "50mm", "85mm", "135mm"],
+  "recital-stage": ["85mm", "135mm", "70-200mm", "200mm+"],
+  "sports-day": ["85-135mm", "70-200mm", "100-400mm", "200mm+"],
+};
+
 type SceneGuideHandoff = {
   source: "scene-guide";
   sceneId: string;
@@ -253,24 +259,24 @@ function ConditionDecisionFlow({
 
   return (
     <>
-      <section className="rounded-2xl border border-violet-200 bg-white px-3 py-3 dark:border-violet-400/20 dark:bg-slate-950/60">
+      <section className="rounded-2xl border border-violet-200 bg-white px-3 py-2.5 dark:border-violet-400/20 dark:bg-slate-950/60">
         <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
           {flow.heading ?? "撮影シーンでまず見ること"}
         </p>
-        <p className="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-200">
+        <p className="mt-1 line-clamp-2 text-xs leading-5 text-slate-700 dark:text-slate-200">
           {flow.premise}
         </p>
       </section>
 
-      <section className="space-y-3">
+      <section className="space-y-2.5">
         <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
           撮影条件を選ぶ
         </p>
-        <div className="grid gap-3 lg:grid-cols-3">
+        <div className="grid gap-2.5 lg:grid-cols-3">
           {flow.controls.map((control) => (
             <fieldset
               key={control.key}
-              className="min-w-0 rounded-2xl border border-slate-200 bg-white p-2.5 dark:border-white/10 dark:bg-slate-950/60"
+              className="min-w-0 rounded-2xl border border-slate-200 bg-white/70 p-2 dark:border-white/10 dark:bg-slate-950/40"
             >
               <legend className="px-1 text-xs font-semibold text-slate-500 dark:text-slate-400">
                 {control.label}
@@ -311,34 +317,33 @@ function ConditionDecisionFlow({
       {result ? (
         <>
           <section className="space-y-2.5" aria-live="polite">
-            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-              この条件での候補
-            </p>
-            <div className="grid gap-2 sm:grid-cols-3">
-              <CandidateRoleCard
-                label="主候補"
-                value={result.primary}
-                emphasized
-              />
-              <CandidateRoleCard label="次点候補" value={result.secondary} />
-              <CandidateRoleCard label="安全策" value={result.safe} />
-            </div>
+            <FocalLengthRail
+              sceneId={sceneId}
+              primary={result.primary}
+              secondary={result.secondary}
+              safe={result.safe}
+            />
+            <CandidateRoles
+              primary={result.primary}
+              secondary={result.secondary}
+              safe={result.safe}
+            />
           </section>
 
-          <section className="rounded-2xl border border-slate-200 bg-white px-3 py-3 dark:border-white/10 dark:bg-slate-950/60">
+          <section className="rounded-2xl border border-slate-200 bg-white px-3 py-2.5 dark:border-white/10 dark:bg-slate-950/60">
             <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
               理由
             </p>
-            <p className="mt-1 text-xs leading-5 text-slate-700 dark:text-slate-300">
+            <p className="mt-1 line-clamp-2 text-xs leading-5 text-slate-700 dark:text-slate-300">
               {result.reason}
             </p>
           </section>
 
-          <section className="rounded-2xl border border-amber-200 bg-amber-50 px-3 py-3 dark:border-amber-400/20 dark:bg-amber-400/10">
+          <section className="rounded-2xl border border-amber-200 bg-amber-50 px-3 py-2.5 dark:border-amber-400/20 dark:bg-amber-400/10">
             <p className="text-xs font-semibold text-amber-800 dark:text-amber-200">
               注意
             </p>
-            <p className="mt-1 text-xs leading-5 text-amber-800 dark:text-amber-200">
+            <p className="mt-1 line-clamp-2 text-xs leading-5 text-amber-800 dark:text-amber-200">
               {result.caution}
             </p>
           </section>
@@ -363,35 +368,111 @@ function ConditionDecisionFlow({
   );
 }
 
-function CandidateRoleCard({
-  label,
-  value,
-  emphasized = false,
+function normalizeFocalLength(value: string) {
+  return value === "200mm以上" ? "200mm+" : value;
+}
+
+function FocalLengthRail({
+  sceneId,
+  primary,
+  secondary,
+  safe,
 }: {
-  label: string;
-  value: string;
-  emphasized?: boolean;
+  sceneId: string;
+  primary: string;
+  secondary?: string;
+  safe?: string;
 }) {
+  const rail = FOCAL_LENGTH_RAILS[sceneId] ?? [];
+  const normalizedPrimary = normalizeFocalLength(primary);
+  const normalizedSecondary = secondary
+    ? normalizeFocalLength(secondary)
+    : undefined;
+  const normalizedSafe = safe ? normalizeFocalLength(safe) : undefined;
+
+  if (rail.length === 0) {
+    return null;
+  }
+
   return (
-    <div
-      className={`rounded-2xl border px-3 py-3 ${
-        emphasized
-          ? "border-violet-200 bg-violet-50/70 dark:border-violet-400/30 dark:bg-violet-400/10"
-          : "border-slate-200 bg-white dark:border-white/10 dark:bg-slate-950/60"
-      }`}
-    >
-      <p
-        className={`text-[11px] font-semibold ${
-          emphasized
-            ? "text-violet-700 dark:text-violet-200"
-            : "text-slate-500 dark:text-slate-400"
-        }`}
-      >
-        {label}
+    <section className="space-y-2">
+      <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+        焦点距離の目安
       </p>
-      <p className="mt-1 text-base font-semibold text-slate-950 dark:text-white">
-        {value}
-      </p>
+      <div className="relative grid grid-cols-4 gap-1.5">
+        <div className="absolute left-3 right-3 top-3 h-px bg-slate-200 dark:bg-white/10" />
+        {rail.map((item) => {
+          const isPrimary = item === normalizedPrimary;
+          const isSecondary = item === normalizedSecondary;
+          const isSafe = item === normalizedSafe;
+          const isRelevant = isPrimary || isSecondary || isSafe;
+
+          return (
+            <div key={item} className="relative flex min-w-0 flex-col items-center">
+              <span
+                className={`relative z-10 block size-6 rounded-full border-4 border-slate-50 transition-all dark:border-slate-900 ${
+                  isPrimary
+                    ? "bg-violet-600 shadow-sm shadow-violet-300 dark:bg-violet-400"
+                    : isRelevant
+                      ? "bg-violet-300 dark:bg-violet-500/70"
+                      : "bg-slate-200 dark:bg-slate-700"
+                }`}
+              />
+              <span
+                className={`mt-1.5 whitespace-nowrap text-[10px] font-semibold sm:text-xs ${
+                  isPrimary
+                    ? "text-violet-800 dark:text-violet-100"
+                    : isRelevant
+                      ? "text-slate-700 dark:text-slate-300"
+                      : "text-slate-400 dark:text-slate-500"
+                }`}
+              >
+                {item}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function CandidateRoles({
+  primary,
+  secondary,
+  safe,
+}: {
+  primary: string;
+  secondary?: string;
+  safe?: string;
+}) {
+  const roles = [
+    { label: "主候補", value: primary, emphasized: true },
+    { label: "次点", value: secondary },
+    { label: "安全策", value: safe },
+  ].filter((role): role is { label: string; value: string; emphasized?: boolean } =>
+    Boolean(role.value),
+  );
+
+  return (
+    <div className="flex flex-wrap gap-2">
+      {roles.map((role) => (
+        <div
+          key={`${role.label}-${role.value}`}
+          className={`inline-flex min-w-0 items-baseline gap-2 rounded-full border px-3 py-1.5 ${
+            role.emphasized
+              ? "border-violet-200 bg-violet-50 text-violet-900 dark:border-violet-400/30 dark:bg-violet-400/10 dark:text-violet-100"
+              : "border-slate-200 bg-white text-slate-700 dark:border-white/10 dark:bg-slate-950/60 dark:text-slate-300"
+          }`}
+        >
+          <span className="text-[10px] font-semibold text-current opacity-65">
+            {role.label}
+          </span>
+          <span className="whitespace-nowrap text-sm font-semibold">
+            {role.value}
+          </span>
+        </div>
+      ))}
     </div>
   );
 }
@@ -416,11 +497,11 @@ function DecisionFlow({
 
   return (
     <>
-      <section className="rounded-2xl border border-violet-200 bg-white px-3 py-3 dark:border-violet-400/20 dark:bg-slate-950/60">
+      <section className="rounded-2xl border border-violet-200 bg-white px-3 py-2.5 dark:border-violet-400/20 dark:bg-slate-950/60">
         <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
           家族写真でまず見ること
         </p>
-        <p className="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-200">
+        <p className="mt-1 line-clamp-2 text-xs leading-5 text-slate-700 dark:text-slate-200">
           {flow.premise}
         </p>
       </section>
@@ -452,43 +533,31 @@ function DecisionFlow({
       {selectedBranch ? (
         <>
           <section className="space-y-2.5">
-            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-              おすすめ候補
-            </p>
-            <div className="grid gap-2 sm:grid-cols-2">
-              {selectedBranch.cases.map((item) => (
-                <div
-                  key={`${selectedBranch.condition}-${item.recommendation}`}
-                  className="rounded-2xl border border-slate-200 bg-white px-3 py-3 dark:border-white/10 dark:bg-slate-950/60"
-                >
-                  <span className="inline-flex items-center rounded-full border border-violet-200 bg-violet-50 px-2.5 py-1 text-sm font-semibold text-violet-800 dark:border-violet-400/30 dark:bg-violet-400/10 dark:text-violet-100">
-                    {item.recommendation}
-                  </span>
-                  <p className="mt-2 text-xs font-medium leading-5 text-slate-700 dark:text-slate-300">
-                    {item.situation}
-                  </p>
-                  <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">
-                    {item.reason}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <FocalLengthRail
+              sceneId={sceneId}
+              primary={selectedBranch.cases[0]?.recommendation ?? ""}
+              secondary={selectedBranch.cases[1]?.recommendation}
+            />
+            <CandidateRoles
+              primary={selectedBranch.cases[0]?.recommendation ?? ""}
+              secondary={selectedBranch.cases[1]?.recommendation}
+            />
           </section>
 
-          <section className="rounded-2xl border border-slate-200 bg-white px-3 py-3 dark:border-white/10 dark:bg-slate-950/60">
+          <section className="rounded-2xl border border-slate-200 bg-white px-3 py-2.5 dark:border-white/10 dark:bg-slate-950/60">
             <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
               総評
             </p>
-            <p className="mt-1 text-xs leading-5 text-slate-700 dark:text-slate-300">
+            <p className="mt-1 line-clamp-2 text-xs leading-5 text-slate-700 dark:text-slate-300">
               {selectedBranch.summary ?? flow.summary}
             </p>
           </section>
 
-          <section className="rounded-2xl border border-amber-200 bg-amber-50 px-3 py-3 dark:border-amber-400/20 dark:bg-amber-400/10">
+          <section className="rounded-2xl border border-amber-200 bg-amber-50 px-3 py-2.5 dark:border-amber-400/20 dark:bg-amber-400/10">
             <p className="text-xs font-semibold text-amber-800 dark:text-amber-200">
               注意
             </p>
-            <p className="mt-1 text-xs leading-5 text-amber-800 dark:text-amber-200">
+            <p className="mt-1 line-clamp-2 text-xs leading-5 text-amber-800 dark:text-amber-200">
               {selectedBranch.caution ?? flow.caution}
             </p>
           </section>
@@ -508,9 +577,9 @@ function DecisionFlow({
 
 function ConsultationHandoffButton({ onClick }: { onClick: () => void }) {
   return (
-    <section className="rounded-2xl border border-violet-200 bg-white px-3 py-3 dark:border-violet-400/20 dark:bg-slate-950/60">
+    <section className="rounded-2xl border border-violet-200 bg-white px-3 py-2.5 dark:border-violet-400/20 dark:bg-slate-950/60">
       <p className="text-xs leading-5 text-slate-600 dark:text-slate-300">
-        選んだ撮影条件をもとに、具体的なレンズ候補をAIに相談します。
+        この条件をもとに、具体的な候補をAIに相談します。
       </p>
       <button
         type="button"
