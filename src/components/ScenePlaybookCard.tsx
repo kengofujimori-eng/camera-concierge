@@ -376,6 +376,15 @@ function ConditionDecisionFlow({
             })}
           />
 
+          <ComparisonHooksCard
+            hooks={buildComparisonHooks({
+              sceneId,
+              primary: result.primary,
+              secondary: result.secondary,
+              safe: result.safe,
+            })}
+          />
+
           {onConsult ? (
             <ConsultationHandoffButton
               onClick={() =>
@@ -672,6 +681,144 @@ function LensConditionCard({ condition }: { condition: LensCondition }) {
   );
 }
 
+type ComparisonHook = {
+  label: string;
+  candidates: string[];
+};
+
+const COMPARISON_HOOK_FALLBACKS: Record<string, ComparisonHook[]> = {
+  "family-photography": [
+    {
+      label: "単焦点と標準ズームの違い",
+      candidates: ["単焦点", "標準ズーム"],
+    },
+    { label: "85mm と 135mm の違い", candidates: ["85mm", "135mm"] },
+  ],
+  "recital-stage": [
+    {
+      label: "135mm と 70-200mm の違い",
+      candidates: ["135mm", "70-200mm"],
+    },
+    {
+      label: "70-200mm と 200mm以上の違い",
+      candidates: ["70-200mm", "200mm以上"],
+    },
+  ],
+  "sports-day": [
+    {
+      label: "70-200mm と 100-400mm の違い",
+      candidates: ["70-200mm", "100-400mm"],
+    },
+    {
+      label: "望遠ズームと中望遠単焦点の違い",
+      candidates: ["望遠ズーム", "中望遠単焦点"],
+    },
+  ],
+  "travel-outing": [
+    {
+      label: "20-70mm と 24-70mm の違い",
+      candidates: ["20-70mm", "24-70mm"],
+    },
+    {
+      label: "標準ズームと便利ズームの違い",
+      candidates: ["標準ズーム", "便利ズーム"],
+    },
+  ],
+};
+
+function buildComparisonHooks({
+  sceneId,
+  primary,
+  secondary,
+  safe,
+}: {
+  sceneId: string;
+  primary: string;
+  secondary?: string;
+  safe?: string;
+}) {
+  const hooks: ComparisonHook[] = [];
+
+  function addHook(first?: string, second?: string) {
+    if (!first || !second || first === second) {
+      return;
+    }
+
+    const candidates = [first, second];
+    const duplicate = hooks.some(
+      (hook) =>
+        hook.candidates.length === candidates.length &&
+        candidates.every((candidate) => hook.candidates.includes(candidate)),
+    );
+
+    if (!duplicate) {
+      hooks.push({
+        label: `${first} と ${second} の違い`,
+        candidates,
+      });
+    }
+  }
+
+  addHook(primary, secondary);
+  addHook(primary, safe);
+
+  for (const fallback of COMPARISON_HOOK_FALLBACKS[sceneId] ?? []) {
+    if (hooks.length >= 2) {
+      break;
+    }
+
+    const duplicate = hooks.some(
+      (hook) =>
+        hook.candidates.length === fallback.candidates.length &&
+        fallback.candidates.every((candidate) =>
+          hook.candidates.includes(candidate),
+        ),
+    );
+
+    if (!duplicate) {
+      hooks.push(fallback);
+    }
+  }
+
+  return hooks.slice(0, 2);
+}
+
+function ComparisonHooksCard({ hooks }: { hooks: ComparisonHook[] }) {
+  if (hooks.length === 0) {
+    return null;
+  }
+
+  return (
+    <section
+      aria-label="比較して深掘り"
+      data-testid="scene-guide-comparison-hooks"
+      className="rounded-2xl border border-slate-200 bg-white/70 px-3 py-3 dark:border-white/10 dark:bg-slate-950/40"
+    >
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-xs font-semibold text-slate-700 dark:text-slate-200">
+          比較して深掘り
+        </p>
+        <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[9px] font-semibold text-slate-500 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-400">
+          Deep Review連携予定
+        </span>
+      </div>
+      <p className="mt-1 text-[11px] leading-5 text-slate-500 dark:text-slate-400">
+        この条件で迷いやすい候補の違いを比較できるようにする予定です。
+      </p>
+      <div className="mt-2 flex flex-wrap gap-1.5">
+        {hooks.map((hook) => (
+          <span
+            key={hook.label}
+            className="inline-flex max-w-full items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[10px] font-semibold text-slate-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300"
+          >
+            {hook.label}
+          </span>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function FocalRecommendation({
   sceneId,
   primary,
@@ -829,6 +976,14 @@ function DecisionFlow({
                   value: selectedBranch.condition,
                 },
               ],
+            })}
+          />
+
+          <ComparisonHooksCard
+            hooks={buildComparisonHooks({
+              sceneId,
+              primary: selectedBranch.cases[0]?.recommendation ?? "",
+              secondary: selectedBranch.cases[1]?.recommendation,
             })}
           />
 
