@@ -10,10 +10,28 @@ import type {
 
 const SCENE_GUIDE_HANDOFF_KEY = "lensNaviSceneGuideHandoff";
 
-const FOCAL_LENGTH_RAILS: Record<string, string[]> = {
-  "family-photography": ["35mm", "50mm", "85mm", "135mm"],
-  "recital-stage": ["85mm", "135mm", "70-200mm", "200mm+"],
-  "sports-day": ["85-135mm", "70-200mm", "100-400mm", "200mm+"],
+const FOCAL_LENGTH_RAILS: Record<
+  string,
+  { value: string; meaning: string }[]
+> = {
+  "family-photography": [
+    { value: "35mm", meaning: "室内広め" },
+    { value: "50mm", meaning: "自然な距離" },
+    { value: "85mm", meaning: "屋外ポートレート" },
+    { value: "135mm", meaning: "背景整理" },
+  ],
+  "recital-stage": [
+    { value: "85mm", meaning: "前方席" },
+    { value: "135mm", meaning: "中距離" },
+    { value: "70-200mm", meaning: "安全ズーム" },
+    { value: "200mm+", meaning: "後方席" },
+  ],
+  "sports-day": [
+    { value: "85-135mm", meaning: "近距離" },
+    { value: "70-200mm", meaning: "標準望遠" },
+    { value: "100-400mm", meaning: "遠距離" },
+    { value: "200mm+", meaning: "望遠側" },
+  ],
 };
 
 type SceneGuideHandoff = {
@@ -323,27 +341,18 @@ function ConditionDecisionFlow({
               secondary={result.secondary}
               safe={result.safe}
             />
-            <CandidateRoles
+            <FocalRecommendation
+              sceneId={sceneId}
               primary={result.primary}
               secondary={result.secondary}
               safe={result.safe}
+              primaryReason={result.reason}
             />
           </section>
 
-          <section className="rounded-2xl border border-slate-200 bg-white px-3 py-2.5 dark:border-white/10 dark:bg-slate-950/60">
-            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-              理由
-            </p>
-            <p className="mt-1 line-clamp-2 text-xs leading-5 text-slate-700 dark:text-slate-300">
-              {result.reason}
-            </p>
-          </section>
-
-          <section className="rounded-2xl border border-amber-200 bg-amber-50 px-3 py-2.5 dark:border-amber-400/20 dark:bg-amber-400/10">
-            <p className="text-xs font-semibold text-amber-800 dark:text-amber-200">
-              注意
-            </p>
-            <p className="mt-1 line-clamp-2 text-xs leading-5 text-amber-800 dark:text-amber-200">
+          <section className="rounded-2xl border border-amber-200/70 bg-amber-50/50 px-3 py-2 dark:border-amber-400/15 dark:bg-amber-400/[0.06]">
+            <p className="line-clamp-2 text-[11px] leading-5 text-amber-800/80 dark:text-amber-200/80">
+              <span className="mr-1 font-semibold">補足:</span>
               {result.caution}
             </p>
           </section>
@@ -402,24 +411,27 @@ function FocalLengthRail({
       <div className="relative grid grid-cols-4 gap-1.5">
         <div className="absolute left-3 right-3 top-3 h-px bg-slate-200 dark:bg-white/10" />
         {rail.map((item) => {
-          const isPrimary = item === normalizedPrimary;
-          const isSecondary = item === normalizedSecondary;
-          const isSafe = item === normalizedSafe;
+          const isPrimary = item.value === normalizedPrimary;
+          const isSecondary = item.value === normalizedSecondary;
+          const isSafe = item.value === normalizedSafe;
           const isRelevant = isPrimary || isSecondary || isSafe;
 
           return (
-            <div key={item} className="relative flex min-w-0 flex-col items-center">
+            <div
+              key={item.value}
+              className="relative flex min-w-0 flex-col items-center text-center"
+            >
               <span
-                className={`relative z-10 block size-6 rounded-full border-4 border-slate-50 transition-all dark:border-slate-900 ${
+                className={`relative z-10 block rounded-full border-4 border-slate-50 transition-all dark:border-slate-900 ${
                   isPrimary
-                    ? "bg-violet-600 shadow-sm shadow-violet-300 dark:bg-violet-400"
+                    ? "size-8 bg-violet-600 shadow-sm shadow-violet-300 dark:bg-violet-400"
                     : isRelevant
-                      ? "bg-violet-300 dark:bg-violet-500/70"
-                      : "bg-slate-200 dark:bg-slate-700"
+                      ? "mt-0.5 size-7 bg-violet-300 dark:bg-violet-500/70"
+                      : "mt-1 size-6 bg-slate-200 dark:bg-slate-700"
                 }`}
               />
               <span
-                className={`mt-1.5 whitespace-nowrap text-[10px] font-semibold sm:text-xs ${
+                className={`mt-1 whitespace-nowrap text-[10px] font-semibold sm:text-xs ${
                   isPrimary
                     ? "text-violet-800 dark:text-violet-100"
                     : isRelevant
@@ -427,7 +439,16 @@ function FocalLengthRail({
                       : "text-slate-400 dark:text-slate-500"
                 }`}
               >
-                {item}
+                {item.value}
+              </span>
+              <span
+                className={`mt-0.5 min-h-6 text-[9px] leading-3 sm:text-[10px] ${
+                  isPrimary
+                    ? "font-semibold text-violet-700 dark:text-violet-200"
+                    : "text-slate-400 dark:text-slate-500"
+                }`}
+              >
+                {item.meaning}
               </span>
             </div>
           );
@@ -437,43 +458,92 @@ function FocalLengthRail({
   );
 }
 
-function CandidateRoles({
+function getFocalMeaning(sceneId: string, value: string) {
+  const normalizedValue = normalizeFocalLength(value);
+  return (
+    FOCAL_LENGTH_RAILS[sceneId]?.find(
+      (item) => item.value === normalizedValue,
+    )?.meaning ?? "撮影条件に合わせる"
+  );
+}
+
+function getSafeMeaning(value: string) {
+  if (value.includes("70-200")) {
+    return "構図変更に強い";
+  }
+  if (value.includes("100-400") || value.includes("200mm")) {
+    return "距離不足を避ける";
+  }
+  return "焦点距離に余裕";
+}
+
+function FocalRecommendation({
+  sceneId,
   primary,
   secondary,
   safe,
+  primaryReason,
 }: {
+  sceneId: string;
   primary: string;
   secondary?: string;
   safe?: string;
+  primaryReason: string;
 }) {
-  const roles = [
-    { label: "主候補", value: primary, emphasized: true },
-    { label: "次点", value: secondary },
-    { label: "安全策", value: safe },
-  ].filter((role): role is { label: string; value: string; emphasized?: boolean } =>
-    Boolean(role.value),
+  const supportingRoles = [
+    {
+      label: "次点",
+      value: secondary,
+      meaning: secondary ? getFocalMeaning(sceneId, secondary) : "",
+    },
+    {
+      label: "安全策",
+      value: safe,
+      meaning: safe ? getSafeMeaning(safe) : "",
+    },
+  ].filter(
+    (role): role is { label: string; value: string; meaning: string } =>
+      Boolean(role.value),
   );
 
   return (
-    <div className="flex flex-wrap gap-2">
-      {roles.map((role) => (
-        <div
-          key={`${role.label}-${role.value}`}
-          className={`inline-flex min-w-0 items-baseline gap-2 rounded-full border px-3 py-1.5 ${
-            role.emphasized
-              ? "border-violet-200 bg-violet-50 text-violet-900 dark:border-violet-400/30 dark:bg-violet-400/10 dark:text-violet-100"
-              : "border-slate-200 bg-white text-slate-700 dark:border-white/10 dark:bg-slate-950/60 dark:text-slate-300"
-          }`}
-        >
-          <span className="text-[10px] font-semibold text-current opacity-65">
-            {role.label}
-          </span>
-          <span className="whitespace-nowrap text-sm font-semibold">
-            {role.value}
-          </span>
+    <section className="space-y-2">
+      <div className="rounded-2xl border border-violet-200 bg-violet-50/70 px-3.5 py-3 dark:border-violet-400/30 dark:bg-violet-400/10">
+        <p className="text-[10px] font-semibold text-violet-700 dark:text-violet-200">
+          この条件の本命
+        </p>
+        <div className="mt-0.5 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <p className="text-2xl font-semibold tracking-normal text-violet-950 dark:text-white">
+            {primary}
+          </p>
+          <p className="text-xs font-semibold text-violet-700/80 dark:text-violet-200/80">
+            {getFocalMeaning(sceneId, primary)}
+          </p>
         </div>
-      ))}
-    </div>
+        <p className="mt-1 line-clamp-2 text-xs leading-5 text-slate-600 dark:text-slate-300">
+          {primaryReason}
+        </p>
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        {supportingRoles.map((role) => (
+          <div
+            key={`${role.label}-${role.value}`}
+            className="inline-flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-0.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-slate-700 dark:border-white/10 dark:bg-slate-950/60 dark:text-slate-300"
+          >
+            <span className="text-[10px] font-semibold opacity-60">
+              {role.label}
+            </span>
+            <span className="whitespace-nowrap text-sm font-semibold">
+              {role.value}
+            </span>
+            <span className="text-[10px] text-slate-400 dark:text-slate-500">
+              {role.meaning}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -538,26 +608,17 @@ function DecisionFlow({
               primary={selectedBranch.cases[0]?.recommendation ?? ""}
               secondary={selectedBranch.cases[1]?.recommendation}
             />
-            <CandidateRoles
+            <FocalRecommendation
+              sceneId={sceneId}
               primary={selectedBranch.cases[0]?.recommendation ?? ""}
               secondary={selectedBranch.cases[1]?.recommendation}
+              primaryReason={selectedBranch.cases[0]?.reason ?? ""}
             />
           </section>
 
-          <section className="rounded-2xl border border-slate-200 bg-white px-3 py-2.5 dark:border-white/10 dark:bg-slate-950/60">
-            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-              総評
-            </p>
-            <p className="mt-1 line-clamp-2 text-xs leading-5 text-slate-700 dark:text-slate-300">
-              {selectedBranch.summary ?? flow.summary}
-            </p>
-          </section>
-
-          <section className="rounded-2xl border border-amber-200 bg-amber-50 px-3 py-2.5 dark:border-amber-400/20 dark:bg-amber-400/10">
-            <p className="text-xs font-semibold text-amber-800 dark:text-amber-200">
-              注意
-            </p>
-            <p className="mt-1 line-clamp-2 text-xs leading-5 text-amber-800 dark:text-amber-200">
+          <section className="rounded-2xl border border-amber-200/70 bg-amber-50/50 px-3 py-2 dark:border-amber-400/15 dark:bg-amber-400/[0.06]">
+            <p className="line-clamp-2 text-[11px] leading-5 text-amber-800/80 dark:text-amber-200/80">
+              <span className="mr-1 font-semibold">補足:</span>
               {selectedBranch.caution ?? flow.caution}
             </p>
           </section>
