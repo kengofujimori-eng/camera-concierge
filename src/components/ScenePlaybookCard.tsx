@@ -212,7 +212,8 @@ export function ScenePlaybookCard({
                 sceneId={playbook.id}
                 sceneLabel={playbook.title}
                 onConsult={
-                  playbook.id === "recital-stage"
+                  playbook.id === "recital-stage" ||
+                  playbook.id === "sports-day"
                     ? handoffToConsultation
                     : undefined
                 }
@@ -361,12 +362,19 @@ function ConditionDecisionFlow({
             <ConsultationHandoffButton
               onClick={() =>
                 onConsult(
-                  createRecitalHandoff(
-                    sceneId,
-                    sceneLabel,
-                    selectedConditions,
-                    result,
-                  ),
+                  sceneId === "sports-day"
+                    ? createSportsDayHandoff(
+                        sceneId,
+                        sceneLabel,
+                        selectedConditions,
+                        result,
+                      )
+                    : createRecitalHandoff(
+                        sceneId,
+                        sceneLabel,
+                        selectedConditions,
+                        result,
+                      ),
                 )
               }
             />
@@ -728,6 +736,73 @@ function createRecitalHandoff(
       { role: "safe", label: result.safe, reason: "撮影条件が読めない場合の安全策" },
     ],
     generatedPrompt: `発表会で${seat}・${venue}から、${goalPhrase}。${result.primary}を中心に、${comparisonLabels}も含めて、距離不足を避けやすい候補を比較してください。`,
+    createdAt: new Date().toISOString(),
+  };
+}
+
+function createSportsDayHandoff(
+  sceneId: string,
+  sceneLabel: string,
+  selectedConditions: SceneGuideHandoff["selectedConditions"],
+  result: ScenePlaybookConditionDecisionFlow["results"][string],
+): SceneGuideHandoff {
+  const conditionValue = (key: string) =>
+    selectedConditions.find((condition) => condition.key === key)?.value ?? "";
+  const venue = conditionValue("venue");
+  const distance = conditionValue("distance");
+  const motion = conditionValue("motion");
+  const venuePhrase =
+    venue === "園庭・小さめ"
+      ? "小さめの園庭"
+      : venue === "校庭・標準"
+        ? "標準的な校庭"
+        : "広いグラウンド";
+  const distancePhrase =
+    distance === "近い"
+      ? "近い距離"
+      : distance === "遠い"
+        ? "遠い距離"
+        : "中くらいの距離";
+  const motionPhrase =
+    motion === "ゆっくり"
+      ? "ゆっくり動く"
+      : motion === "速い"
+        ? "速く動く"
+        : "動きのある";
+  const comparisonLabels = Array.from(
+    new Set([result.secondary, result.safe]),
+  )
+    .filter((label) => label !== result.primary)
+    .join("や");
+  const comparisonPhrase = comparisonLabels
+    ? `${comparisonLabels}も含めて、`
+    : "";
+
+  return {
+    source: "scene-guide",
+    sceneId,
+    sceneLabel,
+    selectedConditions,
+    derivedLensConditions: {
+      focalRangeLabel: `${result.primary}中心`,
+      lensTypeLabel:
+        result.primary === "70-200mm" || result.primary === "100-400mm"
+          ? "望遠ズーム・望遠域"
+          : "中望遠・望遠域",
+      priorities: [
+        "距離不足を避ける",
+        "AF追従",
+        "シャッター速度",
+        "一日持ち歩ける重さ",
+      ],
+      cautions: [result.caution],
+    },
+    candidateRoles: [
+      { role: "main", label: result.primary, reason: result.reason },
+      { role: "secondary", label: result.secondary, reason: "次点候補として比較" },
+      { role: "safe", label: result.safe, reason: "距離や動きが読めない場合の安全策" },
+    ],
+    generatedPrompt: `運動会で${venuePhrase}から、${distancePhrase}で${motionPhrase}子どもを撮りたいです。${result.primary}を中心に、${comparisonPhrase}距離・AF追従・シャッター速度・重さ・一日持ち歩きやすさも含めて候補を教えてください。`,
     createdAt: new Date().toISOString(),
   };
 }
