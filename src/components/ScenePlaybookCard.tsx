@@ -897,9 +897,14 @@ function createTravelHandoff(
     selectedConditions,
     derivedLensConditions: {
       focalRangeLabel: `${result.primary}中心`,
-      lensTypeLabel: result.primary.includes("mm")
-        ? "旅行向け標準域"
-        : "撮り逃しを減らすズーム",
+      lensTypeLabel:
+        result.primary === "便利ズーム"
+          ? "撮り逃しを減らすズーム"
+          : result.primary === "35mm" || result.primary === "50mm"
+            ? "軽量な標準単焦点"
+            : result.primary === "85mm"
+              ? "人物向け中望遠"
+              : "旅行向け標準ズーム",
       priorities: [
         "持ち歩きやすさ",
         "撮り逃しにくさ",

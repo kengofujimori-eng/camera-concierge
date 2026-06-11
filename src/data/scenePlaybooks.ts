@@ -89,6 +89,22 @@ export type ScenePlaybookCard = {
   detail?: ScenePlaybookDetail;
 };
 
+function travelResult(
+  primary: string,
+  secondary: string,
+  safe: string,
+  reason: string,
+): ScenePlaybookConditionDecisionFlow["results"][string] {
+  const caution =
+    safe === "便利ズーム"
+      ? "便利ズームは、最高画質よりもレンズ交換と撮り逃しを減らす安全策として考えます。"
+      : primary === "35mm" || primary === "50mm" || primary === "85mm"
+        ? "単焦点は表現力が高い一方で、画角の制限とレンズ交換の負担があります。"
+        : "旅行では最高画質だけでなく、持ち出せる重さと撮り逃しにくさも重要です。";
+
+  return { primary, secondary, safe, reason, caution };
+}
+
 export const scenePlaybooks: ScenePlaybookCard[] = [
   {
     id: "family-photography",
@@ -887,6 +903,246 @@ export const scenePlaybooks: ScenePlaybookCard[] = [
       "旅行では、持って行ける重さと交換しなくてよい安心感を画質より先に見る。",
     relatedLensIds: [],
     status: "manual-draft",
+    detail: {
+      oneLineVerdict:
+        "旅行では、最高画質よりも、持ち出せること・交換しなくて済むこと・撮り逃さないことが重要。",
+      commonFailures: [
+        "重い構成を選び、途中で持ち出さなくなる",
+        "レンズ交換中に家族や街の瞬間を逃す",
+        "人物と風景の両方を撮りたいのに画角が足りない",
+      ],
+      firstQuestions: [
+        "荷物をどこまで軽くしたいか",
+        "街歩き、風景、人物のどれを中心に撮るか",
+        "旅行中にレンズ交換できるか",
+      ],
+      focalLengthGuide: [
+        { label: "20-70mm", guidance: "風景や建物を広く残しながら標準域まで使う" },
+        { label: "24-70mm", guidance: "人物と風景を1本で扱う万能標準" },
+        { label: "35mm", guidance: "街歩きや家族の距離感を自然に残す" },
+        { label: "50mm / 85mm", guidance: "人物を印象的に切り出す" },
+      ],
+      lensRoles: [
+        {
+          label: "標準ズーム",
+          bestFor: "交換を減らし、人物も風景も撮る",
+          caution: "重さと明るさのバランスを確認する",
+        },
+        {
+          label: "単焦点",
+          bestFor: "軽い構成や人物表現を優先する",
+          caution: "画角の制限と交換の手間がある",
+        },
+        {
+          label: "便利ズーム",
+          bestFor: "旅行中の撮り逃しを減らす",
+          caution: "画質や明るさより柔軟性を優先する選択",
+        },
+      ],
+      lensNaviConclusion:
+        "旅行では、持ち出せる重さと交換しなくてよい安心感を先に決め、撮りたいものに合わせて標準ズームか単焦点を選ぶ。",
+      conditionDecisionFlow: {
+        heading: "旅行・おでかけでまず見ること",
+        premise:
+          "旅行では、荷物・撮るもの・レンズ交換のしやすさから、持ち出して撮り逃しにくい構成を選びます。",
+        controls: [
+          {
+            key: "load",
+            label: "荷物の優先",
+            defaultValue: "balanced",
+            options: [
+              { value: "light", label: "軽さ優先" },
+              { value: "balanced", label: "バランス重視" },
+              { value: "quality", label: "画質優先" },
+            ],
+          },
+          {
+            key: "subject",
+            label: "撮るもの",
+            defaultValue: "street",
+            options: [
+              { value: "street", label: "街歩き・家族" },
+              { value: "landscape", label: "風景・建物" },
+              { value: "people", label: "子ども・人物" },
+            ],
+          },
+          {
+            key: "exchange",
+            label: "レンズ交換",
+            defaultValue: "minimal",
+            options: [
+              { value: "minimal", label: "できるだけ少なく" },
+              { value: "some", label: "多少できる" },
+              { value: "free", label: "交換してもよい" },
+            ],
+          },
+        ],
+        results: {
+          "light|street|minimal": travelResult(
+            "20-70mm",
+            "35mm",
+            "便利ズーム",
+            "軽さを優先した街歩きでは、20-70mmが広さと交換の少なさを両立しやすいです。",
+          ),
+          "light|street|some": travelResult(
+            "35mm",
+            "20-70mm",
+            "24-70mm",
+            "多少交換できる街歩きなら、軽い35mmを中心にすると自然な距離で残せます。",
+          ),
+          "light|street|free": travelResult(
+            "35mm",
+            "50mm",
+            "20-70mm",
+            "交換できる軽量構成では、35mmを中心に50mmを足すと人物にも対応できます。",
+          ),
+          "light|landscape|minimal": travelResult(
+            "20-70mm",
+            "24-70mm",
+            "便利ズーム",
+            "風景や建物を1本で広く残すなら、20mm始まりの標準ズームが扱いやすいです。",
+          ),
+          "light|landscape|some": travelResult(
+            "20-70mm",
+            "35mm",
+            "24-70mm",
+            "軽さを保ちながら風景を撮るなら、20-70mmを中心にすると広角側に余裕が出ます。",
+          ),
+          "light|landscape|free": travelResult(
+            "35mm",
+            "20-70mm",
+            "24-70mm",
+            "交換できる軽量構成では、35mmで街を歩き、広い景色だけズームで補えます。",
+          ),
+          "light|people|minimal": travelResult(
+            "24-70mm",
+            "50mm",
+            "便利ズーム",
+            "子どもや人物を1本で追うなら、24-70mmが構図変更と撮り逃しに強いです。",
+          ),
+          "light|people|some": travelResult(
+            "50mm",
+            "35mm",
+            "24-70mm",
+            "多少交換できるなら、軽い50mmで人物を自然に撮りやすくなります。",
+          ),
+          "light|people|free": travelResult(
+            "50mm",
+            "85mm",
+            "24-70mm",
+            "交換できる人物中心の旅行では、50mmを基準に85mmを加えると表現を広げられます。",
+          ),
+          "balanced|street|minimal": travelResult(
+            "24-70mm",
+            "20-70mm",
+            "便利ズーム",
+            "街歩きと家族を1本で残すなら、24-70mmが画角と使いやすさの基準になります。",
+          ),
+          "balanced|street|some": travelResult(
+            "24-70mm",
+            "35mm",
+            "20-70mm",
+            "普段使いとのバランスを取るなら、24-70mmを中心に35mmを比較できます。",
+          ),
+          "balanced|street|free": travelResult(
+            "35mm",
+            "50mm",
+            "24-70mm",
+            "交換できる街歩きでは、35mmと50mmで軽さと人物表現を両立しやすいです。",
+          ),
+          "balanced|landscape|minimal": travelResult(
+            "20-70mm",
+            "24-70mm",
+            "便利ズーム",
+            "風景と建物を交換せず撮るなら、20-70mmの広角側が使いやすいです。",
+          ),
+          "balanced|landscape|some": travelResult(
+            "20-70mm",
+            "24-70mm",
+            "35mm",
+            "風景中心で多少交換できるなら、20-70mmを基準に標準域を補えます。",
+          ),
+          "balanced|landscape|free": travelResult(
+            "35mm",
+            "20-70mm",
+            "24-70mm",
+            "交換できる旅行では、35mmを日常の主力にし、広い景色をズームで補えます。",
+          ),
+          "balanced|people|minimal": travelResult(
+            "24-70mm",
+            "50mm",
+            "便利ズーム",
+            "人物中心でも交換を減らすなら、24-70mmが動きと構図変更に対応しやすいです。",
+          ),
+          "balanced|people|some": travelResult(
+            "50mm",
+            "24-70mm",
+            "35mm",
+            "人物を自然に撮りつつ多少交換できるなら、50mmを中心に考えやすいです。",
+          ),
+          "balanced|people|free": travelResult(
+            "50mm",
+            "85mm",
+            "24-70mm",
+            "交換できる人物中心の旅行では、50mmと85mmで距離感を使い分けられます。",
+          ),
+          "quality|street|minimal": travelResult(
+            "24-70mm",
+            "35mm",
+            "20-70mm",
+            "画質を優先しながら交換を減らすなら、24-70mmが安定した主力になります。",
+          ),
+          "quality|street|some": travelResult(
+            "35mm",
+            "50mm",
+            "24-70mm",
+            "画質優先の街歩きでは、35mmを中心に50mmを加える構成が自然です。",
+          ),
+          "quality|street|free": travelResult(
+            "35mm",
+            "50mm",
+            "24-70mm",
+            "交換できる画質優先の街歩きでは、35mmと50mmの単焦点構成が強くなります。",
+          ),
+          "quality|landscape|minimal": travelResult(
+            "24-70mm",
+            "20-70mm",
+            "便利ズーム",
+            "画質を優先しつつ交換を減らす風景旅行では、24-70mmが安定します。",
+          ),
+          "quality|landscape|some": travelResult(
+            "20-70mm",
+            "35mm",
+            "24-70mm",
+            "風景の画質と広さを両立するなら、20-70mmを中心に35mmを比較できます。",
+          ),
+          "quality|landscape|free": travelResult(
+            "35mm",
+            "20-70mm",
+            "24-70mm",
+            "交換できる風景旅行では、35mmの描写と20-70mmの広さを使い分けられます。",
+          ),
+          "quality|people|minimal": travelResult(
+            "24-70mm",
+            "50mm",
+            "便利ズーム",
+            "人物の画質を優先しながら交換を減らすなら、24-70mmが安全です。",
+          ),
+          "quality|people|some": travelResult(
+            "50mm",
+            "85mm",
+            "24-70mm",
+            "人物をきれいに撮り、多少交換できるなら50mmと85mmが候補になります。",
+          ),
+          "quality|people|free": travelResult(
+            "85mm",
+            "50mm",
+            "24-70mm",
+            "画質優先で交換できる人物旅行では、85mmの切り出しと50mmの自然さが効きます。",
+          ),
+        },
+      },
+    },
   },
 ];
 
