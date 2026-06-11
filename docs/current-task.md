@@ -1,36 +1,38 @@
-# Public beta three-route manual review
+# Implement recital scene guide interactive v1
 
 ## Background
 
-Lens Navi は、公開βに向けて `相談` / `シーンガイド` / `倉庫` の主要3導線を整備している。
+Scene Guide は、条件を選んで候補が絞られる「撮影判断ナビ」へ発展中である。
 
-Scene Guide は4件を表示し、家族写真は interactive decision flow、発表会と運動会は inline detail、旅行・おでかけは card-only に対応済み。今回は新機能を追加せず、主要3導線を実際に通して確認し、公開判断と既知課題を docs に記録する。
+家族写真ガイドは室内 / 屋外の interactive decision flow に対応済み。一方、発表会ガイドは座席、会場、狙いによって候補が大きく変わるが、現在は読み物型 detail のままである。
 
 ## Problem
 
-- 各機能は個別に確認してきたが、3導線を横断した公開β前レビューが未記録。
-- 相談から推薦・倉庫保存・Scene Guide まで、環境上どこまで確認できるかを明確にする必要がある。
-- ESLint と Playwright の既知環境課題を、実装不具合と分けて記録する必要がある。
+- 発表会の条件差が文章を読まないと分かりにくい。
+- 85mm / 135mm / 70-200mm / 200mm以上の役割が、選んだ条件に応じて変わる体感がない。
+- 情報量が多く、ユーザーが最初に何を選べばよいか分かりにくい。
 
 ## Direction
 
-PC / mobile で共通ナビ、相談、Scene Guide、倉庫を手動確認する。確認結果は `docs/public-beta-manual-review.md` に記録し、必要に応じて `docs/launch-readiness-checklist.md` を軽く更新する。
+`recital-stage` に optional な複数条件 decision flow data を追加し、発表会ガイド内で次の3条件を選べるようにする。
 
-公開βを妨げる明らかな問題がない限り、コード・データ・ロジックは変更しない。
+- 座席位置: 前方席 / 中央席 / 後方席
+- 会場サイズ: 小ホール / 体育館 / 大ホール
+- 狙い: 全身も残したい / 表情を切り出したい
+
+選択結果として、主候補 / 次点候補 / 安全策 / 理由 / 注意点を表示する。家族写真の既存 `decisionFlow` は変更しない。
 
 ## Allowed files
 
 - `docs/active-mission.md`
 - `docs/current-task.md`
-- `docs/public-beta-manual-review.md`
-- 必要な場合のみ `docs/launch-readiness-checklist.md`
+- `src/components/ScenePlaybookCard.tsx`
+- `src/data/scenePlaybooks.ts`
+- 必要な場合のみ `src/app/scene-playbooks/page.tsx`
 
 ## Do not touch
 
 - `src/components/Navbar.tsx`
-- `src/app/scene-playbooks/page.tsx`
-- `src/components/ScenePlaybookCard.tsx`
-- `src/data/scenePlaybooks.ts`
 - `src/app/warehouse/page.tsx`
 - `src/components/ChatInterface.tsx`
 - `src/components/LensRecommendationCards.tsx`
@@ -42,23 +44,24 @@ PC / mobile で共通ナビ、相談、Scene Guide、倉庫を手動確認する
 
 ## Do
 
-- `相談` / `シーンガイド` / `倉庫` の表示と遷移を PC / mobile で確認する。
-- 相談ルートは初期表示と、可能な範囲で推薦・倉庫保存まで確認する。
-- Scene Guide の chooser、家族写真の条件選択、発表会・運動会 detail、旅行 card-only を確認する。
-- 倉庫の保存済み状態または空状態を確認する。
-- 確認できた範囲、未確認範囲、既知課題、公開β判断を docs に記録する。
+- 発表会ガイドで3条件を選べるようにする。
+- 初期値を `中央席 / 小ホール / 表情を切り出したい` にする。
+- 条件変更時に主候補 / 次点候補 / 安全策 / 理由 / 注意点を即時更新する。
+- 家族写真 interactive、運動会 detail、旅行 card-only を維持する。
+- `relatedLensIds` を全件空配列のまま維持する。
 - build を通す。
 
 ## Do not
 
-- 新機能、Scene Guide detail、導線を追加しない。
-- UI、推薦ロジック、API / Dify、localStorage、`public/lens_data.json` を変更しない。
-- 手動確認で見つけた問題を、合意なく大きく修正しない。
-- 既存 data-testid を変更しない。
+- 相談への handoff、Deep Review、Lens Condition Resolver を実装しない。
+- 運動会を interactive 化しない。
+- 旅行 detail や新しい Scene Guide card を追加しない。
+- warehouse / chat / API / Dify / localStorage / `public/lens_data.json` を変更しない。
+- スコア、ランキング、点数表現を入れない。
 
 ## Checks
 
-確認すること:
+実装後に確認すること:
 
 - `git status`
 - `git diff`
@@ -68,14 +71,17 @@ PC / mobile で共通ナビ、相談、Scene Guide、倉庫を手動確認する
 - `npm run db:check`
 - `npm run test:e2e`
   - Playwright Chromium 未インストールで失敗する場合は、正確なエラーを報告する。
-- ブラウザで `相談` / `シーンガイド` / `倉庫` を確認する。
-- PC のナビが `相談 / シーンガイド / 倉庫`、mobile が `相談 / シーン / 倉庫` で破綻しないことを確認する。
-- 確認結果を `docs/public-beta-manual-review.md` に記録する。
+- `/scene-playbooks` をブラウザ確認する。
+  - 発表会ガイドの3条件を切り替えられる。
+  - 初期状態が `中央席 / 小ホール / 表情を切り出したい`。
+  - 条件変更で候補と説明が切り替わる。
+  - 家族写真、運動会、旅行の既存表示が壊れていない。
+  - mobile 幅で横はみ出しがない。
 
 ## Commit
 
 推奨コミットメッセージ:
 
 ```txt
-docs: record public beta three-route review
+feat: add recital scene guide interactive flow
 ```

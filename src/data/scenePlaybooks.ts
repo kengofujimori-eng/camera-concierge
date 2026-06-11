@@ -28,6 +28,29 @@ export type ScenePlaybookDecisionFlow = {
   caution: string;
 };
 
+export type ScenePlaybookConditionDecisionFlow = {
+  premise: string;
+  controls: {
+    key: string;
+    label: string;
+    defaultValue: string;
+    options: {
+      value: string;
+      label: string;
+    }[];
+  }[];
+  results: Record<
+    string,
+    {
+      primary: string;
+      secondary: string;
+      safe: string;
+      reason: string;
+      caution: string;
+    }
+  >;
+};
+
 export type ScenePlaybookDetail = {
   oneLineVerdict: string;
   commonFailures: string[];
@@ -43,6 +66,7 @@ export type ScenePlaybookDetail = {
   }[];
   lensNaviConclusion: string;
   decisionFlow?: ScenePlaybookDecisionFlow;
+  conditionDecisionFlow?: ScenePlaybookConditionDecisionFlow;
 };
 
 export type ScenePlaybookCard = {
@@ -270,6 +294,205 @@ export const scenePlaybooks: ScenePlaybookCard[] = [
       ],
       lensNaviConclusion:
         "発表会では、席が読めないなら70-200mmが最も安全。前方席や小会場なら85mm、少し距離があるなら135mmも候補。後方席や大きな会場では200mm以上を考え、明るさだけでなく届くことと構図変更を優先する。",
+      conditionDecisionFlow: {
+        premise:
+          "発表会では、明るさだけでなく、座席から届くことと構図変更できることが重要です。座席位置・会場サイズ・残したい構図から目安を絞ります。",
+        controls: [
+          {
+            key: "seat",
+            label: "座席位置",
+            defaultValue: "center",
+            options: [
+              { value: "front", label: "前方席" },
+              { value: "center", label: "中央席" },
+              { value: "rear", label: "後方席" },
+            ],
+          },
+          {
+            key: "venue",
+            label: "会場サイズ",
+            defaultValue: "small",
+            options: [
+              { value: "small", label: "小ホール" },
+              { value: "gym", label: "体育館" },
+              { value: "large", label: "大ホール" },
+            ],
+          },
+          {
+            key: "goal",
+            label: "狙い",
+            defaultValue: "expression",
+            options: [
+              { value: "full-body", label: "全身も残したい" },
+              { value: "expression", label: "表情を切り出したい" },
+            ],
+          },
+        ],
+        results: {
+          "front|small|full-body": {
+            primary: "85mm",
+            secondary: "135mm",
+            safe: "70-200mm",
+            reason:
+              "前方席の小ホールなら、85mmでも全身から上半身を自然に残しやすいです。",
+            caution:
+              "出演者が手前まで来る演目では、85mmでも全身が入りにくいことがあります。",
+          },
+          "front|small|expression": {
+            primary: "135mm",
+            secondary: "85mm",
+            safe: "70-200mm",
+            reason:
+              "前方席の小ホールで表情を切り出すなら、135mmが距離と背景整理のバランスを取りやすいです。",
+            caution:
+              "席が近すぎる場合は135mmが長くなるため、85mmも候補に残します。",
+          },
+          "front|gym|full-body": {
+            primary: "135mm",
+            secondary: "70-200mm",
+            safe: "70-200mm",
+            reason:
+              "体育館は前方席でもステージや演技エリアまで距離が出やすく、135mmが自然な基準になります。",
+            caution:
+              "演目ごとに立ち位置が変わる場合は、70-200mmの構図変更が安全です。",
+          },
+          "front|gym|expression": {
+            primary: "70-200mm",
+            secondary: "135mm",
+            safe: "70-200mm",
+            reason:
+              "体育館で表情を狙うと距離変化が大きいため、70-200mmで届き方を調整しやすくなります。",
+            caution:
+              "暗い体育館では、ズームのF値とISO・シャッター速度も確認が必要です。",
+          },
+          "front|large|full-body": {
+            primary: "135mm",
+            secondary: "70-200mm",
+            safe: "70-200mm",
+            reason:
+              "大ホールでも前方席なら135mmで全身を残せる場面がありますが、演目差にはズームが対応しやすいです。",
+            caution:
+              "ステージが広い場合は135mmでも短く感じるため、70-200mmが安全です。",
+          },
+          "front|large|expression": {
+            primary: "70-200mm",
+            secondary: "200mm以上",
+            safe: "70-200mm",
+            reason:
+              "大ホールで表情を切り出すには、前方席でも70-200mmの調整幅が使いやすいです。",
+            caution:
+              "ステージ奥の表情を狙う場合は、200mmでも足りない可能性があります。",
+          },
+          "center|small|full-body": {
+            primary: "135mm",
+            secondary: "70-200mm",
+            safe: "70-200mm",
+            reason:
+              "中央席の小ホールで全身を残すなら、135mmが届き方と構図のバランスを取りやすいです。",
+            caution:
+              "複数人や広い演目では、70-200mmで少し広めへ戻せる安心感があります。",
+          },
+          "center|small|expression": {
+            primary: "135mm",
+            secondary: "70-200mm",
+            safe: "70-200mm",
+            reason:
+              "中央席で表情を切り出すなら、85mmでは少し短く感じやすく、135mmが自然な候補になります。",
+            caution:
+              "席や立ち位置が読めない場合は、単焦点より70-200mmの方が安全です。",
+          },
+          "center|gym|full-body": {
+            primary: "70-200mm",
+            secondary: "135mm",
+            safe: "70-200mm",
+            reason:
+              "中央席の体育館では距離と演技範囲が変わりやすく、70-200mmが全身を残しやすいです。",
+            caution:
+              "暗い会場では、焦点距離だけでなくF値・ISO・シャッター速度も重要です。",
+          },
+          "center|gym|expression": {
+            primary: "70-200mm",
+            secondary: "200mm以上",
+            safe: "70-200mm",
+            reason:
+              "体育館の中央席で表情を狙うなら、70-200mmを基準に距離不足を避けるのが自然です。",
+            caution:
+              "表情を大きく残したい場合は、200mm側でも短いことがあります。",
+          },
+          "center|large|full-body": {
+            primary: "70-200mm",
+            secondary: "200mm以上",
+            safe: "70-200mm",
+            reason:
+              "大ホールの中央席では、全身と舞台の広さを切り替えられる70-200mmが扱いやすいです。",
+            caution:
+              "舞台奥では200mmでも小さく写る場合があるため、席位置を事前に確認したい条件です。",
+          },
+          "center|large|expression": {
+            primary: "200mm以上",
+            secondary: "70-200mm",
+            safe: "200mm以上",
+            reason:
+              "大ホールの中央席から表情を切り出すには、200mm以上の届き方が必要になりやすいです。",
+            caution:
+              "長い望遠は全身や複数人へ戻しにくく、重量と被写体ブレの負担も増えます。",
+          },
+          "rear|small|full-body": {
+            primary: "70-200mm",
+            secondary: "135mm",
+            safe: "70-200mm",
+            reason:
+              "小ホールでも後方席では距離が出るため、70-200mmが全身と上半身を切り替えやすいです。",
+            caution:
+              "135mm単焦点は構図を足で調整できないため、演目によっては短く感じます。",
+          },
+          "rear|small|expression": {
+            primary: "70-200mm",
+            secondary: "200mm以上",
+            safe: "70-200mm",
+            reason:
+              "後方席から表情を狙う場合は、小ホールでも70-200mmの望遠端が基準になります。",
+            caution:
+              "被写体が小さく見える場合は、200mm以上も比較対象になります。",
+          },
+          "rear|gym|full-body": {
+            primary: "70-200mm",
+            secondary: "200mm以上",
+            safe: "70-200mm",
+            reason:
+              "体育館の後方席で全身を残すなら、70-200mmの構図変更と届き方が使いやすいです。",
+            caution:
+              "遠い立ち位置では200mmでも短く感じる場合があります。",
+          },
+          "rear|gym|expression": {
+            primary: "200mm以上",
+            secondary: "70-200mm",
+            safe: "200mm以上",
+            reason:
+              "体育館の後方席で表情を切り出す場合、単焦点85mmや135mmだけでは届かない可能性があります。",
+            caution:
+              "長い望遠ほど手ブレ・被写体ブレ・重量の負担が増えやすくなります。",
+          },
+          "rear|large|full-body": {
+            primary: "200mm以上",
+            secondary: "70-200mm",
+            safe: "200mm以上",
+            reason:
+              "大ホールの後方席では、全身を残す場合でも200mm以上の届き方が必要になりやすいです。",
+            caution:
+              "舞台全体や複数人も残したい場合は、70-200mmとの使い分けが必要です。",
+          },
+          "rear|large|expression": {
+            primary: "200mm以上",
+            secondary: "70-200mm",
+            safe: "200mm以上",
+            reason:
+              "後方席の大ホールで表情を切り出すには、200mm以上を基準に考える方が距離不足を避けやすいです。",
+            caution:
+              "暗い会場ではF値・ISO・シャッター速度に加え、動画時の構図変更も難しくなります。",
+          },
+        },
+      },
     },
   },
   {

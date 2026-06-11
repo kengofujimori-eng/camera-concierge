@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type {
   ScenePlaybookCard as ScenePlaybookCardType,
+  ScenePlaybookConditionDecisionFlow,
   ScenePlaybookDecisionFlow,
 } from "@/data/scenePlaybooks";
 
@@ -144,7 +145,11 @@ export function ScenePlaybookCard({
             data-testid={`scene-guide-detail-${playbook.id}`}
             className="mt-4 space-y-4 rounded-3xl border border-slate-200 bg-slate-50/80 p-3.5 text-sm text-slate-700 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300 sm:p-4"
           >
-            {playbook.detail.decisionFlow ? (
+            {playbook.detail.conditionDecisionFlow ? (
+              <ConditionDecisionFlow
+                flow={playbook.detail.conditionDecisionFlow}
+              />
+            ) : playbook.detail.decisionFlow ? (
               <DecisionFlow flow={playbook.detail.decisionFlow} />
             ) : (
               <StandardDetail detail={playbook.detail} />
@@ -162,6 +167,152 @@ export function ScenePlaybookCard({
         ) : null}
       </div>
     </article>
+  );
+}
+
+function ConditionDecisionFlow({
+  flow,
+}: {
+  flow: ScenePlaybookConditionDecisionFlow;
+}) {
+  const [selectedValues, setSelectedValues] = useState<Record<string, string>>(
+    () =>
+      Object.fromEntries(
+        flow.controls.map((control) => [control.key, control.defaultValue]),
+      ),
+  );
+  const resultKey = flow.controls
+    .map((control) => selectedValues[control.key])
+    .join("|");
+  const result = flow.results[resultKey];
+
+  return (
+    <>
+      <section className="rounded-2xl border border-violet-200 bg-white px-3 py-3 dark:border-violet-400/20 dark:bg-slate-950/60">
+        <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
+          発表会でまず見ること
+        </p>
+        <p className="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-200">
+          {flow.premise}
+        </p>
+      </section>
+
+      <section className="space-y-3">
+        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+          撮影条件を選ぶ
+        </p>
+        <div className="grid gap-3 lg:grid-cols-3">
+          {flow.controls.map((control) => (
+            <fieldset
+              key={control.key}
+              className="min-w-0 rounded-2xl border border-slate-200 bg-white p-2.5 dark:border-white/10 dark:bg-slate-950/60"
+            >
+              <legend className="px-1 text-xs font-semibold text-slate-500 dark:text-slate-400">
+                {control.label}
+              </legend>
+              <div className="flex flex-wrap gap-1.5">
+                {control.options.map((option) => {
+                  const isSelected =
+                    selectedValues[control.key] === option.value;
+
+                  return (
+                    <button
+                      key={option.value}
+                      type="button"
+                      data-testid={`scene-guide-condition-${control.key}-${option.value}`}
+                      aria-pressed={isSelected}
+                      onClick={() =>
+                        setSelectedValues((current) => ({
+                          ...current,
+                          [control.key]: option.value,
+                        }))
+                      }
+                      className={`whitespace-nowrap rounded-full border px-2.5 py-1.5 text-xs font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
+                        isSelected
+                          ? "border-violet-300 bg-violet-50 text-violet-900 shadow-sm dark:border-violet-400/40 dark:bg-violet-400/10 dark:text-violet-100"
+                          : "border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300 hover:bg-white dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300 dark:hover:border-white/20"
+                      }`}
+                    >
+                      {option.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </fieldset>
+          ))}
+        </div>
+      </section>
+
+      {result ? (
+        <>
+          <section className="space-y-2.5" aria-live="polite">
+            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+              この条件での候補
+            </p>
+            <div className="grid gap-2 sm:grid-cols-3">
+              <CandidateRoleCard
+                label="主候補"
+                value={result.primary}
+                emphasized
+              />
+              <CandidateRoleCard label="次点候補" value={result.secondary} />
+              <CandidateRoleCard label="安全策" value={result.safe} />
+            </div>
+          </section>
+
+          <section className="rounded-2xl border border-slate-200 bg-white px-3 py-3 dark:border-white/10 dark:bg-slate-950/60">
+            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+              理由
+            </p>
+            <p className="mt-1 text-xs leading-5 text-slate-700 dark:text-slate-300">
+              {result.reason}
+            </p>
+          </section>
+
+          <section className="rounded-2xl border border-amber-200 bg-amber-50 px-3 py-3 dark:border-amber-400/20 dark:bg-amber-400/10">
+            <p className="text-xs font-semibold text-amber-800 dark:text-amber-200">
+              注意
+            </p>
+            <p className="mt-1 text-xs leading-5 text-amber-800 dark:text-amber-200">
+              {result.caution}
+            </p>
+          </section>
+        </>
+      ) : null}
+    </>
+  );
+}
+
+function CandidateRoleCard({
+  label,
+  value,
+  emphasized = false,
+}: {
+  label: string;
+  value: string;
+  emphasized?: boolean;
+}) {
+  return (
+    <div
+      className={`rounded-2xl border px-3 py-3 ${
+        emphasized
+          ? "border-violet-200 bg-violet-50/70 dark:border-violet-400/30 dark:bg-violet-400/10"
+          : "border-slate-200 bg-white dark:border-white/10 dark:bg-slate-950/60"
+      }`}
+    >
+      <p
+        className={`text-[11px] font-semibold ${
+          emphasized
+            ? "text-violet-700 dark:text-violet-200"
+            : "text-slate-500 dark:text-slate-400"
+        }`}
+      >
+        {label}
+      </p>
+      <p className="mt-1 text-base font-semibold text-slate-950 dark:text-white">
+        {value}
+      </p>
+    </div>
   );
 }
 
