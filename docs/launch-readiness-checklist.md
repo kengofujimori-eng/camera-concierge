@@ -37,6 +37,7 @@ Lens Navi public beta 前の実用チェックリスト。
 - 選択カード / スライダー / hover outline の統一感を改善済み。
 - `相談 / シーンガイド / 倉庫` の主要3導線を localhost の PC 1280px / mobile 390px で手動確認済み。
 - Scene Guide は4件を表示し、主要3シーンの detail と家族写真の interactive decision flow を確認済み。
+- Scene Guide の主要3シーン interactive / consultation handoff の公開β判断は `docs/scene-guide-public-beta-review.md` に記録済み。
 
 ### Affiliate / purchase links
 
