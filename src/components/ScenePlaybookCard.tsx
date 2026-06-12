@@ -164,6 +164,154 @@ function ConditionIcon({
   );
 }
 
+function DistanceVisualization({
+  sceneId,
+  selectedConditions,
+  primary,
+  secondary,
+  safe,
+}: {
+  sceneId: string;
+  selectedConditions: SceneGuideHandoff["selectedConditions"];
+  primary: string;
+  secondary?: string;
+  safe?: string;
+}) {
+  const conditionValue = (key: string) =>
+    selectedConditions.find((condition) => condition.key === key)?.value ?? "";
+
+  if (sceneId === "recital-stage") {
+    const selectedSeat = conditionValue("seat");
+    const points = [
+      { label: "舞台", focal: "被写体" },
+      { label: "前方席", focal: "85mm" },
+      { label: "中央席", focal: "135mm" },
+      { label: "後方席", focal: "200mm+" },
+    ];
+
+    return (
+      <DistanceMap
+        title="舞台までの距離"
+        points={points}
+        activeLabel={selectedSeat}
+        primary={primary}
+        secondary={secondary}
+        safe={safe}
+        safeNote="席不明に強い"
+      />
+    );
+  }
+
+  if (sceneId === "sports-day") {
+    const selectedDistance = conditionValue("distance");
+    const points = [
+      { label: "近い", focal: "85-135mm" },
+      { label: "中くらい", focal: "70-200mm" },
+      { label: "遠い", focal: "100-400mm" },
+    ];
+
+    return (
+      <DistanceMap
+        title="子どもまでの距離"
+        points={points}
+        activeLabel={selectedDistance}
+        primary={primary}
+        secondary={secondary}
+        safe={safe}
+        safeNote="距離不足を避ける"
+      />
+    );
+  }
+
+  return null;
+}
+
+function DistanceMap({
+  title,
+  points,
+  activeLabel,
+  primary,
+  secondary,
+  safe,
+  safeNote,
+}: {
+  title: string;
+  points: { label: string; focal: string }[];
+  activeLabel: string;
+  primary: string;
+  secondary?: string;
+  safe?: string;
+  safeNote: string;
+}) {
+  return (
+    <section className="rounded-2xl border border-slate-200 bg-white/70 px-3 py-2.5 dark:border-white/10 dark:bg-slate-950/40">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+          {title}
+        </p>
+        <div className="flex flex-wrap gap-1">
+          <span className="rounded-full border border-violet-200 bg-violet-50 px-2 py-0.5 text-[9px] font-semibold text-violet-700 dark:border-violet-400/25 dark:bg-violet-400/10 dark:text-violet-200">
+            本命 {primary}
+          </span>
+          {safe ? (
+            <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[9px] font-semibold text-slate-500 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-400">
+              安全策 {safe}
+            </span>
+          ) : null}
+        </div>
+      </div>
+
+      <div
+        className="relative mt-3 grid gap-1"
+        style={{ gridTemplateColumns: `repeat(${points.length}, minmax(0, 1fr))` }}
+      >
+        <div className="absolute left-[8%] right-[8%] top-2 h-px bg-slate-200 dark:bg-white/10" />
+        {points.map((point) => {
+          const isActive = point.label === activeLabel;
+
+          return (
+            <div
+              key={point.label}
+              className="relative flex min-w-0 flex-col items-center text-center"
+            >
+              <span
+                className={`relative z-10 block rounded-full border-[3px] border-white dark:border-slate-950 ${
+                  isActive
+                    ? "size-5 bg-violet-500 shadow-sm shadow-violet-200 dark:bg-violet-400 dark:shadow-none"
+                    : "mt-0.5 size-4 bg-slate-300 dark:bg-slate-600"
+                }`}
+              />
+              <span
+                className={`mt-1 text-[9px] font-semibold leading-3 sm:text-[10px] ${
+                  isActive
+                    ? "text-violet-700 dark:text-violet-200"
+                    : "text-slate-500 dark:text-slate-400"
+                }`}
+              >
+                {point.label}
+              </span>
+              <span className="mt-0.5 text-[9px] leading-3 text-slate-400 dark:text-slate-500">
+                {point.focal}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="mt-2 flex flex-wrap items-center gap-1.5 text-[9px] text-slate-400 dark:text-slate-500">
+        {secondary && secondary !== primary ? (
+          <span>次点 {secondary}</span>
+        ) : null}
+        {safe ? (
+          <span className="rounded-full border border-slate-200 bg-white px-2 py-0.5 dark:border-white/10 dark:bg-white/[0.03]">
+            {safe} / {safeNote}
+          </span>
+        ) : null}
+      </div>
+    </section>
+  );
+}
+
 export function ScenePlaybookCard({
   playbook,
   isOpen = false,
@@ -431,6 +579,13 @@ function ConditionDecisionFlow({
       {result ? (
         <>
           <section className="space-y-2.5" aria-live="polite">
+            <DistanceVisualization
+              sceneId={sceneId}
+              selectedConditions={selectedConditions}
+              primary={result.primary}
+              secondary={result.secondary}
+              safe={result.safe}
+            />
             <FocalLengthRail
               sceneId={sceneId}
               primary={result.primary}
