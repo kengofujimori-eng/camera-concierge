@@ -1,52 +1,56 @@
-# Record Scene Guide Public Beta Manual Review
+# Plan Public Beta Light Operation & Feedback Review
 
 ## Background
 
-Scene Guide Visual Polish Phase 後の `/scene-playbooks` を、公開β前に PC とモバイル観点で手動確認した。
+Scene Guide Visual Polish Phase と Public Beta Manual Review は完了し、公開β blocker なしと判断した。
 
-主要4シーンの interactive flow、consultation handoff、VisualNote、icons、DistanceVisualization、FocalLengthRail role badges を確認し、公開β blocker なしと判断した。
-
-今回のタスクではコードを変更せず、確認結果を正式な review docs に反映する。
+今回のタスクではコードや analytics を変更せず、公開β後の軽運用確認、フィードバック分類、次 phase の優先判断基準を docs に整理する。
 
 ## Direction
 
-- `scene-guide-public-beta-review.md` の古い実装状態を最新状態へ更新する。
-- `active-mission.md` に Visual Polish Phase と Public Beta Manual Review の完了を反映する。
-- 4シーン interactive / handoff、Resolver pilot、comparison hooks pilot、visual polish の確認結果を記録する。
-- 390px 実機相当確認など、残る非ブロッカーを明記する。
+- `public-beta-light-operation-plan.md` に、相談 / シーンガイド / 倉庫の観察方針を整理する。
+- `public-beta-feedback-classification.md` に、フィードバックの分類と証拠の残し方を整理する。
+- `post-beta-priority-decision.md` に、観察結果から次 phase を選ぶ基準を整理する。
+- `active-mission.md` を Public Beta Light Operation & Feedback Review Phase に更新する。
+- 古い handoff / checklist の状態ではなく、`active-mission.md`、`scene-guide-visual-polish-review.md`、`scene-guide-public-beta-review.md` を現在地の正本とする。
 - コード、API、データ、storage 仕様は変更しない。
 
 ## Allowed files
 
 - `docs/active-mission.md`
 - `docs/current-task.md`
-- `docs/scene-guide-public-beta-review.md`
+- `docs/public-beta-light-operation-plan.md`
+- `docs/public-beta-feedback-classification.md`
+- `docs/post-beta-priority-decision.md`
 
 ## Do not touch
 
-- `docs/scene-guide-visual-polish-plan.md`
-- `docs/scene-guide-visual-polish-review.md`
-- `src/data/scenePlaybooks.ts`
-- `src/components/ScenePlaybookCard.tsx`
-- `src/app/scene-playbooks/page.tsx`
-- `src/components/ChatInterface.tsx`
-- `src/components/Navbar.tsx`
-- `src/app/warehouse/page.tsx`
+- `src/` 以下すべて
 - API / Dify
+- recommendation logic
+- Resolver logic
+- comparison hooks logic
+- consultation handoff logic
+- warehouse
 - warehouse localStorage
+- sessionStorage 仕様
 - `public/lens_data.json`
-- 推薦ロジック
+- data-testid
+- `package.json`
+- lockfile
 
 ## Do
 
-- manual review 結果を `scene-guide-public-beta-review.md` に正式記録する。
-- `active-mission.md` と `current-task.md` を公開βへ進める現在地に更新する。
+- 軽運用計画、分類基準、次 phase の判断基準を docs 化する。
+- `active-mission.md` と `current-task.md` を現在地に更新する。
+- docs 間の依存関係と guardrails を確認する。
 - `npm run build` を実行する。
 
 ## Do not
 
 - コードを変更しない。
-- UI / Resolver / comparison hooks / handoff logic / data を変更しない。
+- analytics を実装しない。
+- UI / recommendation / Resolver / comparison hooks / handoff logic / data を変更しない。
 - API / Dify / warehouse / lens data / storage 仕様を変更しない。
 - commit / push / e2e を実行しない。
 
@@ -54,14 +58,15 @@ Scene Guide Visual Polish Phase 後の `/scene-playbooks` を、公開β前に P
 
 - `git status`
 - `git diff --stat`
+- `git diff --check`
 - `npm run build`
-- `scene-guide-public-beta-review.md` に古い状態記述が残っていないことを確認する。
 - コードやデータに今回の変更がないことを確認する。
+- 新規 docs が、観察、分類、優先判断の役割を重複なく分担していることを確認する。
 
 ## Commit
 
 今回は commit / push を行わない。手動 commit 時の推奨メッセージ:
 
 ```txt
-docs: record scene guide public beta manual review
+docs: plan public beta light operation review
 ```
