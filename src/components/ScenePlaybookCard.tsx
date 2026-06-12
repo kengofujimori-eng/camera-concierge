@@ -645,6 +645,33 @@ function normalizeFocalLength(value: string) {
   return value === "200mm以上" ? "200mm+" : value;
 }
 
+function FocalRoleBadge({
+  role,
+}: {
+  role: "primary" | "secondary" | "safe";
+}) {
+  const labels = {
+    primary: "本命",
+    secondary: "次点",
+    safe: "安全策",
+  };
+  const styles = {
+    primary:
+      "border-violet-200 bg-violet-50 text-violet-700 dark:border-violet-400/25 dark:bg-violet-400/10 dark:text-violet-200",
+    secondary:
+      "border-slate-200 bg-white text-slate-500 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-400",
+    safe: "border-blue-100 bg-blue-50/70 text-blue-600 dark:border-blue-400/20 dark:bg-blue-400/10 dark:text-blue-300",
+  };
+
+  return (
+    <span
+      className={`rounded-full border px-1.5 py-0.5 text-[9px] font-semibold leading-none ${styles[role]}`}
+    >
+      {labels[role]}
+    </span>
+  );
+}
+
 function FocalLengthRail({
   sceneId,
   primary,
@@ -674,7 +701,9 @@ function FocalLengthRail({
       </p>
       <div
         className={`relative grid gap-1.5 ${
-          rail.length > 4 ? "grid-cols-3 sm:grid-cols-6" : "grid-cols-4"
+          rail.length > 4
+            ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-6"
+            : "grid-cols-4"
         }`}
       >
         <div
@@ -691,7 +720,9 @@ function FocalLengthRail({
           return (
             <div
               key={item.value}
-              className="relative flex min-w-0 flex-col items-center text-center"
+              className={`relative flex min-w-0 flex-col items-center text-center ${
+                isRelevant ? "" : "opacity-60"
+              }`}
             >
               <span
                 className={`relative z-10 block rounded-full border-4 border-slate-50 transition-all dark:border-slate-900 ${
@@ -722,6 +753,15 @@ function FocalLengthRail({
               >
                 {item.meaning}
               </span>
+              {isRelevant ? (
+                <span className="mt-1 flex min-h-4 flex-wrap justify-center gap-1">
+                  {isPrimary ? <FocalRoleBadge role="primary" /> : null}
+                  {isSecondary ? <FocalRoleBadge role="secondary" /> : null}
+                  {isSafe ? <FocalRoleBadge role="safe" /> : null}
+                </span>
+              ) : (
+                <span className="mt-1 min-h-4" aria-hidden="true" />
+              )}
             </div>
           );
         })}
