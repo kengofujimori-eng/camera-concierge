@@ -75,8 +75,8 @@ export default function ScenePlaybooksPage() {
       data-testid="scene-playbook-page"
       className="min-h-screen bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-white"
     >
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-10 sm:px-6 lg:px-8">
-        <header className="max-w-3xl space-y-4">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-6 sm:gap-8 sm:px-6 sm:py-10 lg:px-8">
+        <header className="max-w-3xl space-y-3 sm:space-y-4">
           <div className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600 shadow-sm dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300">
             Scene Playbook
           </div>
@@ -90,7 +90,7 @@ export default function ScenePlaybooksPage() {
           </div>
         </header>
 
-        <div className="rounded-3xl border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-slate-600 shadow-sm dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300">
+        <div className="rounded-2xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs leading-5 text-slate-600 shadow-sm dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 sm:rounded-3xl sm:px-4 sm:py-3 sm:text-sm sm:leading-6">
           まずは撮影シーンごとの判断ガイドとして公開しています。レンズ倉庫・チャット推薦との連携は今後追加予定です。
         </div>
 
@@ -100,8 +100,8 @@ export default function ScenePlaybooksPage() {
           aria-labelledby="scene-guide-chooser-title"
         >
           <div className="h-1 bg-gradient-to-r from-blue-600 via-violet-600 to-fuchsia-500" />
-          <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] lg:items-start">
-            <div className="space-y-3">
+          <div className="grid gap-4 p-4 sm:gap-5 sm:p-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] lg:items-start">
+            <div className="space-y-2.5 sm:space-y-3">
               <p className="text-xs font-semibold text-violet-700 dark:text-violet-200">
                 まずは撮影条件を選ぶ
               </p>
@@ -118,7 +118,7 @@ export default function ScenePlaybooksPage() {
               </div>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-2.5 sm:grid-cols-2 sm:gap-3">
               {sceneGuideChoices.map((choice) => {
                 const isSelected = filteredGuideId === choice.id;
                 const Icon = choice.icon;
@@ -130,11 +130,11 @@ export default function ScenePlaybooksPage() {
                     data-testid={`scene-guide-chooser-button-${choice.id}`}
                     aria-pressed={isSelected}
                     onClick={() => handleChooseGuide(choice.id)}
-                    className={`rounded-2xl border px-4 py-3 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 ${
+                    className={`rounded-2xl border px-3 py-2.5 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950 sm:px-4 sm:py-3 ${
                       isSelected
                         ? "border-violet-200 bg-violet-50/70 shadow-sm dark:border-violet-400/30 dark:bg-violet-400/10"
                         : "border-slate-200 bg-slate-50/70 hover:border-slate-300 hover:bg-white hover:shadow-sm dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-white/20 dark:hover:bg-white/[0.06]"
-                      }`}
+                    }`}
                   >
                     <div className="flex items-start gap-3">
                       <span

@@ -244,7 +244,7 @@ function DistanceMap({
   safeNote: string;
 }) {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white/70 px-3 py-2.5 dark:border-white/10 dark:bg-slate-950/40">
+    <section className="rounded-2xl border border-slate-200 bg-white/70 px-3 py-2 dark:border-white/10 dark:bg-slate-950/40 sm:py-2.5">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
           {title}
@@ -262,7 +262,7 @@ function DistanceMap({
       </div>
 
       <div
-        className="relative mt-3 grid gap-1"
+        className="relative mt-2.5 grid gap-1 sm:mt-3"
         style={{ gridTemplateColumns: `repeat(${points.length}, minmax(0, 1fr))` }}
       >
         <div className="absolute left-[8%] right-[8%] top-2 h-px bg-slate-200 dark:bg-white/10" />
@@ -298,7 +298,7 @@ function DistanceMap({
         })}
       </div>
 
-      <div className="mt-2 flex flex-wrap items-center gap-1.5 text-[9px] text-slate-400 dark:text-slate-500">
+      <div className="mt-1.5 flex flex-wrap items-center gap-1.5 text-[9px] text-slate-400 dark:text-slate-500 sm:mt-2">
         {secondary && secondary !== primary ? (
           <span>次点 {secondary}</span>
         ) : null}
@@ -344,8 +344,8 @@ export function ScenePlaybookCard({
     >
       <div className="h-1 bg-gradient-to-r from-blue-600 via-violet-600 to-fuchsia-500" />
 
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <div className="mb-4 flex items-center justify-between gap-3">
+      <div className="flex flex-1 flex-col p-4 sm:p-6">
+        <div className="mb-3 flex items-center justify-between gap-3 sm:mb-4">
           <span className="inline-flex items-center rounded-full border border-blue-100 bg-blue-50 px-2.5 py-1 text-[11px] font-semibold text-blue-700 dark:border-blue-400/20 dark:bg-blue-400/10 dark:text-blue-200">
             撮影ガイド
           </span>
@@ -354,7 +354,7 @@ export function ScenePlaybookCard({
           </span>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2.5 sm:space-y-3">
           <h2
             data-testid={`scene-playbook-title-${playbook.id}`}
             className="text-xl font-semibold tracking-normal text-slate-950 dark:text-white"
@@ -366,7 +366,7 @@ export function ScenePlaybookCard({
           </p>
         </div>
 
-        <div className="mt-5 space-y-4">
+        <div className="mt-4 space-y-3 sm:mt-5 sm:space-y-4">
           <section aria-label="判断軸" className="space-y-2">
             <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
               判断軸
@@ -411,11 +411,11 @@ export function ScenePlaybookCard({
           </section>
         </div>
 
-        <VisualNote label="注意" className="mt-5">
+        <VisualNote label="注意" className="mt-4 sm:mt-5">
           {playbook.primaryCaution}
         </VisualNote>
 
-        <div className="mt-auto pt-5">
+        <div className="mt-auto pt-4 sm:pt-5">
           <button
             type="button"
             data-testid={`scene-playbook-open-${playbook.id}`}
@@ -443,7 +443,7 @@ export function ScenePlaybookCard({
         {isOpen && playbook.detail ? (
           <div
             data-testid={`scene-guide-detail-${playbook.id}`}
-            className="mt-4 space-y-4 rounded-3xl border border-slate-200 bg-slate-50/80 p-3.5 text-sm text-slate-700 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300 sm:p-4"
+            className="mt-3 space-y-3 rounded-2xl border border-slate-200 bg-slate-50/80 p-3 text-sm text-slate-700 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300 sm:mt-4 sm:space-y-4 sm:rounded-3xl sm:p-4"
           >
             {playbook.detail.conditionDecisionFlow ? (
               <ConditionDecisionFlow
@@ -527,11 +527,11 @@ function ConditionDecisionFlow({
         </p>
       </section>
 
-      <section className="space-y-2.5">
+      <section className="space-y-2">
         <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
           撮影条件を選ぶ
         </p>
-        <div className="grid gap-2.5 lg:grid-cols-3">
+        <div className="grid gap-2 lg:grid-cols-3 lg:gap-2.5">
           {flow.controls.map((control) => (
             <fieldset
               key={control.key}
@@ -578,7 +578,7 @@ function ConditionDecisionFlow({
 
       {result ? (
         <>
-          <section className="space-y-2.5" aria-live="polite">
+          <section className="space-y-2" aria-live="polite">
             <DistanceVisualization
               sceneId={sceneId}
               selectedConditions={selectedConditions}
@@ -695,7 +695,7 @@ function FocalLengthRail({
   }
 
   return (
-    <section className="space-y-2">
+    <section className="space-y-1.5 sm:space-y-2">
       <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
         焦点距離の目安
       </p>
@@ -924,7 +924,7 @@ function LensConditionCard({ condition }: { condition: LensCondition }) {
     <section
       aria-label="レンズ条件"
       data-testid="scene-guide-lens-condition"
-      className="rounded-2xl border border-slate-200 bg-white/80 px-3 py-3 dark:border-white/10 dark:bg-slate-950/50"
+      className="rounded-2xl border border-slate-200 bg-white/80 px-3 py-2.5 dark:border-white/10 dark:bg-slate-950/50 sm:py-3"
     >
       <p className="text-[10px] font-semibold text-violet-700 dark:text-violet-200">
         レンズ条件
@@ -1065,7 +1065,7 @@ function ComparisonHooksCard({ hooks }: { hooks: ComparisonHook[] }) {
     <section
       aria-label="比較して深掘り"
       data-testid="scene-guide-comparison-hooks"
-      className="rounded-2xl border border-slate-200 bg-white/70 px-3 py-3 dark:border-white/10 dark:bg-slate-950/40"
+      className="rounded-2xl border border-slate-200 bg-white/70 px-3 py-2.5 dark:border-white/10 dark:bg-slate-950/40 sm:py-3"
     >
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="text-xs font-semibold text-slate-700 dark:text-slate-200">
@@ -1075,7 +1075,7 @@ function ComparisonHooksCard({ hooks }: { hooks: ComparisonHook[] }) {
           Deep Review連携予定
         </span>
       </div>
-      <p className="mt-1 text-[11px] leading-5 text-slate-500 dark:text-slate-400">
+      <p className="mt-1 line-clamp-2 text-[11px] leading-4 text-slate-500 dark:text-slate-400 sm:leading-5">
         この条件で迷いやすい候補の違いを比較できるようにする予定です。
       </p>
       <div className="mt-2 flex flex-wrap gap-1.5">
@@ -1191,7 +1191,7 @@ function DecisionFlow({
         </p>
       </section>
 
-      <section className="space-y-2.5">
+      <section className="space-y-2">
         <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
           撮影条件を選ぶ
         </p>
@@ -1224,7 +1224,7 @@ function DecisionFlow({
 
       {selectedBranch ? (
         <>
-          <section className="space-y-2.5">
+          <section className="space-y-2">
             <FocalLengthRail
               sceneId={sceneId}
               primary={selectedBranch.cases[0]?.recommendation ?? ""}
@@ -1279,7 +1279,7 @@ function DecisionFlow({
 
 function ConsultationHandoffButton({ onClick }: { onClick: () => void }) {
   return (
-    <section className="rounded-2xl border border-violet-200 bg-white px-3 py-2.5 dark:border-violet-400/20 dark:bg-slate-950/60">
+    <section className="rounded-2xl border border-violet-200 bg-white px-3 py-2 dark:border-violet-400/20 dark:bg-slate-950/60 sm:py-2.5">
       <p className="text-xs leading-5 text-slate-600 dark:text-slate-300">
         この条件をもとに、具体的な候補をAIに相談します。
       </p>
