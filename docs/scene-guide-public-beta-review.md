@@ -1,118 +1,141 @@
 # Scene Guide public beta review
 
-> 現在の主要4シーン interactive / handoff / Lens Condition Resolver / comparison hooks の統合レビューは `docs/scene-guide-resolver-comparison-review.md` を参照。
-
 ## Purpose
 
-Scene Guide の現時点の公開β確認結果を記録する。
+Scene Guide Visual Polish Phase 後の `/scene-playbooks` を公開β前に確認し、その正式結果を記録する。
 
-この review は、Scene Guide を「読むガイド」から「撮影条件を選び、必要な焦点距離を理解し、相談へつなぐ UI」へ進めた後の状態確認である。
+この review は、Scene Guide が「読むガイド」から、撮影条件を選び、必要な焦点距離とレンズ条件を理解し、相談や将来の Deep Review 比較へ進む UI になった現在地を確認するものである。
 
 ## Current implementation summary
 
-### Scene Guide page
+- `/scene-playbooks` に chooser と主要4シーンの interactive guide を実装済み。
+- 家族写真 / 発表会 / 運動会 / 旅行・おでかけの4シーンすべてが条件選択に対応済み。
+- 4シーンすべてに consultation handoff を実装済み。
+- 各シーンで本命 / 次点 / 安全策、焦点距離レール、Lens Condition Resolver pilot、Deep Review comparison hooks pilot を表示する。
+- Scene Guide から相談画面へは `sessionStorage` の `lensNaviSceneGuideHandoff` を使って構造化した条件を渡す。
+- 相談画面では引き継ぎカードを表示し、自動送信せず、ユーザー確認後に入力欄へ反映する。
+- VisualNote、scene specific icons、condition icons、発表会 / 運動会の DistanceVisualization pilot、FocalLengthRail role badges、mobile readability pass を実装済み。
+- API / Dify / warehouse / lens data / recommendation logic には接続・変更していない。
 
-- `/scene-playbooks` 実装済み。
-- chooser から対象シーンを選び、選択したカードへ絞り込める。
-- 主要3シーンは interactive decision flow 対応済み。
-- 焦点距離レール、主候補、次点、安全策を役割別に表示する。
-- スコア、ランキング、点数表現は使用しない。
+## Manual review scope
 
-### 家族写真ガイド
+以下を確認した。
 
-- `室内で撮る` / `屋外で撮る` を選択できる。
-- 焦点距離レールで 35mm / 50mm / 85mm / 135mm の役割を表示する。
-- 主候補 / 次点を表示する。
-- `この条件で相談する` handoff 対応済み。
+- PC でのページ上部、chooser、4シーンカード、フィルター、detail 表示。
+- 主要4シーンの interactive flow と結果更新。
+- Visual Polish Phase で追加した VisualNote、icons、DistanceVisualization、FocalLengthRail role badges。
+- Scene Guide から相談画面への consultation handoff。
+- API / Dify / warehouse / lens data、handoff key、既存 data-testid への副作用。
+- `npm run build`。
 
-### 発表会ガイド
+e2e は今回の確認対象外とした。390px 実機相当の最終確認は、非ブロッカーとして残す。
 
-- 座席位置 / 会場サイズ / 狙いを選択できる。
-- 焦点距離レールで 85mm / 135mm / 70-200mm / 200mm+ の役割を表示する。
-- 主候補 / 次点 / 安全策を表示する。
-- `この条件で相談する` handoff 対応済み。
+## PC review result
 
-### 運動会ガイド
+- `/scene-playbooks` の PC 表示に大きな崩れはない。
+- 初期状態で4シーンが表示される。
+- chooser 選択時は対象カードだけが表示される。
+- `すべてのガイドを見る` で4シーン一覧へ復帰できる。
+- detail 展開時に横幅、余白、情報密度の大きな破綻や横はみ出しはない。
+- chooser、condition controls、result area、consultation CTA は操作可能な状態を維持している。
 
-- 会場の広さ / 子どもまでの距離 / 動きの速さを選択できる。
-- 焦点距離レールで 85-135mm / 70-200mm / 100-400mm / 200mm+ の役割を表示する。
-- 主候補 / 次点 / 安全策を表示する。
-- 相談 handoff は未実装。
+## Mobile review status
 
-### 旅行・おでかけガイド
+- mobile readability pass により、condition controls、VisualNote、DistanceVisualization、FocalLengthRail、Lens Condition Card、comparison hooks、consultation CTA の縦密度は整理されている。
+- responsive layout、wrap、横はみ出し防止の実装に大きな問題は確認されていない。
+- role badges や chips はモバイルで読める密度に抑えられている。
+- ただし、今回の確認環境では 390px 実機相当 viewport の厳密な最終確認は完了していないため、非ブロッカーとして残す。
 
-- card-only。
-- `要点のみ表示中` として扱う。
-- interactive detail は未実装。
+## Four-scene result
 
-### Scene Guide to consultation handoff
+### 家族写真
 
-- 家族写真 / 発表会のみ対応済み。
-- `sessionStorage` の `lensNaviSceneGuideHandoff` に構造化した選択条件を保存する。
-- 相談画面に引き継ぎ確認カードを表示する。
-- 自動送信はしない。
-- ユーザーが入力欄へ反映、閉じる、または送信した時点で handoff を clear する。
+- `室内で撮る` / `屋外で撮る` の切り替えが動作する。
+- 条件変更に応じて本命 / 次点、Lens Condition Resolver、comparison hooks が更新される。
+- 室内では 35mm / 50mm、屋外では 85mm / 135mm を中心とする判断が読み取れる。
+- consultation handoff を end-to-end で確認済み。
 
-## Manual review result
+### 発表会
 
-- PC 表示で大きな崩れなし。
-- モバイル表示でも大きな崩れなし。
-- 家族写真 interactive は動作する。
-- 発表会 interactive は動作する。
-- 運動会 interactive は動作する。
-- 家族写真 / 発表会の相談 handoff は動作する。
-- 相談画面の引き継ぎ確認カードは動作する。
-- handoff 後に自動送信されず、ユーザーが確認してから入力へ反映できる。
-- 旅行・おでかけは card-only を維持している。
-- API / Dify / warehouse / lens data への副作用は確認されていない。
-- `relatedLensIds` は全件 `[]` のまま。
-- 直近の `npm run build` は成功している。
+- 座席位置 / 会場サイズ / 狙いの interactive flow が動作する。
+- 条件に応じて本命 / 次点 / 安全策、Resolver、comparison hooks が表示される。
+- DistanceVisualization により、舞台と前方席 / 中央席 / 後方席の距離理解を補助できている。
+- consultation CTA の表示を確認済み。
+
+### 運動会
+
+- 会場の広さ / 子どもまでの距離 / 動きの速さの interactive flow が動作する。
+- 条件に応じて本命 / 次点 / 安全策、Resolver、comparison hooks が表示される。
+- DistanceVisualization により、近い競技 / 校庭中央 / 遠い競技と望遠域の関係を理解しやすい。
+- consultation CTA の表示を確認済み。
+
+### 旅行・おでかけ
+
+- 荷物の優先 / 撮るもの / レンズ交換の interactive flow が動作する。
+- 条件に応じて本命 / 次点 / 安全策、Resolver、comparison hooks が表示される。
+- 6項目の焦点距離レールと role badges が表示される。
+- consultation CTA の表示を確認済み。
+
+## Consultation handoff result
+
+- 4シーンすべてに `この条件で相談する` CTA が表示される。
+- 家族写真では consultation handoff を end-to-end で確認した。
+- CTA から `/` へ遷移し、相談画面に引き継ぎカードが表示される。
+- handoff 後に自動送信されない。
+- `この内容で相談する` から generated prompt を入力欄へ反映できる。
+- `lensNaviSceneGuideHandoff` key は Scene Guide と `ChatInterface` で一致している。
+- 発表会 / 運動会 / 旅行は CTA 表示を確認済み。全条件組み合わせを含む通し確認は非ブロッカーとして残す。
+
+## Visual polish evaluation
+
+- VisualNote は控えめで、補足・注意が過剰な警告表示になっていない。
+- scene icons / condition icons は装飾過多にならず、意味補助として機能している。
+- DistanceVisualization は発表会 / 運動会で、距離と焦点距離の関係を理解する助けになっている。
+- FocalLengthRail の `本命` / `次点` / `安全策` badges は読み取りやすい。
+- Visual Polish Phase により、条件選択後の結果を文章だけでなく位置、濃淡、chip、図解で追いやすくなった。
+
+## Side-effect check
+
+- API / Dify への不要な変更や呼び出し変更はない。
+- warehouse / lens data / `public/lens_data.json` への今回の変更はない。
+- warehouse localStorage と consultation handoff の sessionStorage 仕様は変更していない。
+- `lensNaviSceneGuideHandoff` key の既存 handoff は維持されている。
+- 既存 data-testid に問題は確認されていない。
+- recommendation logic、Resolver logic、comparison hooks logic、consultation handoff logic は変更していない。
+
+## Build result
+
+- `npm run build`: 成功。
+- e2e: 今回は実行していない。
+- Manual Review 実施時の作業ツリーは clean だった。
 
 ## Public beta judgment
 
-**判定: 公開βブロッカーなし。**
+**判定: 公開β blocker なし。**
 
 理由:
 
-- 主要3シーンで条件選択型の体験が成立している。
-- 家族写真 / 発表会は、撮影条件の整理から相談へつながる。
-- 運動会も、条件変更に応じて必要な焦点距離が変わる interactive guide として機能している。
-- モバイルでも大きな崩れは見られない。
-- 既存の相談 / 倉庫 / ナビ導線を壊していない。
+- 主要4シーンで条件選択型の体験が成立している。
+- 条件変更に応じて、本命 / 次点 / 安全策 / Resolver / comparison hooks が更新される。
+- 4シーンすべてから相談へ進む CTA が成立している。
+- 家族写真の handoff は、相談画面への遷移、引き継ぎカード表示、入力欄への反映、自動送信なしまで確認済み。
+- Visual Polish Phase の各要素は、既存ロジックを変えずに判断の理解を助けている。
+- 既存の API / Dify / warehouse / lens data / navigation に副作用は確認されていない。
+- build が成功している。
 
-## Known non-blocking UI issues
+## Known non-blocking items
 
-- まだ文字量はやや多い。
-- アイコンやビジュアル要素は少ない。
-- 薄黄色の補足 / 注意枠が少し野暮ったく見える。
-- 焦点距離レールは有効だが、より直感的なアイコン・図解化の余地がある。
-- 主候補 / 次点 / 安全策の意味は伝わるが、より視覚的な役割表現に改善できる。
-- 旅行・おでかけは未 interactive。
-- 運動会 handoff は未実装。
-- Lens Condition Resolver / Deep Review connection は未実装。
+- 390px 実機相当での最終確認。
+- 発表会 / 運動会 / 旅行の全条件組み合わせと、全 consultation handoff の通し確認。
+- Deep Review comparison hooks は引き続き placeholder。
+- Lens Condition Resolver は引き続き pilot で、stable ID / lens data に未接続。
+- 家族写真の距離図解と旅行の軽さ / 重さ図解は、公開β後の必要性を見て判断する。
+- detail は多くの判断情報を扱うため、モバイルでは一定の縦長が残る。
 
-## Suggested future polish
+## Final conclusion
 
-- 黄色い注意枠を muted note / info chip に変更する。
-- 室内 / 屋外 / 座席 / 会場 / 動きなどに小さなアイコンを追加する。
-- 焦点距離レールに、より直感的な距離感・被写体サイズ表現を追加する。
-- 運動会にも `この条件で相談する` handoff を追加する。
-- 旅行・おでかけの interactive 化を検討する。
-- Scene Guide と Lens Condition Resolver を接続する。
-- Scene Guide と Deep Review comparison hooks を接続する。
+Scene Guide は公開βへ進める。
 
-## Recommended next steps
+主要4シーンの interactive flow、consultation handoff、Lens Condition Resolver pilot、Deep Review comparison hooks pilot、Visual Polish Phase の価値は成立している。
 
-1. Implement sports-day consultation handoff
-2. Add non-blocking UI polish for caution notes and icons
-3. Plan travel-outing interactive guide
-4. Start Lens Condition Resolver pilot
-5. Add Deep Review comparison hooks
-
-## Notes
-
-Scene Guide は現時点で、完全に洗練された UI ではない。
-
-しかし、公開βに必要な機能価値は成立している。撮影条件を選び、必要な焦点距離の役割を理解し、具体的な相談へ進む導線は、Lens Navi の「撮影判断ナビ」という方向を表現できている。
-
-ここから先は、UI 装飾の追い込みよりも、相談 / Lens Condition Resolver / Deep Review との接続を優先する。
+公開β後は軽運用確認を優先し、非ブロッカーの UI 改善や stable ID / Resolver data connection / Deep Review comparison format は、利用状況と必要性を見ながら小さく進める。
