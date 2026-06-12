@@ -1,29 +1,31 @@
-# Create Scene Guide visual polish plan
+# Document scene guide visual polish review
 
 ## Background
 
-Scene Guide の主要4シーンは interactive decision flow、相談 handoff、Lens Condition Resolver pilot、Deep Review comparison hooks pilot 対応済みで、公開βブロッカーはない。
+Scene Guide Visual Polish Phase では、VisualNote、scene specific icons、発表会 / 運動会の DistanceVisualization pilot、FocalLengthRail role badges、mobile readability pass を実装した。
 
-今回のタスクではロジックを追加せず、既存の判断構造を「読む」より「見て触って分かる」UIへ進める visual polish 計画を記録する。
+今回のタスクではコードを変更せず、実装済み scope、公開βへの効果、意図的に変更しなかった領域、残課題、次の候補をレビュー docs に記録する。
 
 ## Direction
 
-- `scene-guide-visual-polish-plan.md` を新規作成する。
-- visual first / no new logic / scene-specific but reusable / mobile first を設計原則とする。
-- VisualNote、scene icons、distance visualization、focal rail、mobile readability を段階化する。
-- 最初の実装候補を `Polish Scene Guide visual notes and info chips` として定義する。
+- `scene-guide-visual-polish-review.md` を新規作成する。
+- Visual Polish Phase の実装結果と public beta impact を記録する。
+- 家族写真 / 旅行の専用図解、Resolver、Deep Review hooks などの残課題を明記する。
+- 次の推奨タスクを public beta manual review とする。
 - コード、API、データ、storage 仕様は変更しない。
 
 ## Allowed files
 
 - `docs/active-mission.md`
 - `docs/current-task.md`
-- `docs/scene-guide-visual-polish-plan.md`
+- `docs/scene-guide-visual-polish-review.md`
 
 ## Do not touch
 
+- `docs/scene-guide-visual-polish-plan.md`
 - `src/data/scenePlaybooks.ts`
 - `src/components/ScenePlaybookCard.tsx`
+- `src/app/scene-playbooks/page.tsx`
 - `src/components/ChatInterface.tsx`
 - `src/components/Navbar.tsx`
 - `src/app/warehouse/page.tsx`
@@ -34,15 +36,14 @@ Scene Guide の主要4シーンは interactive decision flow、相談 handoff、
 
 ## Do
 
-- visual polish plan docs を作成する。
+- visual polish review docs を作成する。
 - `active-mission.md` と `current-task.md` を現在地に更新する。
-- 既存 `lucide-react` 依存と現在の component boundaries を確認する。
 - `npm run build` を実行する。
 
 ## Do not
 
 - コードを変更しない。
-- UI / Resolver / comparison hooks / handoff logic を変更しない。
+- UI / Resolver / comparison hooks / handoff logic / data を変更しない。
 - Deep Review API / route / stable ID 接続を実装しない。
 - API / Dify / warehouse / lens data / storage 仕様を変更しない。
 - commit / push / e2e を実行しない。
@@ -52,12 +53,12 @@ Scene Guide の主要4シーンは interactive decision flow、相談 handoff、
 - `git status`
 - `git diff --stat`
 - `npm run build`
-- 新規 plan docs の見出し、フェーズ、guardrails を確認する。
+- 新規 review docs の実装 scope、残課題、roadmap、guardrails を確認する。
 
 ## Commit
 
 今回は commit / push を行わない。手動 commit 時の推奨メッセージ:
 
 ```txt
-docs: add scene guide visual polish plan
+docs: add scene guide visual polish review
 ```
