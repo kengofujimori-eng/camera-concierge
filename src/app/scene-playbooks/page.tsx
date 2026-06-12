@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { Activity, Home, Luggage, Music } from "lucide-react";
 import { ScenePlaybookCard } from "@/components/ScenePlaybookCard";
 import { scenePlaybooks } from "@/data/scenePlaybooks";
 
@@ -9,21 +10,25 @@ const sceneGuideChoices = [
     id: "family-photography",
     condition: "日常・子ども・家族の記録",
     guide: "家族写真ガイド",
+    icon: Home,
   },
   {
     id: "recital-stage",
     condition: "ホール・体育館・暗い会場",
     guide: "発表会ガイド",
+    icon: Music,
   },
   {
     id: "sports-day",
     condition: "屋外イベント・動く子ども",
     guide: "運動会ガイド",
+    icon: Activity,
   },
   {
     id: "travel-outing",
     condition: "旅行・街歩き・荷物を減らしたい",
     guide: "旅行・おでかけガイド",
+    icon: Luggage,
   },
 ];
 
@@ -116,6 +121,7 @@ export default function ScenePlaybooksPage() {
             <div className="grid gap-3 sm:grid-cols-2">
               {sceneGuideChoices.map((choice) => {
                 const isSelected = filteredGuideId === choice.id;
+                const Icon = choice.icon;
 
                 return (
                   <button
@@ -128,20 +134,34 @@ export default function ScenePlaybooksPage() {
                       isSelected
                         ? "border-violet-200 bg-violet-50/70 shadow-sm dark:border-violet-400/30 dark:bg-violet-400/10"
                         : "border-slate-200 bg-slate-50/70 hover:border-slate-300 hover:bg-white hover:shadow-sm dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-white/20 dark:hover:bg-white/[0.06]"
-                    }`}
-                  >
-                    <p className="text-xs font-medium leading-5 text-slate-500 dark:text-slate-400">
-                      {choice.condition}
-                    </p>
-                    <p
-                      className={`mt-1 text-sm font-semibold leading-5 ${
-                        isSelected
-                          ? "text-violet-800 dark:text-violet-100"
-                          : "text-slate-900 dark:text-slate-100"
                       }`}
-                    >
-                      {choice.guide}
-                    </p>
+                  >
+                    <div className="flex items-start gap-3">
+                      <span
+                        className={`mt-0.5 inline-flex size-7 shrink-0 items-center justify-center rounded-full border bg-white dark:bg-slate-950/70 ${
+                          isSelected
+                            ? "border-violet-200 text-violet-600 dark:border-violet-400/30 dark:text-violet-300"
+                            : "border-slate-200 text-slate-400 dark:border-white/10 dark:text-slate-500"
+                        }`}
+                        aria-hidden="true"
+                      >
+                        <Icon size={14} strokeWidth={1.8} />
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block text-xs font-medium leading-5 text-slate-500 dark:text-slate-400">
+                          {choice.condition}
+                        </span>
+                        <span
+                          className={`mt-1 block text-sm font-semibold leading-5 ${
+                            isSelected
+                              ? "text-violet-800 dark:text-violet-100"
+                              : "text-slate-900 dark:text-slate-100"
+                          }`}
+                        >
+                          {choice.guide}
+                        </span>
+                      </span>
+                    </div>
                   </button>
                 );
               })}

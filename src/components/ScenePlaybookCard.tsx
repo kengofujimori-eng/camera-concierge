@@ -2,6 +2,21 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import {
+  Activity,
+  Building2,
+  Eye,
+  Feather,
+  Home,
+  Luggage,
+  MapPin,
+  Mountain,
+  Repeat2,
+  Ruler,
+  Trees,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 import type {
   ScenePlaybookCard as ScenePlaybookCardType,
   ScenePlaybookConditionDecisionFlow,
@@ -101,6 +116,51 @@ function VisualNote({
         {children}
       </p>
     </div>
+  );
+}
+
+const CONDITION_ICONS: Record<string, LucideIcon> = {
+  location: Home,
+  seat: MapPin,
+  venue: Building2,
+  goal: Eye,
+  distance: Ruler,
+  motion: Activity,
+  load: Luggage,
+  baggage: Luggage,
+  subject: Users,
+  exchange: Repeat2,
+};
+
+function ConditionIcon({
+  conditionKey,
+  value,
+  selected = false,
+}: {
+  conditionKey: string;
+  value?: string;
+  selected?: boolean;
+}) {
+  let Icon = CONDITION_ICONS[conditionKey] ?? MapPin;
+
+  if (conditionKey === "location" && value?.includes("屋外")) {
+    Icon = Trees;
+  } else if (conditionKey === "load" && value?.includes("軽さ")) {
+    Icon = Feather;
+  } else if (conditionKey === "subject" && value?.includes("風景")) {
+    Icon = Mountain;
+  }
+
+  return (
+    <Icon
+      aria-hidden="true"
+      className={`size-3.5 shrink-0 ${
+        selected
+          ? "text-violet-500 dark:text-violet-300"
+          : "text-slate-400 dark:text-slate-500"
+      }`}
+      strokeWidth={1.8}
+    />
   );
 }
 
@@ -330,7 +390,10 @@ function ConditionDecisionFlow({
               className="min-w-0 rounded-2xl border border-slate-200 bg-white/70 p-2 dark:border-white/10 dark:bg-slate-950/40"
             >
               <legend className="px-1 text-xs font-semibold text-slate-500 dark:text-slate-400">
-                {control.label}
+                <span className="inline-flex items-center gap-1.5">
+                  <ConditionIcon conditionKey={control.key} />
+                  {control.label}
+                </span>
               </legend>
               <div className="flex flex-wrap gap-1.5">
                 {control.options.map((option) => {
@@ -951,7 +1014,14 @@ function DecisionFlow({
                   : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:text-slate-950 dark:border-white/10 dark:bg-slate-950/60 dark:text-slate-300 dark:hover:border-white/20 dark:hover:text-white"
               }`}
             >
-              {branch.condition}
+              <span className="inline-flex items-center gap-2">
+                <ConditionIcon
+                  conditionKey="location"
+                  value={branch.condition}
+                  selected={selectedCondition === branch.condition}
+                />
+                {branch.condition}
+              </span>
             </button>
           ))}
         </div>
