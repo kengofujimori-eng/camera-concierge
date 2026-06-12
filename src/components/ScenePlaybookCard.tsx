@@ -81,6 +81,29 @@ function Chip({ children }: { children: string }) {
   );
 }
 
+function VisualNote({
+  label,
+  children,
+  className = "",
+}: {
+  label: string;
+  children: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`flex items-start gap-2 rounded-2xl border border-slate-200 bg-slate-50/70 px-3 py-2 text-slate-600 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300 ${className}`}
+    >
+      <span className="mt-0.5 shrink-0 rounded-full border border-slate-200 bg-white px-2 py-0.5 text-[9px] font-semibold text-slate-500 dark:border-white/10 dark:bg-slate-950/70 dark:text-slate-400">
+        {label}
+      </span>
+      <p className="line-clamp-2 min-w-0 text-[11px] leading-5">
+        {children}
+      </p>
+    </div>
+  );
+}
+
 export function ScenePlaybookCard({
   playbook,
   isOpen = false,
@@ -180,9 +203,9 @@ export function ScenePlaybookCard({
           </section>
         </div>
 
-        <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 px-3 py-2.5 text-xs leading-5 text-amber-800 dark:border-amber-400/20 dark:bg-amber-400/10 dark:text-amber-200">
+        <VisualNote label="注意" className="mt-5">
           {playbook.primaryCaution}
-        </div>
+        </VisualNote>
 
         <div className="mt-auto pt-5">
           <button
@@ -360,12 +383,7 @@ function ConditionDecisionFlow({
             />
           </section>
 
-          <section className="rounded-2xl border border-amber-200/70 bg-amber-50/50 px-3 py-2 dark:border-amber-400/15 dark:bg-amber-400/[0.06]">
-            <p className="line-clamp-2 text-[11px] leading-5 text-amber-800/80 dark:text-amber-200/80">
-              <span className="mr-1 font-semibold">補足:</span>
-              {result.caution}
-            </p>
-          </section>
+          <VisualNote label="補足">{result.caution}</VisualNote>
 
           <LensConditionCard
             condition={resolveLensCondition({
@@ -671,12 +689,9 @@ function LensConditionCard({ condition }: { condition: LensCondition }) {
           </span>
         ))}
       </div>
-      <p className="mt-2 text-[11px] leading-5 text-slate-500 dark:text-slate-400">
-        <span className="mr-1 font-semibold text-slate-600 dark:text-slate-300">
-          注意:
-        </span>
+      <VisualNote label="注意" className="mt-2">
         {condition.caution}
-      </p>
+      </VisualNote>
     </section>
   );
 }
@@ -958,12 +973,9 @@ function DecisionFlow({
             />
           </section>
 
-          <section className="rounded-2xl border border-amber-200/70 bg-amber-50/50 px-3 py-2 dark:border-amber-400/15 dark:bg-amber-400/[0.06]">
-            <p className="line-clamp-2 text-[11px] leading-5 text-amber-800/80 dark:text-amber-200/80">
-              <span className="mr-1 font-semibold">補足:</span>
-              {selectedBranch.caution ?? flow.caution}
-            </p>
-          </section>
+          <VisualNote label="補足">
+            {selectedBranch.caution ?? flow.caution}
+          </VisualNote>
 
           <LensConditionCard
             condition={resolveLensCondition({
