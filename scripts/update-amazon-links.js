@@ -174,8 +174,20 @@ function cmdImport(csvPath, lenses, asinMap) {
 
   for (const row of rows.slice(1)) {
     const name = row[nameIdx]?.trim()
-    const asin = row[asinIdx]?.trim().toUpperCase()
+    let asin = row[asinIdx]?.trim()
     if (!name || !asin) continue
+
+    // URLが貼られていたら /dp/ または /gp/product/ からASINを抽出
+    if (asin.includes('/')) {
+      const m = asin.match(DP_PATH_RE)
+      if (!m) {
+        console.warn(`⚠️  URLからASINを抽出できません: ${name}`)
+        invalid++
+        continue
+      }
+      asin = m[1]
+    }
+    asin = asin.toUpperCase()
 
     if (!ASIN_RE.test(asin)) {
       console.warn(`⚠️  ASIN形式不正 (10桁英数字): ${name} → "${asin}"`)
