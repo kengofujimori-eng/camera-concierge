@@ -4,7 +4,9 @@
   "lenses": [
     {
       "name": "RF15-35mm F2.8L IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf15-35mm-f2-8l-is-usm/",
@@ -33,7 +35,7 @@
       "official_url": "https://cweb.canon.jp/rf/lineup/rf15-35-f28l/",
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Canon%20RF15-35mm%20F2.8L%20IS%20USM&rh=n%3A2437276051&tag=techddd-22",
+          "amazon": "https://www.amazon.co.jp/dp/B07WRDPFXQ/ref=nosim?tag=techddd-22",
           "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FCanon%20RF15-35mm%20F2.8L%20IS%20USM%2F&link_type=text",
           "yahoo": "https://shopping.yahoo.co.jp/search?p=Canon%20RF15-35mm%20F2.8L%20IS%20USM&astid=12"
         },
@@ -42,10 +44,10 @@
         }
       },
       "price_info": {
-        "new_price": 311820,
-        "used_price": 218000,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001185356/"
+        "new_price": 337800,
+        "used_price": 235420,
+        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/digimart-shop/cabinet/camera_lens_foreign/clf00177_01.jpg?_ex=128x128",
+        "fetched_at": "2026-06-12"
       },
       "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf15-35-f28l/rf15-35-f28l.jpg?sc_lang=ja-JP\\&hash=06E938BA3C9E00FDE21600D3E0ACDC72",
       "availability_status": "current",
@@ -54,7 +56,9 @@
     },
     {
       "name": "RF24-70mm F2.8L IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf24-70mm-f2-8l-is-usm/",
@@ -88,7 +92,7 @@
       "official_url": "https://cweb.canon.jp/rf/lineup/rf24-70-f28l/",
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Canon%20RF24-70mm%20F2.8L%20IS%20USM&rh=n%3A2437276051&tag=techddd-22",
+          "amazon": "https://www.amazon.co.jp/dp/B07WQYHH1Q/ref=nosim?tag=techddd-22",
           "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FCanon%20RF24-70mm%20F2.8L%20IS%20USM%2F&link_type=text",
           "yahoo": "https://shopping.yahoo.co.jp/search?p=Canon%20RF24-70mm%20F2.8L%20IS%20USM&astid=12"
         },
@@ -109,7 +113,9 @@
     },
     {
       "name": "RF24-105mm F4L IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "brand": "Canon",
       "mount": "Canon RF",
       "source_url": "https://asobinet.com/rf-24-105mm-f4l-is-usm/",
@@ -167,7 +173,9 @@
     },
     {
       "name": "RF24-105mm F4-7.1 IS STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf24-105mm-f4-7-1-is-stm/",
@@ -215,7 +223,9 @@
     },
     {
       "name": "RF24-240mm F4-6.3 IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf24-240mm-f4-6-3-is-usm/",
@@ -261,7 +271,9 @@
     },
     {
       "name": "RF28-70mm F2L USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf-28-70mm-f2l-usm/",
@@ -320,7 +332,9 @@
     },
     {
       "name": "RF70-200mm F2.8L IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf70-200mm-f2-8l-is-usm/",
@@ -350,7 +364,7 @@
       "official_url": "https://cweb.canon.jp/rf/lineup/rf70-200-f28l/",
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Canon%20RF70-200mm%20F2.8L%20IS%20USM&rh=n%3A2437276051&tag=techddd-22",
+          "amazon": "https://www.amazon.co.jp/dp/B07ZJGPMBV/ref=nosim?tag=techddd-22",
           "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FCanon%20RF70-200mm%20F2.8L%20IS%20USM%2F&link_type=text",
           "yahoo": "https://shopping.yahoo.co.jp/search?p=Canon%20RF70-200mm%20F2.8L%20IS%20USM&astid=12"
         },
@@ -379,7 +393,9 @@
     },
     {
       "name": "RF70-200mm F4 L IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf70-200mm-f4-l-is-usm/",
@@ -433,7 +449,9 @@
     },
     {
       "name": "RF100-500mm F4.5-7.1 L IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf100-500mm-f4-5-7-1-l-is-usm/",
@@ -483,7 +501,9 @@
     },
     {
       "name": "RF35mm F1.8 Macro IS STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf-35mm-f1-8-macro-is-stm/",
@@ -548,7 +568,9 @@
     },
     {
       "name": "RF50mm F1.2L USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf-50mm-f1-2l-usm/",
@@ -608,7 +630,9 @@
     },
     {
       "name": "RF50mm F1.8 STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf50mm-f1-8-stm/",
@@ -666,7 +690,9 @@
     },
     {
       "name": "RF85mm F1.2L USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf85mm-f1-2l-usm/",
@@ -721,7 +747,9 @@
     },
     {
       "name": "RF85mm F1.2L USM DS",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf85mm-f1-2l-usm-ds/",
@@ -761,7 +789,9 @@
     },
     {
       "name": "RF85mm F2 Macro IS STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf85mm-f2-macro-is-stm/",
@@ -834,7 +864,9 @@
     },
     {
       "name": "RF600mm F11 IS STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf600mm-f11-is-stm/",
@@ -901,7 +933,9 @@
     },
     {
       "name": "RF800mm F11 IS STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://asobinet.com/rf800mm-f11-is-stm/",
@@ -958,7 +992,9 @@
     },
     {
       "name": "NIKKOR Z 14-30mm f/4 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-14-30mm-f-4-s/",
@@ -1040,7 +1076,9 @@
     },
     {
       "name": "NIKKOR Z 14-24mm f/2.8 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-14-24mm-f-2-8-s/",
@@ -1102,7 +1140,9 @@
     },
     {
       "name": "NIKKOR Z 24-50mm f/4-6.3",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-24-50mm-f-4-6-3/",
@@ -1162,7 +1202,9 @@
     },
     {
       "name": "NIKKOR Z 24-70mm f/2.8 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-24-70mm-f-2-8-s/",
@@ -1221,7 +1263,7 @@
       "official_url": "https://nij.nikon.com/products/lineup/nikkor/zmount/nikkor_z_24-70mm_f28_s/",
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Nikon%20NIKKOR%2024-70mm%20F2.8&rh=n%3A2437276051&tag=techddd-22",
+          "amazon": "https://www.amazon.co.jp/dp/B07NRJDW5C/ref=nosim?tag=techddd-22",
           "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FNikon%20NIKKOR%2024-70mm%20F2.8%2F&link_type=text",
           "yahoo": "https://shopping.yahoo.co.jp/search?p=Nikon%20NIKKOR%2024-70mm%20F2.8&astid=12"
         },
@@ -1242,7 +1284,9 @@
     },
     {
       "name": "NIKKOR Z 24-70mm f/4 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-24-70mm-f-4-s/",
@@ -1317,7 +1361,9 @@
     },
     {
       "name": "NIKKOR Z 24-200mm f/4-6.3 VR",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-24-200mm-f-4-6-3-vr/",
@@ -1359,7 +1405,9 @@
     },
     {
       "name": "NIKKOR Z 70-200mm f/2.8 VR S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-70-200mm-f-2-8-vr-s/",
@@ -1408,7 +1456,7 @@
       "official_url": "https://nij.nikon.com/products/lineup/nikkor/zmount/nikkor_z_70-200mm_f28_vr_s/",
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Nikon%20NIKKOR%2070-200mm%20F2.8%20VR&rh=n%3A2437276051&tag=techddd-22",
+          "amazon": "https://www.amazon.co.jp/dp/B0837HB1HD/ref=nosim?tag=techddd-22",
           "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FNikon%20NIKKOR%2070-200mm%20F2.8%20VR%2F&link_type=text",
           "yahoo": "https://shopping.yahoo.co.jp/search?p=Nikon%20NIKKOR%2070-200mm%20F2.8%20VR&astid=12"
         },
@@ -1429,7 +1477,9 @@
     },
     {
       "name": "NIKKOR Z 20mm f/1.8 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-20mm-f-1-8-s/",
@@ -1489,7 +1539,9 @@
     },
     {
       "name": "NIKKOR Z 24mm f/1.8 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-24mm-f-1-8-s/",
@@ -1546,7 +1598,9 @@
     },
     {
       "name": "NIKKOR Z 35mm f/1.8 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-35mm-f-1-8-s/",
@@ -1691,7 +1745,9 @@
     },
     {
       "name": "NIKKOR Z 50mm f/1.8 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-50mm-f-1-8-s/",
@@ -1774,7 +1830,9 @@
     },
     {
       "name": "NIKKOR Z 50mm f/1.2 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-50mm-f-1-2-s/",
@@ -1849,7 +1907,9 @@
     },
     {
       "name": "NIKKOR Z 58mm f/0.95 S Noct",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-58mm-f-0-95-s-noct/",
@@ -1906,7 +1966,9 @@
     },
     {
       "name": "NIKKOR Z 85mm f/1.8 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-85mm-f-1-8-s/",
@@ -2046,7 +2108,9 @@
     },
     {
       "name": "NIKKOR Z DX 16-50mm f/3.5-6.3 PZ VR",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-dx-16-50mm-f-3-5-6-3-vr/",
@@ -2096,7 +2160,9 @@
     },
     {
       "name": "NIKKOR Z DX 50-250mm f/4.5-6.3 VR",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://asobinet.com/nikkor-z-dx-50-250mm-f-4-5-6-3-vr/",
@@ -2143,7 +2209,9 @@
     },
     {
       "name": "FE 12-24mm F2.8 GM",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-12-24mm-f2-8-gm/",
@@ -2186,16 +2254,18 @@
         }
       },
       "price_info": {
-        "new_price": 365293,
-        "used_price": 320000,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001271500/"
+        "new_price": 369800,
+        "used_price": 287700,
+        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/topcamera/cabinet/newsony/newsonylens/4548736099876.jpg?_ex=128x128",
+        "fetched_at": "2026-06-12"
       },
       "image_url_external": "https://www.sony.jp/products/picture/SEL1224GM.jpg"
     },
     {
       "name": "FE 12-24mm F4 G",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-12-24mm-f4/",
@@ -2238,16 +2308,18 @@
         }
       },
       "price_info": {
-        "new_price": 221356,
-        "used_price": 133000,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0000966594/"
+        "new_price": 239925,
+        "used_price": 172860,
+        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/outletplaza/cabinet/409/4548736058361.jpg?_ex=128x128",
+        "fetched_at": "2026-06-12"
       },
       "image_url_external": "https://www.sony.jp/products/picture/SEL1224G.jpg"
     },
     {
       "name": "Vario-Tessar T* FE 16-35mm F4?",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/vario-tessar-t-fe-16-35mm-f4-za-oss/",
@@ -2313,7 +2385,9 @@
     },
     {
       "name": "FE 16-35mm F2.8 GM",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-16-35mm-f2-8-gm/",
@@ -2361,16 +2435,18 @@
         }
       },
       "price_info": {
-        "new_price": 217000,
-        "used_price": 157000,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0000966593/"
+        "new_price": 42680,
+        "used_price": 160980,
+        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/anys-dive/cabinet/fisheye/21613_01.jpg?_ex=128x128",
+        "fetched_at": "2026-06-12"
       },
       "image_url_external": "https://www.sony.jp/products/picture/SEL1635GM.jpg"
     },
     {
       "name": "FE 24-70mm F2.8 GM",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-24-70mm-f2-8-gm/",
@@ -2423,10 +2499,10 @@
         }
       },
       "price_info": {
-        "new_price": 259799,
-        "used_price": 149600,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001438602/"
+        "new_price": 213483,
+        "used_price": 44067,
+        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/a-denki/cabinet/shouhingazou/4/81219.jpg?_ex=128x128",
+        "fetched_at": "2026-06-12"
       },
       "image_url_external": "https://www.sony.jp/products/picture/SEL2470GM.jpg",
       "availability_status": "discontinued",
@@ -2435,7 +2511,9 @@
     },
     {
       "name": "FE 24-105mm F4 G OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-24-105mm-f4-g-oss/",
@@ -2489,10 +2567,10 @@
         }
       },
       "price_info": {
-        "new_price": 128700,
-        "used_price": 93400,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001008674/"
+        "new_price": 141800,
+        "used_price": 83500,
+        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/e-cutestyle/cabinet/img041/p000000618837_1.jpg?_ex=128x128",
+        "fetched_at": "2026-06-12"
       },
       "image_url_external": "https://www.sony.jp/products/picture/SEL24105G.jpg",
       "asobinet_info": {
@@ -2505,7 +2583,9 @@
     },
     {
       "name": "FE 24-240mm F3.5-6.3 OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-24-240mm-f3-5-6-3-oss/",
@@ -2561,7 +2641,9 @@
     },
     {
       "name": "FE 28-60mm F4-5.6",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-28-60mm-f4-5-6/",
@@ -2611,7 +2693,9 @@
     },
     {
       "name": "FE 28-70mm F3.5-5.6 OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-28-70mm-f3-5-5-6-oss/",
@@ -2665,7 +2749,9 @@
     },
     {
       "name": "FE 70-200mm F2.8 GM OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-70-200mm-f2-8-gm-oss/",
@@ -2737,7 +2823,9 @@
     },
     {
       "name": "FE 70-200mm F4 G OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-70-200mm-f4-g-oss/",
@@ -2786,10 +2874,10 @@
         }
       },
       "price_info": {
-        "new_price": 201755,
-        "used_price": 187572,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001552472/"
+        "new_price": 137780,
+        "used_price": 101380,
+        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/takagami/cabinet/12104956/12772765/imgrc0121672857.jpg?_ex=128x128",
+        "fetched_at": "2026-06-12"
       },
       "discontinued": true,
       "image_url_external": "https://www.sony.jp/products/picture/SEL70200G.jpg",
@@ -2805,7 +2893,9 @@
     },
     {
       "name": "FE 70-300mm F4.5-5.6 G OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-70-300mm-f4-5-5-6-g-oss/",
@@ -2862,7 +2952,9 @@
     },
     {
       "name": "FE 100-400mm F4.5-5.6 GM OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe100-400mm-f4-5-5-6-gm-oss/",
@@ -2910,16 +3002,18 @@
         }
       },
       "price_info": {
-        "new_price": 294587,
-        "used_price": 239700,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0000960776/"
+        "new_price": 310000,
+        "used_price": 231600,
+        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/digimart-shop/cabinet/camera_lens_foreign/clf00257_01a.jpg?_ex=128x128",
+        "fetched_at": "2026-06-12"
       },
       "image_url_external": "https://www.sony.jp/products/picture/SEL100400GM.jpg"
     },
     {
       "name": "FE 200-600mm F5.6-6.3 G OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe200-600mm-f5-6-6-3-g-oss/",
@@ -2967,16 +3061,18 @@
         }
       },
       "price_info": {
-        "new_price": 237151,
-        "used_price": 209000,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001165261/"
+        "new_price": null,
+        "used_price": 216000,
+        "image_url": null,
+        "fetched_at": "2026-06-12"
       },
       "image_url_external": "https://www.sony.jp/products/picture/SEL200600G.jpg"
     },
     {
       "name": "FE 20mm F1.8 G",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-20mm-f1-8-g/",
@@ -3046,7 +3142,9 @@
     },
     {
       "name": "FE 24mm F1.4 GM",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-24mm-f1-4-gm/",
@@ -3099,16 +3197,18 @@
         }
       },
       "price_info": {
-        "new_price": 155000,
-        "used_price": 111447,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001092382/"
+        "new_price": 107900,
+        "used_price": 121660,
+        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/1835/0085126405656.jpg?_ex=128x128",
+        "fetched_at": "2026-06-12"
       },
       "image_url_external": "https://www.sony.jp/products/picture/SEL24F14GM.jpg"
     },
     {
       "name": "Sonnar T* FE 35mm F2.8 ZA",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-35mm-f2-8-za/",
@@ -3167,7 +3267,9 @@
     },
     {
       "name": "FE 35mm F1.8",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-35mm-f1-8/",
@@ -3319,7 +3421,9 @@
     },
     {
       "name": "Distagon T* FE 35mm F1.4 ZA",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/distagon-t-fe-35mm-f1-4-za/",
@@ -3378,7 +3482,9 @@
     },
     {
       "name": "FE 50mm F1.8",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-50mm-f1-8/",
@@ -3460,7 +3566,9 @@
     },
     {
       "name": "FE 50mm F2.8 マクロ",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-50mm-f2-8-macro/",
@@ -3523,7 +3631,9 @@
     },
     {
       "name": "Planar T* FE 50mm F1.4 ZA",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/planar-t-fe-50mm-f1-4-za/",
@@ -3582,7 +3692,9 @@
     },
     {
       "name": "Sonnar T* FE 55mm F1.8 ZA",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/sonnar-t-fe-55mm-f1-8-za/",
@@ -3662,7 +3774,9 @@
     },
     {
       "name": "FE 85mm F1.8",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-85mm-f1-8/",
@@ -3806,7 +3920,9 @@
     },
     {
       "name": "FE 85mm F1.4 GM",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-85mm-f1-4-gm/",
@@ -3879,7 +3995,9 @@
     },
     {
       "name": "FE 90mm F2.8 Macro G OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-90mm-f2-8-macro-g-oss-sel90m28g/",
@@ -3944,7 +4062,9 @@
     },
     {
       "name": "FE 100mm F2.8 STF GM OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-100mm-f2-8-stf-gm-oss/",
@@ -4086,7 +4206,9 @@
     },
     {
       "name": "FE 600mm F4 GM OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://asobinet.com/fe-600mm-f4-gm-oss/",
@@ -4204,7 +4326,7 @@
       "min_focus": 15,
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Panasonic%20LUMIX%2020-60mm%20F3.5-5.6&rh=n%3A2437276051&tag=techddd-22",
+          "amazon": "https://www.amazon.co.jp/dp/B088VSF94W/ref=nosim?tag=techddd-22",
           "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FPanasonic%20LUMIX%2020-60mm%20F3.5-5.6%2F&link_type=text",
           "yahoo": "https://shopping.yahoo.co.jp/search?p=Panasonic%20LUMIX%2020-60mm%20F3.5-5.6&astid=12"
         },
@@ -4306,7 +4428,7 @@
       "min_focus": null,
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Panasonic%20LUMIX%2024-105mm%20F4%20Macro%20O.I.S.&rh=n%3A2437276051&tag=techddd-22",
+          "amazon": "https://www.amazon.co.jp/dp/B07Z5S6R5G/ref=nosim?tag=techddd-22",
           "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FPanasonic%20LUMIX%2024-105mm%20F4%20Macro%20O.I.S.%2F&link_type=text",
           "yahoo": "https://shopping.yahoo.co.jp/search?p=Panasonic%20LUMIX%2024-105mm%20F4%20Macro%20O.I.S.&astid=12"
         },
@@ -4715,7 +4837,9 @@
     },
     {
       "name": "Sigma 14mm F1.8 DG HSM Art",
-      "supported_mounts": ["DSLR / adapter"],
+      "supported_mounts": [
+        "DSLR / adapter"
+      ],
       "mount": "DSLR / adapter",
       "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
       "recommendation_status": "avoid",
@@ -4824,7 +4948,9 @@
     },
     {
       "name": "Sigma 20mm F1.4 DG HSM Art",
-      "supported_mounts": ["DSLR / adapter"],
+      "supported_mounts": [
+        "DSLR / adapter"
+      ],
       "mount": "DSLR / adapter",
       "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
       "recommendation_status": "avoid",
@@ -4893,7 +5019,9 @@
     },
     {
       "name": "Sigma 24mm F1.4 DG HSM Art",
-      "supported_mounts": ["DSLR / adapter"],
+      "supported_mounts": [
+        "DSLR / adapter"
+      ],
       "mount": "DSLR / adapter",
       "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
       "recommendation_status": "avoid",
@@ -4967,7 +5095,9 @@
     },
     {
       "name": "Sigma 28mm F1.4 DG HSM Art",
-      "supported_mounts": ["DSLR / adapter"],
+      "supported_mounts": [
+        "DSLR / adapter"
+      ],
       "mount": "DSLR / adapter",
       "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
       "recommendation_status": "avoid",
@@ -5026,7 +5156,9 @@
     },
     {
       "name": "Sigma 35mm F1.4 DG HSM Art",
-      "supported_mounts": ["DSLR / adapter"],
+      "supported_mounts": [
+        "DSLR / adapter"
+      ],
       "mount": "DSLR / adapter",
       "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
       "recommendation_status": "avoid",
@@ -5118,7 +5250,9 @@
     },
     {
       "name": "Sigma 40mm F1.4 DG HSM Art",
-      "supported_mounts": ["DSLR / adapter"],
+      "supported_mounts": [
+        "DSLR / adapter"
+      ],
       "mount": "DSLR / adapter",
       "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
       "recommendation_status": "avoid",
@@ -5182,7 +5316,9 @@
     },
     {
       "name": "Sigma 50mm F1.4 DG HSM Art",
-      "supported_mounts": ["DSLR / adapter"],
+      "supported_mounts": [
+        "DSLR / adapter"
+      ],
       "mount": "DSLR / adapter",
       "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
       "recommendation_status": "avoid",
@@ -5269,7 +5405,9 @@
     },
     {
       "name": "Sigma 85mm F1.4 DG HSM Art",
-      "supported_mounts": ["DSLR / adapter"],
+      "supported_mounts": [
+        "DSLR / adapter"
+      ],
       "mount": "DSLR / adapter",
       "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
       "recommendation_status": "avoid",
@@ -5356,7 +5494,9 @@
     },
     {
       "name": "Sigma 105mm F1.4 DG HSM Art",
-      "supported_mounts": ["DSLR / adapter"],
+      "supported_mounts": [
+        "DSLR / adapter"
+      ],
       "mount": "DSLR / adapter",
       "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
       "recommendation_status": "avoid",
@@ -5425,7 +5565,9 @@
     },
     {
       "name": "FíRIN 20mm F2 FE AF",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Tokina",
       "source_url": "https://asobinet.com/firin-20mm-f2-fe-af/",
@@ -5466,7 +5608,9 @@
     },
     {
       "name": "Batis 2.8/18",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Zeiss",
       "source_url": "https://asobinet.com/batis-2-818/",
@@ -5517,7 +5661,9 @@
     },
     {
       "name": "Batis 2/40 CF",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Zeiss",
       "source_url": "https://asobinet.com/batis-2-40-cf/",
@@ -5563,7 +5709,9 @@
     },
     {
       "name": "Batis 1.8/85",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Zeiss",
       "source_url": "https://asobinet.com/batis-1-885/",
@@ -5624,7 +5772,9 @@
     },
     {
       "name": "Batis 2.8/135",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Zeiss",
       "source_url": "https://asobinet.com/batis-f2-8-135/",
@@ -5660,7 +5810,9 @@
     },
     {
       "name": "SUPER-VARIO-ELMAR-SL 16-35mm f/3.5-4.5 ASPH",
-      "supported_mounts": ["L mount"],
+      "supported_mounts": [
+        "L mount"
+      ],
       "mount": "L mount",
       "brand": "Leica",
       "source_url": "https://asobinet.com/super-vario-elmar-sl-16-35mm-f-3-5-4-5-asph/",
@@ -5701,7 +5853,9 @@
     },
     {
       "name": "VARIO-ELMARIT-SL 24-90mm f/2.8-4 ASPH.",
-      "supported_mounts": ["L mount"],
+      "supported_mounts": [
+        "L mount"
+      ],
       "mount": "L mount",
       "brand": "Leica",
       "source_url": "https://asobinet.com/vario-elmarit-sl-24-90mm-f-2-8-4-asph/",
@@ -5747,7 +5901,9 @@
     },
     {
       "name": "ELMARIT-TL 18mm f / 2.8 ASPH",
-      "supported_mounts": ["L mount"],
+      "supported_mounts": [
+        "L mount"
+      ],
       "mount": "L mount",
       "brand": "Leica",
       "source_url": "https://asobinet.com/elmarit-tl-18mm-f-2-8-asph/",
@@ -5788,7 +5944,9 @@
     },
     {
       "name": "SUMMILUX-SL F1.4/50mm ASPH.",
-      "supported_mounts": ["L mount"],
+      "supported_mounts": [
+        "L mount"
+      ],
       "mount": "L mount",
       "brand": "Leica",
       "source_url": "https://asobinet.com/summilux-sl-f1-4-50mm-asph/",
@@ -6595,7 +6753,9 @@
     },
     {
       "name": "FE 14mm F1.8 GM",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL1418GM/",
@@ -6624,7 +6784,9 @@
     },
     {
       "name": "FE 16-35mm F2.8 GM II",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL1635GM2/",
@@ -6642,10 +6804,10 @@
         }
       },
       "price_info": {
-        "new_price": 274705,
-        "used_price": 275000,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001563468/"
+        "new_price": 42680,
+        "used_price": 160980,
+        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/anys-dive/cabinet/fisheye/21613_01.jpg?_ex=128x128",
+        "fetched_at": "2026-06-12"
       },
       "photo_yodobashi_url": null,
       "model_code": "SEL1635GM2",
@@ -6653,7 +6815,9 @@
     },
     {
       "name": "FE 24-70mm F2.8 GM II",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL2470GM2/",
@@ -6662,7 +6826,7 @@
       "official_url": "https://www.sony.jp/ichigan/products/SEL2470GM2/",
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Sony%20FE%2024-70mm%20F2.8%20GM%20II&rh=n%3A2437276051&tag=techddd-22",
+          "amazon": "https://www.amazon.co.jp/dp/B0B1LWBR18/ref=nosim?tag=techddd-22",
           "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSony%20FE%2024-70mm%20F2.8%20GM%20II%2F&link_type=text",
           "yahoo": "https://shopping.yahoo.co.jp/search?p=Sony%20FE%2024-70mm%20F2.8%20GM%20II&astid=12"
         },
@@ -6671,10 +6835,10 @@
         }
       },
       "price_info": {
-        "new_price": 259799,
-        "used_price": 149600,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001438602/"
+        "new_price": 213483,
+        "used_price": 44067,
+        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/a-denki/cabinet/shouhingazou/4/81219.jpg?_ex=128x128",
+        "fetched_at": "2026-06-12"
       },
       "photo_yodobashi_url": null,
       "model_code": "SEL2470GM2",
@@ -6685,7 +6849,9 @@
     },
     {
       "name": "FE 35mm F1.4 GM",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL35F14GM/",
@@ -6696,7 +6862,7 @@
       "official_url": "https://www.sony.jp/ichigan/products/SEL35F14GM/",
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Sony%20FE%2035mm%20F1.4%20GM&rh=n%3A2437276051&tag=techddd-22",
+          "amazon": "https://www.amazon.co.jp/dp/B08T1MRC74/ref=nosim?tag=techddd-22",
           "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSony%20FE%2035mm%20F1.4%20GM%2F&link_type=text",
           "yahoo": "https://shopping.yahoo.co.jp/search?p=Sony%20FE%2035mm%20F1.4%20GM&astid=12"
         },
@@ -6727,7 +6893,9 @@
     },
     {
       "name": "FE 50mm F1.2 GM",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL50F12GM/",
@@ -6736,7 +6904,7 @@
       "official_url": "https://www.sony.jp/ichigan/products/SEL50F12GM/",
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Sony%20FE%2050mm%20F1.2%20GM&rh=n%3A2437276051&tag=techddd-22",
+          "amazon": "https://www.amazon.co.jp/dp/B08ZC82H77/ref=nosim?tag=techddd-22",
           "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSony%20FE%2050mm%20F1.2%20GM%2F&link_type=text",
           "yahoo": "https://shopping.yahoo.co.jp/search?p=Sony%20FE%2050mm%20F1.2%20GM&astid=12"
         },
@@ -6759,7 +6927,9 @@
     },
     {
       "name": "FE 50mm F1.4 GM",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL50F14GM/",
@@ -6770,7 +6940,7 @@
       "official_url": "https://www.sony.jp/ichigan/products/SEL50F14GM/",
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Sony%20FE%2050mm%20F1.4%20GM&rh=n%3A2437276051&tag=techddd-22",
+          "amazon": "https://www.amazon.co.jp/dp/B0BWHD1JVN/ref=nosim?tag=techddd-22",
           "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSony%20FE%2050mm%20F1.4%20GM%2F&link_type=text",
           "yahoo": "https://shopping.yahoo.co.jp/search?p=Sony%20FE%2050mm%20F1.4%20GM&astid=12"
         },
@@ -6779,10 +6949,10 @@
         }
       },
       "price_info": {
-        "new_price": 163885,
-        "used_price": 150000,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001518235/"
+        "new_price": 169700,
+        "used_price": 149160,
+        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/lcs-live/cabinet/living/09818817/09818820/4548736135123.jpg?_ex=128x128",
+        "fetched_at": "2026-06-12"
       },
       "photo_yodobashi_url": null,
       "model_code": "SEL50F14GM",
@@ -6800,7 +6970,9 @@
     },
     {
       "name": "FE 70-200mm F2.8 GM OSS II",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL70200GM2/",
@@ -6818,10 +6990,10 @@
         }
       },
       "price_info": {
-        "new_price": 309800,
-        "used_price": 280000,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001391418/"
+        "new_price": 73447,
+        "used_price": 109926,
+        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/is-direct/cabinet/img0064/9999-0126494.jpg?_ex=128x128",
+        "fetched_at": "2026-06-12"
       },
       "photo_yodobashi_url": null,
       "model_code": "SEL70200GM2",
@@ -6829,7 +7001,9 @@
     },
     {
       "name": "FE 135mm F1.8 GM",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL135F18GM/",
@@ -6934,7 +7108,9 @@
     },
     {
       "name": "FE 300mm F2.8 GM OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL300F28GM/",
@@ -6963,7 +7139,9 @@
     },
     {
       "name": "FE 400mm F2.8 GM OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL400F28GM/",
@@ -6992,7 +7170,9 @@
     },
     {
       "name": "FE 16-35mm F4 ZA OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL1635Z/",
@@ -7021,7 +7201,9 @@
     },
     {
       "name": "FE 24-70mm F4 ZA OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL2470Z/",
@@ -7053,7 +7235,9 @@
     },
     {
       "name": "FE 28mm F2",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL28F20/",
@@ -7082,7 +7266,9 @@
     },
     {
       "name": "FE 40mm F2.5 G",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL40F25G/",
@@ -7120,7 +7306,9 @@
     },
     {
       "name": "FE 50mm F2.5 G",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL50F25G/",
@@ -7152,7 +7340,9 @@
     },
     {
       "name": "FE 70-200mm F4 Macro G OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL70200G2/",
@@ -7190,7 +7380,9 @@
     },
     {
       "name": "FE PZ 10-20mm F4 G",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SELP1020G/",
@@ -7227,7 +7419,9 @@
     },
     {
       "name": "FE PZ 16-35mm F4 G",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SELP1635G/",
@@ -7256,7 +7450,9 @@
     },
     {
       "name": "FE PZ 28-135mm F4 G OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SELP28135G/",
@@ -7285,7 +7481,9 @@
     },
     {
       "name": "E 10-18mm F4 OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL1018/",
@@ -7314,7 +7512,9 @@
     },
     {
       "name": "E 11mm F1.8",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL11F18/",
@@ -7343,7 +7543,9 @@
     },
     {
       "name": "E 15mm F1.4 G",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL15F14G/",
@@ -7372,7 +7574,9 @@
     },
     {
       "name": "E 16-55mm F2.8 G",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL1655G/",
@@ -7401,7 +7605,9 @@
     },
     {
       "name": "E 18-105mm F4 G OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SELP18105G/",
@@ -7430,7 +7636,9 @@
     },
     {
       "name": "E 18-135mm F3.5-5.6 OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL18135/",
@@ -7459,7 +7667,9 @@
     },
     {
       "name": "E 24mm F1.8 ZA",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL24F18Z/",
@@ -7488,7 +7698,9 @@
     },
     {
       "name": "E 35mm F1.8 OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL35F18/",
@@ -7591,7 +7803,9 @@
     },
     {
       "name": "E 50mm F1.8 OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL50F18/",
@@ -7627,7 +7841,9 @@
     },
     {
       "name": "E 55-210mm F4.5-6.3 OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL55210/",
@@ -7656,7 +7872,9 @@
     },
     {
       "name": "E 70-350mm F4.5-6.3 G OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL70350G/",
@@ -7685,7 +7903,9 @@
     },
     {
       "name": "FE 16-25mm F2.8 G",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL1625G/",
@@ -7714,7 +7934,9 @@
     },
     {
       "name": "FE 85mm F1.4 GM II",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL85F14GM2/",
@@ -7723,7 +7945,7 @@
       "official_url": "https://www.sony.jp/ichigan/products/SEL85F14GM2/",
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Sony%20FE%2085mm%20F1.4%20GM%20II&rh=n%3A2437276051&tag=techddd-22",
+          "amazon": "https://www.amazon.co.jp/dp/B0DFXXHCB7/ref=nosim?tag=techddd-22",
           "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSony%20FE%2085mm%20F1.4%20GM%20II%2F&link_type=text",
           "yahoo": "https://shopping.yahoo.co.jp/search?p=Sony%20FE%2085mm%20F1.4%20GM%20II&astid=12"
         },
@@ -7732,10 +7954,10 @@
         }
       },
       "price_info": {
-        "new_price": 221608,
-        "used_price": 202000,
-        "fetched_at": "2026-04-28",
-        "kakaku_url": "https://kakaku.com/item/K0001649150/"
+        "new_price": 242800,
+        "used_price": 241580,
+        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/topcamera/cabinet/09073171/imgrc0087602850.jpg?_ex=128x128",
+        "fetched_at": "2026-06-12"
       },
       "photo_yodobashi_url": null,
       "model_code": "SEL85F14GM2",
@@ -7753,7 +7975,9 @@
     },
     {
       "name": "FE 24mm F2.8 G",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Sony",
       "source_url": "https://www.sony.jp/ichigan/products/SEL24F28G/",
@@ -7782,7 +8006,9 @@
     },
     {
       "name": "Nikkor Z 17-28mm f/2.8",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z17-28mm_f28/",
@@ -7811,7 +8037,9 @@
     },
     {
       "name": "Nikkor Z 24-120mm f/4 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z24-120mm_f4s/",
@@ -7849,7 +8077,9 @@
     },
     {
       "name": "Nikkor Z 28mm f/2.8",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z28mm_f28/",
@@ -7887,7 +8117,9 @@
     },
     {
       "name": "Nikkor Z 35mm f/1.4",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z35mm_f14/",
@@ -7996,7 +8228,9 @@
     },
     {
       "name": "Nikkor Z 85mm f/1.2 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z85mm_f12s/",
@@ -8025,7 +8259,9 @@
     },
     {
       "name": "Nikkor Z 100-400mm f/4.5-5.6 VR S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z100-400mm_f45-56_vr_s/",
@@ -8054,7 +8290,9 @@
     },
     {
       "name": "Nikkor Z 135mm f/1.8 S Plena",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z135mm_f18s_plena/",
@@ -8083,7 +8321,9 @@
     },
     {
       "name": "Nikkor Z 28-400mm f/4-8 VR",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z28-400mm_f4-8_vr/",
@@ -8192,7 +8432,9 @@
     },
     {
       "name": "Nikkor Z 400mm f/2.8 TC VR S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z400mm_f28_tc_vr_s/",
@@ -8221,7 +8463,9 @@
     },
     {
       "name": "Nikkor Z 600mm f/4 TC VR S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z600mm_f4_tc_vr_s/",
@@ -8250,7 +8494,9 @@
     },
     {
       "name": "Nikkor Z 800mm f/6.3 VR S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z800mm_f63_vr_s/",
@@ -8279,7 +8525,9 @@
     },
     {
       "name": "RF 14-35mm F4 L IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf14-35-f4l/",
@@ -8311,7 +8559,9 @@
     },
     {
       "name": "RF 16mm F2.8 STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf16-f28/",
@@ -8340,7 +8590,9 @@
     },
     {
       "name": "RF 24-105mm F2.8 L IS USM Z",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf24-105-f28l/",
@@ -8369,7 +8621,9 @@
     },
     {
       "name": "RF 100mm F2.8 L Macro IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf100-f28l/",
@@ -8408,7 +8662,9 @@
     },
     {
       "name": "RF 135mm F1.8 L IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf135-f18l/",
@@ -8440,7 +8696,9 @@
     },
     {
       "name": "RF 200-800mm F6.3-9 IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf200-800-f63/",
@@ -8469,7 +8727,9 @@
     },
     {
       "name": "RF 400mm F2.8 L IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf400-f28l/",
@@ -8498,7 +8758,9 @@
     },
     {
       "name": "RF 600mm F4 L IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf600-f4l/",
@@ -8527,7 +8789,9 @@
     },
     {
       "name": "RF 800mm F5.6 L IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf800-f56l/",
@@ -11945,7 +12209,9 @@
     },
     {
       "name": "NIKKOR Z 40mm f/2",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor-z-40mmf2/",
@@ -11983,7 +12249,9 @@
     },
     {
       "name": "NIKKOR Z MC 105mm f/2.8 VR S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor-z-mc-105mmf2-8-vr-s/",
@@ -12091,7 +12359,9 @@
     },
     {
       "name": "NIKKOR Z 70-180mm f/2.8",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor-z-70-180mmf2-8/",
@@ -12129,7 +12399,9 @@
     },
     {
       "name": "NIKKOR Z 180-600mm f/5.6-6.3 VR",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor-z-180-600mmf5-6-6-3vr/",
@@ -12170,7 +12442,9 @@
     },
     {
       "name": "NIKKOR Z MC 50mm f/2.8",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor-z-mc-50mmf2-8/",
@@ -12211,7 +12485,9 @@
     },
     {
       "name": "NIKKOR Z DX 12-28mm f/3.5-5.6 PZ VR",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor-z-dx-12-28mmf3-5-5-6-pz-vr/",
@@ -12240,7 +12516,9 @@
     },
     {
       "name": "NIKKOR Z DX 18-140mm f/3.5-6.3 VR",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor-z-dx-18-140mmf3-5-6-3vr/",
@@ -12278,7 +12556,9 @@
     },
     {
       "name": "NIKKOR Z DX 24mm f/1.7",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor-z-dx-24mmf1-7/",
@@ -12316,7 +12596,9 @@
     },
     {
       "name": "RF 50mm F1.4 L VCM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf50-f14l/",
@@ -12355,7 +12637,9 @@
     },
     {
       "name": "RF 500mm F4 L IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf500-f4l/",
@@ -12387,7 +12671,9 @@
     },
     {
       "name": "RF 100-300mm F2.8 L IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf100-300-f28l/",
@@ -12416,7 +12702,9 @@
     },
     {
       "name": "RF 24mm F1.8 Macro IS STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf24-f18/",
@@ -12445,7 +12733,9 @@
     },
     {
       "name": "RF 28mm F2.8 STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf28-f28/",
@@ -12481,7 +12771,9 @@
     },
     {
       "name": "RF 24-50mm F4.5-6.3 IS STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf24-50-f45-63/",
@@ -12510,7 +12802,9 @@
     },
     {
       "name": "RF 100-400mm F5.6-8 IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf100-400-f56-8/",
@@ -12539,7 +12833,9 @@
     },
     {
       "name": "RF-S 10-18mm F4.5-6.3 IS STM",
-      "supported_mounts": ["Canon RF-S"],
+      "supported_mounts": [
+        "Canon RF-S"
+      ],
       "mount": "Canon RF-S",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf-s10-18-f45-63/",
@@ -12577,7 +12873,9 @@
     },
     {
       "name": "RF-S 18-45mm F4.5-6.3 IS STM",
-      "supported_mounts": ["Canon RF-S"],
+      "supported_mounts": [
+        "Canon RF-S"
+      ],
       "mount": "Canon RF-S",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf-s18-45-f45-63/",
@@ -12615,7 +12913,9 @@
     },
     {
       "name": "RF-S 18-150mm F3.5-6.3 IS STM",
-      "supported_mounts": ["Canon RF-S"],
+      "supported_mounts": [
+        "Canon RF-S"
+      ],
       "mount": "Canon RF-S",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf-s18-150-f35-63/",
@@ -12653,7 +12953,9 @@
     },
     {
       "name": "RF-S 55-210mm F5-7.1 IS STM",
-      "supported_mounts": ["Canon RF-S"],
+      "supported_mounts": [
+        "Canon RF-S"
+      ],
       "mount": "Canon RF-S",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf-s55-210-f5-71/",
@@ -12682,7 +12984,9 @@
     },
     {
       "name": "RF-S 3.9mm F3.5 STM DUAL FISHEYE",
-      "supported_mounts": ["Canon RF-S"],
+      "supported_mounts": [
+        "Canon RF-S"
+      ],
       "mount": "Canon RF-S",
       "brand": "Canon",
       "source_url": "https://cweb.canon.jp/rf/lineup/rf-s39-f35/",
@@ -13101,7 +13405,9 @@
     },
     {
       "name": "Sigma 135mm F1.8 DG HSM Art",
-      "supported_mounts": ["DSLR / adapter"],
+      "supported_mounts": [
+        "DSLR / adapter"
+      ],
       "mount": "DSLR / adapter",
       "recommendation_note": "一眼レフ用/アダプター前提の旧世代Art。ミラーレス通常推薦では現行ミラーレス専用レンズを優先。",
       "recommendation_status": "avoid",
@@ -14612,7 +14918,9 @@
     },
     {
       "name": "XF8mmF3.5 R WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf8mmf35-r-wr/",
@@ -14641,7 +14949,9 @@
     },
     {
       "name": "XF14mmF2.8 R",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf14mmf28-r/",
@@ -14670,7 +14980,9 @@
     },
     {
       "name": "XF16mmF1.4 R WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf16mmf14-r-wr/",
@@ -14702,7 +15014,9 @@
     },
     {
       "name": "XF16mmF2.8 R WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf16mmf28-r-wr/",
@@ -14731,7 +15045,9 @@
     },
     {
       "name": "XF18mmF1.4 R LM WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf18mmf14-r-lm-wr/",
@@ -14763,7 +15079,9 @@
     },
     {
       "name": "XF18mmF2 R",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf18mmf2-r/",
@@ -14792,7 +15110,9 @@
     },
     {
       "name": "XF23mmF1.4 R LM WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf23mmf14-r-lm-wr/",
@@ -14833,7 +15153,9 @@
     },
     {
       "name": "XF23mmF2 R WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf23mmf2-r-wr/",
@@ -14865,7 +15187,9 @@
     },
     {
       "name": "XF23mmF2.8 R WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf23mmf28-r-wr/",
@@ -14978,7 +15302,9 @@
     },
     {
       "name": "XF27mmF2.8 R WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf27mmf28-r-wr/",
@@ -15010,7 +15336,9 @@
     },
     {
       "name": "XF30mmF2.8 R LM WR Macro",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf30mmf28-r-lm-wr-macro/",
@@ -15051,7 +15379,9 @@
     },
     {
       "name": "XF33mmF1.4 R LM WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf33mmf14-r-lm-wr/",
@@ -15083,7 +15413,9 @@
     },
     {
       "name": "XF35mmF1.4 R",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf35mmf14-r/",
@@ -15115,7 +15447,9 @@
     },
     {
       "name": "XF35mmF2 R WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf35mmf2-r-wr/",
@@ -15147,7 +15481,9 @@
     },
     {
       "name": "XF50mmF1.0 R WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf50mmf1-r-wr/",
@@ -15179,7 +15515,9 @@
     },
     {
       "name": "XF50mmF2 R WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf50mmf2-r-wr/",
@@ -15211,7 +15549,9 @@
     },
     {
       "name": "XF56mmF1.2 R WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf56mmf12-r-wr/",
@@ -15243,7 +15583,9 @@
     },
     {
       "name": "XF60mmF2.4 R Macro",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf60mmf24-r-macro/",
@@ -15272,7 +15614,9 @@
     },
     {
       "name": "XF80mmF2.8 R LM OIS WR Macro",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf80mmf28-r-lm-ois-wr-macro/",
@@ -15304,7 +15648,9 @@
     },
     {
       "name": "XF90mmF2 R LM WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf90mmf2-r-lm-wr/",
@@ -15336,7 +15682,9 @@
     },
     {
       "name": "XF200mmF2 R LM OIS WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf200mmf2-r-lm-ois-wr/",
@@ -15365,7 +15713,9 @@
     },
     {
       "name": "XF500mmF5.6 R LM OIS WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf500mmf56-r-lm-ois-wr/",
@@ -15394,7 +15744,9 @@
     },
     {
       "name": "XC35mmF2",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xc35mmf2/",
@@ -15426,7 +15778,9 @@
     },
     {
       "name": "XF8-16mmF2.8 R LM WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf8-16mmf28-r-lm-wr/",
@@ -15458,7 +15812,9 @@
     },
     {
       "name": "XF10-24mmF4 R OIS WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf10-24mmf4-r-ois-wr/",
@@ -15490,7 +15846,9 @@
     },
     {
       "name": "XF16-50mmF2.8-4.8 R LM WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf16-50mmf28-48-r-lm-wr/",
@@ -15522,7 +15880,9 @@
     },
     {
       "name": "XF16-55mmF2.8 R LM WR II",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf16-55mmf28-r-lm-wr-ii/",
@@ -15551,7 +15911,9 @@
     },
     {
       "name": "XF16-80mmF4 R OIS WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf16-80mmf4-r-ois-wr/",
@@ -15583,7 +15945,9 @@
     },
     {
       "name": "XF18-120mmF4 LM PZ WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf18-120mmf4-lm-pz-wr/",
@@ -15612,7 +15976,9 @@
     },
     {
       "name": "XF18-135mmF3.5-5.6 R LM OIS WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf18-135mmf35-56-r-lm-ois-wr/",
@@ -15644,7 +16010,9 @@
     },
     {
       "name": "XF50-140mmF2.8 R LM OIS WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf50-140mmf28-r-lm-ois-wr/",
@@ -15653,7 +16021,7 @@
       "official_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf50-140mmf28-r-lm-ois-wr/",
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Fujifilm%20XF50-140mmF2.8%20LM%20OIS%20WR&rh=n%3A2437276051&tag=techddd-22",
+          "amazon": "https://www.amazon.co.jp/dp/B00NGFLO74/ref=nosim?tag=techddd-22",
           "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FFujifilm%20XF50-140mmF2.8%20LM%20OIS%20WR%2F&link_type=text",
           "yahoo": "https://shopping.yahoo.co.jp/search?p=Fujifilm%20XF50-140mmF2.8%20LM%20OIS%20WR&astid=12"
         },
@@ -15676,7 +16044,9 @@
     },
     {
       "name": "XF55-200mmF3.5-4.8 R LM OIS",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf55-200mmf35-48-r-lm-ois/",
@@ -15705,7 +16075,9 @@
     },
     {
       "name": "XF70-300mmF4-5.6 R LM OIS WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf70-300mmf4-56-r-lm-ois-wr/",
@@ -15737,7 +16109,9 @@
     },
     {
       "name": "XF100-400mmF4.5-5.6 R LM OIS WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf100-400mmf45-56-r-lm-ois-wr/",
@@ -15769,7 +16143,9 @@
     },
     {
       "name": "XF150-600mmF5.6-8 R LM OIS WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xf150-600mmf56-8-r-lm-ois-wr/",
@@ -15798,7 +16174,9 @@
     },
     {
       "name": "XC13-33mmF3.5-6.3 OIS",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xc13-33mmf35-63-ois/",
@@ -15827,7 +16205,9 @@
     },
     {
       "name": "XC15-45mmF3.5-5.6 OIS PZ",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xc15-45mmf35-56-ois-pz/",
@@ -15856,7 +16236,9 @@
     },
     {
       "name": "XC50-230mmF4.5-6.7 OIS II",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "http://www.fujifilm-x.com/ja-jp/products/lenses/xc50-230mmf45-67-ois-2/",
@@ -15937,7 +16319,9 @@
     },
     {
       "name": "XF16-55mmF2.8 R LM WR",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "https://www.fujifilm-x.com/ja-jp/products/lenses/xf16-55mmf28-r-lm-wr/",
@@ -15966,7 +16350,9 @@
     },
     {
       "name": "XF18-55mmF2.8-4 R LM OIS",
-      "supported_mounts": ["Fujifilm X"],
+      "supported_mounts": [
+        "Fujifilm X"
+      ],
       "mount": "Fujifilm X",
       "brand": "Fujifilm",
       "source_url": "https://www.fujifilm-x.com/ja-jp/products/lenses/xf18-55mmf28-4-r-lm-ois/",
@@ -16359,7 +16745,9 @@
     },
     {
       "name": "Samyang AF 85mm F1.4 II FE",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Samyang",
       "source_url": "https://www.samyanglens.com/jp/product/product-view.php?seq=441",
@@ -16503,7 +16891,9 @@
     },
     {
       "name": "Tamron 17-28mm F/2.8 Di III RXD",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/a046/",
@@ -16692,7 +17082,9 @@
     },
     {
       "name": "Tamron 70-180mm F/2.8 Di III VXD",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/a056/",
@@ -16780,7 +17172,9 @@
     },
     {
       "name": "Tamron 17-50mm F/4 Di III VXD",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/a068/",
@@ -16818,7 +17212,9 @@
     },
     {
       "name": "Tamron 28-200mm F/2.8-5.6 Di III RXD",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/a071/",
@@ -16847,7 +17243,9 @@
     },
     {
       "name": "Tamron 20mm F/2.8 Di III OSD M1:2",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/f050/",
@@ -16885,7 +17283,9 @@
     },
     {
       "name": "Tamron 24mm F/2.8 Di III OSD M1:2",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/f051/",
@@ -16914,7 +17314,9 @@
     },
     {
       "name": "Tamron 35mm F/2.8 Di III OSD M1:2",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/f053/",
@@ -17115,7 +17517,9 @@
     },
     {
       "name": "Tamron 20-40mm F/2.8 Di III VXD",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Tamron",
       "source_url": "https://www.tamron.com/jp/consumer/lenses/a062/",
@@ -17240,7 +17644,9 @@
     },
     {
       "name": "FE 28-70mm F2 GM",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "brand": "Sony",
       "mount": "Sony E",
       "type": "zoom",
@@ -17276,7 +17682,9 @@
     },
     {
       "name": "FE 50-150mm F2 GM",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "brand": "Sony",
       "mount": "Sony E",
       "type": "zoom",
@@ -17312,7 +17720,9 @@
     },
     {
       "name": "FE 20-70mm F4 G",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "brand": "Sony",
       "mount": "Sony E",
       "type": "zoom",
@@ -17357,7 +17767,9 @@
     },
     {
       "name": "FE 24-50mm F2.8 G",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "brand": "Sony",
       "mount": "Sony E",
       "type": "zoom",
@@ -17474,7 +17886,9 @@
     },
     {
       "name": "FE 70-200mm F4 Macro G OSS II",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "brand": "Sony",
       "mount": "Sony E",
       "type": "zoom",
@@ -17519,7 +17933,9 @@
     },
     {
       "name": "FE 400-800mm F6.3-8 G OSS",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "brand": "Sony",
       "mount": "Sony E",
       "type": "zoom",
@@ -17555,7 +17971,9 @@
     },
     {
       "name": "FE 16mm F1.8 G",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "brand": "Sony",
       "mount": "Sony E",
       "type": "prime",
@@ -17683,7 +18101,10 @@
     },
     {
       "name": "Tamron 16-30mm F/2.8 Di III VXD G2",
-      "supported_mounts": ["Sony E","Nikon Z"],
+      "supported_mounts": [
+        "Sony E",
+        "Nikon Z"
+      ],
       "brand": "Tamron",
       "mount": "Sony E / Nikon Z",
       "type": "zoom",
@@ -17725,7 +18146,9 @@
     },
     {
       "name": "Tamron 25-200mm F/2.8-5.6 Di III VXD G2",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "brand": "Tamron",
       "mount": "Sony E",
       "type": "zoom",
@@ -17834,7 +18257,10 @@
     },
     {
       "name": "Tamron 28-300mm F/4-7.1 Di III VC VXD",
-      "supported_mounts": ["Sony E","Nikon Z"],
+      "supported_mounts": [
+        "Sony E",
+        "Nikon Z"
+      ],
       "brand": "Tamron",
       "mount": "Sony E / Nikon Z",
       "type": "zoom",
@@ -17867,7 +18293,10 @@
     },
     {
       "name": "Tamron 70-300mm F/4.5-6.3 Di III RXD",
-      "supported_mounts": ["Sony E","Nikon Z"],
+      "supported_mounts": [
+        "Sony E",
+        "Nikon Z"
+      ],
       "brand": "Tamron",
       "mount": "Sony E / Nikon Z",
       "type": "zoom",
@@ -18127,7 +18556,9 @@
     },
     {
       "name": "RF7-14mm F2.8-3.5 L FISHEYE STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf7-14mmf28-35lfish",
@@ -18157,7 +18588,9 @@
     },
     {
       "name": "RF10-20mm F4 L IS STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf10-20mmf4listm",
@@ -18187,7 +18620,9 @@
     },
     {
       "name": "RF15-30mm F4.5-6.3 IS STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf15-30mmf45-63isstm",
@@ -18226,7 +18661,9 @@
     },
     {
       "name": "RF16-28mm F2.8 IS STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf16-28mmf28isstm",
@@ -18265,7 +18702,9 @@
     },
     {
       "name": "RF28-70mm F2.8 IS STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf28-70mmf28isstm",
@@ -18374,7 +18813,9 @@
     },
     {
       "name": "RF70-200mm F2.8 L IS USM Z",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf70-200mmf28lisusmz",
@@ -18414,7 +18855,9 @@
     },
     {
       "name": "RF75-300mm F4-5.6",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf75-300mmf4-56",
@@ -18523,7 +18966,9 @@
     },
     {
       "name": "RF5.2mm F2.8 L DUAL FISHEYE",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf52mmf28ldualfisheye",
@@ -18553,7 +18998,9 @@
     },
     {
       "name": "RF14mm F1.4 L VCM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf14mmf14lvcm",
@@ -18583,7 +19030,9 @@
     },
     {
       "name": "RF20mm F1.4 L VCM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf20mmf14lvcm",
@@ -18613,7 +19062,9 @@
     },
     {
       "name": "RF24mm F1.4 L VCM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf24mmf14lvcm",
@@ -18643,7 +19094,9 @@
     },
     {
       "name": "RF35mm F1.4 L VCM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf35mmf14lvcm",
@@ -18651,7 +19104,7 @@
       "review_links": {},
       "purchase_links": {
         "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Canon+RF35mm+F1.4+L+VCM&rh=n%3A2437276051&tag=techddd-22",
+          "amazon": "https://www.amazon.co.jp/dp/B0D5ZJ2XJ9/ref=nosim?tag=techddd-22",
           "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FCanon+RF35mm+F1.4+L+VCM%2F&link_type=text",
           "yahoo": "https://shopping.yahoo.co.jp/search?p=Canon+RF35mm+F1.4+L+VCM&astid=12"
         }
@@ -18676,7 +19129,9 @@
     },
     {
       "name": "RF45mm F1.2 STM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf45mmf12stm",
@@ -18787,7 +19242,9 @@
     },
     {
       "name": "RF85mm F1.4 L VCM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf85mmf14lvcm",
@@ -18820,7 +19277,9 @@
     },
     {
       "name": "RF1200mm F8 L IS USM",
-      "supported_mounts": ["Canon RF"],
+      "supported_mounts": [
+        "Canon RF"
+      ],
       "mount": "Canon RF",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rf1200mmf8liusm",
@@ -18850,7 +19309,9 @@
     },
     {
       "name": "RF-S14-30mm F4-6.3 IS STM PZ",
-      "supported_mounts": ["Canon RF-S"],
+      "supported_mounts": [
+        "Canon RF-S"
+      ],
       "mount": "Canon RF-S",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rfs14-30mmf4-63isstmpz",
@@ -18880,7 +19341,9 @@
     },
     {
       "name": "RF-S7.8mm F4 STM DUAL",
-      "supported_mounts": ["Canon RF-S"],
+      "supported_mounts": [
+        "Canon RF-S"
+      ],
       "mount": "Canon RF-S",
       "brand": "Canon",
       "source_url": "https://personal.canon.jp/product/camera/lens/rfs78mmf4stmdual",
@@ -18910,7 +19373,9 @@
     },
     {
       "name": "NIKKOR Z 26mm f/2.8",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_26mm_f28/",
@@ -18951,7 +19416,9 @@
     },
     {
       "name": "NIKKOR Z 28mm f/2.8",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_28mm_f28/",
@@ -18992,7 +19459,9 @@
     },
     {
       "name": "NIKKOR Z 28mm f/2.8 (Special Edition)",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_28mm_f28_se/",
@@ -19033,7 +19502,9 @@
     },
     {
       "name": "NIKKOR Z 35mm f/1.2 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_35mm_f12_s/",
@@ -19070,7 +19541,9 @@
     },
     {
       "name": "NIKKOR Z 35mm f/1.4",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_35mm_f14/",
@@ -19185,7 +19658,9 @@
     },
     {
       "name": "NIKKOR Z 40mm f/2 (SE)",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_40mm_f2_se/",
@@ -19226,7 +19701,9 @@
     },
     {
       "name": "NIKKOR Z 50mm f/1.4",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_50mm_f14/",
@@ -19270,7 +19747,9 @@
     },
     {
       "name": "NIKKOR Z 85mm f/1.2 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_85mm_f12_s/",
@@ -19305,7 +19784,9 @@
     },
     {
       "name": "NIKKOR Z 135mm f/1.8 S Plena",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_135mm_f18_s_plena/",
@@ -19340,7 +19821,9 @@
     },
     {
       "name": "NIKKOR Z 400mm f/2.8 TC VR S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_400mm_f28_tc_vr_s/",
@@ -19372,7 +19855,9 @@
     },
     {
       "name": "NIKKOR Z 400mm f/4.5 VR S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_400mm_f45_vr_s/",
@@ -19404,7 +19889,9 @@
     },
     {
       "name": "NIKKOR Z 600mm f/4 TC VR S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_600mm_f4_tc_vr_s/",
@@ -19436,7 +19923,9 @@
     },
     {
       "name": "NIKKOR Z 600mm f/6.3 VR S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_600mm_f63_vr_s/",
@@ -19468,7 +19957,9 @@
     },
     {
       "name": "NIKKOR Z 800mm f/6.3 VR S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_800mm_f63_vr_s/",
@@ -19500,7 +19991,9 @@
     },
     {
       "name": "NIKKOR Z 17-28mm f/2.8",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_17-28mm_f28/",
@@ -19532,7 +20025,9 @@
     },
     {
       "name": "NIKKOR Z 24-120mm f/4 S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_24-120mm_f4_s/",
@@ -19576,7 +20071,9 @@
     },
     {
       "name": "NIKKOR Z 28-75mm f/2.8",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_28-75mm_f28/",
@@ -19611,7 +20108,9 @@
     },
     {
       "name": "NIKKOR Z 28-135mm f/4 PZ",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_28-135mm_f4_pz/",
@@ -19643,7 +20142,9 @@
     },
     {
       "name": "NIKKOR Z 100-400mm f/4.5-5.6 VR S",
-      "supported_mounts": ["Nikon Z"],
+      "supported_mounts": [
+        "Nikon Z"
+      ],
       "mount": "Nikon Z",
       "brand": "Nikon",
       "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_100-400mm_f45-56_vr_s/",
@@ -20928,7 +21429,9 @@
     },
     {
       "name": "Batis 2/25",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Zeiss",
       "source_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/batis/batis-225.html",
@@ -20958,7 +21461,9 @@
     },
     {
       "name": "Loxia 2.8/21",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Zeiss",
       "source_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-2821.html",
@@ -20988,7 +21493,9 @@
     },
     {
       "name": "Loxia 2.4/25",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Zeiss",
       "source_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-2425.html",
@@ -21018,7 +21525,9 @@
     },
     {
       "name": "Loxia 2/35",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Zeiss",
       "source_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-235.html",
@@ -21047,7 +21556,9 @@
     },
     {
       "name": "Loxia 2/50",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Zeiss",
       "source_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-250.html",
@@ -21077,7 +21588,9 @@
     },
     {
       "name": "Loxia 2.4/85",
-      "supported_mounts": ["Sony E"],
+      "supported_mounts": [
+        "Sony E"
+      ],
       "mount": "Sony E",
       "brand": "Zeiss",
       "source_url": "https://www.zeiss.com/consumer-products/jp/photography/lenses/loxia/loxia-2485.html",
