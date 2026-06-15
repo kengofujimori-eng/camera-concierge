@@ -25,6 +25,7 @@ const path = require('path')
 const CHROME_PATHS = [
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
   '/Applications/Chromium.app/Contents/MacOS/Chromium',
+  '/tmp/chrome/chrome/linux_arm-149.0.7827.115/chrome-linux64/chrome',
   '/usr/bin/google-chrome',
   '/usr/bin/chromium-browser',
 ]
