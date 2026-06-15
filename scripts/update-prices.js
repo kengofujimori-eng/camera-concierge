@@ -93,6 +93,7 @@ function searchVariants(name) {
 }
 
 const LENS_DATA_PATH  = path.join(__dirname, '../public/lens_data.json')
+const PRICE_HISTORY_PATH = path.join(__dirname, '../public/price_history.json')
 const KAKAKU_ID_MAP_PATH = path.join(__dirname, '../data/kakaku_id_map.json')
 const PROGRESS_PATH   = path.join(__dirname, '../.price-update-progress.json')
 const DELAY_MS        = 2500   // リクエスト間隔（ms）
@@ -115,6 +116,31 @@ function loadKakakuIdMap() {
     return JSON.parse(fs.readFileSync(KAKAKU_ID_MAP_PATH, 'utf8'))
   } catch {
     return {}
+  }
+}
+
+// public/price_history.json … { "レンズ名": [ {date, new, used}, ... ] } の時系列価格履歴。
+// 機械生成専用ファイル（人間が手編集しない）。存在しない / 壊れている場合は空オブジェクトから作る。
+function loadPriceHistory() {
+  try {
+    return JSON.parse(fs.readFileSync(PRICE_HISTORY_PATH, 'utf8'))
+  } catch {
+    return {}
+  }
+}
+
+// その日の {date, new, used} を履歴に記録する。
+// 同一 date のエントリが既にあれば上書き、なければ追記し、date 昇順を維持する
+// （同じ日に複数回 --force-all しても 1日1点に保つ）。取得できなかった値は null。
+function recordPriceHistory(history, name, date, newPrice, usedPrice) {
+  const arr = (history[name] ??= [])
+  const entry = { date, new: newPrice ?? null, used: usedPrice ?? null }
+  const idx = arr.findIndex(e => e.date === date)
+  if (idx === -1) {
+    arr.push(entry)
+    arr.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
+  } else {
+    arr[idx] = entry
   }
 }
 
@@ -284,6 +310,7 @@ async function main() {
   const data = JSON.parse(fs.readFileSync(LENS_DATA_PATH, 'utf8'))
   const lenses = data.lenses
   const kakakuIdMap = loadKakakuIdMap()
+  const priceHistory = loadPriceHistory()
 
   // 更新対象フィルタリング
   const today = new Date().toISOString().slice(0, 10)
@@ -355,17 +382,22 @@ async function main() {
           fetched_at: today,
           kakaku_url: prices.kakakuUrl,
         }
+        // その日に実際に取得できた価格を履歴に記録（取れなかった側は null）
+        recordPriceHistory(priceHistory, lens.name, today, prices.priceNew ?? null, prices.priceUsed ?? null)
         const n = prices.priceNew  ? `¥${prices.priceNew.toLocaleString()}`  : '-'
         const u = prices.priceUsed ? `¥${prices.priceUsed.toLocaleString()}` : '-'
         console.log(`✓  新品:${n}  中古:${u}`)
         progress.completed.push(lens.name)
         updated++
       } else {
+        // 取得できなかった日も「取れなかった」記録として null を残す
+        recordPriceHistory(priceHistory, lens.name, today, null, null)
         console.log('×  価格取得できず')
         progress.failed.push(lens.name)
         failed++
       }
     } catch (err) {
+      recordPriceHistory(priceHistory, lens.name, today, null, null)
       console.log(`×  エラー: ${err.message.slice(0, 60)}`)
       progress.failed.push(lens.name)
       failed++
@@ -375,6 +407,7 @@ async function main() {
     if ((i + 1) % SAVE_INTERVAL === 0) {
       data.lenses = lenses
       fs.writeFileSync(LENS_DATA_PATH, JSON.stringify(data, null, 2))
+      fs.writeFileSync(PRICE_HISTORY_PATH, JSON.stringify(priceHistory, null, 2))
       fs.writeFileSync(PROGRESS_PATH, JSON.stringify(progress, null, 2))
       console.log(`  💾 中間保存 (${i + 1}/${targets.length})`)
     }
@@ -388,6 +421,7 @@ async function main() {
   data.lenses = lenses
   data.scraped_at = today
   fs.writeFileSync(LENS_DATA_PATH, JSON.stringify(data, null, 2))
+  fs.writeFileSync(PRICE_HISTORY_PATH, JSON.stringify(priceHistory, null, 2))
   fs.writeFileSync(PROGRESS_PATH, JSON.stringify(progress, null, 2))
 
   console.log('\n' + '='.repeat(40))
