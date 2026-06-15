@@ -2351,75 +2351,6 @@
       "image_url_external": "https://www.sony.jp/products/picture/SEL1224G.jpg"
     },
     {
-      "name": "Vario-Tessar T* FE 16-35mm F4?",
-      "supported_mounts": [
-        "Sony E"
-      ],
-      "mount": "Sony E",
-      "brand": "Sony",
-      "source_url": "https://asobinet.com/vario-tessar-t-fe-16-35mm-f4-za-oss/",
-      "review_links": {
-        "0": {
-          "site": "Photo Yodobashi",
-          "url": "http://photo.yodobashi.com/gear/sony/lens/sel1635z.html",
-          "label": "フォトヨドバシ"
-        },
-        "1": {
-          "site": "DPReview",
-          "url": "https://www.dpreview.com/products/sony/lenses/sony_zeiss_16-35_f4_za_oss/sample-photos",
-          "label": "DPREVIEW"
-        },
-        "2": {
-          "site": "DxOMark",
-          "url": "http://www.dxomark.com/Lenses/Sony/Sony-FE-Carl-Zeiss-Vario-Tessar-T-STAR-16-35mm-F4-ZA-OSS",
-          "label": "DxO Mark"
-        },
-        "3": {
-          "site": "DxOMark",
-          "url": "https://www.dxomark.com/Reviews/Sony-Vario-Tessar-T-FE-16-35mm-f-4-ZA-OSS-lens-review-Welcome-addition-to-the-range/Sony-Vario-Tessar-T-FE-16-35mm-f-4-ZA-OSS-sharp-but-higher-than-expected-CA",
-          "label": "DxO Mark レビュー1"
-        },
-        "4": {
-          "site": "DxOMark",
-          "url": "https://www.dxomark.com/Reviews/Sony-Vario-Tessar-T-FE-16-35mm-f-4-ZA-OSS-lens-review-Welcome-addition-to-the-range/Sony-Vario-Tessar-T-FE-16-35mm-f-4-ZA-OSS-vs-Canon-EF-16-35mm-f4-ISUSM-vs-Nikon-AF-S-Nikkor-16-35mm-f4G-ED-VR",
-          "label": "DxO Mark レビュー2"
-        },
-        "5": {
-          "site": "DPReview",
-          "url": "https://www.dpreview.com/products/sony/lenses/sony_zeiss_16-35_f4_za_oss",
-          "label": "DPREVIEW"
-        },
-        "6": {
-          "site": "The Digital Picture",
-          "url": "http://www.the-digital-picture.com/Reviews/Sony-FE-16-35mm-f-4-ZA-OSS-Lens.aspx",
-          "label": "The Digital Picture"
-        }
-      },
-      "image_url": "/lens_images_processed/Vario-Tessar_T__FE_16-35mm_F4_.png",
-      "weight": null,
-      "length": null,
-      "filter_size": null,
-      "min_focus": null,
-      "purchase_links": {
-        "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Zeiss%20Vario-Tessar%20FE%2016-35mm%20F4&rh=n%3A2437276051&tag=techddd-22",
-          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FZeiss%20Vario-Tessar%20FE%2016-35mm%20F4%2F&link_type=text",
-          "yahoo": "https://shopping.yahoo.co.jp/search?p=Zeiss%20Vario-Tessar%20FE%2016-35mm%20F4&astid=12"
-        },
-        "used": {
-          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DZeiss%20Vario-Tessar%20FE%2016-35mm%20F4"
-        }
-      },
-      "price_info": {
-        "new_price": 104800,
-        "used_price": 54000,
-        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/belletoi/cabinet/11236590/23140129_0.jpg?_ex=128x128",
-        "fetched_at": "2026-06-15",
-        "kakaku_url": "https://kakaku.com/item/K0000694063/"
-      },
-      "image_url_external": "https://www.sony.jp/products/picture/SEL1635Z.jpg"
-    },
-    {
       "name": "FE 16-35mm F2.8 GM",
       "supported_mounts": [
         "Sony E"
@@ -6403,113 +6334,6 @@
       "image_url_external": "https://asobinet.com/wp-content/uploads/2018/03/AF35FE.jpg"
     },
     {
-      "name": "AF 45mm F1.8 FE",
-      "source_url": "https://asobinet.com/af-45mm-f1-8-fe/",
-      "review_links": {
-        "0": {
-          "site": "Lenstip",
-          "url": "https://www.lenstip.com/index.php?test=obiektywu&test_ob=590",
-          "label": "Lenstip"
-        },
-        "asobinet": "https://asobinet.com/review-m-zuiko-digital-45mm-f1-8-ab/"
-      },
-      "image_url": "/lens_images_processed/AF_45mm_F1.8_FE.png",
-      "weight": 162,
-      "length": 56,
-      "filter_size": 49,
-      "min_focus": 45,
-      "official_url": "https://www.samyanglens.com/jp/product/product-view.php?seq=395",
-      "purchase_links": {
-        "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=AF%2045mm%20F1.8%20FE&rh=n%3A2437276051&tag=techddd-22",
-          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAF%2045mm%20F1.8%20FE%2F&link_type=text",
-          "yahoo": "https://shopping.yahoo.co.jp/search?p=AF%2045mm%20F1.8%20FE&astid=12"
-        },
-        "used": {
-          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DAF%2045mm%20F1.8%20FE"
-        }
-      },
-      "price_info": {
-        "new_price": 37700,
-        "used_price": 12800,
-        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/mituboshicamera/cabinet/02484512/06389911/imgrc0082946682.jpg?_ex=128x128",
-        "fetched_at": "2026-06-15",
-        "kakaku_url": "https://kakaku.com/item/K0001166804/"
-      },
-      "image_url_external": "https://m.media-amazon.com/images/I/71dT866GzFL._AC_UY218_.jpg",
-      "asobinet_info": {
-        "review_url": "https://asobinet.com/review-m-zuiko-digital-45mm-f1-8-ab/",
-        "has_full_review": false,
-        "ratings": null,
-        "sample_images": null,
-        "fetched_at": "2026-04-30"
-      }
-    },
-    {
-      "name": "AF 50mm F1.4 FE",
-      "brand": "Samyang",
-      "source_url": "https://asobinet.com/af50mm-f1-4-fe/",
-      "review_links": {
-        "0": {
-          "site": "DPReview",
-          "url": "https://www.dpreview.com/samples/0108248925/rokinon-af-50mm-f1-4-fe-sample-gallery-impressions",
-          "label": "Dpreview"
-        },
-        "1": {
-          "site": "Photo Yodobashi",
-          "url": "http://photo.yodobashi.com/sony/lens/af50_f14fe/",
-          "label": "フォトヨドバシ"
-        },
-        "2": {
-          "site": "DxOMark",
-          "url": "https://www.dxomark.com/Lenses/Samyang/Samyang-AF-50mm-F14-Sony-FE",
-          "label": "DxOMark"
-        },
-        "3": {
-          "site": "DPReview",
-          "url": "https://www.dpreview.com/products/samyang/lenses/samyang_af_50_1p4_fe",
-          "label": "DPreview"
-        },
-        "4": {
-          "site": "Lenstip",
-          "url": "http://www.lenstip.com/index.php?test=obiektywu&test_ob=490",
-          "label": "LensTips"
-        },
-        "asobinet": "https://asobinet.com/review-af-50mm-f1-4-ii-bokeh/"
-      },
-      "image_url": "/lens_images_processed/AF_50mm_F1.4_FE.png",
-      "weight": 585,
-      "length": null,
-      "filter_size": null,
-      "min_focus": 45,
-      "official_url": "https://www.samyanglens.com/jp/product/product-view.php?seq=352",
-      "purchase_links": {
-        "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=AF%2050mm%20F1.4%20FE&rh=n%3A2437276051&tag=techddd-22",
-          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAF%2050mm%20F1.4%20FE%2F&link_type=text",
-          "yahoo": "https://shopping.yahoo.co.jp/search?p=AF%2050mm%20F1.4%20FE&astid=12"
-        },
-        "used": {
-          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DAF%2050mm%20F1.4%20FE"
-        }
-      },
-      "price_info": {
-        "new_price": 157978,
-        "used_price": 146000,
-        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/emedama/cabinet/7698/8809298887698_1.jpg?_ex=128x128",
-        "fetched_at": "2026-06-15",
-        "kakaku_url": "https://kakaku.com/item/K0001518235/"
-      },
-      "image_url_external": "https://m.media-amazon.com/images/I/51Md-wcv9hL._AC_UY218_.jpg",
-      "asobinet_info": {
-        "review_url": "https://asobinet.com/review-nikkor-z-50mm-f-1-4-ab/",
-        "has_full_review": false,
-        "ratings": null,
-        "sample_images": null,
-        "fetched_at": "2026-04-30"
-      }
-    },
-    {
       "name": "AF 75mm F1.8 FE",
       "source_url": "https://asobinet.com/af-75mm-f1-8-fe/",
       "review_links": {
@@ -7456,47 +7280,6 @@
       "recommendation_note": "小型軽量な現行G単焦点。携行性と操作性を重視する日常用に推薦しやすい。"
     },
     {
-      "name": "FE 70-200mm F4 Macro G OSS",
-      "supported_mounts": [
-        "Sony E"
-      ],
-      "mount": "Sony E",
-      "brand": "Sony",
-      "source_url": "https://www.sony.jp/ichigan/products/SEL70200G2/",
-      "review_links": {
-        "asobinet": "https://asobinet.com/review-fe-70-200mm-f4-macro-g-oss-ii-vine/"
-      },
-      "image_url": "/lens_images_processed/FE_70-200mm_F4_Macro_G_OSS.png",
-      "official_url": "https://www.sony.jp/ichigan/products/SEL70200G2/",
-      "purchase_links": {
-        "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Sony%20FE%2070-200mm%20F4%20Macro%20OSS&rh=n%3A2437276051&tag=techddd-22",
-          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSony%20FE%2070-200mm%20F4%20Macro%20OSS%2F&link_type=text",
-          "yahoo": "https://shopping.yahoo.co.jp/search?p=Sony%20FE%2070-200mm%20F4%20Macro%20OSS&astid=12"
-        },
-        "used": {
-          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DSony%20FE%2070-200mm%20F4%20Macro%20OSS"
-        }
-      },
-      "price_info": {
-        "new_price": 199383,
-        "used_price": 179800,
-        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/winkstore/cabinet/256000/255935.jpg?_ex=128x128",
-        "fetched_at": "2026-06-15",
-        "kakaku_url": "https://kakaku.com/item/K0001552472/"
-      },
-      "photo_yodobashi_url": null,
-      "model_code": "SEL70200G2",
-      "image_url_external": "https://www.sony.jp/products/picture/SEL70200G2.jpg",
-      "asobinet_info": {
-        "review_url": "https://asobinet.com/review-fe-70-200mm-f4-macro-g-oss-ii-vine/",
-        "has_full_review": false,
-        "ratings": null,
-        "sample_images": null,
-        "fetched_at": "2026-04-30"
-      }
-    },
-    {
       "name": "FE PZ 10-20mm F4 G",
       "supported_mounts": [
         "Sony E"
@@ -8206,47 +7989,6 @@
       "image_url_external": "https://nij.nikon.com/cms/products/nikkor/zmount/nikkor_z_24-120mm_f4_s/img/index/product_01.jpg",
       "asobinet_info": {
         "review_url": "https://asobinet.com/review-nikkor-z-24-120mm-f-4-s-aberrations/",
-        "has_full_review": false,
-        "ratings": null,
-        "sample_images": null,
-        "fetched_at": "2026-04-30"
-      }
-    },
-    {
-      "name": "Nikkor Z 28mm f/2.8",
-      "supported_mounts": [
-        "Nikon Z"
-      ],
-      "mount": "Nikon Z",
-      "brand": "Nikon",
-      "source_url": "https://www.nikon-image.com/products/nikkor/zmount/z28mm_f28/",
-      "review_links": {
-        "asobinet": "https://asobinet.com/review-nikkor-z-28mm-f-2-8-aberrations/"
-      },
-      "image_url": "/lens_images_processed/Nikkor_Z_28mm_f_2.8.png",
-      "official_url": "https://nij.nikon.com/products/lineup/nikkor/zmount/nikkor_z_28mm_f28/",
-      "purchase_links": {
-        "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Nikon%20Nikkor%2028mm%20F2.8&rh=n%3A2437276051&tag=techddd-22",
-          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FNikon%20Nikkor%2028mm%20F2.8%2F&link_type=text",
-          "yahoo": "https://shopping.yahoo.co.jp/search?p=Nikon%20Nikkor%2028mm%20F2.8&astid=12"
-        },
-        "used": {
-          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DNikon%20Nikkor%2028mm%20F2.8"
-        }
-      },
-      "price_info": {
-        "new_price": 101900,
-        "used_price": 80997,
-        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/auc-worldichi/cabinet/10/4960759909275.jpg?_ex=128x128",
-        "fetched_at": "2026-06-15",
-        "kakaku_url": "https://kakaku.com/item/K0001408559/"
-      },
-      "photo_yodobashi_url": null,
-      "model_code": "z28mm_f28",
-      "image_url_external": "https://nij.nikon.com/cms/products/nikkor/zmount/nikkor_z_28mm_f28/img/index/product_01.jpg",
-      "asobinet_info": {
-        "review_url": "https://asobinet.com/review-nikkor-z-28mm-f-2-8-aberrations/",
         "has_full_review": false,
         "ratings": null,
         "sample_images": null,
@@ -8972,38 +8714,6 @@
       "photo_yodobashi_url": null,
       "model_code": "rf800-f56l",
       "image_url_external": "https://personal.canon.jp/-/media/Project/Canon/CanonJP/Personal/product/camera/rf/rf800-f56l/rf800-f56l.jpg?sc_lang=ja-JP\\&hash=A73A9F323B20BF1CCA9C9BFD1BAD5A95"
-    },
-    {
-      "name": "AF 50mm F1.4 Pro Z",
-      "source_url": "https://viltrox.com/products/af-50mm-f1-4-z",
-      "review_links": {},
-      "image_url": "/lens_images_processed/AF_50mm_F1.4_Pro_Z.png",
-      "official_url": "https://viltrox.com/products/af-50mm-f1-4-z",
-      "purchase_links": {
-        "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=AF%2050mm%20F1.4%20Pro&rh=n%3A2437276051&tag=techddd-22",
-          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAF%2050mm%20F1.4%20Pro%2F&link_type=text",
-          "yahoo": "https://shopping.yahoo.co.jp/search?p=AF%2050mm%20F1.4%20Pro&astid=12"
-        },
-        "used": {
-          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DAF%2050mm%20F1.4%20Pro"
-        }
-      },
-      "price_info": {
-        "new_price": 99990,
-        "used_price": null,
-        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/konanonline/cabinet/root_sniper_folder/sniper_folder_00028/imgrc0354953284.jpg?_ex=128x128",
-        "fetched_at": "2026-06-15",
-        "kakaku_url": "https://kakaku.com/item/K0001771545/"
-      },
-      "image_url_external": "http://viltrox.com/cdn/shop/files/AF_50mm_F1.4_Pro_Z-front_view.png?v=1770713155",
-      "asobinet_info": {
-        "review_url": "https://asobinet.com/review-lumix-s-pro-50mm-f1-4-ab/",
-        "has_full_review": false,
-        "ratings": null,
-        "sample_images": null,
-        "fetched_at": "2026-04-30"
-      }
     },
     {
       "name": "AF 16mm F1.8 L",
@@ -12896,41 +12606,6 @@
       "recommendation_note": "現行L VCMの標準単焦点。F1.2より扱いやすく、静止画と動画の両方で有力候補。"
     },
     {
-      "name": "RF 500mm F4 L IS USM",
-      "supported_mounts": [
-        "Canon RF"
-      ],
-      "mount": "Canon RF",
-      "brand": "Canon",
-      "source_url": "https://cweb.canon.jp/rf/lineup/rf500-f4l/",
-      "review_links": {},
-      "image_url": "/lens_images_processed/RF_500mm_F4_L_IS_USM.png",
-      "official_url": "https://cweb.canon.jp/rf/lineup/rf500-f4l/",
-      "purchase_links": {
-        "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Canon%20RF%20500mm%20F4%20IS%20USM&rh=n%3A2437276051&tag=techddd-22",
-          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FCanon%20RF%20500mm%20F4%20IS%20USM%2F&link_type=text",
-          "yahoo": "https://shopping.yahoo.co.jp/search?p=Canon%20RF%20500mm%20F4%20IS%20USM&astid=12"
-        },
-        "used": {
-          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DCanon%20RF%20500mm%20F4%20IS%20USM"
-        }
-      },
-      "price_info": {
-        "new_price": 368042,
-        "used_price": 373800,
-        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/sydenki/cabinet/img006/4549292168037.jpg?_ex=128x128",
-        "fetched_at": "2026-06-15",
-        "kakaku_url": "https://kakaku.com/item/K0001272155/"
-      },
-      "photo_yodobashi_url": null,
-      "model_code": "rf500-f4l",
-      "discontinued": true,
-      "image_url_external": "https://m.media-amazon.com/images/I/61c51Vf8jlL._AC_UY218_.jpg",
-      "discontinued_reason": "RF純正として通常購入しづらい特殊な超望遠候補。通常推薦では現行RF超望遠を優先",
-      "replacement": "RF 100-500mm F4.5-7.1 L IS USM"
-    },
-    {
       "name": "RF 100-300mm F2.8 L IS USM",
       "supported_mounts": [
         "Canon RF"
@@ -13382,39 +13057,6 @@
       "photo_yodobashi_url": null,
       "model_code": "a062_24_f14",
       "image_url_external": "https://www.sigma-global.com/lenses/a022_24_14_product_img03.png"
-    },
-    {
-      "name": "Sigma 28mm F1.4 DG DN Art",
-      "brand": "Sigma",
-      "mount": "Sony E / L mount",
-      "supported_mounts": [
-        "Sony E",
-        "L mount"
-      ],
-      "source_url": "https://www.sigma-global.com/jp/lenses/a086_28_f14/",
-      "review_links": {},
-      "image_url": "/lens_images_processed/Sigma_28mm_F1.4_DG_DN_Art.png",
-      "official_url": "https://www.sigma-global.com/jp/lenses/a086_28_f14/",
-      "purchase_links": {
-        "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Sigma%2028mm%20F1.4%20DG%20DN%20Art&rh=n%3A2437276051&tag=techddd-22",
-          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSigma%2028mm%20F1.4%20DG%20DN%20Art%2F&link_type=text",
-          "yahoo": "https://shopping.yahoo.co.jp/search?p=Sigma%2028mm%20F1.4%20DG%20DN%20Art&astid=12"
-        },
-        "used": {
-          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DSigma%2028mm%20F1.4%20DG%20DN%20Art"
-        }
-      },
-      "price_info": {
-        "new_price": 192900,
-        "used_price": 133600,
-        "image_url": null,
-        "fetched_at": "2026-06-15",
-        "kakaku_url": "https://kakaku.com/item/K0001629252/"
-      },
-      "photo_yodobashi_url": null,
-      "model_code": "a086_28_f14",
-      "image_url_external": "https://m.media-amazon.com/images/I/61M8ssMuw8L._AC_UY218_.jpg"
     },
     {
       "name": "Sigma 35mm F1.2 DG DN Art",
@@ -18826,45 +18468,6 @@
       "review_links": {}
     },
     {
-      "name": "Samyang AF 50mm F1.8 FE",
-      "brand": "Samyang",
-      "mount": "FE",
-      "type": "prime",
-      "focal_length": "50",
-      "max_aperture": 1.8,
-      "source_url": "https://www.samyanglens.com/jp/product/product-view.php?seq=582",
-      "image_url": null,
-      "discontinued": false,
-      "purchase_links": {
-        "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Samyang%20AF%2050mm%20F1.8%20FE&rh=n%3A2437276051&tag=techddd-22",
-          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSamyang%20AF%2050mm%20F1.8%20FE%2F&link_type=text",
-          "yahoo": "https://shopping.yahoo.co.jp/search?p=Samyang%20AF%2050mm%20F1.8%20FE&astid=12"
-        },
-        "used": {
-          "kitamura": "https://px.a8.net/svt/ejp?a8mat=4B1N9L+CONHRM+2O9U+BW8O2&a8ejpredirect=https%3A%2F%2Fwww.kitamura.jp%2Fused%2Fsearch%2F%3Fq%3DSamyang%20AF%2050mm%20F1.8%20FE"
-        }
-      },
-      "price_info": {
-        "new_price": 67599,
-        "used_price": 55500,
-        "image_url": null,
-        "fetched_at": "2026-06-15",
-        "kakaku_url": "https://kakaku.com/item/K0001411098/"
-      },
-      "asobinet_info": {
-        "review_url": "https://asobinet.com/review-nikkor-z-50mm-f-1-8-s-aberrations/",
-        "has_full_review": false,
-        "ratings": null,
-        "sample_images": null,
-        "fetched_at": "2026-04-30"
-      },
-      "review_links": {},
-      "availability_status": "unknown",
-      "recommendation_status": "avoid",
-      "recommendation_note": "公式確認できず、価格.com URLもAF 45mm F1.8 FEを指している疑いがあるため通常推薦しない。"
-    },
-    {
       "name": "Samyang Remaster Slim 21mm F3.5",
       "brand": "Samyang",
       "mount": "FE",
@@ -20539,43 +20142,6 @@
       "image_url_external": "https://nij.nikon.com/cms/products/lineup/nikkor/zmount/nikkor_z_28-135mm_f4_pz/img/index/product_01.jpg",
       "photo_yodobashi_url": null,
       "model_code": "nikkor_z_28-135mm_f4_pz"
-    },
-    {
-      "name": "NIKKOR Z 100-400mm f/4.5-5.6 VR S",
-      "supported_mounts": [
-        "Nikon Z"
-      ],
-      "mount": "Nikon Z",
-      "brand": "Nikon",
-      "source_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_100-400mm_f45-56_vr_s/",
-      "image_url": "/lens_images_processed/NIKKOR_Z_100-400mm_f_4.5-5.6_VR_S.png",
-      "official_url": "https://www.nikon-image.com/products/nikkor/zmount/nikkor_z_100-400mm_f45-56_vr_s/",
-      "review_links": {},
-      "weight": null,
-      "length": null,
-      "filter_size": null,
-      "min_focus": null,
-      "purchase_links": {
-        "new": {
-          "amazon": "https://www.amazon.co.jp/s?k=Nikon+NIKKOR+Z+100-400mm+f/4.5-5.6+VR+S&rh=n%3A2437276051&tag=techddd-22",
-          "rakuten": "https://hb.afl.rakuten.co.jp/ichiba/5317dc68.864f8157.5317dc69.50ddff71/?pc=https%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FNikon+NIKKOR+Z+100-400mm+f/4.5-5.6+VR+S%2F&link_type=text",
-          "yahoo": "https://shopping.yahoo.co.jp/search?p=Nikon+NIKKOR+Z+100-400mm+f/4.5-5.6+VR+S&astid=12"
-        }
-      },
-      "price_info": {
-        "new_price": 332400,
-        "used_price": 253000,
-        "image_url": "https://thumbnail.image.rakuten.co.jp/@0_mall/d-shop1one/cabinet/poin2/4960759906557.jpg?_ex=128x128",
-        "fetched_at": "2026-06-15",
-        "kakaku_url": "https://kakaku.com/item/K0001395593/"
-      },
-      "discontinued": false,
-      "image_url_external": "https://nij.nikon.com/cms/products/nikkor/zmount/nikkor_z_100-400mm_f45-56_vr_s/img/index/product_01.jpg",
-      "photo_yodobashi_url": null,
-      "model_code": "nikkor_z_100-400mm_f45-56_vr_s",
-      "availability_status": "current",
-      "recommendation_status": "caution",
-      "recommendation_note": "高性能なS-Line超望遠ズーム。高価で用途が野鳥・スポーツ寄りのため目的が明確な場合向け。"
     },
     {
       "name": "HELIAR-HYPER WIDE 10mm F5.6 Aspherical VM",
