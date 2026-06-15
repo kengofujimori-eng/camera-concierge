@@ -92,14 +92,29 @@ function searchVariants(name) {
 }
 
 const LENS_DATA_PATH  = path.join(__dirname, '../public/lens_data.json')
+const KAKAKU_ID_MAP_PATH = path.join(__dirname, '../data/kakaku_id_map.json')
 const PROGRESS_PATH   = path.join(__dirname, '../.price-update-progress.json')
 const DELAY_MS        = 2500   // リクエスト間隔（ms）
 const TIMEOUT_MS      = 18000  // ページロードタイムアウト（ms）
 const SAVE_INTERVAL   = 10     // 何レンズごとに中間保存するか
 const STALE_DAYS      = 7      // 何日以上経過で再取得するか
 
+// 価格.comの商品ID（K番号）形式。kakaku_id_map の値検証に使う
+const KAKAKU_ID_RE    = /^K\d+$/
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+// data/kakaku_id_map.json … { "レンズ名": "K0001649150" } の手動マッピング。
+// 検索の取り違えを防ぐため、正しいK番号を固定したいレンズだけ登録する。
+// ファイルが無い / 壊れている場合は空マップとして扱い、従来挙動を維持する。
+function loadKakakuIdMap() {
+  try {
+    return JSON.parse(fs.readFileSync(KAKAKU_ID_MAP_PATH, 'utf8'))
+  } catch {
+    return {}
+  }
 }
 
 // 価格.com 商品ページから新品・中古価格を抽出
@@ -139,7 +154,22 @@ async function searchKakaku(page, query) {
 }
 
 // 1本分のレンズを価格.comで検索して価格を取得
-async function scrapePrice(page, lens) {
+async function scrapePrice(page, lens, kakakuIdMap = {}) {
+  // kakaku_id_map に正しいK番号が登録されていれば最優先で直接アクセスする。
+  // （取り違え防止のため、キャッシュURLや検索よりも優先）
+  // K番号の形式が不正な場合はマップを無視して従来挙動にフォールバックする。
+  const mappedId = kakakuIdMap[lens.name]
+  if (mappedId && KAKAKU_ID_RE.test(mappedId)) {
+    try {
+      await page.goto(`https://kakaku.com/item/${mappedId}/`, { waitUntil: 'domcontentloaded', timeout: TIMEOUT_MS })
+      await sleep(600)
+      const prices = await extractPricesFromPage(page)
+      if (prices.priceNew || prices.priceUsed) return prices
+    } catch {
+      // 直接アクセス失敗 → キャッシュURL/検索にフォールバック
+    }
+  }
+
   // 既存のKakaku URLがあれば直接アクセス（高速・正確）
   const cachedUrl = lens.price_info?.kakaku_url
   if (cachedUrl && cachedUrl.includes('/item/K')) {
@@ -173,8 +203,66 @@ async function scrapePrice(page, lens) {
   return null
 }
 
+// ─── 監査モード (--audit) ────────────────────────────────────────────────────
+// public/lens_data.json を読むだけ。ネットワークアクセス・スクレイピングは一切しない。
+// 複数レンズが同じ price_info.kakaku_url を共有している箇所を検出して一覧化する。
+
+// 大文字小文字と空白を無視した名前。表記ゆれ判定に使う。
+function normalizeLensName(name) {
+  return String(name).toLowerCase().replace(/\s+/g, '')
+}
+
+function cmdAudit() {
+  const data = JSON.parse(fs.readFileSync(LENS_DATA_PATH, 'utf8'))
+  const lenses = data.lenses || []
+
+  // kakaku_url ごとにレンズをグルーピング
+  const byUrl = new Map()
+  for (const lens of lenses) {
+    const url = lens.price_info?.kakaku_url
+    if (!url) continue
+    if (!byUrl.has(url)) byUrl.set(url, [])
+    byUrl.get(url).push(lens)
+  }
+
+  const typoGroups = []      // 表記ゆれ重複の疑い（正規化すると名前が一致）
+  const mismatchGroups = []  // 取り違えの疑い（名前が実質的に異なるのに同URL）
+  for (const [url, group] of byUrl) {
+    if (group.length < 2) continue
+    const normalized = new Set(group.map(l => normalizeLensName(l.name)))
+    if (normalized.size === 1) typoGroups.push([url, group])
+    else mismatchGroups.push([url, group])
+  }
+
+  const fmtPrice = v => (v == null ? '-' : `¥${Number(v).toLocaleString()}`)
+  const printGroup = ([url, group]) => {
+    console.log(`  ${url}`)
+    for (const l of group) {
+      console.log(`    - ${l.name}  新品:${fmtPrice(l.price_info?.new_price)}  中古:${fmtPrice(l.price_info?.used_price)}`)
+    }
+  }
+
+  console.log('=== 価格マッチング監査 (kakaku_url 共有の検出) ===')
+  console.log('※ ネットワークアクセスなし / public/lens_data.json を読むだけ\n')
+
+  console.log(`■ 表記ゆれ重複の疑い (${typoGroups.length} グループ)`)
+  console.log('  大文字小文字・空白を無視すると名前がほぼ一致 → 同一商品の重複登録の可能性')
+  if (typoGroups.length) console.log('')
+  typoGroups.forEach(printGroup)
+
+  console.log(`\n■ 取り違えの疑い (${mismatchGroups.length} グループ)`)
+  console.log('  名前が実質的に異なるのに同じURL → 価格の取り違えの可能性')
+  if (mismatchGroups.length) console.log('')
+  mismatchGroups.forEach(printGroup)
+
+  console.log('\n' + '='.repeat(40))
+  console.log(`取り違えの疑い ${mismatchGroups.length} グループ / 表記ゆれ重複の疑い ${typoGroups.length} グループ`)
+}
+
 async function main() {
   const args = process.argv.slice(2)
+  if (args.includes('--audit')) return cmdAudit()
+
   const forceAll = args.includes('--force-all')
   const dryRun   = args.includes('--dry-run')
   const reset    = args.includes('--reset')
@@ -194,6 +282,7 @@ async function main() {
   // データ読み込み
   const data = JSON.parse(fs.readFileSync(LENS_DATA_PATH, 'utf8'))
   const lenses = data.lenses
+  const kakakuIdMap = loadKakakuIdMap()
 
   // 更新対象フィルタリング
   const today = new Date().toISOString().slice(0, 10)
@@ -249,7 +338,7 @@ async function main() {
     process.stdout.write(`${prefix} ${lens.name} ... `)
 
     try {
-      const prices = await scrapePrice(page, lens)
+      const prices = await scrapePrice(page, lens, kakakuIdMap)
 
       // ¥10,000以下の「新品価格」は誤マッチと判定して無視
       if (prices && prices.priceNew && prices.priceNew < 10000) {
