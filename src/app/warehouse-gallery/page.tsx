@@ -1,18 +1,19 @@
 'use client'
 
 /**
- * 武器庫ギャラリー（実験ページ / プロトタイプ v3）
+ * 武器庫ギャラリー（実験ページ / プロトタイプ v4）
  * ─────────────────────────────────────────────────────────────
  * 倉庫(warehouse)UIを「データ一覧」から「レンズを愛でるコレクション体験」へ
  * 刷新する方向を検証するための隔離プロトタイプ。本番倉庫・データ層・localStorage
  * とは一切接続しない。デモ用にレンズ数本をハードコードしている。
  *
- * v3 の方向: 「奥は緩やかに動き、手前は静かなガラス」
- *  - 第2版の幾何学装飾（グリッド/同心円/座標軸/コーナー目盛り/照準リング）は全撤去。
- *  - モノクロ／オニキス基調。色はブルー〜バイオレット〜マゼンタを選択アクセントに一点挿し。
- *  - 各レンズの足元にフロストグラス台座。諸元もフロストグラスのパネルで静かに出す。
- *  - 背景に淡いラジアルグローがゆっくり移ろい、選択レンズ背後のグローが呼吸する。
- *    すべて軽量 CSS @keyframes。prefers-reduced-motion で停止。
+ * v4 の骨格: カバーフロー(中央フォーカス遠近)を廃止し、
+ *  「横一列に並ぶ対等なフロストグラスカード」へ刷新（Apple/Air × Sigma 製品一覧）。
+ *  - 全カードがほぼ対等な大きさで横並び。横スクロール(ホイール/ドラッグ/スワイプ)。
+ *  - 通常は画像＋レンズ名のみ。クリックでそのカードが拡大し諸元が展開。
+ *  - モノクロ/オニキス基調。色は選択アクセントに一点挿し（ブルー〜バイオレット〜マゼンタ）。
+ *  - 背景の淡いグローがゆっくり移ろう（第3版より知覚できる程度）。reduced-motionで停止。
+ *  - 幾何学装飾は入れない。
  *
  * 実装は素のCSS(styled-jsx) + transform 中心。重いライブラリは使わない。
  */
@@ -31,199 +32,125 @@ interface DemoLens {
 
 // デモ専用ハードコード（本番データには触れない）
 const LENSES: DemoLens[] = [
-  {
-    name: 'FE 16-35mm F2.8 GM',
-    image: '/lens_images_processed/FE_16-35mm_F2.8_GM.png',
-    focal: '16–35mm',
-    aperture: 'F2.8',
-    weight: '680g',
-    price: '¥245,000',
-    mount: 'Sony E',
-  },
-  {
-    name: 'FE 24-70mm F2.8 GM II',
-    image: '/lens_images_processed/FE_24-70mm_F2.8_GM_II.png',
-    focal: '24–70mm',
-    aperture: 'F2.8',
-    weight: '695g',
-    price: '¥258,000',
-    mount: 'Sony E',
-  },
-  {
-    name: 'FE 35mm F1.4 GM',
-    image: '/lens_images_processed/FE_35mm_F1.4_GM.png',
-    focal: '35mm',
-    aperture: 'F1.4',
-    weight: '524g',
-    price: '¥219,000',
-    mount: 'Sony E',
-  },
-  {
-    name: 'FE 50mm F1.4 GM',
-    image: '/lens_images_processed/FE_50mm_F1.4_GM.png',
-    focal: '50mm',
-    aperture: 'F1.4',
-    weight: '516g',
-    price: '¥198,000',
-    mount: 'Sony E',
-  },
-  {
-    name: 'FE 85mm F1.4 GM II',
-    image: '/lens_images_processed/FE_85mm_F1.4_GM_II.png',
-    focal: '85mm',
-    aperture: 'F1.4',
-    weight: '642g',
-    price: '¥285,000',
-    mount: 'Sony E',
-  },
+  { name: 'FE 14mm F1.8 GM',        image: '/lens_images_processed/FE_14mm_F1.8_GM.png',        focal: '14mm',    aperture: 'F1.8', weight: '460g', price: '¥198,000', mount: 'Sony E' },
+  { name: 'FE 16-35mm F2.8 GM',     image: '/lens_images_processed/FE_16-35mm_F2.8_GM.png',     focal: '16–35mm', aperture: 'F2.8', weight: '680g', price: '¥245,000', mount: 'Sony E' },
+  { name: 'FE 24mm F1.4 GM',        image: '/lens_images_processed/FE_24mm_F1.4_GM.png',        focal: '24mm',    aperture: 'F1.4', weight: '445g', price: '¥168,000', mount: 'Sony E' },
+  { name: 'FE 24-70mm F2.8 GM II',  image: '/lens_images_processed/FE_24-70mm_F2.8_GM_II.png',  focal: '24–70mm', aperture: 'F2.8', weight: '695g', price: '¥258,000', mount: 'Sony E' },
+  { name: 'FE 35mm F1.4 GM',        image: '/lens_images_processed/FE_35mm_F1.4_GM.png',        focal: '35mm',    aperture: 'F1.4', weight: '524g', price: '¥219,000', mount: 'Sony E' },
+  { name: 'FE 50mm F1.2 GM',        image: '/lens_images_processed/FE_50mm_F1.2_GM.png',        focal: '50mm',    aperture: 'F1.2', weight: '778g', price: '¥298,000', mount: 'Sony E' },
+  { name: 'FE 85mm F1.4 GM II',     image: '/lens_images_processed/FE_85mm_F1.4_GM_II.png',     focal: '85mm',    aperture: 'F1.4', weight: '642g', price: '¥285,000', mount: 'Sony E' },
+  { name: 'FE 135mm F1.8 GM',       image: '/lens_images_processed/FE_135mm_F1.8_GM.png',       focal: '135mm',   aperture: 'F1.8', weight: '950g', price: '¥235,000', mount: 'Sony E' },
 ]
 
 export default function WarehouseGalleryPage() {
-  const [active, setActive] = useState(2)
-  const [open, setOpen] = useState(false)
+  const [selected, setSelected] = useState<number | null>(null)
+  const scrollerRef = useRef<HTMLDivElement>(null)
 
-  const clamp = (i: number) => Math.min(LENSES.length - 1, Math.max(0, i))
-  const go = useCallback((dir: number) => {
-    setActive((i) => {
-      const next = clamp(i + dir)
-      if (next !== i) setOpen(false)
-      return next
-    })
+  const toggle = useCallback((idx: number) => {
+    setSelected((cur) => (cur === idx ? null : idx))
   }, [])
 
-  // 任意のレンズを中央へ。既に中央ならパネル開閉。
-  const selectLens = useCallback((idx: number) => {
-    setActive((cur) => {
-      if (idx === cur) {
-        setOpen((o) => !o)
-        return cur
-      }
-      setOpen(false)
-      return idx
-    })
-  }, [])
-
-  // キーボード操作（補助）
+  // Escで閉じる
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') go(-1)
-      else if (e.key === 'ArrowRight') go(1)
-      else if (e.key === 'Escape') setOpen(false)
+      if (e.key === 'Escape') setSelected(null)
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [go])
+  }, [])
 
-  // ホイールで横移動（補助・連続発火を間引く）
-  const wheelLock = useRef(0)
+  // 縦ホイールを横スクロールへ変換（トラックパッドの横スワイプはそのまま効く）
   const onWheel = (e: React.WheelEvent) => {
-    const now = Date.now()
-    if (now - wheelLock.current < 320) return
-    const d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY
-    if (Math.abs(d) < 6) return
-    wheelLock.current = now
-    go(d > 0 ? 1 : -1)
+    const el = scrollerRef.current
+    if (!el) return
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      el.scrollLeft += e.deltaY
+    }
   }
 
-  // ドラッグ / スワイプで横移動（主にタッチ）
-  const drag = useRef({ down: false, startX: 0, moved: 0 })
+  // ポインタドラッグで横スクロール
+  const drag = useRef({ down: false, startX: 0, startLeft: 0, moved: 0 })
   const onPointerDown = (e: React.PointerEvent) => {
-    drag.current = { down: true, startX: e.clientX, moved: 0 }
+    const el = scrollerRef.current
+    if (!el) return
+    drag.current = { down: true, startX: e.clientX, startLeft: el.scrollLeft, moved: 0 }
   }
   const onPointerMove = (e: React.PointerEvent) => {
-    if (!drag.current.down) return
-    drag.current.moved = e.clientX - drag.current.startX
+    const el = scrollerRef.current
+    if (!el || !drag.current.down) return
+    const dx = e.clientX - drag.current.startX
+    drag.current.moved = dx
+    el.scrollLeft = drag.current.startLeft - dx
   }
   const endDrag = () => {
-    if (!drag.current.down) return
-    const m = drag.current.moved
     drag.current.down = false
-    if (m > 55) go(-1)
-    else if (m < -55) go(1)
   }
 
-  const onLensClick = (idx: number) => {
-    if (Math.abs(drag.current.moved) > 10) return
-    selectLens(idx)
+  // ドラッグ後の誤クリック抑制
+  const onCardClick = (idx: number) => {
+    if (Math.abs(drag.current.moved) > 8) return
+    toggle(idx)
   }
 
-  const current = LENSES[active]
+  const scrollBy = (dir: number) => {
+    scrollerRef.current?.scrollBy({ left: dir * 360, behavior: 'smooth' })
+  }
 
   return (
     <main className="rack-root">
-      {/* ── 背景: 奥で緩やかに移ろう淡いグロー ── */}
+      {/* 背景: ゆっくり移ろう淡いアンビエントグロー */}
       <div className="ambient" aria-hidden>
         <span className="orb orb-a" />
         <span className="orb orb-b" />
       </div>
 
-      {/* ── 横移動するラック ── */}
-      <section
-        className="stage"
+      <div
+        ref={scrollerRef}
+        className="scroller"
         onWheel={onWheel}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
         onPointerLeave={endDrag}
       >
-        <div className="rack">
+        <div className="row">
           {LENSES.map((lens, idx) => {
-            const offset = idx - active
-            const abs = Math.abs(offset)
-            const isActive = idx === active
-            const visible = abs <= 2
-            const style: React.CSSProperties = {
-              transform: `translateX(${offset * 230}px) translateZ(${-abs * 140}px) rotateY(${offset * -7}deg) scale(${1 - abs * 0.16})`,
-              opacity: visible ? 1 - abs * 0.26 : 0,
-              zIndex: 100 - abs,
-              filter: `brightness(${1 - abs * 0.3})`,
-              pointerEvents: visible ? 'auto' : 'none',
-            }
+            const isOpen = selected === idx
+            const dim = selected !== null && !isOpen
             return (
-              <div
+              <article
                 key={lens.name}
-                className={`slot${isActive ? ' is-active' : ''}`}
-                style={style}
-                onClick={() => onLensClick(idx)}
+                className={`card${isOpen ? ' is-open' : ''}${dim ? ' is-dim' : ''}`}
+                onClick={() => onCardClick(idx)}
               >
-                {/* 選択レンズ背後の呼吸するグロー */}
-                <div className="halo" />
-                <div className="lens-img-wrap">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={lens.image} alt={lens.name} className="lens-img" draggable={false} />
+                <div className="card-glow" />
+                <div className="card-body">
+                  <div className="img-wrap">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={lens.image} alt={lens.name} className="lens-img" draggable={false} />
+                  </div>
+                  <span className="lens-name">{lens.name}</span>
+
+                  {/* クリックで初めて出る諸元 */}
+                  <div className="specs" aria-hidden={!isOpen}>
+                    <span className="mount">{lens.mount}</span>
+                    <dl>
+                      <div><dt>焦点距離</dt><dd>{lens.focal}</dd></div>
+                      <div><dt>開放F値</dt><dd>{lens.aperture}</dd></div>
+                      <div><dt>重量</dt><dd>{lens.weight}</dd></div>
+                      <div><dt>参考価格</dt><dd>{lens.price}</dd></div>
+                    </dl>
+                  </div>
                 </div>
-                {/* フロストグラスの台座 */}
-                <div className="pedestal">
-                  <span className="sheen" />
-                </div>
-                {isActive && <span className="lens-label">{lens.name}</span>}
-              </div>
+              </article>
             )
           })}
         </div>
-
-        {/* 隅に極小カウンター（低コントラスト） */}
-        <div className="counter">
-          {String(active + 1).padStart(2, '0')}<span>/</span>{String(LENSES.length).padStart(2, '0')}
-        </div>
-      </section>
-
-      {/* ── 情報パネル（フロストグラス・中央クリックで静かに出る） ── */}
-      <div className={`info-panel${open ? ' open' : ''}`} aria-hidden={!open}>
-        <div className="info-inner">
-          <div className="info-title">
-            <span className="info-mount">{current.mount}</span>
-            <h2>{current.name}</h2>
-          </div>
-          <dl className="specs">
-            <div><dt>焦点距離</dt><dd>{current.focal}</dd></div>
-            <div><dt>開放F値</dt><dd>{current.aperture}</dd></div>
-            <div><dt>重量</dt><dd>{current.weight}</dd></div>
-            <div><dt>参考価格</dt><dd>{current.price}</dd></div>
-          </dl>
-          <button className="info-close" onClick={() => setOpen(false)} aria-label="閉じる">閉じる</button>
-        </div>
       </div>
+
+      {/* 最小限のナビ矢印 */}
+      <button className="nav prev" onClick={() => scrollBy(-1)} aria-label="左へ">‹</button>
+      <button className="nav next" onClick={() => scrollBy(1)} aria-label="右へ">›</button>
 
       <style jsx>{`
         .rack-root {
@@ -231,15 +158,14 @@ export default function WarehouseGalleryPage() {
           min-height: 100vh;
           width: 100%;
           overflow: hidden;
-          /* モノクロ／オニキス基調。完全な黒は避け、ごく淡い陰影だけ */
-          background:
-            radial-gradient(130% 90% at 50% 38%, #16161b 0%, #101014 55%, #0b0b0d 100%);
+          display: flex;
+          align-items: center;
+          background: radial-gradient(130% 92% at 50% 40%, #16161b 0%, #101014 55%, #0b0b0d 100%);
           color: #e8e8ee;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-          user-select: none;
         }
 
-        /* ── 背景アンビエント: ごく淡い色グローがゆっくり移ろう ── */
+        /* ── 背景アンビエント（第3版より振れ幅を一段大きく） ── */
         .ambient {
           position: absolute;
           inset: 0;
@@ -250,301 +176,260 @@ export default function WarehouseGalleryPage() {
         .orb {
           position: absolute;
           border-radius: 50%;
-          filter: blur(90px);
-          opacity: 0.5;
+          filter: blur(96px);
           will-change: transform, opacity;
         }
         .orb-a {
-          width: 46vw;
-          height: 46vw;
-          left: 18%;
-          top: 22%;
-          background: radial-gradient(circle, rgba(37, 99, 235, 0.30), transparent 68%);
-          animation: drift-a 26s ease-in-out infinite;
+          width: 52vw;
+          height: 52vw;
+          left: 8%;
+          top: 14%;
+          background: radial-gradient(circle, rgba(37, 99, 235, 0.40), transparent 66%);
+          animation: drift-a 22s ease-in-out infinite;
         }
         .orb-b {
-          width: 40vw;
-          height: 40vw;
-          right: 16%;
-          top: 34%;
-          background: radial-gradient(circle, rgba(124, 58, 237, 0.26), transparent 68%);
-          animation: drift-b 32s ease-in-out infinite;
+          width: 46vw;
+          height: 46vw;
+          right: 6%;
+          top: 30%;
+          background: radial-gradient(circle, rgba(124, 58, 237, 0.36), transparent 66%);
+          animation: drift-b 28s ease-in-out infinite;
         }
         @keyframes drift-a {
-          0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
-          50%      { transform: translate(8vw, 5vh) scale(1.12); opacity: 0.6; }
+          0%, 100% { transform: translate(0, 0) scale(1);    opacity: 0.4; }
+          50%      { transform: translate(16vw, 9vh) scale(1.2); opacity: 0.72; }
         }
         @keyframes drift-b {
-          0%, 100% { transform: translate(0, 0) scale(1.05); opacity: 0.34; }
-          50%      { transform: translate(-7vw, -4vh) scale(0.95); opacity: 0.5; }
+          0%, 100% { transform: translate(0, 0) scale(1.08);  opacity: 0.32; }
+          50%      { transform: translate(-13vw, -7vh) scale(0.9); opacity: 0.62; }
         }
 
-        /* ── ラック ── */
-        .stage {
+        /* ── 横スクロール領域 ── */
+        .scroller {
           position: relative;
           z-index: 5;
-          height: 100vh;
-          min-height: 520px;
-          perspective: 1600px;
-          touch-action: pan-y;
+          width: 100%;
+          overflow-x: auto;
+          overflow-y: hidden;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
           cursor: grab;
+          scroll-snap-type: x proximity;
         }
-        .stage:active { cursor: grabbing; }
+        .scroller::-webkit-scrollbar { display: none; }
+        .scroller:active { cursor: grabbing; }
 
-        .rack {
+        .row {
+          display: flex;
+          align-items: center;
+          gap: 30px;
+          padding: 12vh max(8vw, 80px);
+          width: max-content;
+        }
+
+        /* ── カード（フロストグラス・対等な大きさ） ── */
+        .card {
+          position: relative;
+          flex: 0 0 auto;
+          width: 248px;
+          height: 460px;
+          border-radius: 20px;
+          background: rgba(255, 255, 255, 0.045);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          backdrop-filter: blur(16px) saturate(1.15);
+          -webkit-backdrop-filter: blur(16px) saturate(1.15);
+          box-shadow:
+            inset 0 1px 1px rgba(255, 255, 255, 0.08),
+            0 18px 44px rgba(0, 0, 0, 0.5);
+          cursor: pointer;
+          scroll-snap-align: center;
+          transition:
+            width 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+            background 0.5s ease,
+            opacity 0.5s ease,
+            box-shadow 0.5s ease,
+            transform 0.5s ease;
+        }
+        .card:hover { background: rgba(255, 255, 255, 0.07); }
+        .card.is-dim { opacity: 0.4; }
+        .card.is-open {
+          width: 470px;
+          background: rgba(140, 130, 200, 0.08);
+          box-shadow:
+            inset 0 1px 1px rgba(255, 255, 255, 0.12),
+            0 24px 60px rgba(0, 0, 0, 0.6),
+            0 0 40px rgba(124, 58, 237, 0.12);
+        }
+
+        /* 選択時の外周グラデ細線 */
+        .card-glow {
           position: absolute;
           inset: 0;
-          top: -4%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transform-style: preserve-3d;
-        }
-
-        .slot {
-          position: absolute;
-          width: 200px;
-          height: 400px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: flex-end;
-          transition:
-            transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
-            opacity 0.6s ease,
-            filter 0.6s ease;
-          cursor: pointer;
-          will-change: transform, opacity;
-        }
-
-        .lens-img-wrap {
-          position: relative;
-          z-index: 2;
-          flex: 1;
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-          width: 100%;
-          padding-bottom: 4px;
-        }
-        .lens-img {
-          max-height: 312px;
-          max-width: 178px;
-          width: auto;
-          height: auto;
-          object-fit: contain;
-          filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.72)) contrast(1.04);
-          transition: filter 0.5s ease;
-        }
-        .slot.is-active .lens-img {
-          filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.8))
-            drop-shadow(0 0 24px rgba(124, 92, 220, 0.18)) contrast(1.05);
-        }
-
-        /* 選択レンズ背後の呼吸するグロー（一点挿し色） */
-        .halo {
-          position: absolute;
-          z-index: 1;
-          top: 38%;
-          left: 50%;
-          width: 260px;
-          height: 260px;
-          transform: translate(-50%, -50%);
-          border-radius: 50%;
-          background: radial-gradient(
-            circle,
-            rgba(124, 58, 237, 0.26) 0%,
-            rgba(37, 99, 235, 0.12) 42%,
-            transparent 70%
-          );
-          filter: blur(14px);
+          border-radius: 20px;
+          padding: 1px;
+          background: linear-gradient(135deg, #2563eb, #7c3aed 50%, #d946ef);
+          -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          -webkit-mask-composite: xor;
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask-composite: exclude;
           opacity: 0;
           transition: opacity 0.6s ease;
           pointer-events: none;
         }
-        .slot.is-active .halo {
-          opacity: 1;
-          animation: breathe 6s ease-in-out infinite;
-        }
-        @keyframes breathe {
-          0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.96); }
-          50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.06); }
-        }
+        .card.is-open .card-glow { opacity: 0.85; }
 
-        /* ── フロストグラス台座 ── */
-        .pedestal {
+        .card-body {
           position: relative;
-          z-index: 2;
-          width: 168px;
-          height: 26px;
-          border-radius: 50%;
-          overflow: hidden;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          backdrop-filter: blur(10px) saturate(1.1);
-          -webkit-backdrop-filter: blur(10px) saturate(1.1);
-          box-shadow:
-            inset 0 1px 1px rgba(255, 255, 255, 0.14),
-            0 8px 22px rgba(0, 0, 0, 0.5);
-          transition: width 0.6s ease, background 0.6s ease, box-shadow 0.6s ease;
-        }
-        .slot.is-active .pedestal {
-          width: 210px;
-          background: rgba(140, 130, 200, 0.09);
-          box-shadow:
-            inset 0 1px 1px rgba(255, 255, 255, 0.18),
-            0 10px 28px rgba(0, 0, 0, 0.55),
-            0 0 26px rgba(124, 58, 237, 0.12);
-        }
-        /* 台座を時折横切るかすかなハイライト */
-        .sheen {
-          position: absolute;
-          top: 0;
-          left: -40%;
-          width: 40%;
+          z-index: 1;
           height: 100%;
-          background: linear-gradient(
-            100deg,
-            transparent,
-            rgba(255, 255, 255, 0.16),
-            transparent
-          );
-          transform: skewX(-18deg);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 26px 22px 24px;
         }
-        .slot.is-active .sheen {
-          animation: sweep 7s ease-in-out infinite;
-        }
-        @keyframes sweep {
-          0%   { left: -40%; }
-          22%  { left: 120%; }
-          100% { left: 120%; }
+        .card.is-open .card-body {
+          flex-direction: row;
+          align-items: center;
+          gap: 8px;
+          padding: 28px;
         }
 
-        .lens-label {
-          position: relative;
-          z-index: 3;
-          margin-top: 18px;
-          font-size: 12px;
-          letter-spacing: 0.12em;
+        .img-wrap {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          min-height: 0;
+        }
+        .card.is-open .img-wrap {
+          flex: 0 0 200px;
+          height: 100%;
+        }
+        .lens-img {
+          max-height: 330px;
+          max-width: 150px;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+          /* 暗いガラス上で輪郭が映える控えめなシャドウ */
+          filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.7)) contrast(1.05);
+          transition: filter 0.5s ease, max-height 0.5s ease;
+        }
+        .card.is-open .lens-img {
+          filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.8))
+            drop-shadow(0 0 22px rgba(124, 92, 220, 0.18)) contrast(1.06);
+        }
+
+        .lens-name {
+          margin-top: 16px;
+          font-size: 12.5px;
+          letter-spacing: 0.08em;
           color: #c5c9d2;
           text-align: center;
           white-space: nowrap;
-          opacity: 0.82;
+          opacity: 0.86;
+          transition: opacity 0.4s ease;
         }
-
-        .counter {
+        .card.is-open .lens-name {
           position: absolute;
-          right: 22px;
-          bottom: 18px;
-          z-index: 8;
-          font-size: 10.5px;
-          letter-spacing: 0.22em;
-          color: rgba(255, 255, 255, 0.2);
-          font-variant-numeric: tabular-nums;
-        }
-        .counter span { margin: 0 4px; }
-
-        /* ── 情報パネル（フロストグラス） ── */
-        .info-panel {
-          position: fixed;
-          left: 50%;
-          bottom: 0;
-          transform: translate(-50%, 110%);
-          z-index: 40;
-          width: min(680px, 92vw);
-          opacity: 0;
-          transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.55s ease;
-          pointer-events: none;
-        }
-        .info-panel.open {
-          transform: translate(-50%, -28px);
+          top: 20px;
+          left: 28px;
+          margin: 0;
+          font-size: 15px;
+          color: #f1f3f7;
           opacity: 1;
+        }
+
+        /* ── 諸元（クリックで展開） ── */
+        .specs {
+          flex: 1;
+          align-self: stretch;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 14px;
+          padding-left: 22px;
+          margin-left: 6px;
+          border-left: 1px solid rgba(255, 255, 255, 0.12);
+          opacity: 0;
+          transform: translateX(8px);
+          transition: opacity 0.45s ease 0.1s, transform 0.45s ease 0.1s;
+          pointer-events: none;
+          /* 通常時は幅を奪わないよう畳む */
+          width: 0;
+          overflow: hidden;
+        }
+        .card.is-open .specs {
+          opacity: 1;
+          transform: translateX(0);
+          width: auto;
           pointer-events: auto;
         }
-        .info-inner {
-          position: relative;
-          border-radius: 16px;
-          padding: 22px 26px 24px;
-          background: rgba(22, 22, 27, 0.55);
-          backdrop-filter: blur(22px) saturate(1.2);
-          -webkit-backdrop-filter: blur(22px) saturate(1.2);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          box-shadow:
-            inset 0 1px 1px rgba(255, 255, 255, 0.1),
-            0 24px 64px rgba(0, 0, 0, 0.6);
-        }
-        .info-title {
-          display: flex;
-          align-items: baseline;
-          gap: 12px;
-          flex-wrap: wrap;
-          margin-bottom: 18px;
-        }
-        .info-mount {
-          font-size: 10.5px;
-          letter-spacing: 0.28em;
+        .specs .mount {
+          align-self: flex-start;
+          font-size: 10px;
+          letter-spacing: 0.26em;
           text-transform: uppercase;
           color: #b9a6ee;
           border: 1px solid rgba(168, 85, 247, 0.32);
           padding: 3px 8px;
           border-radius: 4px;
+          white-space: nowrap;
         }
-        .info-title h2 {
-          font-size: 20px;
-          font-weight: 400;
-          letter-spacing: 0.04em;
-          color: #f3f5f8;
-        }
-        .specs {
+        .specs dl {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 10px;
-        }
-        .specs > div {
-          border-left: 1px solid rgba(255, 255, 255, 0.12);
-          padding-left: 12px;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px 18px;
         }
         .specs dt {
-          font-size: 10.5px;
-          letter-spacing: 0.14em;
+          font-size: 10px;
+          letter-spacing: 0.12em;
           color: #8b8b96;
-          margin-bottom: 6px;
+          margin-bottom: 4px;
+          white-space: nowrap;
         }
         .specs dd {
-          font-size: 18px;
+          font-size: 17px;
           font-weight: 300;
           color: #eef2f6;
-          letter-spacing: 0.02em;
+          white-space: nowrap;
         }
-        .info-close {
-          position: absolute;
-          top: 16px;
-          right: 18px;
-          background: none;
-          border: none;
-          color: #8a8a96;
-          font-size: 12px;
-          letter-spacing: 0.1em;
+
+        /* ── 最小ナビ矢印 ── */
+        .nav {
+          position: fixed;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 20;
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          background: rgba(20, 20, 24, 0.4);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          color: #c8ccd4;
+          font-size: 22px;
+          line-height: 1;
           cursor: pointer;
-          transition: color 0.2s ease;
+          opacity: 0.55;
+          transition: opacity 0.25s ease, border-color 0.25s ease;
         }
-        .info-close:hover { color: #e8e8ee; }
+        .nav:hover { opacity: 1; border-color: rgba(168, 85, 247, 0.5); }
+        .nav.prev { left: 18px; }
+        .nav.next { right: 18px; }
 
         @media (max-width: 720px) {
-          .slot { width: 150px; }
-          .lens-img { max-width: 130px; max-height: 240px; }
-          .pedestal { width: 128px; }
-          .slot.is-active .pedestal { width: 160px; }
-          .specs { grid-template-columns: repeat(2, 1fr); }
+          .row { gap: 18px; padding: 10vh 24px; }
+          .card { width: 200px; height: 400px; }
+          .card.is-open { width: 88vw; }
+          .lens-img { max-height: 280px; }
         }
 
-        /* 動きを抑える設定では背景・呼吸・反射を停止 */
+        /* 動きを抑える設定では背景アニメーションを停止 */
         @media (prefers-reduced-motion: reduce) {
-          .orb-a, .orb-b,
-          .slot.is-active .halo,
-          .slot.is-active .sheen {
-            animation: none;
-          }
+          .orb-a, .orb-b { animation: none; }
         }
       `}</style>
     </main>
