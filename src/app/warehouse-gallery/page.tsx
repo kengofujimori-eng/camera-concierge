@@ -1,17 +1,18 @@
 'use client'
 
 /**
- * 武器庫ギャラリー（実験ページ / プロトタイプ v2）
+ * 武器庫ギャラリー（実験ページ / プロトタイプ v3）
  * ─────────────────────────────────────────────────────────────
  * 倉庫(warehouse)UIを「データ一覧」から「レンズを愛でるコレクション体験」へ
  * 刷新する方向を検証するための隔離プロトタイプ。本番倉庫・データ層・localStorage
  * とは一切接続しない。デモ用にレンズ数本をハードコードしている。
  *
- * v2 のフィードバック反映:
- *  - 操作は「直接クリック」中心: 脇のレンズを押すと中央へ回り込む。中央クリックで諸元。
- *  - 選択時に AI 的グラデ細線(ブルー〜バイオレット〜マゼンタ)のグローが縁取る。
- *  - 文字を大幅削減（見出し/説明を撤去、レンズ名と諸元だけ）。
- *  - 世界観を「幾何学グラフィック」方向へ: 薄いグリッド・同心レティクル・設計図的目盛り。
+ * v3 の方向: 「奥は緩やかに動き、手前は静かなガラス」
+ *  - 第2版の幾何学装飾（グリッド/同心円/座標軸/コーナー目盛り/照準リング）は全撤去。
+ *  - モノクロ／オニキス基調。色はブルー〜バイオレット〜マゼンタを選択アクセントに一点挿し。
+ *  - 各レンズの足元にフロストグラス台座。諸元もフロストグラスのパネルで静かに出す。
+ *  - 背景に淡いラジアルグローがゆっくり移ろい、選択レンズ背後のグローが呼吸する。
+ *    すべて軽量 CSS @keyframes。prefers-reduced-motion で停止。
  *
  * 実装は素のCSS(styled-jsx) + transform 中心。重いライブラリは使わない。
  */
@@ -80,37 +81,27 @@ const LENSES: DemoLens[] = [
 export default function WarehouseGalleryPage() {
   const [active, setActive] = useState(2)
   const [open, setOpen] = useState(false)
-  const [hovered, setHovered] = useState<number | null>(null)
-  // 選択の瞬間にグラデ細線グローを走らせるためのトリガ（キーで再アニメ）
-  const [pulse, setPulse] = useState(0)
 
   const clamp = (i: number) => Math.min(LENSES.length - 1, Math.max(0, i))
   const go = useCallback((dir: number) => {
     setActive((i) => {
       const next = clamp(i + dir)
-      if (next !== i) {
-        setOpen(false)
-        setPulse((p) => p + 1)
-      }
+      if (next !== i) setOpen(false)
       return next
     })
   }, [])
 
   // 任意のレンズを中央へ。既に中央ならパネル開閉。
-  const selectLens = useCallback(
-    (idx: number) => {
-      setActive((cur) => {
-        if (idx === cur) {
-          setOpen((o) => !o)
-          return cur
-        }
-        setOpen(false)
-        setPulse((p) => p + 1)
-        return idx
-      })
-    },
-    [],
-  )
+  const selectLens = useCallback((idx: number) => {
+    setActive((cur) => {
+      if (idx === cur) {
+        setOpen((o) => !o)
+        return cur
+      }
+      setOpen(false)
+      return idx
+    })
+  }, [])
 
   // キーボード操作（補助）
   useEffect(() => {
@@ -123,7 +114,7 @@ export default function WarehouseGalleryPage() {
     return () => window.removeEventListener('keydown', onKey)
   }, [go])
 
-  // ホイールで横回転（補助・連続発火を間引く）
+  // ホイールで横移動（補助・連続発火を間引く）
   const wheelLock = useRef(0)
   const onWheel = (e: React.WheelEvent) => {
     const now = Date.now()
@@ -134,7 +125,7 @@ export default function WarehouseGalleryPage() {
     go(d > 0 ? 1 : -1)
   }
 
-  // ドラッグ / スワイプでロータリー回転（主にタッチ）
+  // ドラッグ / スワイプで横移動（主にタッチ）
   const drag = useRef({ down: false, startX: 0, moved: 0 })
   const onPointerDown = (e: React.PointerEvent) => {
     drag.current = { down: true, startX: e.clientX, moved: 0 }
@@ -151,7 +142,6 @@ export default function WarehouseGalleryPage() {
     else if (m < -55) go(1)
   }
 
-  // レンズクリック（ドラッグと区別）
   const onLensClick = (idx: number) => {
     if (Math.abs(drag.current.moved) > 10) return
     selectLens(idx)
@@ -161,27 +151,13 @@ export default function WarehouseGalleryPage() {
 
   return (
     <main className="rack-root">
-      {/* ── 幾何学グラフィック層（背景・低コントラスト・細線） ── */}
-      <div className="geo" aria-hidden>
-        <div className="grid" />
-        <div className="scan-x" />
-        <div className="scan-y" />
-        {/* 中央フォーカスの同心レティクル */}
-        <div className={`reticle${open ? ' is-open' : ''}`} key={pulse}>
-          <span className="ring r1" />
-          <span className="ring r2" />
-          <span className="ring r3" />
-          <span className="cross cx" />
-          <span className="cross cy" />
-        </div>
-        {/* コーナーの設計図的目盛り */}
-        <div className="corner tl"><span /><span /><i /></div>
-        <div className="corner tr"><span /><span /><i /></div>
-        <div className="corner bl"><span /><span /><i /></div>
-        <div className="corner br"><span /><span /><i /></div>
+      {/* ── 背景: 奥で緩やかに移ろう淡いグロー ── */}
+      <div className="ambient" aria-hidden>
+        <span className="orb orb-a" />
+        <span className="orb orb-b" />
       </div>
 
-      {/* ── 横回転するラック ── */}
+      {/* ── 横移動するラック ── */}
       <section
         className="stage"
         onWheel={onWheel}
@@ -196,9 +172,8 @@ export default function WarehouseGalleryPage() {
             const abs = Math.abs(offset)
             const isActive = idx === active
             const visible = abs <= 2
-            const lift = hovered === idx && visible ? -16 : 0
             const style: React.CSSProperties = {
-              transform: `translateX(${offset * 230}px) translateZ(${-abs * 140}px) translateY(${lift}px) rotateY(${offset * -7}deg) scale(${1 - abs * 0.16})`,
+              transform: `translateX(${offset * 230}px) translateZ(${-abs * 140}px) rotateY(${offset * -7}deg) scale(${1 - abs * 0.16})`,
               opacity: visible ? 1 - abs * 0.26 : 0,
               zIndex: 100 - abs,
               filter: `brightness(${1 - abs * 0.3})`,
@@ -207,23 +182,19 @@ export default function WarehouseGalleryPage() {
             return (
               <div
                 key={lens.name}
-                className={`slot${isActive ? ' is-active' : ''}${hovered === idx ? ' is-hover' : ''}`}
+                className={`slot${isActive ? ' is-active' : ''}`}
                 style={style}
-                onMouseEnter={() => setHovered(idx)}
-                onMouseLeave={() => setHovered((h) => (h === idx ? null : h))}
                 onClick={() => onLensClick(idx)}
               >
-                <div className="floor-glow" />
-                {/* 選択時: グラデ細線の縁取り（走るグロー） */}
-                <div className="sel-frame" key={isActive ? pulse : 'idle'}>
-                  <span className="tick tl" />
-                  <span className="tick tr" />
-                  <span className="tick bl" />
-                  <span className="tick br" />
-                </div>
+                {/* 選択レンズ背後の呼吸するグロー */}
+                <div className="halo" />
                 <div className="lens-img-wrap">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={lens.image} alt={lens.name} className="lens-img" draggable={false} />
+                </div>
+                {/* フロストグラスの台座 */}
+                <div className="pedestal">
+                  <span className="sheen" />
                 </div>
                 {isActive && <span className="lens-label">{lens.name}</span>}
               </div>
@@ -237,7 +208,7 @@ export default function WarehouseGalleryPage() {
         </div>
       </section>
 
-      {/* ── 情報パネル（中央クリックでせり上がる） ── */}
+      {/* ── 情報パネル（フロストグラス・中央クリックで静かに出る） ── */}
       <div className={`info-panel${open ? ' open' : ''}`} aria-hidden={!open}>
         <div className="info-inner">
           <div className="info-title">
@@ -260,131 +231,53 @@ export default function WarehouseGalleryPage() {
           min-height: 100vh;
           width: 100%;
           overflow: hidden;
-          /* 完全な真っ黒を避け、ごく淡いラジアル+斜めグラデで黒の面積を減らす */
+          /* モノクロ／オニキス基調。完全な黒は避け、ごく淡い陰影だけ */
           background:
-            radial-gradient(125% 85% at 50% 42%, #18181e 0%, #101015 52%, #0b0b0d 100%),
-            linear-gradient(135deg, #0c0c10 0%, #0b0b0d 60%);
+            radial-gradient(130% 90% at 50% 38%, #16161b 0%, #101014 55%, #0b0b0d 100%);
           color: #e8e8ee;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           user-select: none;
         }
-        .rack-root::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          background: radial-gradient(115% 75% at 50% 50%, transparent 58%, rgba(0, 0, 0, 0.5) 100%);
-          z-index: 6;
-        }
 
-        /* ── 幾何学グラフィック層 ── */
-        .geo {
+        /* ── 背景アンビエント: ごく淡い色グローがゆっくり移ろう ── */
+        .ambient {
           position: absolute;
           inset: 0;
           z-index: 1;
           pointer-events: none;
           overflow: hidden;
         }
-        /* 薄いグリッド（細線・低コントラスト） */
-        .grid {
+        .orb {
           position: absolute;
-          inset: -2px;
-          background-image:
-            linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-          background-size: 44px 44px;
-          /* 中央を明るく、周縁でグリッドをフェードして主役を邪魔しない */
-          -webkit-mask-image: radial-gradient(80% 70% at 50% 46%, #000 0%, transparent 88%);
-          mask-image: radial-gradient(80% 70% at 50% 46%, #000 0%, transparent 88%);
-        }
-        /* 中央を通る設計図的な座標軸 */
-        .scan-x {
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: 46%;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(124, 110, 245, 0.14) 30%, rgba(124, 110, 245, 0.14) 70%, transparent);
-        }
-        .scan-y {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 50%;
-          width: 1px;
-          background: linear-gradient(180deg, transparent, rgba(124, 110, 245, 0.12) 30%, rgba(124, 110, 245, 0.12) 70%, transparent);
-        }
-
-        /* 中央フォーカスの同心レティクル */
-        .reticle {
-          position: absolute;
-          top: 46%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 520px;
-          height: 520px;
-        }
-        .ring {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
           border-radius: 50%;
-          border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .ring.r1 { width: 300px; height: 300px; border-color: rgba(150, 210, 235, 0.10); }
-        .ring.r2 { width: 420px; height: 420px; }
-        .ring.r3 {
-          width: 520px; height: 520px;
-          border-style: dashed;
-          border-color: rgba(255, 255, 255, 0.045);
-          animation: spin 60s linear infinite;
-        }
-        @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
-        .cross {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          background: rgba(150, 210, 235, 0.10);
-        }
-        .cross.cx { transform: translate(-50%, -50%); width: 540px; height: 1px; }
-        .cross.cy { transform: translate(-50%, -50%); width: 1px; height: 540px; }
-        .reticle.is-open .ring.r1 { border-color: rgba(168, 85, 247, 0.22); }
-
-        /* コーナーの設計図的目盛り */
-        .corner {
-          position: absolute;
-          width: 72px;
-          height: 72px;
+          filter: blur(90px);
           opacity: 0.5;
+          will-change: transform, opacity;
         }
-        .corner span {
-          position: absolute;
-          background: rgba(255, 255, 255, 0.14);
+        .orb-a {
+          width: 46vw;
+          height: 46vw;
+          left: 18%;
+          top: 22%;
+          background: radial-gradient(circle, rgba(37, 99, 235, 0.30), transparent 68%);
+          animation: drift-a 26s ease-in-out infinite;
         }
-        .corner span:first-child { width: 36px; height: 1px; }
-        .corner span:nth-child(2) { width: 1px; height: 36px; }
-        .corner i {
-          position: absolute;
-          width: 5px; height: 5px;
-          border: 1px solid rgba(150, 210, 235, 0.4);
+        .orb-b {
+          width: 40vw;
+          height: 40vw;
+          right: 16%;
+          top: 34%;
+          background: radial-gradient(circle, rgba(124, 58, 237, 0.26), transparent 68%);
+          animation: drift-b 32s ease-in-out infinite;
         }
-        .corner.tl { top: 26px; left: 26px; }
-        .corner.tl span:first-child { top: 0; left: 0; }
-        .corner.tl span:nth-child(2) { top: 0; left: 0; }
-        .corner.tl i { top: -2px; left: -2px; }
-        .corner.tr { top: 26px; right: 26px; }
-        .corner.tr span:first-child { top: 0; right: 0; }
-        .corner.tr span:nth-child(2) { top: 0; right: 0; }
-        .corner.tr i { top: -2px; right: -2px; }
-        .corner.bl { bottom: 26px; left: 26px; }
-        .corner.bl span:first-child { bottom: 0; left: 0; }
-        .corner.bl span:nth-child(2) { bottom: 0; left: 0; }
-        .corner.bl i { bottom: -2px; left: -2px; }
-        .corner.br { bottom: 26px; right: 26px; }
-        .corner.br span:first-child { bottom: 0; right: 0; }
-        .corner.br span:nth-child(2) { bottom: 0; right: 0; }
-        .corner.br i { bottom: -2px; right: -2px; }
+        @keyframes drift-a {
+          0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+          50%      { transform: translate(8vw, 5vh) scale(1.12); opacity: 0.6; }
+        }
+        @keyframes drift-b {
+          0%, 100% { transform: translate(0, 0) scale(1.05); opacity: 0.34; }
+          50%      { transform: translate(-7vw, -4vh) scale(0.95); opacity: 0.5; }
+        }
 
         /* ── ラック ── */
         .stage {
@@ -411,114 +304,132 @@ export default function WarehouseGalleryPage() {
         .slot {
           position: absolute;
           width: 200px;
-          height: 380px;
+          height: 400px;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: flex-end;
           transition:
-            transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
-            opacity 0.55s ease,
-            filter 0.55s ease;
+            transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+            opacity 0.6s ease,
+            filter 0.6s ease;
           cursor: pointer;
           will-change: transform, opacity;
         }
 
         .lens-img-wrap {
           position: relative;
+          z-index: 2;
           flex: 1;
           display: flex;
-          align-items: center;
+          align-items: flex-end;
           justify-content: center;
           width: 100%;
+          padding-bottom: 4px;
         }
         .lens-img {
-          max-height: 320px;
-          max-width: 180px;
+          max-height: 312px;
+          max-width: 178px;
           width: auto;
           height: auto;
           object-fit: contain;
-          filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.7)) contrast(1.04);
-          transition: filter 0.4s ease;
+          filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.72)) contrast(1.04);
+          transition: filter 0.5s ease;
         }
         .slot.is-active .lens-img {
-          filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.8))
-            drop-shadow(0 0 26px rgba(150, 210, 235, 0.16)) contrast(1.06);
-        }
-        .slot.is-hover .lens-img {
-          filter: drop-shadow(0 26px 34px rgba(0, 0, 0, 0.8))
-            drop-shadow(0 0 30px rgba(150, 210, 235, 0.26)) contrast(1.06);
+          filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.8))
+            drop-shadow(0 0 24px rgba(124, 92, 220, 0.18)) contrast(1.05);
         }
 
-        .floor-glow {
+        /* 選択レンズ背後の呼吸するグロー（一点挿し色） */
+        .halo {
           position: absolute;
-          bottom: 18px;
+          z-index: 1;
+          top: 38%;
           left: 50%;
-          width: 190px;
-          height: 54px;
-          transform: translateX(-50%);
+          width: 260px;
+          height: 260px;
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
           background: radial-gradient(
-            ellipse at center,
-            rgba(150, 205, 232, 0.20) 0%,
-            rgba(120, 180, 210, 0.07) 40%,
-            transparent 72%
+            circle,
+            rgba(124, 58, 237, 0.26) 0%,
+            rgba(37, 99, 235, 0.12) 42%,
+            transparent 70%
           );
-          filter: blur(3px);
-          opacity: 0.5;
-          transition: opacity 0.5s ease, width 0.5s ease;
+          filter: blur(14px);
+          opacity: 0;
+          transition: opacity 0.6s ease;
           pointer-events: none;
         }
-        .slot.is-active .floor-glow { opacity: 1; width: 230px; }
+        .slot.is-active .halo {
+          opacity: 1;
+          animation: breathe 6s ease-in-out infinite;
+        }
+        @keyframes breathe {
+          0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.96); }
+          50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.06); }
+        }
 
-        /* ── 選択時グラデ細線フレーム（ブルー→バイオレット→マゼンタ） ── */
-        .sel-frame {
+        /* ── フロストグラス台座 ── */
+        .pedestal {
+          position: relative;
+          z-index: 2;
+          width: 168px;
+          height: 26px;
+          border-radius: 50%;
+          overflow: hidden;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          backdrop-filter: blur(10px) saturate(1.1);
+          -webkit-backdrop-filter: blur(10px) saturate(1.1);
+          box-shadow:
+            inset 0 1px 1px rgba(255, 255, 255, 0.14),
+            0 8px 22px rgba(0, 0, 0, 0.5);
+          transition: width 0.6s ease, background 0.6s ease, box-shadow 0.6s ease;
+        }
+        .slot.is-active .pedestal {
+          width: 210px;
+          background: rgba(140, 130, 200, 0.09);
+          box-shadow:
+            inset 0 1px 1px rgba(255, 255, 255, 0.18),
+            0 10px 28px rgba(0, 0, 0, 0.55),
+            0 0 26px rgba(124, 58, 237, 0.12);
+        }
+        /* 台座を時折横切るかすかなハイライト */
+        .sheen {
           position: absolute;
-          inset: 6px 6px 56px;
-          opacity: 0;
-          pointer-events: none;
-          border-radius: 3px;
-          padding: 1px; /* 細線の太さ */
-          background:
-            linear-gradient(135deg, #2563eb, #7c3aed 50%, #d946ef) border-box;
-          -webkit-mask:
-            linear-gradient(#000 0 0) content-box,
-            linear-gradient(#000 0 0);
-          -webkit-mask-composite: xor;
-          mask:
-            linear-gradient(#000 0 0) content-box,
-            linear-gradient(#000 0 0);
-          mask-composite: exclude;
+          top: 0;
+          left: -40%;
+          width: 40%;
+          height: 100%;
+          background: linear-gradient(
+            100deg,
+            transparent,
+            rgba(255, 255, 255, 0.16),
+            transparent
+          );
+          transform: skewX(-18deg);
         }
-        .slot.is-active .sel-frame {
-          /* 選択の瞬間に走り、その後うっすら定常表示 */
-          animation: sel-run 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        .slot.is-active .sheen {
+          animation: sweep 7s ease-in-out infinite;
         }
-        @keyframes sel-run {
-          0%   { opacity: 0; clip-path: inset(0 100% 0 0); filter: drop-shadow(0 0 6px rgba(124, 58, 237, 0.7)); }
-          55%  { opacity: 1; clip-path: inset(0 0 0 0); filter: drop-shadow(0 0 12px rgba(217, 70, 239, 0.7)); }
-          100% { opacity: 0.55; clip-path: inset(0 0 0 0); filter: drop-shadow(0 0 5px rgba(124, 58, 237, 0.35)); }
+        @keyframes sweep {
+          0%   { left: -40%; }
+          22%  { left: 120%; }
+          100% { left: 120%; }
         }
-        /* 繊細なコーナーティック（グラデ色） */
-        .tick {
-          position: absolute;
-          width: 9px;
-          height: 9px;
-          opacity: 0;
-        }
-        .slot.is-active .tick { opacity: 0.9; transition: opacity 0.5s ease 0.2s; }
-        .tick.tl { top: 2px;  left: 2px;  border-top: 1px solid #5b8def; border-left: 1px solid #5b8def; }
-        .tick.tr { top: 2px;  right: 2px; border-top: 1px solid #9b5cf0; border-right: 1px solid #9b5cf0; }
-        .tick.bl { bottom: 56px; left: 2px;  border-bottom: 1px solid #b65bf0; border-left: 1px solid #b65bf0; }
-        .tick.br { bottom: 56px; right: 2px; border-bottom: 1px solid #d946ef; border-right: 1px solid #d946ef; }
 
         .lens-label {
-          margin-top: 16px;
+          position: relative;
+          z-index: 3;
+          margin-top: 18px;
           font-size: 12px;
-          letter-spacing: 0.1em;
+          letter-spacing: 0.12em;
           color: #c5c9d2;
           text-align: center;
           white-space: nowrap;
-          opacity: 0.85;
+          opacity: 0.82;
         }
 
         .counter {
@@ -528,12 +439,12 @@ export default function WarehouseGalleryPage() {
           z-index: 8;
           font-size: 10.5px;
           letter-spacing: 0.22em;
-          color: rgba(255, 255, 255, 0.22);
+          color: rgba(255, 255, 255, 0.2);
           font-variant-numeric: tabular-nums;
         }
         .counter span { margin: 0 4px; }
 
-        /* ── 情報パネル ── */
+        /* ── 情報パネル（フロストグラス） ── */
         .info-panel {
           position: fixed;
           left: 50%;
@@ -542,7 +453,7 @@ export default function WarehouseGalleryPage() {
           z-index: 40;
           width: min(680px, 92vw);
           opacity: 0;
-          transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.5s ease;
+          transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.55s ease;
           pointer-events: none;
         }
         .info-panel.open {
@@ -552,35 +463,29 @@ export default function WarehouseGalleryPage() {
         }
         .info-inner {
           position: relative;
-          border-radius: 14px;
-          padding: 1px;
-          background: linear-gradient(135deg, rgba(37, 99, 235, 0.5), rgba(124, 58, 237, 0.45) 50%, rgba(217, 70, 239, 0.5));
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(124, 58, 237, 0.1);
-        }
-        .info-inner > * { position: relative; z-index: 1; }
-        .info-inner::before {
-          content: '';
-          position: absolute;
-          inset: 1px;
-          border-radius: 13px;
-          background: linear-gradient(180deg, rgba(20, 21, 26, 0.95), rgba(12, 12, 15, 0.96));
-          backdrop-filter: blur(14px);
-          z-index: 0;
+          border-radius: 16px;
+          padding: 22px 26px 24px;
+          background: rgba(22, 22, 27, 0.55);
+          backdrop-filter: blur(22px) saturate(1.2);
+          -webkit-backdrop-filter: blur(22px) saturate(1.2);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow:
+            inset 0 1px 1px rgba(255, 255, 255, 0.1),
+            0 24px 64px rgba(0, 0, 0, 0.6);
         }
         .info-title {
           display: flex;
           align-items: baseline;
           gap: 12px;
           flex-wrap: wrap;
-          padding: 22px 26px 0;
           margin-bottom: 18px;
         }
         .info-mount {
           font-size: 10.5px;
           letter-spacing: 0.28em;
           text-transform: uppercase;
-          color: #c4a4f7;
-          border: 1px solid rgba(168, 85, 247, 0.35);
+          color: #b9a6ee;
+          border: 1px solid rgba(168, 85, 247, 0.32);
           padding: 3px 8px;
           border-radius: 4px;
         }
@@ -594,16 +499,15 @@ export default function WarehouseGalleryPage() {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 10px;
-          padding: 0 26px 24px;
         }
         .specs > div {
-          border-left: 1px solid rgba(160, 215, 238, 0.18);
+          border-left: 1px solid rgba(255, 255, 255, 0.12);
           padding-left: 12px;
         }
         .specs dt {
           font-size: 10.5px;
           letter-spacing: 0.14em;
-          color: #7d7d89;
+          color: #8b8b96;
           margin-bottom: 6px;
         }
         .specs dd {
@@ -616,7 +520,6 @@ export default function WarehouseGalleryPage() {
           position: absolute;
           top: 16px;
           right: 18px;
-          z-index: 2;
           background: none;
           border: none;
           color: #8a8a96;
@@ -630,9 +533,18 @@ export default function WarehouseGalleryPage() {
         @media (max-width: 720px) {
           .slot { width: 150px; }
           .lens-img { max-width: 130px; max-height: 240px; }
+          .pedestal { width: 128px; }
+          .slot.is-active .pedestal { width: 160px; }
           .specs { grid-template-columns: repeat(2, 1fr); }
-          .reticle { width: 360px; height: 360px; }
-          .ring.r3, .ring.r2 { width: 360px; height: 360px; }
+        }
+
+        /* 動きを抑える設定では背景・呼吸・反射を停止 */
+        @media (prefers-reduced-motion: reduce) {
+          .orb-a, .orb-b,
+          .slot.is-active .halo,
+          .slot.is-active .sheen {
+            animation: none;
+          }
         }
       `}</style>
     </main>
