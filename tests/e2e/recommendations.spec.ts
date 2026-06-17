@@ -285,8 +285,15 @@ test.describe('recommendation smoke tests', () => {
     }))
 
     await page.addInitScript((messages) => {
+      if (sessionStorage.getItem('profile-persistence-test-seeded') === 'true') return
+      sessionStorage.setItem('profile-persistence-test-seeded', 'true')
       localStorage.setItem('selectedMountId', 'canon-rf')
+      localStorage.setItem('selectedBudgetId', 'b200k')
+      localStorage.setItem('selectedLensType', 'zoom')
+      localStorage.setItem('cameraBody', 'EOS R6 Mark II')
+      localStorage.setItem('selectedFocalRange', JSON.stringify({ minMm: 24, maxMm: 105 }))
       localStorage.setItem('setupDone', 'true')
+      localStorage.setItem('chatConversationId', 'saved-conversation')
       localStorage.setItem('chatMessages', JSON.stringify(messages))
     }, savedMessages)
 
@@ -313,6 +320,9 @@ test.describe('recommendation smoke tests', () => {
     const scrollArea = page.getByTestId('chat-scroll-area')
     await expect(scrollArea).toBeVisible()
     await expect.poll(() => scrollArea.evaluate((element) => element.scrollTop)).toBe(0)
+    await expect(page.getByTestId('selected-mount-display')).toContainText('Canon RF')
+    await expect(page.getByText('EOS R6 Mark II', { exact: true }).last()).toBeVisible()
+    await expect(page.getByText('カメラを選ぶと、提案がもっと正確になります')).toHaveCount(0)
 
     page.on('dialog', (dialog) => dialog.accept())
     await scrollArea.evaluate((element) => {
@@ -320,6 +330,57 @@ test.describe('recommendation smoke tests', () => {
     })
     await page.getByLabel('新規会話を開始').click()
     await expect.poll(() => scrollArea.evaluate((element) => element.scrollTop)).toBe(0)
+    await expect
+      .poll(() =>
+        page.evaluate(() => ({
+          selectedMountId: localStorage.getItem('selectedMountId'),
+          selectedBudgetId: localStorage.getItem('selectedBudgetId'),
+          selectedLensType: localStorage.getItem('selectedLensType'),
+          cameraBody: localStorage.getItem('cameraBody'),
+          selectedFocalRange: localStorage.getItem('selectedFocalRange'),
+          setupDone: localStorage.getItem('setupDone'),
+          chatMessages: localStorage.getItem('chatMessages'),
+          chatConversationId: localStorage.getItem('chatConversationId'),
+        })),
+      )
+      .toEqual({
+        selectedMountId: 'canon-rf',
+        selectedBudgetId: 'b200k',
+        selectedLensType: 'zoom',
+        cameraBody: 'EOS R6 Mark II',
+        selectedFocalRange: JSON.stringify({ minMm: 24, maxMm: 105 }),
+        setupDone: 'true',
+        chatMessages: null,
+        chatConversationId: null,
+      })
+
+    await page.reload()
+    await expect(page.getByTestId('selected-mount-display')).toContainText('Canon RF')
+    await expect(page.getByText('EOS R6 Mark II', { exact: true }).last()).toBeVisible()
+    await expect(page.getByText('カメラを選ぶと、提案がもっと正確になります')).toHaveCount(0)
+    await expect
+      .poll(() =>
+        page.evaluate(() => ({
+          selectedMountId: localStorage.getItem('selectedMountId'),
+          selectedBudgetId: localStorage.getItem('selectedBudgetId'),
+          selectedLensType: localStorage.getItem('selectedLensType'),
+          cameraBody: localStorage.getItem('cameraBody'),
+          selectedFocalRange: localStorage.getItem('selectedFocalRange'),
+          setupDone: localStorage.getItem('setupDone'),
+          chatMessages: localStorage.getItem('chatMessages'),
+          chatConversationId: localStorage.getItem('chatConversationId'),
+        })),
+      )
+      .toEqual({
+        selectedMountId: 'canon-rf',
+        selectedBudgetId: 'b200k',
+        selectedLensType: 'zoom',
+        cameraBody: 'EOS R6 Mark II',
+        selectedFocalRange: JSON.stringify({ minMm: 24, maxMm: 105 }),
+        setupDone: 'true',
+        chatMessages: null,
+        chatConversationId: null,
+      })
 
     const sendButton = page.getByTestId('chat-send-button')
     await enterPrompt(page, '旅行と日常で使う標準ズームを相談したいです。')

@@ -785,8 +785,8 @@ function extractNameFromSummary(text: string): string {
     .trim()
 }
 
-// localStorage から安全に読み込むヘルパー
-function loadFromStorage<T>(key: string, fallback: T): T {
+// localStorage から JSON 値を安全に読み込むヘルパー
+function loadJsonFromStorage<T>(key: string, fallback: T): T {
   if (typeof window === 'undefined') return fallback
   try {
     const raw = localStorage.getItem(key)
@@ -794,29 +794,37 @@ function loadFromStorage<T>(key: string, fallback: T): T {
   } catch { return fallback }
 }
 
+// 既存の raw string 保存形式をそのまま復元するヘルパー
+function loadStringFromStorage(key: string): string | null {
+  if (typeof window === 'undefined') return null
+  try {
+    return localStorage.getItem(key)
+  } catch { return null }
+}
+
 export default function ChatInterface() {
   // 初期値をlocalStorageから直接読み込む（競合状態なし）
   const [messages, setMessages] = useState<ChatMessage[]>(() => {
-    const saved = loadFromStorage<ChatMessage[]>('chatMessages', [])
+    const saved = loadJsonFromStorage<ChatMessage[]>('chatMessages', [])
     return saved.map((m) => ({ ...m, timestamp: new Date(m.timestamp) }))
   })
   const [input, setInput] = useState('')
   const [sceneGuideHandoff, setSceneGuideHandoff] = useState<SceneGuideHandoff | null>(null)
   const [loading, setLoading] = useState(false)
   const [conversationId, setConversationId] = useState<string | undefined>(() =>
-    loadFromStorage<string | null>('chatConversationId', null) ?? undefined
+    loadStringFromStorage('chatConversationId') ?? undefined
   )
   const [warehouseCount, setWarehouseCount] = useState(0)
 
   // ── セットアップ完了フラグ（リセット後も再表示しないため）──
   const [setupDone, setSetupDone] = useState<boolean>(() =>
-    loadFromStorage<string | null>('setupDone', null) === 'true'
+    loadStringFromStorage('setupDone') === 'true'
   )
   const [showBodyHint, setShowBodyHint] = useState(false)
 
   // ── マウント設定（localStorage で永続化）────────────────
   const [selectedMount, setSelectedMount] = useState<MountOption | null>(() => {
-    const savedId = loadFromStorage<string | null>('selectedMountId', null)
+    const savedId = loadStringFromStorage('selectedMountId')
     return MOUNTS.find((m) => m.id === savedId) ?? null
   })
   function handleMountChange(mount: MountOption) {
@@ -827,7 +835,7 @@ export default function ChatInterface() {
 
   // ── 予算設定（localStorage で永続化）─────────────────────
   const [selectedBudget, setSelectedBudget] = useState<BudgetOption | null>(() => {
-    const savedId = loadFromStorage<string | null>('selectedBudgetId', null)
+    const savedId = loadStringFromStorage('selectedBudgetId')
     return BUDGETS.find((b) => b.id === savedId) ?? null
   })
   function handleBudgetChange(budget: BudgetOption | null) {
@@ -841,7 +849,7 @@ export default function ChatInterface() {
 
   // ── 焦点距離レンジ設定（localStorage で永続化）──────────
   const [selectedFocal, setSelectedFocal] = useState<FocalRange | null>(() =>
-    loadFromStorage<FocalRange | null>('selectedFocalRange', null)
+    loadJsonFromStorage<FocalRange | null>('selectedFocalRange', null)
   )
   function handleFocalChange(range: FocalRange | null) {
     setShowBodyHint(false)
@@ -853,9 +861,9 @@ export default function ChatInterface() {
   }
   // ── レンズタイプ設定（localStorage で永続化）──────────────
   const [lensType, setLensType] = useState<LensType>(() => {
-    const saved = loadFromStorage<string | null>('selectedLensType', null)
+    const saved = loadStringFromStorage('selectedLensType')
     if (saved === 'auto' || saved === 'prime' || saved === 'zoom' || saved === 'macro') return saved
-    return loadFromStorage<string | null>('isMacro', null) === 'true' ? 'macro' : 'auto'
+    return loadStringFromStorage('isMacro') === 'true' ? 'macro' : 'auto'
   })
 
   function handleLensTypeChange(val: LensType) {
@@ -872,7 +880,7 @@ export default function ChatInterface() {
 
   // ── ボディ設定（localStorage で永続化）───────────────────
   const [bodyInput, setBodyInput] = useState<string>(() =>
-    loadFromStorage<string>('cameraBody', '')
+    loadStringFromStorage('cameraBody') ?? ''
   )
   function handleBodySave(val: string) {
     if (val.trim()) setShowBodyHint(false)
@@ -947,7 +955,11 @@ export default function ChatInterface() {
   // メッセージが変わるたびに保存（最新30件）
   useEffect(() => {
     try {
-      localStorage.setItem('chatMessages', JSON.stringify(messages.slice(-30)))
+      if (messages.length > 0) {
+        localStorage.setItem('chatMessages', JSON.stringify(messages.slice(-30)))
+      } else {
+        localStorage.removeItem('chatMessages')
+      }
     } catch { /* ignore */ }
   }, [messages])
 
