@@ -1,72 +1,79 @@
-# Plan Public Beta Light Operation & Feedback Review
+# Fix profile settings persistence
 
 ## Background
 
-Scene Guide Visual Polish Phase と Public Beta Manual Review は完了し、公開β blocker なしと判断した。
+公開βユーザーから、新規会話後やページ再読み込み後にプロフィール設定が復元されず、マウントやカメラを再選択する必要があるという報告があった。
 
-今回のタスクではコードや analytics を変更せず、公開β後の軽運用確認、フィードバック分類、次 phase の優先判断基準を docs に整理する。
+表示ではプロフィール設定を保持すると案内しているため、実挙動との矛盾を解消する high-priority usability issue として扱う。
 
 ## Direction
 
-- `public-beta-light-operation-plan.md` に、相談 / シーンガイド / 倉庫の観察方針を整理する。
-- `public-beta-feedback-classification.md` に、フィードバックの分類と証拠の残し方を整理する。
-- `post-beta-priority-decision.md` に、観察結果から次 phase を選ぶ基準を整理する。
-- `active-mission.md` を Public Beta Light Operation & Feedback Review Phase に更新する。
-- 古い handoff / checklist の状態ではなく、`active-mission.md`、`scene-guide-visual-polish-review.md`、`scene-guide-public-beta-review.md` を現在地の正本とする。
-- コード、API、データ、storage 仕様は変更しない。
+- JSON保存値とraw string保存値の読み込みを分離する。
+- 既存のlocalStorageキー名と保存形式は変更しない。
+- 新規会話では会話メッセージとconversation IDだけをリセットする。
+- プロフィール設定とセットアップ完了状態を、新規会話後とreload後に復元する。
+- recommendation logic、API / Dify、warehouseには触れない。
 
 ## Allowed files
 
-- `docs/active-mission.md`
 - `docs/current-task.md`
-- `docs/public-beta-light-operation-plan.md`
 - `docs/public-beta-feedback-classification.md`
-- `docs/post-beta-priority-decision.md`
+- `src/components/ChatInterface.tsx`
+- `tests/e2e/recommendations.spec.ts`
+
+## Feedback classification
+
+- Category: usability issue
+- Priority: High
+- Public beta blocker: no
+- Reason: プロフィール保持の表示と実挙動が矛盾し、新規会話ごとに再設定が必要になる。
+
+## Root cause
+
+- 既存の `loadFromStorage` が取得値を常に `JSON.parse` していた。
+- `selectedMountId`、`selectedBudgetId`、`selectedLensType`、`cameraBody`、`chatConversationId` はraw stringとして保存されているため、復元時にfallbackへ戻っていた。
+- `setupDone` はraw stringの `'true'` がbooleanへparseされ、文字列比較に失敗していた。
 
 ## Do not touch
 
-- `src/` 以下すべて
 - API / Dify
 - recommendation logic
-- Resolver logic
-- comparison hooks logic
-- consultation handoff logic
 - warehouse
-- warehouse localStorage
-- sessionStorage 仕様
 - `public/lens_data.json`
+- purchase links / affiliate logic
+- Scene Guide / Resolver / comparison hooks / consultation handoff
+- localStorage key names / saved data structures
 - data-testid
-- `package.json`
-- lockfile
 
 ## Do
 
-- 軽運用計画、分類基準、次 phase の判断基準を docs 化する。
-- `active-mission.md` と `current-task.md` を現在地に更新する。
-- docs 間の依存関係と guardrails を確認する。
+- raw stringとJSONの読み込みを分離する。
+- raw stringの既存ユーザー設定を復元する。
+- 新規会話時にプロフィールを保持し、会話データだけを消す。
+- 既存E2Eファイルへ回帰ケースを追加する。
 - `npm run build` を実行する。
 
 ## Do not
 
-- コードを変更しない。
-- analytics を実装しない。
-- UI / recommendation / Resolver / comparison hooks / handoff logic / data を変更しない。
-- API / Dify / warehouse / lens data / storage 仕様を変更しない。
-- commit / push / e2e を実行しない。
+- e2eを実行しない。
+- commit / pushしない。
+- API、データ、推薦結果を変更しない。
 
 ## Checks
 
 - `git status`
 - `git diff --stat`
 - `git diff --check`
+- raw string localStorage値の復元を確認する。
+- 新規会話後にプロフィールが保持されることを確認する。
+- reload後にプロフィールが保持されることを確認する。
+- 新規会話時に `chatMessages` と `chatConversationId` が削除されることを確認する。
 - `npm run build`
-- コードやデータに今回の変更がないことを確認する。
-- 新規 docs が、観察、分類、優先判断の役割を重複なく分担していることを確認する。
 
 ## Commit
 
 今回は commit / push を行わない。手動 commit 時の推奨メッセージ:
 
 ```txt
-docs: plan public beta light operation review
+fix: preserve profile settings across new chats
 ```

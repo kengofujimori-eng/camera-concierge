@@ -268,3 +268,14 @@ AI回答、推薦候補、Scene Guide の判断結果が、入力条件や実用
 3. 複数ユーザーに共通する usability / wording issue をまとめる。
 4. feature request は post-beta priority decision の条件と照合する。
 5. non-issue は記録し、繰り返す場合だけ再分類する。
+
+## Recorded public beta issue: profile settings persistence
+
+- Category: usability issue
+- Priority: High
+- Blocker: no
+- Report: 新規会話ではプロフィール設定を保持すると表示されるが、実際にはマウントやカメラの再選択が必要になる。
+- Impact: 新規会話とページ再読み込みのたびに再設定が必要となり、相談開始までの利用摩擦が大きい。
+- Cause: raw stringとして保存されたプロフィール値をJSON loaderで読み込み、parse失敗時にfallbackへ戻っていた。
+- Boundary: 主要routeや相談送信そのものは利用可能なためblockerではない。ただし表示と挙動が矛盾し、繰り返し発生するため即時修正対象とする。
+- Scope: localStorageの既存キーと保存形式を維持し、読み込み処理だけを分離する。
