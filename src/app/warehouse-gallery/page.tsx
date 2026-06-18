@@ -44,7 +44,17 @@ const LENSES: DemoLens[] = [
 
 export default function WarehouseGalleryPage() {
   const [selected, setSelected] = useState<number | null>(null)
+  // 動きに敏感なユーザー向け: prefers-reduced-motion のときは背景動画を自動再生しない
+  const [reduceMotion, setReduceMotion] = useState(false)
   const scrollerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setReduceMotion(mq.matches)
+    const onChange = (e: MediaQueryListEvent) => setReduceMotion(e.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
 
   const toggle = useCallback((idx: number) => {
     setSelected((cur) => (cur === idx ? null : idx))
@@ -98,11 +108,16 @@ export default function WarehouseGalleryPage() {
 
   return (
     <main className="rack-root">
-      {/* 背景: 無彩色の霧がゆっくり移ろう（有彩色は使わない） */}
-      <div className="ambient" aria-hidden>
-        <span className="orb orb-a" />
-        <span className="orb orb-b" />
-        <span className="orb orb-c" />
+      {/* 背景: ループ動画（モノクロ抽象映像）。動画は暗く沈めて気配程度に。
+          読み込み失敗時や reduced-motion 時は rack-root のオニキス単色背景にフォールバック。 */}
+      <div className="bg" aria-hidden>
+        {!reduceMotion && (
+          // eslint-disable-next-line jsx-a11y/media-has-caption
+          <video className="bg-video" autoPlay muted loop playsInline preload="auto">
+            <source src="/gallery-bg.mp4" type="video/mp4" />
+          </video>
+        )}
+        <div className="bg-veil" />
       </div>
 
       <div
@@ -166,60 +181,30 @@ export default function WarehouseGalleryPage() {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        /* ── 背景アンビエント: 無彩色の霧（彩度を持つ色は使わない） ──
-           白〜淡いグレーのにじみを複数重ね、位置・大きさ・濃度をゆっくり変えて
-           霧が流れるような有機的な動きを作る。規則的な幾何学は使わない。 */
-        .ambient {
+        /* ── 背景動画レイヤー（最背面・モノクロ・沈める） ── */
+        .bg {
           position: absolute;
           inset: 0;
           z-index: 1;
           pointer-events: none;
           overflow: hidden;
         }
-        .orb {
+        .bg-video {
           position: absolute;
-          border-radius: 50%;
-          will-change: transform, opacity;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          /* 映像を主張させない: モノクロ維持・暗く・わずかにぼかす */
+          filter: grayscale(1) brightness(0.62) contrast(1.02) blur(2px);
         }
-        .orb-a {
-          width: 60vw;
-          height: 60vw;
-          left: 4%;
-          top: 8%;
-          background: radial-gradient(circle, rgba(232, 234, 240, 0.07), transparent 64%);
-          filter: blur(110px);
-          animation: drift-a 34s ease-in-out infinite;
-        }
-        .orb-b {
-          width: 50vw;
-          height: 50vw;
-          right: 2%;
-          top: 28%;
-          background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent 66%);
-          filter: blur(120px);
-          animation: drift-b 40s ease-in-out infinite;
-        }
-        .orb-c {
-          width: 44vw;
-          height: 44vw;
-          left: 34%;
-          bottom: 2%;
-          background: radial-gradient(circle, rgba(150, 154, 168, 0.06), transparent 68%);
-          filter: blur(100px);
-          animation: drift-c 28s ease-in-out infinite;
-        }
-        /* それぞれ周期・経路をずらし、同期しない＝霧のように不規則に見せる */
-        @keyframes drift-a {
-          0%, 100% { transform: translate(0, 0) scale(1);        opacity: 0.5; }
-          50%      { transform: translate(14vw, 8vh) scale(1.25); opacity: 0.95; }
-        }
-        @keyframes drift-b {
-          0%, 100% { transform: translate(0, 0) scale(1.1);       opacity: 0.4; }
-          50%      { transform: translate(-12vw, 6vh) scale(0.88); opacity: 0.85; }
-        }
-        @keyframes drift-c {
-          0%, 100% { transform: translate(0, 0) scale(0.95);      opacity: 0.35; }
-          50%      { transform: translate(9vw, -10vh) scale(1.2);  opacity: 0.7; }
+        /* 暗いベール + ビネットで映像を沈め、カードの可読性を最優先にする */
+        .bg-veil {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(120% 80% at 50% 45%, transparent 48%, rgba(0, 0, 0, 0.55) 100%),
+            rgba(8, 8, 11, 0.62);
         }
 
         /* ── 横スクロール領域 ── */
@@ -463,11 +448,7 @@ export default function WarehouseGalleryPage() {
           .card.is-open { width: 88vw; }
           .lens-img { max-height: 280px; }
         }
-
-        /* 動きを抑える設定では背景アニメーションを停止 */
-        @media (prefers-reduced-motion: reduce) {
-          .orb-a, .orb-b, .orb-c { animation: none; }
-        }
+        /* 背景動画の自動再生抑制は JS 側（reduceMotion で <video> を描画しない）で処理する */
       `}</style>
     </main>
   )
