@@ -28,22 +28,28 @@ interface DemoLens {
   weight: string
   price: string
   mount: string
+  /* ↓ 第二段階（詳細パネル）用のダミー。実データ接続は別タスク。 */
+  priceUsed: string
+  ai: string
 }
 
-// デモ専用ハードコード（本番データには触れない）
+// デモ専用ハードコード（本番データには触れない）。
+// priceUsed / ai は詳細パネル用のダミーテキスト（本番ではAI解析・実価格に差し替え）。
 const LENSES: DemoLens[] = [
-  { name: 'FE 14mm F1.8 GM',        image: '/lens_images_processed/FE_14mm_F1.8_GM.png',        focal: '14mm',    aperture: 'F1.8', weight: '460g', price: '¥198,000', mount: 'Sony E' },
-  { name: 'FE 16-35mm F2.8 GM',     image: '/lens_images_processed/FE_16-35mm_F2.8_GM.png',     focal: '16–35mm', aperture: 'F2.8', weight: '680g', price: '¥245,000', mount: 'Sony E' },
-  { name: 'FE 24mm F1.4 GM',        image: '/lens_images_processed/FE_24mm_F1.4_GM.png',        focal: '24mm',    aperture: 'F1.4', weight: '445g', price: '¥168,000', mount: 'Sony E' },
-  { name: 'FE 24-70mm F2.8 GM II',  image: '/lens_images_processed/FE_24-70mm_F2.8_GM_II.png',  focal: '24–70mm', aperture: 'F2.8', weight: '695g', price: '¥258,000', mount: 'Sony E' },
-  { name: 'FE 35mm F1.4 GM',        image: '/lens_images_processed/FE_35mm_F1.4_GM.png',        focal: '35mm',    aperture: 'F1.4', weight: '524g', price: '¥219,000', mount: 'Sony E' },
-  { name: 'FE 50mm F1.2 GM',        image: '/lens_images_processed/FE_50mm_F1.2_GM.png',        focal: '50mm',    aperture: 'F1.2', weight: '778g', price: '¥298,000', mount: 'Sony E' },
-  { name: 'FE 85mm F1.4 GM II',     image: '/lens_images_processed/FE_85mm_F1.4_GM_II.png',     focal: '85mm',    aperture: 'F1.4', weight: '642g', price: '¥285,000', mount: 'Sony E' },
-  { name: 'FE 135mm F1.8 GM',       image: '/lens_images_processed/FE_135mm_F1.8_GM.png',       focal: '135mm',   aperture: 'F1.8', weight: '950g', price: '¥235,000', mount: 'Sony E' },
+  { name: 'FE 14mm F1.8 GM',        image: '/lens_images_processed/FE_14mm_F1.8_GM.png',        focal: '14mm',    aperture: 'F1.8', weight: '460g', price: '¥198,000', mount: 'Sony E', priceUsed: '¥148,000〜', ai: '超広角ながら460gと軽量。星景・建築・狭所での広い画づくりに強く、開放から周辺まで安定。歪曲は電子補正前提の設計。' },
+  { name: 'FE 16-35mm F2.8 GM',     image: '/lens_images_processed/FE_16-35mm_F2.8_GM.png',     focal: '16–35mm', aperture: 'F2.8', weight: '680g', price: '¥245,000', mount: 'Sony E', priceUsed: '¥178,000〜', ai: '風景からスナップ、室内まで一本で回せる定番の広角ズーム。F2.8通しで暗所にも対応し、動画用途でも扱いやすい。' },
+  { name: 'FE 24mm F1.4 GM',        image: '/lens_images_processed/FE_24mm_F1.4_GM.png',        focal: '24mm',    aperture: 'F1.4', weight: '445g', price: '¥168,000', mount: 'Sony E', priceUsed: '¥118,000〜', ai: '445gの軽量大口径。環境を含めたポートレートや夜景スナップに最適で、開放のボケと点像再現に定評。' },
+  { name: 'FE 24-70mm F2.8 GM II',  image: '/lens_images_processed/FE_24-70mm_F2.8_GM_II.png',  focal: '24–70mm', aperture: 'F2.8', weight: '695g', price: '¥258,000', mount: 'Sony E', priceUsed: '¥198,000〜', ai: '標準ズームの最高峰。前世代比で大幅に軽量化し、解像とAF速度を両立。仕事用の主力として死角が少ない。' },
+  { name: 'FE 35mm F1.4 GM',        image: '/lens_images_processed/FE_35mm_F1.4_GM.png',        focal: '35mm',    aperture: 'F1.4', weight: '524g', price: '¥219,000', mount: 'Sony E', priceUsed: '¥158,000〜', ai: '自然な画角の大口径単。スナップ・ドキュメンタリー・ポートレートまで万能で、開放の線の細さが魅力。' },
+  { name: 'FE 50mm F1.2 GM',        image: '/lens_images_processed/FE_50mm_F1.2_GM.png',        focal: '50mm',    aperture: 'F1.2', weight: '778g', price: '¥298,000', mount: 'Sony E', priceUsed: '¥228,000〜', ai: 'F1.2の圧倒的なボケと立体感。標準域の表現力を突き詰めた一本で、開放から芯のある描写を見せる。' },
+  { name: 'FE 85mm F1.4 GM II',     image: '/lens_images_processed/FE_85mm_F1.4_GM_II.png',     focal: '85mm',    aperture: 'F1.4', weight: '642g', price: '¥285,000', mount: 'Sony E', priceUsed: '¥218,000〜', ai: 'ポートレートの王道。前世代から軽量化し、とろけるボケと高速AFを両立。背景分離と肌の階調が秀逸。' },
+  { name: 'FE 135mm F1.8 GM',       image: '/lens_images_processed/FE_135mm_F1.8_GM.png',       focal: '135mm',   aperture: 'F1.8', weight: '950g', price: '¥235,000', mount: 'Sony E', priceUsed: '¥168,000〜', ai: '中望遠の決定版。強い圧縮効果と大きなボケで被写体を際立たせる。舞台・ポートレート・物撮りに最適。' },
 ]
 
 export default function WarehouseGalleryPage() {
   const [selected, setSelected] = useState<number | null>(null)
+  // 第二段階: 詳細パネルを開いているレンズの index（null=閉じている＝静かな概要）
+  const [detailFor, setDetailFor] = useState<number | null>(null)
   // 動きに敏感なユーザー向け: prefers-reduced-motion のときは背景動画を自動再生しない
   const [reduceMotion, setReduceMotion] = useState(false)
   const scrollerRef = useRef<HTMLDivElement>(null)
@@ -57,13 +63,25 @@ export default function WarehouseGalleryPage() {
   }, [])
 
   const toggle = useCallback((idx: number) => {
-    setSelected((cur) => (cur === idx ? null : idx))
+    setSelected((cur) => {
+      if (cur === idx) {
+        // 同じカードを再クリックで閉じるときは詳細パネルも畳む
+        setDetailFor(null)
+        return null
+      }
+      return idx
+    })
   }, [])
 
-  // Escで閉じる
+  // Escで閉じる: 詳細パネルが開いていればまずそれを閉じ、なければ選択を解除
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setSelected(null)
+      if (e.key !== 'Escape') return
+      setDetailFor((d) => {
+        if (d !== null) return null
+        setSelected(null)
+        return d
+      })
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
@@ -114,7 +132,7 @@ export default function WarehouseGalleryPage() {
         {!reduceMotion && (
           // eslint-disable-next-line jsx-a11y/media-has-caption
           <video className="bg-video" autoPlay muted loop playsInline preload="auto">
-            <source src="/gallery-bg.mp4" type="video/mp4" />
+            <source src="/gallery-bg-circles.mp4" type="video/mp4" />
           </video>
         )}
         <div className="bg-veil" />
@@ -147,7 +165,8 @@ export default function WarehouseGalleryPage() {
                   </div>
                   <span className="lens-name">{lens.name}</span>
 
-                  {/* クリックで初めて出る諸元 */}
+                  {/* 第一段階「静かな概要」: クリックで初めて出る主要諸元のみ。
+                      AI解析・購入リンク・レビュー等の詳細は出さず、静謐さを保つ。 */}
                   <div className="specs" aria-hidden={!isOpen}>
                     <span className="mount">{lens.mount}</span>
                     <dl>
@@ -156,6 +175,18 @@ export default function WarehouseGalleryPage() {
                       <div><dt>重量</dt><dd>{lens.weight}</dd></div>
                       <div><dt>参考価格</dt><dd>{lens.price}</dd></div>
                     </dl>
+                    {/* 第二段階への控えめなトリガー。詳細は引き出しの中に隠す。 */}
+                    <button
+                      type="button"
+                      className="detail-trigger"
+                      tabIndex={isOpen ? 0 : -1}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setDetailFor(idx)
+                      }}
+                    >
+                      詳しく見る<span className="arrow" aria-hidden>→</span>
+                    </button>
                   </div>
                 </div>
               </article>
@@ -167,6 +198,80 @@ export default function WarehouseGalleryPage() {
       {/* 最小限のナビ矢印 */}
       <button className="nav prev" onClick={() => scrollBy(-1)} aria-label="左へ">‹</button>
       <button className="nav next" onClick={() => scrollBy(1)} aria-label="右へ">›</button>
+
+      {/* ── 第二段階「詳細パネル」: 画面下からせり上がるフロストグラスのシート ──
+          AI解析・新品/中古価格・購入リンク・レビューのダミーを別レイヤーで表示。
+          背景クリック / 閉じるボタン / Esc で閉じ、第一段階の静かな概要へ戻る。
+          世界観維持のため余白を広くとり、台帳のように詰め込まない。 */}
+      <div
+        className={`detail-layer${detailFor !== null ? ' is-open' : ''}`}
+        aria-hidden={detailFor === null}
+      >
+        <div className="detail-scrim" onClick={() => setDetailFor(null)} />
+        <section
+          className="sheet"
+          role="dialog"
+          aria-modal="true"
+          aria-label={detailFor !== null ? `${LENSES[detailFor].name} の詳細` : undefined}
+        >
+          {detailFor !== null && (
+            <>
+              <div className="sheet-head">
+                <div className="sheet-title">
+                  <span className="sheet-mount">{LENSES[detailFor].mount}</span>
+                  <h2>{LENSES[detailFor].name}</h2>
+                </div>
+                <button
+                  type="button"
+                  className="sheet-close"
+                  onClick={() => setDetailFor(null)}
+                  aria-label="閉じる"
+                >
+                  ×
+                </button>
+              </div>
+
+              <div className="sheet-grid">
+                <div className="panel ai">
+                  <h3>AI 解析</h3>
+                  <p>{LENSES[detailFor].ai}</p>
+                  <p className="muted">
+                    ※ デモ用のダミーテキストです。本番では撮影意図や所有レンズに応じた解析がここに入ります。
+                  </p>
+                </div>
+
+                <div className="panel price">
+                  <h3>価格</h3>
+                  <div className="price-row">
+                    <div>
+                      <span className="price-label">新品</span>
+                      <span className="price-val">{LENSES[detailFor].price}</span>
+                    </div>
+                    <div>
+                      <span className="price-label">中古</span>
+                      <span className="price-val used">{LENSES[detailFor].priceUsed}</span>
+                    </div>
+                  </div>
+                  <div className="buy-row">
+                    <button type="button" className="buy primary">新品で買う</button>
+                    <button type="button" className="buy">中古で買う</button>
+                  </div>
+                </div>
+
+                <div className="panel review">
+                  <h3>レビュー / 作例</h3>
+                  <p className="muted">
+                    「開放から芯のある描写で、ポートレートの定番として手放せない。」— ダミーレビュー
+                  </p>
+                  <p className="muted">
+                    作例ギャラリー（準備中）。本番では実際の作例サムネイルが並びます。
+                  </p>
+                </div>
+              </div>
+            </>
+          )}
+        </section>
+      </div>
 
       <style jsx>{`
         .rack-root {
@@ -195,16 +300,19 @@ export default function WarehouseGalleryPage() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          /* 映像を主張させない: モノクロ維持・暗く・わずかにぼかす */
-          filter: grayscale(1) brightness(0.62) contrast(1.02) blur(2px);
+          /* 映像を主張させない: モノクロ維持・暗く沈めるが黒すぎを避け、
+             リングの輪郭をやわらげるため前版より少し強めにぼかす。 */
+          filter: grayscale(1) brightness(0.68) contrast(1.0) blur(3.5px);
         }
-        /* 暗いベール + ビネットで映像を沈め、カードの可読性を最優先にする */
+        /* 暗いベール + ビネットで映像を沈め、カードの可読性を最優先にする。
+           新映像は上部が少し明るいため、上側にわずかに濃いめのグラデを足す。 */
         .bg-veil {
           position: absolute;
           inset: 0;
           background:
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.22) 0%, transparent 32%),
             radial-gradient(120% 80% at 50% 45%, transparent 48%, rgba(0, 0, 0, 0.55) 100%),
-            rgba(8, 8, 11, 0.62);
+            rgba(8, 8, 11, 0.58);
         }
 
         /* ── 横スクロール領域 ── */
@@ -416,6 +524,179 @@ export default function WarehouseGalleryPage() {
           font-weight: 300;
           color: #eef2f6;
           white-space: nowrap;
+        }
+
+        /* ── 第二段階への控えめなトリガー ── */
+        .detail-trigger {
+          align-self: flex-start;
+          margin-top: 6px;
+          padding: 6px 2px;
+          background: none;
+          border: none;
+          color: rgba(214, 218, 228, 0.62);
+          font-size: 11.5px;
+          letter-spacing: 0.16em;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          transition: color 0.25s ease;
+        }
+        .detail-trigger:hover { color: #eef2f6; }
+        .detail-trigger .arrow {
+          font-size: 12px;
+          transform: translateX(0);
+          transition: transform 0.25s ease;
+        }
+        .detail-trigger:hover .arrow { transform: translateX(4px); }
+
+        /* ── 第二段階「詳細パネル」: 下からせり上がるシート ── */
+        .detail-layer {
+          position: fixed;
+          inset: 0;
+          z-index: 40;
+          visibility: hidden;
+          pointer-events: none;
+        }
+        .detail-layer.is-open {
+          visibility: visible;
+          pointer-events: auto;
+        }
+        .detail-scrim {
+          position: absolute;
+          inset: 0;
+          background: rgba(6, 6, 9, 0.55);
+          opacity: 0;
+          transition: opacity 0.4s ease;
+        }
+        .detail-layer.is-open .detail-scrim { opacity: 1; }
+
+        .sheet {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          max-height: 82vh;
+          overflow-y: auto;
+          padding: 30px max(8vw, 48px) 44px;
+          /* フロストグラス: 暗いオニキスのガラス板。世界観に馴染ませる */
+          background: rgba(18, 18, 23, 0.72);
+          backdrop-filter: blur(26px) saturate(1.15);
+          -webkit-backdrop-filter: blur(26px) saturate(1.15);
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 22px 22px 0 0;
+          box-shadow: 0 -24px 70px rgba(0, 0, 0, 0.6);
+          transform: translateY(102%);
+          transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        .detail-layer.is-open .sheet { transform: translateY(0); }
+
+        .sheet-head {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 16px;
+          margin-bottom: 28px;
+        }
+        .sheet-title { display: flex; flex-direction: column; gap: 10px; }
+        .sheet-mount {
+          align-self: flex-start;
+          font-size: 10px;
+          letter-spacing: 0.26em;
+          text-transform: uppercase;
+          color: #b9a6ee;
+          border: 1px solid rgba(168, 85, 247, 0.32);
+          padding: 3px 8px;
+          border-radius: 4px;
+        }
+        .sheet-title h2 {
+          margin: 0;
+          font-size: 22px;
+          font-weight: 300;
+          letter-spacing: 0.04em;
+          color: #f1f3f7;
+        }
+        .sheet-close {
+          flex: 0 0 auto;
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          background: rgba(255, 255, 255, 0.04);
+          color: #c8ccd4;
+          font-size: 22px;
+          line-height: 1;
+          cursor: pointer;
+          transition: border-color 0.25s ease, color 0.25s ease;
+        }
+        .sheet-close:hover { border-color: rgba(255, 255, 255, 0.4); color: #fff; }
+
+        .sheet-grid {
+          display: grid;
+          grid-template-columns: 1.4fr 1fr;
+          gap: 22px;
+        }
+        .panel {
+          background: rgba(255, 255, 255, 0.035);
+          border: 1px solid rgba(255, 255, 255, 0.07);
+          border-radius: 16px;
+          padding: 22px 24px;
+        }
+        .panel.ai { grid-row: span 2; }
+        .panel h3 {
+          margin: 0 0 14px;
+          font-size: 11px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: #8b8b96;
+          font-weight: 400;
+        }
+        .panel p {
+          margin: 0 0 12px;
+          font-size: 14px;
+          line-height: 1.8;
+          font-weight: 300;
+          color: #dfe2ea;
+        }
+        .panel p:last-child { margin-bottom: 0; }
+        .panel .muted { color: rgba(178, 182, 192, 0.62); font-size: 12.5px; }
+
+        .price-row { display: flex; gap: 32px; margin-bottom: 20px; }
+        .price-row > div { display: flex; flex-direction: column; gap: 6px; }
+        .price-label {
+          font-size: 10px;
+          letter-spacing: 0.16em;
+          color: #8b8b96;
+        }
+        .price-val { font-size: 21px; font-weight: 300; color: #f1f3f7; }
+        .price-val.used { color: #c5c9d2; }
+
+        .buy-row { display: flex; gap: 12px; flex-wrap: wrap; }
+        .buy {
+          flex: 1 1 auto;
+          min-width: 120px;
+          padding: 11px 16px;
+          border-radius: 10px;
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          background: rgba(255, 255, 255, 0.04);
+          color: #e8e8ee;
+          font-size: 12.5px;
+          letter-spacing: 0.08em;
+          cursor: pointer;
+          transition: border-color 0.25s ease, background 0.25s ease;
+        }
+        .buy:hover { border-color: rgba(255, 255, 255, 0.4); }
+        /* 唯一の一点挿し: 「新品で買う」だけ控えめなグラデのアクセント */
+        .buy.primary {
+          border-color: transparent;
+          background: linear-gradient(135deg, #2563eb, #7c3aed 55%, #d946ef);
+          color: #fff;
+        }
+        .buy.primary:hover { filter: brightness(1.08); }
+
+        @media (max-width: 720px) {
+          .sheet-grid { grid-template-columns: 1fr; }
+          .panel.ai { grid-row: auto; }
         }
 
         /* ── 最小ナビ矢印 ── */
