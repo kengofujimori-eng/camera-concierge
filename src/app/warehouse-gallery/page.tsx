@@ -98,10 +98,11 @@ export default function WarehouseGalleryPage() {
 
   return (
     <main className="rack-root">
-      {/* 背景: ゆっくり移ろう淡いアンビエントグロー */}
+      {/* 背景: 無彩色の霧がゆっくり移ろう（有彩色は使わない） */}
       <div className="ambient" aria-hidden>
         <span className="orb orb-a" />
         <span className="orb orb-b" />
+        <span className="orb orb-c" />
       </div>
 
       <div
@@ -165,7 +166,9 @@ export default function WarehouseGalleryPage() {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        /* ── 背景アンビエント（第3版より振れ幅を一段大きく） ── */
+        /* ── 背景アンビエント: 無彩色の霧（彩度を持つ色は使わない） ──
+           白〜淡いグレーのにじみを複数重ね、位置・大きさ・濃度をゆっくり変えて
+           霧が流れるような有機的な動きを作る。規則的な幾何学は使わない。 */
         .ambient {
           position: absolute;
           inset: 0;
@@ -176,32 +179,47 @@ export default function WarehouseGalleryPage() {
         .orb {
           position: absolute;
           border-radius: 50%;
-          filter: blur(96px);
           will-change: transform, opacity;
         }
         .orb-a {
-          width: 52vw;
-          height: 52vw;
-          left: 8%;
-          top: 14%;
-          background: radial-gradient(circle, rgba(37, 99, 235, 0.40), transparent 66%);
-          animation: drift-a 22s ease-in-out infinite;
+          width: 60vw;
+          height: 60vw;
+          left: 4%;
+          top: 8%;
+          background: radial-gradient(circle, rgba(232, 234, 240, 0.07), transparent 64%);
+          filter: blur(110px);
+          animation: drift-a 34s ease-in-out infinite;
         }
         .orb-b {
-          width: 46vw;
-          height: 46vw;
-          right: 6%;
-          top: 30%;
-          background: radial-gradient(circle, rgba(124, 58, 237, 0.36), transparent 66%);
-          animation: drift-b 28s ease-in-out infinite;
+          width: 50vw;
+          height: 50vw;
+          right: 2%;
+          top: 28%;
+          background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent 66%);
+          filter: blur(120px);
+          animation: drift-b 40s ease-in-out infinite;
         }
+        .orb-c {
+          width: 44vw;
+          height: 44vw;
+          left: 34%;
+          bottom: 2%;
+          background: radial-gradient(circle, rgba(150, 154, 168, 0.06), transparent 68%);
+          filter: blur(100px);
+          animation: drift-c 28s ease-in-out infinite;
+        }
+        /* それぞれ周期・経路をずらし、同期しない＝霧のように不規則に見せる */
         @keyframes drift-a {
-          0%, 100% { transform: translate(0, 0) scale(1);    opacity: 0.4; }
-          50%      { transform: translate(16vw, 9vh) scale(1.2); opacity: 0.72; }
+          0%, 100% { transform: translate(0, 0) scale(1);        opacity: 0.5; }
+          50%      { transform: translate(14vw, 8vh) scale(1.25); opacity: 0.95; }
         }
         @keyframes drift-b {
-          0%, 100% { transform: translate(0, 0) scale(1.08);  opacity: 0.32; }
-          50%      { transform: translate(-13vw, -7vh) scale(0.9); opacity: 0.62; }
+          0%, 100% { transform: translate(0, 0) scale(1.1);       opacity: 0.4; }
+          50%      { transform: translate(-12vw, 6vh) scale(0.88); opacity: 0.85; }
+        }
+        @keyframes drift-c {
+          0%, 100% { transform: translate(0, 0) scale(0.95);      opacity: 0.35; }
+          50%      { transform: translate(9vw, -10vh) scale(1.2);  opacity: 0.7; }
         }
 
         /* ── 横スクロール領域 ── */
@@ -254,11 +272,11 @@ export default function WarehouseGalleryPage() {
         .card.is-dim { opacity: 0.4; }
         .card.is-open {
           width: 470px;
-          background: rgba(140, 130, 200, 0.08);
+          /* 拡大カードも無彩色のフロストグラスのまま。色は外周ラインとバッジだけに灯す */
+          background: rgba(255, 255, 255, 0.06);
           box-shadow:
-            inset 0 1px 1px rgba(255, 255, 255, 0.12),
-            0 24px 60px rgba(0, 0, 0, 0.6),
-            0 0 40px rgba(124, 58, 237, 0.12);
+            inset 0 1px 1px rgba(255, 255, 255, 0.14),
+            0 24px 60px rgba(0, 0, 0, 0.6);
         }
 
         /* 選択時の外周グラデ細線 */
@@ -324,7 +342,7 @@ export default function WarehouseGalleryPage() {
         }
         .card.is-open .lens-img {
           filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.8))
-            drop-shadow(0 0 22px rgba(124, 92, 220, 0.18)) contrast(1.06);
+            drop-shadow(0 0 22px rgba(255, 255, 255, 0.12)) contrast(1.06);
         }
 
         .lens-name {
@@ -435,7 +453,7 @@ export default function WarehouseGalleryPage() {
           opacity: 0.55;
           transition: opacity 0.25s ease, border-color 0.25s ease;
         }
-        .nav:hover { opacity: 1; border-color: rgba(168, 85, 247, 0.5); }
+        .nav:hover { opacity: 1; border-color: rgba(255, 255, 255, 0.35); }
         .nav.prev { left: 18px; }
         .nav.next { right: 18px; }
 
@@ -448,7 +466,7 @@ export default function WarehouseGalleryPage() {
 
         /* 動きを抑える設定では背景アニメーションを停止 */
         @media (prefers-reduced-motion: reduce) {
-          .orb-a, .orb-b { animation: none; }
+          .orb-a, .orb-b, .orb-c { animation: none; }
         }
       `}</style>
     </main>
