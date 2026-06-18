@@ -285,7 +285,8 @@ export default function WarehouseGalleryPage() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding: 26px 22px 24px;
+          /* 未選択カードは上下にゆとりをとり、画像を上に貼り付けない（開いた状態は下で上書き） */
+          padding: 52px 24px 40px;
         }
         .card.is-open .card-body {
           flex-direction: row;
@@ -316,6 +317,11 @@ export default function WarehouseGalleryPage() {
           filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.7)) contrast(1.05);
           transition: filter 0.5s ease, max-height 0.5s ease;
         }
+        /* 未選択カードのみ: 画像を一回り小さくして上下の余白を確保（選択カードは不変） */
+        .card:not(.is-open) .lens-img {
+          max-height: 280px;
+          max-width: 138px;
+        }
         .card.is-open .lens-img {
           filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.8))
             drop-shadow(0 0 22px rgba(124, 92, 220, 0.18)) contrast(1.06);
@@ -331,6 +337,15 @@ export default function WarehouseGalleryPage() {
           opacity: 0.86;
           transition: opacity 0.4s ease;
         }
+        /* 未選択カードのみ: 画像から十分に離した下部キャプション。細め・字間広め・低コントラスト */
+        .card:not(.is-open) .lens-name {
+          margin-top: 30px;
+          font-weight: 300;
+          font-size: 11.5px;
+          letter-spacing: 0.05em;
+          color: rgba(223, 226, 234, 0.56);
+          opacity: 1;
+        }
         .card.is-open .lens-name {
           position: absolute;
           top: 20px;
@@ -343,7 +358,10 @@ export default function WarehouseGalleryPage() {
 
         /* ── 諸元（クリックで展開） ── */
         .specs {
-          flex: 1;
+          /* 既定は完全に畳む。列レイアウトで縦に伸びないよう grow させず max-height:0 でクリップ。
+             （:not(.is-open) のセレクタは styled-jsx で落ちる場合があるため、開いた状態側で展開する） */
+          flex: 0 0 auto;
+          max-height: 0;
           align-self: stretch;
           display: flex;
           flex-direction: column;
@@ -354,13 +372,14 @@ export default function WarehouseGalleryPage() {
           border-left: 1px solid rgba(255, 255, 255, 0.12);
           opacity: 0;
           transform: translateX(8px);
-          transition: opacity 0.45s ease 0.1s, transform 0.45s ease 0.1s;
+          transition: opacity 0.45s ease 0.1s, transform 0.45s ease 0.1s, max-height 0.5s ease;
           pointer-events: none;
-          /* 通常時は幅を奪わないよう畳む */
           width: 0;
           overflow: hidden;
         }
         .card.is-open .specs {
+          flex: 1 1 auto;
+          max-height: 600px;
           opacity: 1;
           transform: translateX(0);
           width: auto;
