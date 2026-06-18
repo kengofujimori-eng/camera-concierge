@@ -22,6 +22,51 @@
 
 相談文や個人情報を残す場合は、必要部分だけに限定する。
 
+## Minimal feedback logging pilot
+
+AI相談品質改善の evidence collection として、相談画面の assistant 回答下に最小 feedback UI を置く。
+
+この pilot は full analytics ではない。localStorage の `lensNaviFeedbackLogs` に、ユーザーが明示的に押した `よかった` / `違和感あり` と、その時点の profile metadata だけを保存する。
+
+### Stored fields
+
+- timestamp
+- source: `consultation`
+- feedback type: `positive` / `issue`
+- issue category
+- optional short comment
+- selected mount id / label
+- camera body value or presence
+- budget id / label
+- focal range
+- lens type
+- message id / message index
+- short assistant excerpt only when safe
+
+### Not stored
+
+- 相談文全文
+- Dify response 全文
+- 個人情報
+- warehouse data
+- purchase link click
+- cross-session user identifier
+- external analytics event
+
+### How to use the records
+
+`違和感あり` の category は初期分類の補助として使う。
+
+- `マウントが違う`: blocker または recommendation quality issue 候補。
+- `用途に合わない`: recommendation quality issue 候補。
+- `焦点距離が違う`: recommendation quality issue 候補。
+- `高すぎる / 重すぎる`: recommendation quality issue または wording issue 候補。
+- `説明がわかりにくい`: wording issue または usability issue 候補。
+- `候補が足りない`: missing lens / data issue または feature request 候補。
+- `その他`: 追加確認が必要。
+
+category は最終分類ではない。再現可能な相談条件、表示された候補、スクリーンショット、同種報告の重複を確認してから分類する。
+
 ## Severity and repetition
 
 ### Single report

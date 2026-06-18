@@ -390,6 +390,66 @@ test.describe('recommendation smoke tests', () => {
     await expect.poll(() => scrollArea.evaluate((element) => element.scrollTop)).toBeGreaterThan(0)
   })
 
+  test('stores minimal consultation feedback locally with profile metadata', async ({ page }) => {
+    await page.addInitScript(() => {
+      localStorage.setItem('selectedMountId', 'canon-rf')
+      localStorage.setItem('selectedBudgetId', 'b200k')
+      localStorage.setItem('selectedLensType', 'zoom')
+      localStorage.setItem('cameraBody', 'EOS R6 Mark II')
+      localStorage.setItem('selectedFocalRange', JSON.stringify({ minMm: 70, maxMm: 200 }))
+      localStorage.setItem('setupDone', 'true')
+    })
+
+    await page.route('**/api/chat', async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          answer: [
+            '条件に合う候補です。',
+            '',
+            '【選択肢1】RF70-200mm F4L IS USM',
+            'おすすめ理由：運動会で扱いやすい望遠ズームです。',
+          ].join('\n'),
+          conversationId: 'mock-feedback',
+        }),
+      })
+    })
+
+    await page.goto('/')
+    await expect(page.getByTestId('selected-mount-display')).toContainText('Canon RF')
+
+    const prompt = '子供の運動会向けに相談したいです。'
+    await enterPrompt(page, prompt)
+    await waitForSendEnabled(page)
+    await page.getByTestId('chat-send-button').click()
+    await expect(page.getByTestId('assistant-answer').last()).toContainText('✨ AIおすすめ')
+
+    await page.getByRole('button', { name: '違和感あり' }).click()
+    await page.getByLabel('違和感の種類').selectOption('焦点距離が違う')
+    await page.getByLabel('任意メモ').fill('望遠側の説明をもう少し確認したい')
+    await page.getByRole('button', { name: '保存' }).click()
+
+    const logs = await page.evaluate(() => JSON.parse(localStorage.getItem('lensNaviFeedbackLogs') ?? '[]'))
+    expect(logs).toHaveLength(1)
+    expect(logs[0]).toMatchObject({
+      source: 'consultation',
+      type: 'issue',
+      issueCategory: '焦点距離が違う',
+      comment: '望遠側の説明をもう少し確認したい',
+      selectedMountId: 'canon-rf',
+      selectedMountLabel: 'Canon RF / フルサイズ',
+      cameraBody: 'EOS R6 Mark II',
+      hasCameraBody: true,
+      selectedBudgetId: 'b200k',
+      selectedBudgetLabel: '〜20万',
+      selectedFocalRange: { minMm: 70, maxMm: 200 },
+      selectedLensType: 'zoom',
+      selectedLensTypeLabel: 'ズーム',
+    })
+    expect(JSON.stringify(logs[0])).not.toContain(prompt)
+  })
+
   for (const testCase of cases) {
     test(testCase.name, async ({ page }, testInfo) => {
       const consoleErrors: string[] = []

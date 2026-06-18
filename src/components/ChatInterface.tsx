@@ -35,6 +35,48 @@ import { generateAmazonSearchUrl } from '@/lib/affiliateLinks'
 marked.setOptions({ breaks: true })
 
 const SCENE_GUIDE_HANDOFF_KEY = 'lensNaviSceneGuideHandoff'
+const CONSULTATION_FEEDBACK_LOGS_KEY = 'lensNaviFeedbackLogs'
+
+const FEEDBACK_ISSUE_CATEGORIES = [
+  'マウントが違う',
+  '用途に合わない',
+  '焦点距離が違う',
+  '高すぎる / 重すぎる',
+  '説明がわかりにくい',
+  '候補が足りない',
+  'その他',
+] as const
+
+type FeedbackType = 'positive' | 'issue'
+type FeedbackIssueCategory = (typeof FEEDBACK_ISSUE_CATEGORIES)[number]
+
+type ConsultationFeedbackDraft = {
+  selectedType?: FeedbackType
+  issueCategory?: FeedbackIssueCategory | '' | undefined
+  comment: string
+  submittedType?: FeedbackType | undefined
+}
+
+type ConsultationFeedbackRecord = {
+  id: string
+  timestamp: string
+  source: 'consultation'
+  type: FeedbackType
+  issueCategory?: FeedbackIssueCategory
+  comment?: string
+  selectedMountId?: string
+  selectedMountLabel?: string
+  cameraBody?: string
+  hasCameraBody: boolean
+  selectedBudgetId?: string
+  selectedBudgetLabel?: string
+  selectedFocalRange?: FocalRange
+  selectedLensType?: LensType
+  selectedLensTypeLabel?: string
+  messageId?: string
+  messageIndex: number
+  assistantAnswerExcerpt?: string
+}
 
 type SceneGuideHandoff = {
   source: 'scene-guide'
@@ -802,6 +844,142 @@ function loadStringFromStorage(key: string): string | null {
   } catch { return null }
 }
 
+function getAssistantFeedbackExcerpt(content: string): string | undefined {
+  const normalized = content.replace(/\s+/g, ' ').trim()
+  if (!normalized || normalized.length > 180) return undefined
+  return normalized
+}
+
+function saveConsultationFeedbackLog(record: ConsultationFeedbackRecord) {
+  if (typeof window === 'undefined') return
+
+  try {
+    const raw = localStorage.getItem(CONSULTATION_FEEDBACK_LOGS_KEY)
+    const parsed = raw ? JSON.parse(raw) : []
+    const existing = Array.isArray(parsed) ? parsed : []
+    const next = [...existing, record].slice(-50)
+    localStorage.setItem(CONSULTATION_FEEDBACK_LOGS_KEY, JSON.stringify(next))
+  } catch {
+    try {
+      localStorage.setItem(CONSULTATION_FEEDBACK_LOGS_KEY, JSON.stringify([record]))
+    } catch { /* ignore */ }
+  }
+}
+
+function ConsultationFeedback({
+  messageId,
+  draft,
+  onPositive,
+  onIssueStart,
+  onIssueCategoryChange,
+  onIssueCommentChange,
+  onIssueSubmit,
+}: {
+  messageId: string
+  draft?: ConsultationFeedbackDraft
+  onPositive: () => void
+  onIssueStart: () => void
+  onIssueCategoryChange: (category: FeedbackIssueCategory | '') => void
+  onIssueCommentChange: (comment: string) => void
+  onIssueSubmit: () => void
+}) {
+  const issueOpen = draft?.selectedType === 'issue'
+  const submitted = draft?.submittedType
+  const categoryId = `consultation-feedback-category-${messageId}`
+  const commentId = `consultation-feedback-comment-${messageId}`
+
+  return (
+    <div
+      data-testid={`consultation-feedback-${messageId}`}
+      className="mt-3 rounded-2xl border border-slate-200/80 bg-white/85 px-3 py-2.5 text-xs shadow-sm shadow-slate-200/50 dark:border-white/10 dark:bg-white/[0.06] dark:shadow-none"
+    >
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400">
+          この回答は役に立ちましたか？
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <button
+            type="button"
+            data-testid={`consultation-feedback-positive-${messageId}`}
+            onClick={onPositive}
+            className={`rounded-full border px-3 py-1.5 text-[11px] font-semibold transition-colors ${
+              submitted === 'positive'
+                ? 'border-violet-200 bg-violet-50 text-violet-700 dark:border-violet-400/25 dark:bg-violet-400/10 dark:text-violet-200'
+                : 'border-slate-200 bg-white text-slate-600 hover:border-violet-200 hover:bg-violet-50/70 hover:text-violet-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:border-violet-400/25 dark:hover:bg-violet-400/10 dark:hover:text-violet-200'
+            }`}
+          >
+            よかった
+          </button>
+          <button
+            type="button"
+            data-testid={`consultation-feedback-issue-${messageId}`}
+            onClick={onIssueStart}
+            className={`rounded-full border px-3 py-1.5 text-[11px] font-semibold transition-colors ${
+              issueOpen || submitted === 'issue'
+                ? 'border-slate-300 bg-slate-100 text-slate-800 dark:border-white/20 dark:bg-white/10 dark:text-slate-100'
+                : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:border-white/20 dark:hover:bg-white/10'
+            }`}
+          >
+            違和感あり
+          </button>
+        </div>
+      </div>
+
+      {submitted ? (
+        <p className="mt-2 text-[11px] leading-relaxed text-slate-500 dark:text-slate-400">
+          フィードバックをこの端末に記録しました。公開βの回答品質改善に使います。
+        </p>
+      ) : null}
+
+      {issueOpen && submitted !== 'issue' ? (
+        <div className="mt-3 grid gap-2 rounded-xl border border-slate-200/70 bg-slate-50/70 p-2.5 dark:border-white/10 dark:bg-slate-950/35">
+          <label htmlFor={categoryId} className="text-[10px] font-semibold text-slate-500 dark:text-slate-400">
+            違和感の種類
+          </label>
+          <select
+            id={categoryId}
+            value={draft?.issueCategory ?? ''}
+            onChange={(event) => onIssueCategoryChange(event.target.value as FeedbackIssueCategory | '')}
+            className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs text-slate-800 shadow-sm shadow-slate-200/40 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/15 dark:border-white/10 dark:bg-slate-900 dark:text-slate-100 dark:shadow-none"
+          >
+            <option value="">選択なし</option>
+            {FEEDBACK_ISSUE_CATEGORIES.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+          <label htmlFor={commentId} className="text-[10px] font-semibold text-slate-500 dark:text-slate-400">
+            任意メモ
+          </label>
+          <textarea
+            id={commentId}
+            value={draft?.comment ?? ''}
+            onChange={(event) => onIssueCommentChange(event.target.value)}
+            maxLength={180}
+            rows={2}
+            placeholder="短いメモだけ残せます。個人情報や相談全文は入れないでください。"
+            className="resize-none rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs leading-relaxed text-slate-800 shadow-sm shadow-slate-200/40 placeholder-slate-400 focus:border-violet-400 focus:outline-none focus:ring-2 focus:ring-violet-400/15 dark:border-white/10 dark:bg-slate-900 dark:text-slate-100 dark:placeholder-slate-500 dark:shadow-none"
+          />
+          <div className="flex items-center justify-between gap-2">
+            <p className="text-[10px] text-slate-400 dark:text-slate-500">
+              相談文や回答全文は保存しません。
+            </p>
+            <button
+              type="button"
+              data-testid={`consultation-feedback-submit-${messageId}`}
+              onClick={onIssueSubmit}
+              className="rounded-full border border-violet-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-violet-700 shadow-sm shadow-violet-500/5 transition-colors hover:bg-violet-50 dark:border-violet-400/25 dark:bg-violet-400/10 dark:text-violet-200 dark:hover:bg-violet-400/15"
+            >
+              保存
+            </button>
+          </div>
+        </div>
+      ) : null}
+    </div>
+  )
+}
+
 export default function ChatInterface() {
   // 初期値をlocalStorageから直接読み込む（競合状態なし）
   const [messages, setMessages] = useState<ChatMessage[]>(() => {
@@ -810,6 +988,7 @@ export default function ChatInterface() {
   })
   const [input, setInput] = useState('')
   const [sceneGuideHandoff, setSceneGuideHandoff] = useState<SceneGuideHandoff | null>(null)
+  const [feedbackDrafts, setFeedbackDrafts] = useState<Record<string, ConsultationFeedbackDraft>>({})
   const [loading, setLoading] = useState(false)
   const [conversationId, setConversationId] = useState<string | undefined>(() =>
     loadStringFromStorage('chatConversationId') ?? undefined
@@ -1222,6 +1401,92 @@ export default function ChatInterface() {
     setInput(sceneGuideHandoff.generatedPrompt)
     clearSceneGuideHandoff()
     window.requestAnimationFrame(() => inputRef.current?.focus())
+  }
+
+  function updateFeedbackDraft(messageId: string, patch: Partial<ConsultationFeedbackDraft>) {
+    setFeedbackDrafts((prev) => {
+      const current = prev[messageId] ?? { comment: '' }
+      return {
+        ...prev,
+        [messageId]: {
+          ...current,
+          ...patch,
+        },
+      }
+    })
+  }
+
+  function buildConsultationFeedbackRecord({
+    message,
+    messageIndex,
+    type,
+    issueCategory,
+    comment,
+  }: {
+    message: ChatMessage
+    messageIndex: number
+    type: FeedbackType
+    issueCategory?: FeedbackIssueCategory | ''
+    comment?: string
+  }): ConsultationFeedbackRecord {
+    const trimmedComment = comment?.trim()
+    const lensTypeOption = getLensTypeOption(lensType)
+    const cameraBody = bodyInput.trim()
+    const selectedMountLabel = selectedMount
+      ? `${selectedMount.label} / ${selectedMount.sub}`
+      : undefined
+
+    return {
+      id: crypto.randomUUID(),
+      timestamp: new Date().toISOString(),
+      source: 'consultation',
+      type,
+      ...(issueCategory ? { issueCategory } : {}),
+      ...(trimmedComment ? { comment: trimmedComment } : {}),
+      ...(selectedMount ? { selectedMountId: selectedMount.id, selectedMountLabel } : {}),
+      ...(cameraBody ? { cameraBody } : {}),
+      hasCameraBody: Boolean(cameraBody),
+      ...(selectedBudget ? { selectedBudgetId: selectedBudget.id, selectedBudgetLabel: selectedBudget.label } : {}),
+      ...(selectedFocal ? { selectedFocalRange: selectedFocal } : {}),
+      selectedLensType: lensType,
+      selectedLensTypeLabel: lensTypeOption.label,
+      messageId: message.id,
+      messageIndex,
+      ...(getAssistantFeedbackExcerpt(message.content)
+        ? { assistantAnswerExcerpt: getAssistantFeedbackExcerpt(message.content) }
+        : {}),
+    }
+  }
+
+  function submitConsultationFeedback({
+    message,
+    messageIndex,
+    type,
+    issueCategory,
+    comment,
+  }: {
+    message: ChatMessage
+    messageIndex: number
+    type: FeedbackType
+    issueCategory?: FeedbackIssueCategory | ''
+    comment?: string
+  }) {
+    saveConsultationFeedbackLog(
+      buildConsultationFeedbackRecord({
+        message,
+        messageIndex,
+        type,
+        issueCategory,
+        comment,
+      }),
+    )
+
+    updateFeedbackDraft(message.id, {
+      selectedType: type,
+      issueCategory,
+      comment: comment ?? '',
+      submittedType: type,
+    })
   }
 
   function escapeHtmlForDisplay(value: string): string {
@@ -1706,7 +1971,7 @@ export default function ChatInterface() {
             )}
 
             <AnimatePresence initial={false}>
-              {messages.map((msg) => (
+              {messages.map((msg, messageIndex) => (
                 <motion.div
                   key={msg.id}
                   variants={messageVariants}
@@ -1744,6 +2009,46 @@ export default function ChatInterface() {
                         <LensRecommendationCards responseText={msg.content} selectedMountPrompt={selectedMount?.prompt} />
                         {/* AI選択肢ボタン */}
                         <ChoiceButtons text={msg.content} onSelect={sendMessage} />
+                        {!msg.content.startsWith('エラーが発生しました') && (
+                          <ConsultationFeedback
+                            messageId={msg.id}
+                            draft={feedbackDrafts[msg.id]}
+                            onPositive={() =>
+                              submitConsultationFeedback({
+                                message: msg,
+                                messageIndex,
+                                type: 'positive',
+                              })
+                            }
+                            onIssueStart={() =>
+                              updateFeedbackDraft(msg.id, {
+                                selectedType: 'issue',
+                                submittedType: undefined,
+                              })
+                            }
+                            onIssueCategoryChange={(category) =>
+                              updateFeedbackDraft(msg.id, {
+                                selectedType: 'issue',
+                                issueCategory: category,
+                              })
+                            }
+                            onIssueCommentChange={(comment) =>
+                              updateFeedbackDraft(msg.id, {
+                                selectedType: 'issue',
+                                comment: comment.slice(0, 180),
+                              })
+                            }
+                            onIssueSubmit={() =>
+                              submitConsultationFeedback({
+                                message: msg,
+                                messageIndex,
+                                type: 'issue',
+                                issueCategory: feedbackDrafts[msg.id]?.issueCategory,
+                                comment: feedbackDrafts[msg.id]?.comment,
+                              })
+                            }
+                          />
+                        )}
                       </>
                     )}
                   </div>
