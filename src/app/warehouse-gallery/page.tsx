@@ -691,7 +691,7 @@ export default function WarehouseGalleryPage() {
           border-color: transparent;
           /* 左端の彩度の高い青を外し、紫〜マゼンタの落ち着いた2色グラデへ。
              明度も一段下げ、マットなカード上で派手に光らせず一点挿しに留める。 */
-          background: linear-gradient(120deg, #5d3aa6, #9d3c83);
+          background: linear-gradient(90deg, #5a4fcf, #9d3c83);
           color: #f3eef7;
         }
         .buy.primary:hover { filter: brightness(1.08); }
