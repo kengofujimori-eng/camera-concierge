@@ -132,7 +132,7 @@ export default function WarehouseGalleryPage() {
         {!reduceMotion && (
           // eslint-disable-next-line jsx-a11y/media-has-caption
           <video className="bg-video" autoPlay muted loop playsInline preload="auto">
-            <source src="/gallery-bg-circles.mp4" type="video/mp4" />
+            <source src="/gallery-bg.mp4" type="video/mp4" />
           </video>
         )}
         <div className="bg-veil" />
@@ -533,8 +533,8 @@ export default function WarehouseGalleryPage() {
           padding: 6px 2px;
           background: none;
           border: none;
-          color: rgba(214, 218, 228, 0.62);
-          font-size: 11.5px;
+          color: rgba(214, 218, 228, 0.8);
+          font-size: 12.5px;
           letter-spacing: 0.16em;
           cursor: pointer;
           display: inline-flex;
@@ -545,7 +545,7 @@ export default function WarehouseGalleryPage() {
         .detail-trigger:hover { color: #eef2f6; }
         .detail-trigger .arrow {
           font-size: 12px;
-          transform: translateX(0);
+          transform: translateX(2px);
           transition: transform 0.25s ease;
         }
         .detail-trigger:hover .arrow { transform: translateX(4px); }
@@ -689,8 +689,10 @@ export default function WarehouseGalleryPage() {
         /* 唯一の一点挿し: 「新品で買う」だけ控えめなグラデのアクセント */
         .buy.primary {
           border-color: transparent;
-          background: linear-gradient(135deg, #2563eb, #7c3aed 55%, #d946ef);
-          color: #fff;
+          /* 左端の彩度の高い青を外し、紫〜マゼンタの落ち着いた2色グラデへ。
+             明度も一段下げ、マットなカード上で派手に光らせず一点挿しに留める。 */
+          background: linear-gradient(120deg, #5d3aa6, #9d3c83);
+          color: #f3eef7;
         }
         .buy.primary:hover { filter: brightness(1.08); }
 

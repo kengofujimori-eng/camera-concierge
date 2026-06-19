@@ -32,3 +32,6 @@ playwright-report/
 chrome/
 scripts/*.tmp.js
 tsconfig.tsbuildinfo
+
+# Video masters (keep only the encoded gallery-bg.mp4 in repo)
+*.mov
