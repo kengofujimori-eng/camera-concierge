@@ -35,3 +35,6 @@ tsconfig.tsbuildinfo
 
 # Video masters (keep only the encoded gallery-bg.mp4 in repo)
 *.mov
+
+# Data audit work files (human-edited deletion candidates, not deployed)
+data/lenses-to-delete.txt
