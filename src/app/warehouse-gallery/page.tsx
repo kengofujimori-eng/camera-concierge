@@ -50,9 +50,16 @@ export default function WarehouseGalleryPage() {
   const [selected, setSelected] = useState<number | null>(null)
   // 第二段階: 詳細パネルを開いているレンズの index（null=閉じている＝静かな概要）
   const [detailFor, setDetailFor] = useState<number | null>(null)
+  // 詳細パネル内のアクティブタブ（AI解析 / 価格・購入 / レビュー・作例）
+  const [activeTab, setActiveTab] = useState<'ai' | 'price' | 'review'>('ai')
   // 動きに敏感なユーザー向け: prefers-reduced-motion のときは背景動画を自動再生しない
   const [reduceMotion, setReduceMotion] = useState(false)
   const scrollerRef = useRef<HTMLDivElement>(null)
+
+  // 別レンズで開き直したら（または閉じたら）タブを 'ai' に戻す
+  useEffect(() => {
+    setActiveTab('ai')
+  }, [detailFor])
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -231,42 +238,65 @@ export default function WarehouseGalleryPage() {
                 </button>
               </div>
 
-              <div className="sheet-grid">
-                <div className="panel ai">
-                  <h3>AI 解析</h3>
-                  <p>{LENSES[detailFor].ai}</p>
-                  <p className="muted">
-                    ※ デモ用のダミーテキストです。本番では撮影意図や所有レンズに応じた解析がここに入ります。
-                  </p>
-                </div>
+              {/* 文字タブ: 1つずつ切り替えて表示。装飾は最小限・文字主体で静謐さを保つ */}
+              <div className="sheet-tabs" role="tablist" aria-label="詳細の表示切り替え">
+                {([
+                  ['ai', 'AI解析'],
+                  ['price', '価格・購入'],
+                  ['review', 'レビュー・作例'],
+                ] as const).map(([key, label]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    role="tab"
+                    aria-selected={activeTab === key}
+                    className={`sheet-tab${activeTab === key ? ' is-active' : ''}`}
+                    onClick={() => setActiveTab(key)}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
 
-                <div className="panel price">
-                  <h3>価格</h3>
-                  <div className="price-row">
-                    <div>
-                      <span className="price-label">新品</span>
-                      <span className="price-val">{LENSES[detailFor].price}</span>
+              <div className="sheet-panels">
+                {activeTab === 'ai' && (
+                  <div className="panel ai" role="tabpanel">
+                    <p>{LENSES[detailFor].ai}</p>
+                    <p className="muted">
+                      ※ デモ用のダミーテキストです。本番では撮影意図や所有レンズに応じた解析がここに入ります。
+                    </p>
+                  </div>
+                )}
+
+                {activeTab === 'price' && (
+                  <div className="panel price" role="tabpanel">
+                    <div className="price-row">
+                      <div>
+                        <span className="price-label">新品</span>
+                        <span className="price-val">{LENSES[detailFor].price}</span>
+                      </div>
+                      <div>
+                        <span className="price-label">中古</span>
+                        <span className="price-val used">{LENSES[detailFor].priceUsed}</span>
+                      </div>
                     </div>
-                    <div>
-                      <span className="price-label">中古</span>
-                      <span className="price-val used">{LENSES[detailFor].priceUsed}</span>
+                    <div className="buy-row">
+                      <button type="button" className="buy primary">新品で買う</button>
+                      <button type="button" className="buy">中古で買う</button>
                     </div>
                   </div>
-                  <div className="buy-row">
-                    <button type="button" className="buy primary">新品で買う</button>
-                    <button type="button" className="buy">中古で買う</button>
-                  </div>
-                </div>
+                )}
 
-                <div className="panel review">
-                  <h3>レビュー / 作例</h3>
-                  <p className="muted">
-                    「開放から芯のある描写で、ポートレートの定番として手放せない。」— ダミーレビュー
-                  </p>
-                  <p className="muted">
-                    作例ギャラリー（準備中）。本番では実際の作例サムネイルが並びます。
-                  </p>
-                </div>
+                {activeTab === 'review' && (
+                  <div className="panel review" role="tabpanel">
+                    <p className="muted">
+                      「開放から芯のある描写で、ポートレートの定番として手放せない。」— ダミーレビュー
+                    </p>
+                    <p className="muted">
+                      作例ギャラリー（準備中）。本番では実際の作例サムネイルが並びます。
+                    </p>
+                  </div>
+                )}
               </div>
             </>
           )}
@@ -631,25 +661,45 @@ export default function WarehouseGalleryPage() {
         }
         .sheet-close:hover { border-color: rgba(255, 255, 255, 0.4); color: #fff; }
 
-        .sheet-grid {
-          display: grid;
-          grid-template-columns: 1.4fr 1fr;
-          gap: 22px;
+        /* ── 文字タブ ── */
+        .sheet-tabs {
+          display: flex;
+          gap: 28px;
+          margin-bottom: 26px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
+        .sheet-tab {
+          position: relative;
+          background: none;
+          border: none;
+          padding: 0 0 12px;
+          font-size: 13px;
+          letter-spacing: 0.12em;
+          color: rgba(214, 218, 228, 0.5);
+          cursor: pointer;
+          transition: color 0.25s ease;
+        }
+        .sheet-tab:hover { color: rgba(238, 241, 247, 0.85); }
+        .sheet-tab.is-active { color: #f1f3f7; }
+        /* 現在地は控えめなアンダーバーで示す（発光・色相追加はしない） */
+        .sheet-tab.is-active::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -1px;
+          height: 1px;
+          background: rgba(241, 243, 247, 0.85);
+        }
+
+        /* タブ切り替えで高さが大きくガタつかないよう最小高さを確保 */
+        .sheet-panels { min-height: 200px; }
         .panel {
+          max-width: 640px;
           background: rgba(255, 255, 255, 0.035);
           border: 1px solid rgba(255, 255, 255, 0.07);
           border-radius: 16px;
-          padding: 22px 24px;
-        }
-        .panel.ai { grid-row: span 2; }
-        .panel h3 {
-          margin: 0 0 14px;
-          font-size: 11px;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #8b8b96;
-          font-weight: 400;
+          padding: 26px 28px;
         }
         .panel p {
           margin: 0 0 12px;
@@ -697,8 +747,9 @@ export default function WarehouseGalleryPage() {
         .buy.primary:hover { filter: brightness(1.08); }
 
         @media (max-width: 720px) {
-          .sheet-grid { grid-template-columns: 1fr; }
-          .panel.ai { grid-row: auto; }
+          .sheet-tabs { gap: 18px; }
+          .sheet-tab { font-size: 12px; letter-spacing: 0.08em; }
+          .panel { max-width: none; }
         }
 
         /* ── 最小ナビ矢印 ── */
