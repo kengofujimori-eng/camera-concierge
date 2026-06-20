@@ -31,27 +31,30 @@ interface DemoLens {
   /* ↓ 第二段階（詳細パネル）用のダミー。実データ接続は別タスク。 */
   priceUsed: string
   ai: string
+  category: string
+  owned?: boolean
+  wishlist?: boolean
 }
 
 // デモ専用ハードコード（本番データには触れない）。
 // priceUsed / ai は詳細パネル用のダミーテキスト（本番ではAI解析・実価格に差し替え）。
 const LENSES: DemoLens[] = [
-  { name: 'FE 14mm F1.8 GM',        image: '/lens_images_processed/FE_14mm_F1.8_GM.png',        focal: '14mm',    aperture: 'F1.8', weight: '460g', price: '¥198,000', mount: 'Sony E', priceUsed: '¥148,000〜', ai: '超広角ながら460gと軽量。星景・建築・狭所での広い画づくりに強く、開放から周辺まで安定。歪曲は電子補正前提の設計。' },
-  { name: 'FE 16-35mm F2.8 GM',     image: '/lens_images_processed/FE_16-35mm_F2.8_GM.png',     focal: '16–35mm', aperture: 'F2.8', weight: '680g', price: '¥245,000', mount: 'Sony E', priceUsed: '¥178,000〜', ai: '風景からスナップ、室内まで一本で回せる定番の広角ズーム。F2.8通しで暗所にも対応し、動画用途でも扱いやすい。' },
-  { name: 'FE 24mm F1.4 GM',        image: '/lens_images_processed/FE_24mm_F1.4_GM.png',        focal: '24mm',    aperture: 'F1.4', weight: '445g', price: '¥168,000', mount: 'Sony E', priceUsed: '¥118,000〜', ai: '445gの軽量大口径。環境を含めたポートレートや夜景スナップに最適で、開放のボケと点像再現に定評。' },
-  { name: 'FE 24-70mm F2.8 GM II',  image: '/lens_images_processed/FE_24-70mm_F2.8_GM_II.png',  focal: '24–70mm', aperture: 'F2.8', weight: '695g', price: '¥258,000', mount: 'Sony E', priceUsed: '¥198,000〜', ai: '標準ズームの最高峰。前世代比で大幅に軽量化し、解像とAF速度を両立。仕事用の主力として死角が少ない。' },
-  { name: 'FE 35mm F1.4 GM',        image: '/lens_images_processed/FE_35mm_F1.4_GM.png',        focal: '35mm',    aperture: 'F1.4', weight: '524g', price: '¥219,000', mount: 'Sony E', priceUsed: '¥158,000〜', ai: '自然な画角の大口径単。スナップ・ドキュメンタリー・ポートレートまで万能で、開放の線の細さが魅力。' },
-  { name: 'FE 50mm F1.2 GM',        image: '/lens_images_processed/FE_50mm_F1.2_GM.png',        focal: '50mm',    aperture: 'F1.2', weight: '778g', price: '¥298,000', mount: 'Sony E', priceUsed: '¥228,000〜', ai: 'F1.2の圧倒的なボケと立体感。標準域の表現力を突き詰めた一本で、開放から芯のある描写を見せる。' },
-  { name: 'FE 85mm F1.4 GM II',     image: '/lens_images_processed/FE_85mm_F1.4_GM_II.png',     focal: '85mm',    aperture: 'F1.4', weight: '642g', price: '¥285,000', mount: 'Sony E', priceUsed: '¥218,000〜', ai: 'ポートレートの王道。前世代から軽量化し、とろけるボケと高速AFを両立。背景分離と肌の階調が秀逸。' },
-  { name: 'FE 135mm F1.8 GM',       image: '/lens_images_processed/FE_135mm_F1.8_GM.png',       focal: '135mm',   aperture: 'F1.8', weight: '950g', price: '¥235,000', mount: 'Sony E', priceUsed: '¥168,000〜', ai: '中望遠の決定版。強い圧縮効果と大きなボケで被写体を際立たせる。舞台・ポートレート・物撮りに最適。' },
+  { name: 'FE 14mm F1.8 GM',        image: '/lens_images_processed/FE_14mm_F1.8_GM.png',        focal: '14mm',    aperture: 'F1.8', weight: '460g', price: '¥198,000', mount: 'Sony E', priceUsed: '¥148,000〜', category: '単焦点', owned: true,  ai: '超広角ながら460gと軽量。星景・建築・狭所での広い画づくりに強く、開放から周辺まで安定。歪曲は電子補正前提の設計。' },
+  { name: 'FE 16-35mm F2.8 GM',     image: '/lens_images_processed/FE_16-35mm_F2.8_GM.png',     focal: '16–35mm', aperture: 'F2.8', weight: '680g', price: '¥245,000', mount: 'Sony E', priceUsed: '¥178,000〜', category: 'ズーム',  wishlist: true, ai: '風景からスナップ、室内まで一本で回せる定番の広角ズーム。F2.8通しで暗所にも対応し、動画用途でも扱いやすい。' },
+  { name: 'FE 24mm F1.4 GM',        image: '/lens_images_processed/FE_24mm_F1.4_GM.png',        focal: '24mm',    aperture: 'F1.4', weight: '445g', price: '¥168,000', mount: 'Sony E', priceUsed: '¥118,000〜', category: '単焦点', ai: '445gの軽量大口径。環境を含めたポートレートや夜景スナップに最適で、開放のボケと点像再現に定評。' },
+  { name: 'FE 24-70mm F2.8 GM II',  image: '/lens_images_processed/FE_24-70mm_F2.8_GM_II.png',  focal: '24–70mm', aperture: 'F2.8', weight: '695g', price: '¥258,000', mount: 'Sony E', priceUsed: '¥198,000〜', category: 'ズーム',  owned: true,  ai: '標準ズームの最高峰。前世代比で大幅に軽量化し、解像とAF速度を両立。仕事用の主力として死角が少ない。' },
+  { name: 'FE 35mm F1.4 GM',        image: '/lens_images_processed/FE_35mm_F1.4_GM.png',        focal: '35mm',    aperture: 'F1.4', weight: '524g', price: '¥219,000', mount: 'Sony E', priceUsed: '¥158,000〜', category: '単焦点', wishlist: true, ai: '自然な画角の大口径単。スナップ・ドキュメンタリー・ポートレートまで万能で、開放の線の細さが魅力。' },
+  { name: 'FE 50mm F1.2 GM',        image: '/lens_images_processed/FE_50mm_F1.2_GM.png',        focal: '50mm',    aperture: 'F1.2', weight: '778g', price: '¥298,000', mount: 'Sony E', priceUsed: '¥228,000〜', category: '単焦点', owned: true,  ai: 'F1.2の圧倒的なボケと立体感。標準域の表現力を突き詰めた一本で、開放から芯のある描写を見せる。' },
+  { name: 'FE 85mm F1.4 GM II',     image: '/lens_images_processed/FE_85mm_F1.4_GM_II.png',     focal: '85mm',    aperture: 'F1.4', weight: '642g', price: '¥285,000', mount: 'Sony E', priceUsed: '¥218,000〜', category: '単焦点', ai: 'ポートレートの王道。前世代から軽量化し、とろけるボケと高速AFを両立。背景分離と肌の階調が秀逸。' },
+  { name: 'FE 135mm F1.8 GM',       image: '/lens_images_processed/FE_135mm_F1.8_GM.png',       focal: '135mm',   aperture: 'F1.8', weight: '950g', price: '¥235,000', mount: 'Sony E', priceUsed: '¥168,000〜', category: '単焦点', wishlist: true, ai: '中望遠の決定版。強い圧縮効果と大きなボケで被写体を際立たせる。舞台・ポートレート・物撮りに最適。' },
 ]
 
 export default function WarehouseGalleryPage() {
   const [selected, setSelected] = useState<number | null>(null)
   // 第二段階: 詳細パネルを開いているレンズの index（null=閉じている＝静かな概要）
   const [detailFor, setDetailFor] = useState<number | null>(null)
-  // 詳細パネル内のアクティブタブ（AI解析 / 価格・購入 / レビュー・作例）
-  const [activeTab, setActiveTab] = useState<'ai' | 'price' | 'review'>('ai')
+  // 詳細パネル内のアクティブタブ（AI解析 / 基本情報 / 価格・購入 / レビュー・作例）
+  const [activeTab, setActiveTab] = useState<'ai' | 'basic' | 'price' | 'review'>('ai')
   // 動きに敏感なユーザー向け: prefers-reduced-motion のときは背景動画を自動再生しない
   const [reduceMotion, setReduceMotion] = useState(false)
   const scrollerRef = useRef<HTMLDivElement>(null)
@@ -225,7 +228,16 @@ export default function WarehouseGalleryPage() {
             <>
               <div className="sheet-head">
                 <div className="sheet-title">
-                  <span className="sheet-mount">{LENSES[detailFor].mount}</span>
+                  {/* マウント＋所有/欲しいバッジ（タブの外・常時表示。表示のみ／トグルなし） */}
+                  <div className="sheet-badges">
+                    <span className="sheet-mount">{LENSES[detailFor].mount}</span>
+                    {LENSES[detailFor].owned && (
+                      <span className="status-badge owned">所有</span>
+                    )}
+                    {LENSES[detailFor].wishlist && (
+                      <span className="status-badge wish">☆ 欲しい</span>
+                    )}
+                  </div>
                   <h2>{LENSES[detailFor].name}</h2>
                 </div>
                 <button
@@ -242,6 +254,7 @@ export default function WarehouseGalleryPage() {
               <div className="sheet-tabs" role="tablist" aria-label="詳細の表示切り替え">
                 {([
                   ['ai', 'AI解析'],
+                  ['basic', '基本情報'],
                   ['price', '価格・購入'],
                   ['review', 'レビュー・作例'],
                 ] as const).map(([key, label]) => (
@@ -268,33 +281,79 @@ export default function WarehouseGalleryPage() {
                   </div>
                 )}
 
+                {activeTab === 'basic' && (
+                  <div className="panel basic" role="tabpanel">
+                    <dl className="spec-grid">
+                      <div>
+                        <dt>焦点距離</dt>
+                        <dd>{LENSES[detailFor].focal}</dd>
+                      </div>
+                      <div>
+                        <dt>開放F値</dt>
+                        <dd>{LENSES[detailFor].aperture}</dd>
+                      </div>
+                      <div>
+                        <dt>重量</dt>
+                        <dd>{LENSES[detailFor].weight}</dd>
+                      </div>
+                      <div>
+                        <dt>カテゴリ</dt>
+                        <dd>{LENSES[detailFor].category}</dd>
+                      </div>
+                    </dl>
+                  </div>
+                )}
+
                 {activeTab === 'price' && (
                   <div className="panel price" role="tabpanel">
-                    <div className="price-row">
-                      <div>
+                    {/* 派手なボタンではなく静かなテキストリンク群（ダミー） */}
+                    <div className="store-block">
+                      <div className="store-head">
                         <span className="price-label">新品</span>
                         <span className="price-val">{LENSES[detailFor].price}</span>
                       </div>
-                      <div>
+                      <div className="store-links">
+                        <a href="#" onClick={(e) => e.preventDefault()}>Amazon</a>
+                        <a href="#" onClick={(e) => e.preventDefault()}>楽天</a>
+                        <a href="#" onClick={(e) => e.preventDefault()}>Yahoo</a>
+                      </div>
+                    </div>
+                    <div className="store-block">
+                      <div className="store-head">
                         <span className="price-label">中古</span>
                         <span className="price-val used">{LENSES[detailFor].priceUsed}</span>
                       </div>
-                    </div>
-                    <div className="buy-row">
-                      <button type="button" className="buy primary">新品で買う</button>
-                      <button type="button" className="buy">中古で買う</button>
+                      <div className="store-links">
+                        <a href="#" onClick={(e) => e.preventDefault()}>キタムラ</a>
+                      </div>
                     </div>
                   </div>
                 )}
 
                 {activeTab === 'review' && (
                   <div className="panel review" role="tabpanel">
-                    <p className="muted">
-                      「開放から芯のある描写で、ポートレートの定番として手放せない。」— ダミーレビュー
-                    </p>
-                    <p className="muted">
-                      作例ギャラリー（準備中）。本番では実際の作例サムネイルが並びます。
-                    </p>
+                    {/* サマリー型（一言/強み/注意）。細分化レビューは本番構造化待ちのダミー。 */}
+                    <dl className="review-summary">
+                      <div>
+                        <dt>一言でいうと</dt>
+                        <dd>{LENSES[detailFor].ai}</dd>
+                      </div>
+                      <div>
+                        <dt>強み</dt>
+                        <dd>開放から芯のある解像とAF速度。寄れる最短撮影距離も実用的。</dd>
+                      </div>
+                      <div>
+                        <dt>注意</dt>
+                        <dd>大口径ゆえの重量と価格。逆光時はフレアに留意。（ダミー）</dd>
+                      </div>
+                    </dl>
+                    <a
+                      className="review-more"
+                      href="#"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      詳細レビューを開く<span className="arrow" aria-hidden>→</span>
+                    </a>
                   </div>
                 )}
               </div>
@@ -746,10 +805,116 @@ export default function WarehouseGalleryPage() {
         }
         .buy.primary:hover { filter: brightness(1.08); }
 
+        /* ── 所有/欲しいバッジ（マウントバッジと同トーン・最小の差） ── */
+        .sheet-badges {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex-wrap: wrap;
+        }
+        .status-badge {
+          font-size: 10px;
+          letter-spacing: 0.18em;
+          padding: 3px 8px;
+          border-radius: 4px;
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          color: rgba(223, 226, 234, 0.7);
+          white-space: nowrap;
+        }
+        /* 所有はほのかな一点挿し（マウントより弱い紫の echo） */
+        .status-badge.owned {
+          border-color: rgba(168, 85, 247, 0.3);
+          color: #cdbbf0;
+        }
+        /* 欲しいは星アウトライン＋中立トーン */
+        .status-badge.wish {
+          color: rgba(223, 226, 234, 0.62);
+        }
+
+        /* ── 基本情報: 静かな数値レイアウト ── */
+        .spec-grid {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 24px 40px;
+          max-width: 440px;
+          margin: 0;
+        }
+        .spec-grid dt {
+          font-size: 10px;
+          letter-spacing: 0.18em;
+          color: #8b8b96;
+          margin-bottom: 8px;
+        }
+        .spec-grid dd {
+          margin: 0;
+          font-size: 22px;
+          font-weight: 300;
+          color: #eef2f6;
+          font-variant-numeric: tabular-nums;
+          letter-spacing: 0.02em;
+        }
+
+        /* ── 価格・購入: 静かなテキストリンク群 ── */
+        .store-block { margin-bottom: 24px; }
+        .store-block:last-child { margin-bottom: 0; }
+        .store-head {
+          display: flex;
+          align-items: baseline;
+          gap: 14px;
+          margin-bottom: 12px;
+        }
+        .store-links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .store-links a {
+          font-size: 13px;
+          letter-spacing: 0.04em;
+          color: rgba(214, 218, 228, 0.78);
+          text-decoration: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+          padding-bottom: 2px;
+          transition: color 0.25s ease, border-color 0.25s ease;
+        }
+        .store-links a:hover {
+          color: #f1f3f7;
+          border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ── レビュー: サマリー型 ── */
+        .review-summary { margin: 0; }
+        .review-summary > div { margin-bottom: 18px; }
+        .review-summary > div:last-child { margin-bottom: 0; }
+        .review-summary dt {
+          font-size: 10px;
+          letter-spacing: 0.18em;
+          color: #8b8b96;
+          margin-bottom: 6px;
+        }
+        .review-summary dd {
+          margin: 0;
+          font-size: 14px;
+          line-height: 1.8;
+          font-weight: 300;
+          color: #dfe2ea;
+        }
+        .review-more {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          margin-top: 24px;
+          font-size: 12.5px;
+          letter-spacing: 0.12em;
+          color: rgba(214, 218, 228, 0.8);
+          text-decoration: none;
+          transition: color 0.25s ease;
+        }
+        .review-more:hover { color: #eef2f6; }
+        .review-more .arrow { transition: transform 0.25s ease; }
+        .review-more:hover .arrow { transform: translateX(4px); }
+
         @media (max-width: 720px) {
           .sheet-tabs { gap: 18px; }
           .sheet-tab { font-size: 12px; letter-spacing: 0.08em; }
           .panel { max-width: none; }
+          .spec-grid { gap: 20px 28px; }
         }
 
         /* ── 最小ナビ矢印 ── */
