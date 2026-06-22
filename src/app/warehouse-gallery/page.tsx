@@ -53,8 +53,9 @@ export default function WarehouseGalleryPage() {
   const [selected, setSelected] = useState<number | null>(null)
   // 第二段階: 詳細パネルを開いているレンズの index（null=閉じている＝静かな概要）
   const [detailFor, setDetailFor] = useState<number | null>(null)
-  // 詳細パネル内のアクティブタブ（AI解析 / 基本情報 / 価格・購入 / レビュー・作例）
-  const [activeTab, setActiveTab] = useState<'ai' | 'basic' | 'price' | 'review'>('ai')
+  // 詳細パネル内のアクティブタブ（AI解析 / 基本 / 価格 / 使いこなしレビュー / 作例）
+  // review は「使いこなしレビュー（作例を除く）」、samples は作例導線。
+  const [activeTab, setActiveTab] = useState<'ai' | 'basic' | 'price' | 'review' | 'samples'>('ai')
   // 動きに敏感なユーザー向け: prefers-reduced-motion のときは背景動画を自動再生しない
   const [reduceMotion, setReduceMotion] = useState(false)
   const scrollerRef = useRef<HTMLDivElement>(null)
@@ -254,9 +255,10 @@ export default function WarehouseGalleryPage() {
               <div className="sheet-tabs" role="tablist" aria-label="詳細の表示切り替え">
                 {([
                   ['ai', 'AI解析'],
-                  ['basic', '基本情報'],
-                  ['price', '価格・購入'],
-                  ['review', 'レビュー・作例'],
+                  ['basic', '基本'],
+                  ['price', '価格'],
+                  ['review', 'レビュー'],
+                  ['samples', '作例'],
                 ] as const).map(([key, label]) => (
                   <button
                     key={key}
@@ -354,6 +356,20 @@ export default function WarehouseGalleryPage() {
                     >
                       詳細レビューを開く<span className="arrow" aria-hidden>→</span>
                     </a>
+                  </div>
+                )}
+
+                {activeTab === 'samples' && (
+                  <div className="panel samples" role="tabpanel">
+                    {/* 写りを画像で確認するための外部導線。サムネイル化せずリンク中心の軽い構成。 */}
+                    <p className="muted">
+                      写りを画像で確認するための外部導線です。（リンクはデモ用）
+                    </p>
+                    <div className="store-links">
+                      <a href="#" onClick={(e) => e.preventDefault()}>Photo Yodobashi</a>
+                      <a href="#" onClick={(e) => e.preventDefault()}>Google作例検索</a>
+                      <a href="#" onClick={(e) => e.preventDefault()}>海外レビュー</a>
+                    </div>
                   </div>
                 )}
               </div>
@@ -726,9 +742,18 @@ export default function WarehouseGalleryPage() {
           gap: 28px;
           margin-bottom: 26px;
           border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          /* デスクトップ幅では5タブが収まり横スクロールしない。
+             モバイル幅で収まらない場合のみ横スクロールし、バーは隠して静謐さを保つ。 */
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
         }
+        .sheet-tabs::-webkit-scrollbar { display: none; }
         .sheet-tab {
           position: relative;
+          flex: 0 0 auto;
+          white-space: nowrap;
           background: none;
           border: none;
           padding: 0 0 12px;
